@@ -1,0 +1,75 @@
+{
+  "description": "",
+  "root": "assignVariablesPlayerstowatch",
+  "actions": {
+    "assignVariablesPlayerstowatch": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.playerstowatch": {
+          "source": "edit"
+        }
+      },
+      "outcomes": {
+        "success": "callRestGetPlayersby"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetPlayersby.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetPlayersby": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/getPlayersby",
+        "uriParams": {
+          "sno": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesPostplayers"
+      }
+    },
+    "assignVariablesPostplayers": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.postplayers": {
+          "source": "{{ $chain.results.callRestGetPlayersby.body.items[0] }}",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentPlayerpopupOpen"
+      }
+    },
+    "callComponentPlayerpopupOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('playerpopup') }}",
+        "method": "open"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

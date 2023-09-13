@@ -1,0 +1,18 @@
+{
+  "description": "",
+  "root": "navigateToMovieTicketApplicationSearchpage",
+  "actions": {
+    "navigateToMovieTicketApplicationSearchpage": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "movie-ticket-application-editpage",
+        "params": {
+
+          "postprimarykey": "0",
+          "postmethod": "CREATE"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

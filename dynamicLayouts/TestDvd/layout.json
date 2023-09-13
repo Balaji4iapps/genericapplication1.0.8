@@ -1,0 +1,70 @@
+{
+  "layoutTypes": {
+    "businessObjects": {
+      "kind": "operationRef",
+      "serviceId": "businessObjects",
+      "operations": [
+        "getall_TestDvd",
+        "create_TestDvd"
+      ]
+    }
+  },
+  "layouts": {
+    "isDefault": {
+      "description": "Default Rule",
+      "type": "businessObjects",
+      "expression": "default"
+    },
+    "paymentHistory": {
+      "type": "businessObjects",
+      "layoutType": "table",
+      "label": "Payment_history",
+      "rules": [
+        "edit",
+        "isDefault"
+      ],
+      "layouts": {
+        "default": {
+          "layoutType": "table",
+          "layout": {
+            "displayProperties": [
+              "id",
+              "department",
+              "name",
+              "number1"
+            ]
+          }
+        }
+      }
+    },
+    "edit": {
+      "expression": "[[ 'default' ]]"
+    },
+    "isDefault2": {
+      "description": "Default Rule",
+      "type": "businessObjects",
+      "expression": "default"
+    },
+    "asdasda": {
+      "type": "businessObjects",
+      "layoutType": "form",
+      "label": "Payment_history",
+      "rules": [
+        "isDefault2"
+      ],
+      "layouts": {
+        "default": {
+          "layoutType": "form",
+          "layout": {
+            "displayProperties": [
+              "department",
+              "id",
+              "name",
+              "number1"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

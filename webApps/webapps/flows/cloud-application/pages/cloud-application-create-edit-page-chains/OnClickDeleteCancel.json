@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentCompanydeleteClose",
+  "actions": {
+    "callComponentCompanydeleteClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Companydelete') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

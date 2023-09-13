@@ -1,0 +1,67 @@
+{
+  "root": "callComponentLoadingOpen",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetGet.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetGet": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Productapplication/getGet"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetGet.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesDataapplication"
+      }
+    },
+    "assignVariablesDataapplication": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Dataapplication": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentLoadingClose"
+      }
+    },
+    "callComponentLoadingOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('loading') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestGetGet"
+      }
+    },
+    "callComponentLoadingClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('loading') }}",
+        "method": "close"
+      }
+    }
+  }
+}

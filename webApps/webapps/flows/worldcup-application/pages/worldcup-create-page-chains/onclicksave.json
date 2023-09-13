@@ -1,0 +1,108 @@
+{
+  "description": "",
+  "root": "if",
+  "actions": {
+    "ifMethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.Method=='create' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostCountries",
+        "false": "callRestPostCountries2"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification_summary_b19a]]",
+        "type": "confirmation",
+        "displayMode": "transient",
+        "message": "[[$application.translations.app.fireNotification_message_6dca]]"
+      },
+      "outcomes": {
+        "success": "assignVariablesPrimaryKey"
+      }
+    },
+    "callRestPostCountries": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/postCountries",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.countryAdd }}"
+      },
+      "outcomes": {
+        "success": "fireNotification"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCountries2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostCountries2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/postCountries",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.PrimaryKey }}"
+        },
+        "body": "{{ $page.variables.countryAdd }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification4"
+      }
+    },
+    "fireNotification4": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification3_summary]]",
+        "message": "[[$application.translations.app.fireNotification3_message]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      }
+    },
+    "if": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $functions.isFormValid(\"HdrForm\") ]]"
+      },
+      "outcomes": {
+        "true": "ifMethod",
+        "false": "fireNotification5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification3_summary_70a7]]",
+        "message": "[[$application.translations.app.fireNotification3_message_53fd]]",
+        "displayMode": "transient"
+      }
+    },
+    "assignVariablesPrimaryKey": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.PrimaryKey": {
+          "source": "{{ $chain.results.callRestPostCountries.body.p_primarykey }}"
+        },
+        "$page.variables.Method": {
+          "source": "edit"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,55 @@
+{
+  "title": "car application dashboard",
+  "description": "",
+  "variables": {},
+  "metadata": {},
+  "types": {},
+  "eventListeners": {
+    "cardAction": {
+      "chains": [
+        {
+          "chainId": "CardActionChain"
+        }
+      ]
+    },
+    "cardAction2": {
+      "chains": [
+        {
+          "chainId": "CardActionChain1"
+        }
+      ]
+    },
+    "cardAction3": {
+      "chains": [
+        {
+          "chainId": "CardActionChain2"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-action-card": {
+        "path": "ojs/ojactioncard"
+      },
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      }
+
+    }
+  }
+}

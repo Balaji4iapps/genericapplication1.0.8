@@ -1,0 +1,35 @@
+{
+  "description": "",
+  "root": "ifGamekey",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification_summary_10d9]]",
+        "message": "[[$application.translations.app.fireNotification_message_8db0]]",
+        "displayMode": "transient",
+        "type": "warning"
+      }
+    },
+    "ifGamekey": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.gamekey!=0 ]]"
+      },
+      "outcomes": {
+        "true": "callComponentOjDialog9828729301Open",
+        "false": "fireNotification"
+      }
+    },
+    "callComponentOjDialog9828729301Open": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog--982872930-1') }}",
+        "method": "open"
+      }
+    }
+  },
+  "variables": {}
+}

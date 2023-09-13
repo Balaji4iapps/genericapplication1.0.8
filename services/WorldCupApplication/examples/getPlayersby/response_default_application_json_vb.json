@@ -1,0 +1,28 @@
+{
+    "items": [
+        {
+            "s_no": 1,
+            "player_name": "Leonel Messi",
+            "age": 35,
+            "c_id": 1,
+            "country_name": "Argentina",
+            "positions": "Forward",
+            "fifa_rating": 95,
+            "goal_scored": 91
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1331/playersby?sno=1"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1331/item"
+        }
+    ]
+}

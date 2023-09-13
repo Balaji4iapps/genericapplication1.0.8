@@ -1,0 +1,82 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "getGetservice18ListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "CloudApplication/getGetservice18",
+        "keyAttributes": "service_id",
+        "itemsPath": "items",
+        "responseType": "getGetservice18Response"
+      }
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getGetservice18Response": {
+      "endpoint": "getGetservice18",
+      "service": "CloudApplication",
+      "path": "response"
+    },
+    "getGetservice18Response": {
+      "items": [
+        {
+          "bond_duration": "string",
+          "bond_type": "string",
+          "company_full_name": "string",
+          "company_id": "number",
+          "service_id": "number",
+          "service_short_name": "string",
+          "started_date": "string",
+          "storage_used": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "ServiceB2H"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-chart": {
+        "path": "ojs/ojchart"
+      },
+      "oj-chart-item": {
+        "path": "ojs/ojchart"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      }
+
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      }
+    }
+  }
+}

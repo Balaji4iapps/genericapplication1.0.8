@@ -1,0 +1,61 @@
+{
+  "title": "hospital management application validation",
+  "description": "",
+  "variables": {
+    "postdoctor": {
+      "type": "postDoctordetailsP_METHODP_PRIMARYKEY"
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.postDoctordetailsP_METHODP_PRIMARYKEY": {
+      "endpoint": "postDoctordetailsP_METHODP_PRIMARYKEY",
+      "service": "hospitalmanagement",
+      "path": "request"
+    },
+    "postDoctordetailsP_METHODP_PRIMARYKEY": {
+      "doc_address": "string",
+      "doc_code": "number",
+      "doc_designation": "string",
+      "doc_gender": "string",
+      "doc_name": "string",
+      "doc_number": "number"
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+    }
+  }
+}

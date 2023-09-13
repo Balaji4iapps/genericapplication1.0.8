@@ -1,0 +1,34 @@
+
+{
+  "component-dependencies": {
+    "oj-dynamic": {
+      "version": "12.1.4",
+      "components": {
+        "table": "12.1.4"
+      }
+    },
+    "oj-sample": {
+      "version": "8.0.0",
+      "components": {
+        "checkbox-switch": "8.0.0",
+        "qr-code": "8.0.0",
+        "tooltip": "8.0.0",
+        "timed-event": "8.0.0",
+        "export-data": "8.0.0"
+      }
+    },
+    "oj-dyn": {
+      "version": "12.1.4",
+      "components": {
+        "form": "12.1.4"
+      }
+    },
+    "oj-sp": {
+      "version": "2304.0.1",
+      "components": {
+        "dashboard-panel": "2304.0.1",
+        "dashboard-landing-page-pattern": "2304.0.1"
+      }
+    }
+  }
+}

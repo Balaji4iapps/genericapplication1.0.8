@@ -1,0 +1,137 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+
+    "flimname": {
+      "type": "string"
+    },
+    "getfilm": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "Getfilm",
+        "keyAttributes": "seq_film"
+      }
+    },
+    "getinventory": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "Getinventory",
+        "keyAttributes": "film_id"
+      }
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.Getfilm": {
+      "endpoint": "Getfilm",
+      "service": "DvdORDS",
+      "path": "response-_-items[0]"
+    },
+    "@decorators.Getinventory": {
+      "endpoint": "Getinventory",
+      "service": "DvdORDS",
+      "path": "response-_-items[0]"
+    },
+    "Getfilm": {
+      "film_id": "number",
+      "language_id": "number",
+      "last_update": "string",
+      "overview": "string",
+      "rating": "string",
+      "release_year": "number",
+      "rental_duration": "number",
+      "rental_rate": "number",
+      "replacement_cost": "number",
+      "run_time": "number",
+      "seq_film": "any",
+      "title": "string"
+    },
+    "Getinventory": {
+      "film_id": "number",
+      "inventory_id": "number",
+      "last_update": "string",
+      "seq_inventory": "any",
+      "store_id": "number"
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "OnPressSearch"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "OnPressHome"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "OnPressReset"
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "Resetinventory"
+        }
+      ]
+    },
+    "tableFirstSelectedRow": {
+      "chains": [
+        {
+          "chainId": "TableFirstSelectedRowChangeChain",
+          "parameters": {
+            "rowKey": "{{$event.detail.value.key}}",
+            "rowData": "{{$event.detail.value.data}}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-messages": {
+        "path": "ojs/ojmessages"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-timeline": {
+        "path": "ojs/ojtimeline"
+      }
+
+    }
+  }
+}

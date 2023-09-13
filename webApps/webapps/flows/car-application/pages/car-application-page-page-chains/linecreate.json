@@ -1,0 +1,61 @@
+{
+  "description": "",
+  "root": "ifCarid",
+  "actions": {
+    "ifCarid": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.carid!=0 ]]"
+      },
+      "outcomes": {
+        "true": "resetVariablesCustomerdetails",
+        "false": "fireNotification"
+      }
+    },
+    "assignVariables": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.linevariable": {
+          "source": "Create"
+        },
+        "$page.variables.customerdetails": {
+          "source": {
+            "id_proof": ""
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentCustomerdetailPopupOpen"
+      }
+    },
+    "resetVariablesCustomerdetails": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.customerdetails"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariables"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification_summary_08b5]]",
+        "message": "[[$application.translations.app.fireNotification_message_5b78]]"
+      }
+    },
+    "callComponentCustomerdetailPopupOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('CustomerdetailPopup') }}",
+        "method": "open"
+      }
+    }
+  },
+  "variables": {}
+}

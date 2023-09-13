@@ -1,0 +1,236 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "cid": {
+      "type": "any"
+    },
+    "getGetbygroupListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "WorldCupApplication/getGetbygroup",
+        "keyAttributes": "c_id",
+        "itemsPath": "items",
+        "responseType": "getGetbygroupResponse",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "fixtures"
+          ]
+        }
+      }
+    },
+    "getMatchesListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "WorldCupApplication/getMatches",
+        "keyAttributes": "date_",
+        "itemsPath": "items",
+        "responseType": "getMatchesResponse2",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "date_"
+          ]
+        }
+      }
+    },
+    "getMatchesListSDP2": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "WorldCupApplication/getMatches",
+        "keyAttributes": "s_no",
+        "itemsPath": "items",
+        "responseType": "getMatchesResponse3",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "date_"
+          ]
+        }
+      }
+    },
+    "getMatchesListSDP3": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "WorldCupApplication/getMatches",
+        "keyAttributes": "c_id",
+        "itemsPath": "items",
+        "responseType": "getMatchesResponse4",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "fixtures"
+          ]
+        }
+      }
+    },
+    "matches": {
+      "type": "getMatchesResponse"
+    },
+    "matchfixture": {
+      "type": "any"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getGetbygroupResponse": {
+      "endpoint": "getGetbygroup",
+      "service": "WorldCupApplication",
+      "path": "response"
+    },
+    "@decorators.getMatchesResponse": {
+      "endpoint": "getMatches",
+      "service": "WorldCupApplication",
+      "path": "response"
+    },
+    "@decorators.getMatchesResponse2": {
+      "endpoint": "getMatches",
+      "service": "WorldCupApplication",
+      "path": "response"
+    },
+    "@decorators.getMatchesResponse3": {
+      "endpoint": "getMatches",
+      "service": "WorldCupApplication",
+      "path": "response"
+    },
+    "@decorators.getMatchesResponse4": {
+      "endpoint": "getMatches",
+      "service": "WorldCupApplication",
+      "path": "response"
+    },
+    "getGetbygroupResponse": {
+      "items": [
+        {
+          "c_id": "number",
+          "capacity_": "number",
+          "date_": "string",
+          "fixtures": "string",
+          "group_": "string",
+          "match_no": "number",
+          "s_no": "number",
+          "stadium": "string",
+          "time_": "string"
+        }
+      ]
+    },
+    "getMatchesResponse": {
+      "items": [
+        {
+          "c_id": "number",
+          "capacity_": "number",
+          "date_": "string",
+          "fixtures": "string",
+          "group_": "string",
+          "match_no": "number",
+          "s_no": "number",
+          "stadium": "string",
+          "time_": "string"
+        }
+      ]
+    },
+    "getMatchesResponse2": {
+      "items": [
+        {
+          "c_id": "number",
+          "capacity_": "number",
+          "date_": "string",
+          "fixtures": "string",
+          "group_": "string",
+          "match_no": "number",
+          "s_no": "number",
+          "stadium": "string",
+          "time_": "string"
+        }
+      ]
+    },
+    "getMatchesResponse3": {
+      "items": [
+        {
+          "c_id": "number",
+          "capacity_": "number",
+          "date_": "string",
+          "fixtures": "string",
+          "group_": "string",
+          "match_no": "number",
+          "s_no": "number",
+          "stadium": "string",
+          "time_": "string"
+        }
+      ]
+    },
+    "getMatchesResponse4": {
+      "items": [
+        {
+          "c_id": "number",
+          "capacity_": "number",
+          "date_": "string",
+          "fixtures": "string",
+          "group_": "string",
+          "match_no": "number",
+          "s_no": "number",
+          "stadium": "string",
+          "time_": "string"
+        }
+      ]
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "searchbyid"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "matchschedule"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      }
+    }
+  }
+}

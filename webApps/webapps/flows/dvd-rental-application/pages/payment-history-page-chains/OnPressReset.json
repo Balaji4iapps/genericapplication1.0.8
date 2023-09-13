@@ -1,0 +1,63 @@
+{
+  "description": "",
+  "root": "resetVariablesPayment",
+  "actions": {
+    "resetVariablesPayment": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.payment.data",
+          "$page.variables.payment",
+          "$page.variables.payment.data.customer_id",
+          "$page.variables.payment.data.payment_date",
+          "$page.variables.payment.data.amount",
+          "$page.variables.payment.data.payment_id",
+          "$page.variables.payment.data.rental_id",
+          "$page.variables.payment.data.seq_payment",
+          "$page.variables.payment.data.staff_id",
+          "$page.variables.payment.idAttribute",
+          "$page.variables.Customer_ID"
+        ]
+      },
+      "outcomes": {
+        "success": "resetVariablesPayment3"
+      }
+    },
+    "resetVariablesPayment3": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.payment.data",
+          "$page.variables.payment.data.customer_id",
+          "$page.variables.payment.itemType",
+          "$page.variables.payment"
+        ]
+      },
+      "outcomes": {
+        "success": "resetVariablesPayment4"
+      }
+    },
+    "resetVariablesPayment4": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.payment",
+          "$page.variables.payment.data",
+          "$page.variables.payment.data.amount",
+          "$page.variables.payment.data.customer_id",
+          "$page.variables.payment.data.payment_date",
+          "$page.variables.payment.data.rental_id",
+          "$page.variables.payment.data.payment_id",
+          "$page.variables.payment.data.staff_id",
+          "$page.variables.payment.data.seq_payment",
+          "$page.variables.payment.idAttribute",
+          "$page.variables.payment.implicitSort",
+          "$page.variables.payment.implicitSort.attribute",
+          "$page.variables.payment.implicitSort.direction",
+          "$page.variables.payment.itemType"
+        ]
+      }
+    }
+  },
+  "variables": {}
+}

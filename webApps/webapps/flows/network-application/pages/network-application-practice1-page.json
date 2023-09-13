@@ -1,0 +1,151 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "getNetwork1312ListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "Network1312/getNetwork_1312",
+        "keyAttributes": "network_id",
+        "itemsPath": "items",
+        "responseType": "getNetwork1312Response",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "network_name"
+          ]
+        }
+      }
+    },
+    "networkdatas": {
+      "type": "any"
+    },
+    "networkid": {
+      "type": "number"
+    },
+    "networklov": {
+      "type": "string"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getNetwork1312Response": {
+      "endpoint": "getNetwork_1312",
+      "service": "Network1312",
+      "path": "response"
+    },
+    "getNetwork1312Response": {
+      "items": [
+        {
+          "data_pack": "string",
+          "mrp": "string",
+          "network_id": "number",
+          "network_name": "string",
+          "sms": "string",
+          "subscriptions": "string",
+          "validity": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "Search"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "reset"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "deleteok"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "create"
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick2": {
+      "chains": [
+        {
+          "chainId": "updatenetwork",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "networkrecords"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "description": "",
+  "root": "ifNetworkmethod",
+  "actions": {
+    "ifNetworkmethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.networkmethod=='CREATE' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostNetwork1312PMETHODPPRIMARYKEY",
+        "false": "callRestPostNetwork1312PMETHODPPRIMARYKEY2"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostNetwork1312PMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostNetwork1312PMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Network1312/postNetwork_1312P_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.networkrecords }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostNetwork1312PMETHODPPRIMARYKEY.body.p_err_msg ]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "assignVariablesNetworkmethod"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostNetwork1312PMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostNetwork1312PMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Network1312/postNetwork_1312P_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.networkidpk }}"
+        },
+        "body": "{{ $page.variables.networkrecords }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostNetwork1312PMETHODPPRIMARYKEY2.body.p_err_msg ]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      }
+    },
+    "assignVariablesNetworkmethod": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.networkmethod": {
+          "source": "EDIT"
+        },
+        "$page.variables.networkidpk": {
+          "source": "{{ $chain.results.callRestPostNetwork1312PMETHODPPRIMARYKEY.body.p_primarykey }}"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

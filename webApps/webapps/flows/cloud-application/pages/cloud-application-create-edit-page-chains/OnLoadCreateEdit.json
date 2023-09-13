@@ -1,0 +1,95 @@
+{
+  "root": "ifPageNavigation",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "ifPageNavigation": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.PageNavigation=='edit' ]]"
+      },
+      "outcomes": {
+        "true": "callRestCloudgetbyid",
+        "false": "callRestCompany18getbyid"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestCloudgetbyid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestCloudgetbyid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/Cloudgetbyid",
+        "uriParams": {
+          "pcloud_id": "{{ $page.variables.Cloud_id }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesPostCloud18"
+      }
+    },
+    "assignVariablesPostCloud18": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.PostCloud18": {
+          "source": "{{ $chain.results.callRestCloudgetbyid.body.items[0] }}",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callRestCompany18getbyid"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestCompany18getbyid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callFunctionPagingcompanytable": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingcompanytable",
+        "params": [
+          "{{ $chain.results.callRestCompany18getbyid.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesCompanytable"
+      }
+    },
+    "assignVariablesCompanytable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.companytable": {
+          "source": "{{ $chain.results.callFunctionPagingcompanytable }}"
+        }
+      },
+      "outcomes": {}
+    },
+    "callRestCompany18getbyid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/Company18getbyid",
+        "uriParams": {
+          "pcloud_id": "{{ $page.variables.Cloud_id }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "callFunctionPagingcompanytable"
+      }
+    }
+  }
+}

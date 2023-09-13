@@ -1,0 +1,26 @@
+{
+    "items": [
+        {
+            "moviesno": 1,
+            "moviename": "Thunivu",
+            "moviedirector": "H.vinoth",
+            "moviegenre": "HeistThriller",
+            "movieproducer": "BoneyKapoor",
+            "movietimings": "1pm-3.30pm"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/moviestable/vvmovies1getbyid?getvvmovies1=1"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/moviestable/item"
+        }
+    ]
+}

@@ -1,0 +1,1193 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "PLAYERPOST",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/sports",
+            "description": "Ords Dyrords"
+        }
+    ],
+    "paths": {
+        "/player": {
+            "get": {
+                "operationId": "getPlayer",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetPlayer"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getPlayer/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/playerid": {
+            "get": {
+                "operationId": "getPlayerid",
+                "parameters": [
+                    {
+                        "name": "player",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetPlayerid"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getPlayerid/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/pd/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postPdP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostPdP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "summary": "Example stored by VB User",
+                                    "externalValue": "./examples/postPdP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostPdP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postPdP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/game": {
+            "get": {
+                "operationId": "getGame",
+                "parameters": [
+                    {
+                        "name": "game",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetGame"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getGame/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/gameid": {
+            "get": {
+                "operationId": "getGameid",
+                "parameters": [
+                    {
+                        "name": "gt",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetGameid"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getGameid/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/gd/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postGdP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostGdP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postGdP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostGdP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postGdP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/medical": {
+            "get": {
+                "operationId": "getMedical",
+                "parameters": [
+                    {
+                        "name": "mgame",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMedical"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getMedical/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/medicalid": {
+            "get": {
+                "operationId": "getMedicalid2",
+                "parameters": [
+                    {
+                        "name": "medical",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMedicalid"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getMedicalid2/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/md/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postMdP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostMdP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postMdP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostMdP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postMdP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/alldata": {
+            "get": {
+                "operationId": "getAlldata",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAlldata"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getAlldata/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/detailsid": {
+            "get": {
+                "operationId": "getDetailsid",
+                "parameters": [
+                    {
+                        "name": "player",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetDetailsid"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getDetailsid/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "GetPlayer": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "player_id": {
+                                    "type": "integer"
+                                },
+                                "player_name": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "type": "string"
+                                },
+                                "dop": {
+                                    "type": "string"
+                                },
+                                "email_id": {
+                                    "type": "string"
+                                },
+                                "con_num": {
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetPlayerid": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "player_id": {
+                                    "type": "integer"
+                                },
+                                "player_name": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "type": "string"
+                                },
+                                "dop": {
+                                    "type": "string"
+                                },
+                                "email_id": {
+                                    "type": "string"
+                                },
+                                "con_num": {
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostPdP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "player_id": {
+                        "type": "integer"
+                    },
+                    "player_name": {
+                        "type": "string"
+                    },
+                    "gender": {
+                        "type": "string"
+                    },
+                    "dop": {
+                        "type": "string"
+                    },
+                    "email_id": {
+                        "type": "string"
+                    },
+                    "con_num": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostPdP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetGame": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "player_id": {
+                                    "type": "integer"
+                                },
+                                "game_id": {
+                                    "type": "integer"
+                                },
+                                "game_name": {
+                                    "type": "string"
+                                },
+                                "kits": {
+                                    "type": "string"
+                                },
+                                "modes": {
+                                    "type": "string"
+                                },
+                                "workout_evalution": {
+                                    "type": "string"
+                                },
+                                "participants": {
+                                    "type": "string"
+                                },
+                                "awards": {
+                                    "type": "string"
+                                },
+                                "trainer_name": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetGameid": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "player_id": {
+                                    "type": "integer"
+                                },
+                                "game_id": {
+                                    "type": "integer"
+                                },
+                                "game_name": {
+                                    "type": "string"
+                                },
+                                "kits": {
+                                    "type": "string"
+                                },
+                                "modes": {
+                                    "type": "string"
+                                },
+                                "workout_evalution": {
+                                    "type": "string"
+                                },
+                                "participants": {
+                                    "type": "string"
+                                },
+                                "awards": {
+                                    "type": "string"
+                                },
+                                "trainer_name": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostGdP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "player_id": {
+                        "type": "integer"
+                    },
+                    "game_id": {
+                        "type": "integer"
+                    },
+                    "game_name": {
+                        "type": "string"
+                    },
+                    "kits": {
+                        "type": "string"
+                    },
+                    "modes": {
+                        "type": "string"
+                    },
+                    "workout_evalution": {
+                        "type": "string"
+                    },
+                    "participants": {
+                        "type": "string"
+                    },
+                    "awards": {
+                        "type": "string"
+                    },
+                    "trainer_name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostGdP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetMedical": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "game_id": {
+                                    "type": "integer"
+                                },
+                                "medical_id": {
+                                    "type": "integer"
+                                },
+                                "phy_challenged": {
+                                    "type": "string"
+                                },
+                                "allergies": {
+                                    "type": "string"
+                                },
+                                "last_match_injuire_status": {
+                                    "type": "string"
+                                },
+                                "dose_level": {
+                                    "type": "string"
+                                },
+                                "insurances": {
+                                    "type": "string"
+                                },
+                                "therapy_assistant": {
+                                    "type": "string"
+                                },
+                                "remarks": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetMedicalid": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "game_id": {
+                                    "type": "integer"
+                                },
+                                "medical_id": {
+                                    "type": "integer"
+                                },
+                                "phy_challenged": {
+                                    "type": "string"
+                                },
+                                "allergies": {
+                                    "type": "string"
+                                },
+                                "last_match_injuire_status": {
+                                    "type": "string"
+                                },
+                                "dose_level": {
+                                    "type": "string"
+                                },
+                                "insurances": {
+                                    "type": "string"
+                                },
+                                "therapy_assistant": {
+                                    "type": "string"
+                                },
+                                "remarks": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostMdP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "game_id": {
+                        "type": "integer"
+                    },
+                    "medical_id": {
+                        "type": "integer"
+                    },
+                    "phy_challenged": {
+                        "type": "string"
+                    },
+                    "allergies": {
+                        "type": "string"
+                    },
+                    "last_match_injuire_status": {
+                        "type": "string"
+                    },
+                    "dose_level": {
+                        "type": "string"
+                    },
+                    "insurances": {
+                        "type": "string"
+                    },
+                    "therapy_assistant": {
+                        "type": "string"
+                    },
+                    "remarks": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostMdP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetAlldata": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "player_id": {
+                                    "type": "integer"
+                                },
+                                "player_name": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "type": "string"
+                                },
+                                "dop": {
+                                    "type": "string"
+                                },
+                                "email_id": {
+                                    "type": "string"
+                                },
+                                "con_num": {
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "type": "string"
+                                },
+                                "game_name": {
+                                    "type": "string"
+                                },
+                                "kits": {
+                                    "type": "string"
+                                },
+                                "modes": {
+                                    "type": "string"
+                                },
+                                "workout_evalution": {
+                                    "type": "string"
+                                },
+                                "participants": {
+                                    "type": "string"
+                                },
+                                "awards": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "trainer_name": {
+                                    "type": "string"
+                                },
+                                "phy_challenged": {
+                                    "type": "string"
+                                },
+                                "allergies": {
+                                    "type": "string"
+                                },
+                                "last_match_injuire_status": {
+                                    "type": "string"
+                                },
+                                "dose_level": {
+                                    "type": "string"
+                                },
+                                "insurances": {
+                                    "type": "string"
+                                },
+                                "therapy_assistant": {
+                                    "type": "string"
+                                },
+                                "remarks": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetDetailsid": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "player_id": {
+                                    "type": "integer"
+                                },
+                                "player_name": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "type": "string"
+                                },
+                                "dop": {
+                                    "type": "string"
+                                },
+                                "email_id": {
+                                    "type": "string"
+                                },
+                                "con_num": {
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "type": "string"
+                                },
+                                "game_name": {
+                                    "type": "string"
+                                },
+                                "kits": {
+                                    "type": "string"
+                                },
+                                "modes": {
+                                    "type": "string"
+                                },
+                                "workout_evalution": {
+                                    "type": "string"
+                                },
+                                "participants": {
+                                    "type": "string"
+                                },
+                                "awards": {
+                                    "type": "string"
+                                },
+                                "trainer_name": {
+                                    "type": "string"
+                                },
+                                "phy_challenged": {
+                                    "type": "string"
+                                },
+                                "allergies": {
+                                    "type": "string"
+                                },
+                                "last_match_injuire_status": {
+                                    "type": "string"
+                                },
+                                "dose_level": {
+                                    "type": "string"
+                                },
+                                "insurances": {
+                                    "type": "string"
+                                },
+                                "therapy_assistant": {
+                                    "type": "string"
+                                },
+                                "remarks": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

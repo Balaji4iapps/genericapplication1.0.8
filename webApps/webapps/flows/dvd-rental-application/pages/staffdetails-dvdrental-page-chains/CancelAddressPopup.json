@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentAdresspopupinstaffClose",
+  "actions": {
+    "callComponentAdresspopupinstaffClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('adresspopupinstaff') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

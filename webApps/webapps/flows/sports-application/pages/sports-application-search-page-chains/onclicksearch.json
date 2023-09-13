@@ -1,0 +1,51 @@
+{
+  "description": "",
+  "root": "callRestGetPlayerid",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetPlayerid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetPlayerid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "SportsApp/getPlayerid",
+        "uriParams": {
+          "player": "{{ $page.variables.playerid }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetPlayerid.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesPlayertable"
+      }
+    },
+    "assignVariablesPlayertable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.playertable": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

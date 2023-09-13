@@ -1,0 +1,75 @@
+{
+  "description": "",
+  "root": "assignVariablesManifacturedetails",
+  "actions": {
+    "assignVariablesManifacturedetails": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.manifacturedetails": {
+          "source": {
+            "car_id": "{{ $page.variables.carid }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callRestPostManufacturePMETHODPPRIMARYKEY"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostManufacturePMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostManufacturePMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CarApplication/postManufactureP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostManufacturePMETHODPPRIMARYKEY.body.p_err_msg ]]",
+        "message": "[[ $chain.results.callRestPostManufacturePMETHODPPRIMARYKEY.body.p_err_msg ]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "resetVariablesManufacturevariable"
+      }
+    },
+    "resetVariablesManufacturevariable": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.manufacturevariable"
+        ]
+      },
+      "outcomes": {
+        "success": "callChainOnload"
+      }
+    },
+    "callChainOnload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onload"
+      }
+    }
+  },
+  "variables": {}
+}

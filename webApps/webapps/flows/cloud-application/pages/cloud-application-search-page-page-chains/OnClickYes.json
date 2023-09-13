@@ -1,0 +1,49 @@
+{
+  "description": "",
+  "root": "callRestPostCloud18",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCloud18.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostCloud18": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/PostCloud18",
+        "uriParams": {
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $page.variables.cloud_id }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification2"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.Records_Deleted]]",
+        "message": "[[$application.translations.app.Records_Deleted_]]",
+        "displayMode": "transient",
+        "type": "warning"
+      },
+      "outcomes": {
+        "success": "callChainOnClickNo"
+      }
+    },
+    "callChainOnClickNo": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "OnClickNo"
+      }
+    }
+  },
+  "variables": {}
+}

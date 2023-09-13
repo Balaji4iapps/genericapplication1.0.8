@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentOjDialogDeleteClose",
+  "actions": {
+    "callComponentOjDialogDeleteClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog-delete') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

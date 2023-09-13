@@ -1,0 +1,60 @@
+{
+  "description": "",
+  "root": "callRestPostCustomer1312PMETHODPPRIMARYKEY",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCustomer1312PMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostCustomer1312PMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Network1312/postCustomer_1312P_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $page.variables.customerid }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_7122]]",
+        "displayMode": "transient",
+        "type": "confirmation",
+        "message": "[[$application.translations.app.fireNotification2_message_90da]]"
+      },
+      "outcomes": {
+        "success": "callComponentCustomerdeletepopupClose"
+      }
+    },
+    "callComponentCustomerdeletepopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('customerdeletepopup') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainOnloadsavepage"
+      }
+    },
+    "callChainOnloadsavepage": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onloadsavepage"
+      }
+    }
+  },
+  "variables": {}
+}

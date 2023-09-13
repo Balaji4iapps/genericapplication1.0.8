@@ -1,0 +1,46 @@
+{
+  "description": "",
+  "root": "ifPostprimarykey",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification_summary_d019]]",
+        "message": "[[$application.translations.app.fireNotification_message_7958]]",
+        "displayMode": "transient",
+        "type": "warning"
+      }
+    },
+    "ifPostprimarykey": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.postprimarykey!=0 ]]"
+      },
+      "outcomes": {
+        "true": "assignVariablesLineVar",
+        "false": "fireNotification"
+      }
+    },
+    "assignVariablesLineVar": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.lineVar": {
+          "source": "CREATE"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentSpectatorstableOpen"
+      }
+    },
+    "callComponentSpectatorstableOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Spectatorstable') }}",
+        "method": "open"
+      }
+    }
+  },
+  "variables": {}
+}

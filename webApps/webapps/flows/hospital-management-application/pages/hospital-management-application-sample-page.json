@@ -1,0 +1,176 @@
+{
+  "title": "hospital management application sample",
+  "description": "",
+  "variables": {
+    "getDoctordetailsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+
+        "keyAttributes": "doc_code",
+        "itemsPath": "items",
+        "responseType": "getDoctordetailsResponse",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "doc_name"
+          ]
+        },
+        "fetchChainId": "getDoctordetailsFetchAction"
+      }
+    },
+    "getDoctordetailsListSDP2": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "hospitalmanagement/getDoctordetails",
+        "keyAttributes": "doc_code",
+        "itemsPath": "items",
+        "responseType": "getDoctordetailsResponse2"
+      }
+    },
+    "Hdrtable": {
+      "type": "any"
+    },
+    "searchobj": {
+      "type": "string"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getDoctordetailsResponse": {
+      "endpoint": "getDoctordetails",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "@decorators.getDoctordetailsResponse2": {
+      "endpoint": "getDoctordetails",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "getDoctordetailsResponse": {
+      "items": [
+        {
+          "doc_code": "number",
+          "doc_name": "string"
+        }
+      ]
+    },
+    "getDoctordetailsResponse2": {
+      "items": [
+        {
+          "doc_address": "string",
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_gender": "string",
+          "doc_name": "string",
+          "doc_number": "number"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "onclicksearch"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "reset"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "navcreate"
+        }
+      ]
+    },
+    "hyperlinkClick": {
+      "chains": [
+        {
+          "chainId": "HyperlinkClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "Onload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-accordion": {
+        "path": "ojs/ojaccordion"
+      },
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-collapsible": {
+        "path": "ojs/ojcollapsible"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    },
+    "modules": {
+      "ojValidationBase": {
+        "path": "ojs/ojvalidation-base"
+      },
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      }
+    }
+  }
+}

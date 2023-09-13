@@ -1,0 +1,47 @@
+{
+  "root": "callRestGetWc2022",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetWc2022.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetWc2022": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/getWc2022"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetWc2022.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesSearch"
+      }
+    },
+    "assignVariablesSearch": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.search": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    }
+  }
+}

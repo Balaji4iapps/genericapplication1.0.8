@@ -1,0 +1,19 @@
+{
+  "description": "",
+  "root": "resetVariablesCustomer",
+  "actions": {
+    "resetVariablesCustomer": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.Customer",
+          "$page.variables.Customer_ID",
+          "$page.variables.Name",
+          "$page.variables.getfilm"          ,
+          "$page.variables.flimid"
+        ]
+      }
+    }
+  },
+  "variables": {}
+}

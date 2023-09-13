@@ -1,0 +1,67 @@
+{
+  "root": "callComponentPageonloadOpen",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetPlayer.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetPlayer.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesPlayertable"
+      }
+    },
+    "assignVariablesPlayertable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.playertable": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentPageonloadClose"
+      }
+    },
+    "callRestGetPlayer": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "SportsApp/getPlayer"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callComponentPageonloadOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('pageonload') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestGetPlayer"
+      }
+    },
+    "callComponentPageonloadClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('pageonload') }}",
+        "method": "close"
+      }
+    }
+  }
+}

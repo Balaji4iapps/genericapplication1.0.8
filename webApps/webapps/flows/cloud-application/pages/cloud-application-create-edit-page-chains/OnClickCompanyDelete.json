@@ -1,0 +1,41 @@
+{
+  "description": "",
+  "root": "assignVariablesChildpk",
+  "actions": {
+    "assignVariablesChildpk": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.childpk": {
+          "source": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentCompanydeleteOpen"
+      }
+    },
+    "callComponentCompanydeleteOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Companydelete') }}",
+        "method": "open"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "description": "",
+  "root": "callRestPostSpecdetailsPMETHODPPRIMARYKEY",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostSpecdetailsPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostSpecdetailsPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Moviesticketbooking/postSpecdetailsP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_PRIMARYKEY": "{{ $page.variables.specdetailskey }}",
+          "P_METHOD": "DELETE"
+        },
+        "body": "{{ $page.variables.location }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_7914]]",
+        "message": "[[$application.translations.app.fireNotification2_message_bfa5]]",
+        "displayMode": "transient",
+        "type": "warning"
+      },
+      "outcomes": {
+        "success": "callComponentSpectatordetailsClose"
+      }
+    },
+    "callComponentSpectatordetailsClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Spectatordetails') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callComponentSpecdetailsdeleteClose"
+      }
+    },
+    "callComponentSpecdetailsdeleteClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('specdetailsdelete') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

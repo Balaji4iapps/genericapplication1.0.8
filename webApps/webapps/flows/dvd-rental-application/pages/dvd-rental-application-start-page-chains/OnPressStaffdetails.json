@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToStaffdetailsDvdrental",
+  "actions": {
+    "navigateToStaffdetailsDvdrental": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "staffdetails-dvdrental"
+      }
+    }
+  },
+  "variables": {}
+}

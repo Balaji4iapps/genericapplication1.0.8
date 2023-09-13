@@ -1,0 +1,199 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "cloud_id": {
+      "type": "number"
+    },
+    "cloud_table": {
+      "type": "any"
+    },
+    "getCloudsearchListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "CloudApplication/getCloudsearch",
+        "keyAttributes": "cloud_id",
+        "itemsPath": "items",
+        "responseType": "getCloudsearchResponse",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "cloud_name"
+          ]
+        }
+      }
+    },
+    "getCloudsearchListSDP2": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "CloudApplication/getCloudsearch",
+        "keyAttributes": "cloud_id",
+        "itemsPath": "items",
+        "responseType": "getCloudsearchResponse2",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "cloud_name"
+          ]
+        }
+      }
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getCloudsearchResponse": {
+      "endpoint": "getCloudsearch",
+      "service": "CloudApplication",
+      "path": "response"
+    },
+    "@decorators.getCloudsearchResponse2": {
+      "endpoint": "getCloudsearch",
+      "service": "CloudApplication",
+      "path": "response"
+    },
+    "getCloudsearchResponse": {
+      "items": [
+        {
+          "business_type": "string",
+          "cloud_id": "number",
+          "cloud_name": "string",
+          "cloud_provider": "string",
+          "contact_number": "string",
+          "email_id": "string",
+          "founder_name": "string",
+          "started_year": "string"
+        }
+      ]
+    },
+    "getCloudsearchResponse2": {
+      "items": [
+        {
+          "cloud_id": "number",
+          "cloud_name": "string",
+          "cloud_provider": "string",
+          "contact_number": "string",
+          "email_id": "string",
+          "founder_name": "string",
+          "started_year": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "OnClickSearch"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "OnClickReset"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "OnClickNewRequest"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "OnClikEditCloud",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "OnClickNo"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "OnClickDeleteCloud",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction7": {
+      "chains": [
+        {
+          "chainId": "OnClickYes"
+        }
+      ]
+    },
+    "buttonAction8": {
+      "chains": [
+        {
+          "chainId": "SearchP2H"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "OnLoadCloudTable"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      }
+
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "description": "",
+  "root": "forEachInBox",
+  "actions": {
+    "ifMethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.method=='CREATE' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostProductappPMETHODPPRIMARYKEY",
+        "false": "callRestPostProductappPMETHODPPRIMARYKEY2"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostProductappPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostProductappPMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostProductappPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Productapplication/postProductappP_METHODP_PRIMARYKEY",
+        "uriParams": {
+
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.productcreate }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification6"
+      }
+    },
+    "callRestPostProductappPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Productapplication/postProductappP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.primarykey }}"
+        },
+        "body": "{{ $page.variables.productcreate }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification4"
+      }
+    },
+    "fireNotification6": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostProductappPMETHODPPRIMARYKEY.body.p_err_code ]]",
+        "message": "[[ $chain.results.callRestPostProductappPMETHODPPRIMARYKEY.body.p_err_msg ]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "assignVariablesPrimarykey"
+      }
+    },
+    "assignVariablesPrimarykey": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.primarykey": {
+          "source": "{{ $chain.results.callRestPostProductappPMETHODPPRIMARYKEY.body.p_primarykey }}"
+        },
+        "$page.variables.method": {
+          "source": "edit"
+        }
+      }
+    },
+    "fireNotification4": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostProductappPMETHODPPRIMARYKEY2.body.p_err_code ]]",
+        "message": "[[ $chain.results.callRestPostProductappPMETHODPPRIMARYKEY2.body.p_err_msg ]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      }
+    },
+    "forEachInBox": {
+      "module": "vb/action/builtin/forEachAction",
+      "parameters": {
+        "items": "{{ $page.variables.box }}",
+        "actionId": "callRestPostProductappPMETHODPPRIMARYKEY3"
+      },
+      "outcomes": {
+        "success": "ifMethod"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostProductappPMETHODPPRIMARYKEY3.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostProductappPMETHODPPRIMARYKEY3": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Productapplication/postProductappP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $current }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification3",
+        "success": "fireNotification7"
+      }
+    },
+    "fireNotification7": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification5_summary_2c6b]]"
+      }
+    }
+  },
+  "variables": {}
+}

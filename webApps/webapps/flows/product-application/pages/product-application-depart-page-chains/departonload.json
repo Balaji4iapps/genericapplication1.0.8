@@ -1,0 +1,93 @@
+{
+  "root": "ifMethod",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "ifMethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.method=='edit' ]]"
+      },
+      "outcomes": {
+        "true": "callRestGetDepartgetbyid"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetDepartgetbyid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetDepartgetbyid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Productapplication/getDepartgetbyid",
+        "uriParams": {
+          "ProductNum": "{{ $page.variables.deparkfk }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesDepartment"
+      }
+    },
+    "assignVariablesDepartment": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.department": {
+          "source": "{{ $chain.results.callRestGetDepartgetbyid.body.items[0] }}",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callRestGetCustomergetid"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetCustomergetid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetCustomergetid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Productapplication/getCustomergetid",
+        "uriParams": {
+          "DepartNum": "{{ $page.variables.primarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetCustomergetid.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesCustomertable"
+      }
+    },
+    "assignVariablesCustomertable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Customertable": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    }
+  }
+}

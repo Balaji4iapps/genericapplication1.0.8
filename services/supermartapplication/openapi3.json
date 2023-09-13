@@ -1,0 +1,1296 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "getallmfd",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1313mod",
+            "description": "Ords Dyrords"
+        }
+    ],
+    "paths": {
+        "/mfdheader": {
+            "get": {
+                "operationId": "getMfdheader",
+                "parameters": [
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMfdheader"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getMfdheader/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/mfdheaderbyid": {
+            "get": {
+                "operationId": "getMfdheaderbyid2",
+                "parameters": [
+                    {
+                        "name": "ManufacturerId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMfdheaderbyid"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getMfdheaderbyid2/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/mfdheader/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postMfdheaderP_METHODP_PRIMARYKEY2",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostMfdheaderP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postMfdheaderP_METHODP_PRIMARYKEY2/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostMfdheaderP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postMfdheaderP_METHODP_PRIMARYKEY2/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+               },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/smartchild": {
+            "get": {
+                "operationId": "getSmartchild",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetSmartchild"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getSmartchild/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                },
+                "parameters": [
+                    {
+                        "name": "productid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            }
+        },
+        "/smartchildbyid": {
+            "get": {
+                "operationId": "getSmartchildbyid",
+                "parameters": [
+                    {
+                        "name": "manufacturerid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetSmartchildbyid"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getSmartchildbyid/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/smartchild/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postSmartchildP_METHODP_PRIMARYKEY2",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostSmartchildP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postSmartchildP_METHODP_PRIMARYKEY2/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostSmartchildP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postSmartchildP_METHODP_PRIMARYKEY2/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/accountchild2": {
+            "get": {
+                "operationId": "getAccountchild2_2",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAccountchild2"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getAccountchild2_2/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/accountchild2byid": {
+            "get": {
+                "operationId": "getAccountchild2byid",
+                "parameters": [
+                    {
+                        "name": "ownrefid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAccountchild2byid"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getAccountchild2byid/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/accountchhild2byidmfd": {
+            "get": {
+                "operationId": "getAccountchhild2byidmfd",
+                "parameters": [
+                    {
+                        "name": "manufacturerid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAccountchhild2byidmfd"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getAccountchhild2byidmfd/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/accountchild2/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postAccountchild2P_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostAccountchild2P_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postAccountchild2P_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostAccountchild2P_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postAccountchild2P_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/alldata": {
+            "get": {
+                "operationId": "getAlldata",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAlldata"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getAlldata/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/alldatagetbyid": {
+            "get": {
+                "operationId": "getAlldatagetbyid",
+                "parameters": [
+                    {
+                        "name": "MANUFACTURERID",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAlldatagetbyid"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getAlldatagetbyid/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "GetMfdheader": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "manufacturer_id": {
+                                    "type": "string"
+                                },
+                                "manufacturer": {
+                                    "type": "string"
+                                },
+                                "city": {
+                                    "type": "string"
+                                },
+                                "mail_id": {
+                                    "type": "string"
+                                },
+                                "contact_number": {
+                                    "type": "string"
+                                },
+                                "account_number": {
+                                    "type": "string"
+                                },
+                                "industry_type": {
+                                    "type": "string"
+                                },
+                                "state_location": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetMfdheaderbyid": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "manufacturer_id": {
+                                    "type": "string"
+                                },
+                                "manufacturer": {
+                                    "type": "string"
+                                },
+                                "city": {
+                                    "type": "string"
+                                },
+                                "mail_id": {
+                                    "type": "string"
+                                },
+                                "contact_number": {
+                                    "type": "string"
+                                },
+                                "account_number": {
+                                    "type": "string"
+                                },
+                                "industry_type": {
+                                    "type": "string"
+                                },
+                                "state_location": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostMfdheaderP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "manufacturer_id": {
+                        "type": "string"
+                    },
+                    "manufacturer": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "mail_id": {
+                        "type": "string"
+                    },
+                    "contact_number": {
+                        "type": "string"
+                    },
+                    "account_number": {
+                        "type": "string"
+                    },
+                    "industry_type": {
+                        "type": "string"
+                    },
+                    "state_location": {
+                        "type": "string"
+                    }
+                }
+            },
+            "GetSmartchild": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "product_id": {
+                                    "type": "string"
+                                },
+                                "product_name": {
+                                    "type": "string"
+                                },
+                                "qty_in_stock": {
+                                    "type": "string"
+                                },
+                                "price_per_kg_l": {
+                                    "type": "string"
+                                },
+                                "mfd_date": {
+                                    "type": "string"
+                                },
+                                "exp_date": {
+                                    "type": "string"
+                                },
+                                "manufacturer_id": {
+                                    "type": "string"
+                                },
+                                "catagory": {
+                                    "type": "string"
+                                },
+                                "packed": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetSmartchildbyid": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "product_id": {
+                                    "type": "string"
+                                },
+                                "product_name": {
+                                    "type": "string"
+                                },
+                                "qty_in_stock": {
+                                    "type": "string"
+                                },
+                                "price_per_kg_l": {
+                                    "type": "string"
+                                },
+                                "mfd_date": {
+                                    "type": "string"
+                                },
+                                "exp_date": {
+                                    "type": "string"
+                                },
+                                "manufacturer_id": {
+                                    "type": "string"
+                                },
+                                "catagory": {
+                                    "type": "string"
+                                },
+                                "packed": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostSmartchildP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "product_id": {
+                        "type": "string"
+                    },
+                    "product_name": {
+                        "type": "string"
+                    },
+                    "qty_in_stock": {
+                        "type": "string"
+                    },
+                    "price_per_kg_l": {
+                        "type": "string"
+                    },
+                    "mfd_date": {
+                        "type": "string"
+                    },
+                    "exp_date": {
+                        "type": "string"
+                    },
+                    "manufacturer_id": {
+                        "type": "string"
+                    },
+                    "catagory": {
+                        "type": "string"
+                    },
+                    "packed": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostSmartchildP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetAccountchild2": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "own_ref_id": {
+                                    "type": "string"
+                                },
+                                "manufacturer_name": {
+                                    "type": "string"
+                                },
+                                "manufacturer_id": {
+                                    "type": "string"
+                                },
+                                "account_number": {
+                                    "type": "string"
+                                },
+                                "ifsc_code": {
+                                    "type": "string"
+                                },
+                                "branch_name": {
+                                    "type": "string"
+                                },
+                                "bank_name": {
+                                    "type": "string"
+                                },
+                                "pending_amount": {
+                                    "type": "string"
+                                },
+                                "bill_book_number": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetAccountchild2byid": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "own_ref_id": {
+                                    "type": "string"
+                                },
+                                "manufacturer_name": {
+                                    "type": "string"
+                                },
+                                "manufacturer_id": {
+                                    "type": "string"
+                                },
+                                "account_number": {
+                                    "type": "string"
+                                },
+                                "ifsc_code": {
+                                    "type": "string"
+                                },
+                                "branch_name": {
+                                    "type": "string"
+                                },
+                                "bank_name": {
+                                    "type": "string"
+                                },
+                                "pending_amount": {
+                                    "type": "string"
+                                },
+                                "bill_book_number": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetAccountchhild2byidmfd": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "own_ref_id": {
+                                    "type": "string"
+                                },
+                                "manufacturer_name": {
+                                    "type": "string"
+                                },
+                                "manufacturer_id": {
+                                    "type": "string"
+                                },
+                                "account_number": {
+                                    "type": "string"
+                                },
+                                "ifsc_code": {
+                                    "type": "string"
+                                },
+                                "branch_name": {
+                                    "type": "string"
+                                },
+                                "bank_name": {
+                                    "type": "string"
+                                },
+                                "pending_amount": {
+                                    "type": "string"
+                                },
+                                "bill_book_number": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostAccountchild2P_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "own_ref_id": {
+                        "type": "string"
+                    },
+                    "manufacturer_name": {
+                        "type": "string"
+                    },
+                    "manufacturer_id": {
+                        "type": "string"
+                    },
+                    "account_number": {
+                        "type": "string"
+                    },
+                    "ifsc_code": {
+                        "type": "string"
+                    },
+                    "branch_name": {
+                        "type": "string"
+                    },
+                    "bank_name": {
+                        "type": "string"
+                    },
+                    "pending_amount": {
+                        "type": "string"
+                    },
+                    "bill_book_number": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostAccountchild2P_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetAlldata": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "manufacturer_id": {
+                                    "type": "string"
+                                },
+                                "manufacturer": {
+                                    "type": "string"
+                                },
+                                "city": {
+                                    "type": "string"
+                                },
+                                "mail_id": {
+                                    "type": "string"
+                                },
+                                "contact_number": {
+                                    "type": "string"
+                                },
+                                "industry_type": {
+                                    "type": "string"
+                                },
+                                "state_location": {
+                                    "type": "string"
+                                },
+                                "product_id": {
+                                    "type": "string"
+                                },
+                                "product_name": {
+                                    "type": "string"
+                                },
+                                "qty_in_stock": {
+                                    "type": "string"
+                                },
+                                "price_per_kg_l": {
+                                    "type": "string"
+                                },
+                                "mfd_date": {
+                                    "type": "string"
+                                },
+                                "exp_date": {
+                                    "type": "string"
+                                },
+                                "catagory": {
+                                    "type": "string"
+                                },
+                                "packed": {
+                                    "type": "string"
+                                },
+                                "own_ref_id": {
+                                    "type": "string"
+                                },
+                                "manufacturer_name": {
+                                    "type": "string"
+                                },
+                                "account_number": {
+                                    "type": "string"
+                                },
+                                "ifsc_code": {
+                                    "type": "string"
+                                },
+                                "branch_name": {
+                                    "type": "string"
+                                },
+                                "bank_name": {
+                                    "type": "string"
+                                },
+                                "pending_amount": {
+                                    "type": "string"
+                                },
+                                "bill_book_number": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetAlldatagetbyid": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "manufacturer_id": {
+                                    "type": "string"
+                                },
+                                "manufacturer": {
+                                    "type": "string"
+                                },
+                                "city": {
+                                    "type": "string"
+                                },
+                                "mail_id": {
+                                    "type": "string"
+                                },
+                                "contact_number": {
+                                    "type": "string"
+                                },
+                                "industry_type": {
+                                    "type": "string"
+                                },
+                                "state_location": {
+                                    "type": "string"
+                                },
+                                "product_id": {
+                                    "type": "string"
+                                },
+                                "product_name": {
+                                    "type": "string"
+                                },
+                                "qty_in_stock": {
+                                    "type": "string"
+                                },
+                                "price_per_kg_l": {
+                                    "type": "string"
+                                },
+                                "mfd_date": {
+                                    "type": "string"
+                                },
+                                "exp_date": {
+                                    "type": "string"
+                                },
+                                "catagory": {
+                                    "type": "string"
+                                },
+                                "packed": {
+                                    "type": "string"
+                                },
+                                "own_ref_id": {
+                                    "type": "string"
+                                },
+                                "manufacturer_name": {
+                                    "type": "string"
+                                },
+                                "account_number": {
+                                    "type": "string"
+                                },
+                                "ifsc_code": {
+                                    "type": "string"
+                                },
+                                "branch_name": {
+                                    "type": "string"
+                                },
+                                "bank_name": {
+                                    "type": "string"
+                                },
+                                "pending_amount": {
+                                    "type": "string"
+                                },
+                                "bill_book_number": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostMfdheaderP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    }
+}

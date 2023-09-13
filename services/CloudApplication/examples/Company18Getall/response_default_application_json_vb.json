@@ -1,0 +1,122 @@
+{
+    "items": [
+        {
+            "company_id": 101,
+            "company_name": "5 ELEMENTS",
+            "company_location": "CHENNAI",
+            "company_mailid": null,
+            "owner_name": null,
+            "turnover_million": 150,
+            "started_date": null,
+            "cloud_id": 20
+        },
+        {
+            "company_id": 102,
+            "company_name": "RJD SERVICE PROVIDER",
+            "company_location": "BANGLORE",
+            "company_mailid": null,
+            "owner_name": null,
+            "turnover_million": 100,
+            "started_date": null,
+            "cloud_id": 10
+        },
+        {
+            "company_id": 103,
+            "company_name": "SOFT SUAVE",
+            "company_location": "KERALA",
+            "company_mailid": null,
+            "owner_name": null,
+            "turnover_million": 50,
+            "started_date": null,
+            "cloud_id": 10
+        },
+        {
+            "company_id": 104,
+            "company_name": "KYNDRYL",
+            "company_location": "MUMBAI",
+            "company_mailid": null,
+            "owner_name": null,
+            "turnover_million": 200,
+            "started_date": null,
+            "cloud_id": 40
+        },
+        {
+            "company_id": 105,
+            "company_name": "ANZ SERVICE",
+            "company_location": "HYDERABAD",
+            "company_mailid": null,
+            "owner_name": null,
+            "turnover_million": 120,
+            "started_date": null,
+            "cloud_id": 10
+        },
+        {
+            "company_id": 106,
+            "company_name": "OMAXZE",
+            "company_location": "CHENNAI",
+            "company_mailid": null,
+            "owner_name": null,
+            "turnover_million": 30,
+            "started_date": null,
+            "cloud_id": 30
+        },
+        {
+            "company_id": 107,
+            "company_name": "PROGRESSIVE INFOTECH",
+            "company_location": "CHENNAI",
+            "company_mailid": null,
+            "owner_name": null,
+            "turnover_million": 500,
+            "started_date": null,
+            "cloud_id": 10
+        },
+        {
+            "company_id": 108,
+            "company_name": "NCR TECHNOLOGIES",
+            "company_location": "MUMBAI",
+            "company_mailid": null,
+            "owner_name": null,
+            "turnover_million": 100,
+            "started_date": null,
+            "cloud_id": 10
+        },
+        {
+            "company_id": 109,
+            "company_name": "BEBO TECHNOLOGIES",
+            "company_location": "CHENNAI",
+            "company_mailid": null,
+            "owner_name": null,
+            "turnover_million": 150,
+            "started_date": null,
+            "cloud_id": 20
+        },
+        {
+            "company_id": 110,
+            "company_name": "TEAMLEASE SERVICE PROVIDER",
+            "company_location": "BANGLORE",
+            "company_mailid": null,
+            "owner_name": null,
+            "turnover_million": 500,
+            "started_date": null,
+            "cloud_id": 30
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 10,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/cloud18/company18"
+        },
+        {
+            "rel": "edit",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/cloud18/company18"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/cloud18/item"
+        }
+    ]
+}

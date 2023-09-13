@@ -1,0 +1,124 @@
+{
+    "fieldValidators": [],
+    "objectFunctions": [],
+    "objectValidators": [],
+    "triggers": [
+        {
+            "active": "active",
+            "displayName": "Testing",
+            "lastUpdate": "2023-09-12T05:33:58",
+            "oid": "81b86432-a076-4e66-aa1a-7732b7ae230f",
+            "scriptMimeType": "application/x-adf-groovy",
+            "triggerEvents": [
+                "BeforeInsert"
+            ],
+            "workflow": {
+                "nodeType": "criterion",
+                "type": "condition",
+                "displayName": "Execute Conditionally",
+                "outcomes": {
+                    "false": {
+                        "nodeType": "terminus",
+                        "type": "end",
+                        "for": "trigger"
+                    },
+                    "true": {
+                        "nodeType": "actionGroup",
+                        "displayName": "Action Group",
+                        "after": {
+                            "nodeType": "terminus",
+                            "type": "continue",
+                            "for": "criteria"
+                        },
+                        "methodDefinition": {
+                            "typeId": "emailNotification",
+                            "archetypeId": "WorkflowPage__CompanyDetailArchetype",
+                            "vars": {
+                                "to": "{\"expressionValue\":\"='asik.j@4iapps.com'\",\"staticValue\":\"asik.j@4iapps.com\",\"inputMode\":\"static\"}",
+                                "templateId": "New mail",
+                                "methodName": "onCompanyActionGroupExecute",
+                                "pageEvent": "actionGroupExecute"
+                            },
+                            "outcomeHandlers": {}
+                        }
+                    }
+                },
+                "condition": {
+                    "children": [
+                        {
+                            "tooltip": "",
+                            "criteriaLhs": "income",
+                            "criteriaCond": "number:lessThan",
+                            "criteriaRhsInputMode": "static",
+                            "criteriaRhsInput": 500,
+                            "criteriaRhs": "500"
+                        }
+                    ],
+                    "tooltip": "",
+                    "className": "criteria-group-row-outermost",
+                    "matchChoice": "all"
+                }
+            }
+        }
+      ],
+    "fieldTriggers": [
+        {
+            "active": "active",
+            "description": "Testing",
+            "displayName": "Testcase",
+            "lastUpdate": "2023-09-12T05:33:27",
+            "oid": "0c0d7c87-9d8d-4a40-b4b1-761d4d1333fa",
+            "onField": "income",
+            "scriptMimeType": "application/x-adf-groovy",
+            "workflow": {
+                "nodeType": "criterion",
+                "type": "condition",
+                "displayName": "Execute Conditionally",
+                "outcomes": {
+                    "false": {
+
+                        "for": "trigger",
+                        "nodeType": "terminus",
+                        "type": "end"
+                    },
+                    "true": {
+                        "nodeType": "actionGroup",
+                        "displayName": "Action Group",
+                        "after": {
+                            "nodeType": "terminus",
+                            "type": "continue",
+                            "for": "criteria"
+                        },
+                        "methodDefinition": {
+                            "typeId": "emailNotification",
+                            "archetypeId": "WorkflowPage__CompanyDetailArchetype",
+                            "vars": {
+                                "to": "{\"expressionValue\":\"='asik.j@4iapps.com'\",\"staticValue\":\"asik.j@4iapps.com\",\"inputMode\":\"static\"}",
+                                "templateId": "New mail",
+                                "methodName": "onCompanyActionGroupExecute",
+                                "pageEvent": "actionGroupExecute"
+                            },
+                            "outcomeHandlers": {}
+                        }
+                    }
+                },
+                "condition": {
+                    "children": [
+                        {
+                            "tooltip": "",
+                            "criteriaLhs": "income",
+                            "criteriaCond": "number:greaterThan",
+                            "criteriaRhsInputMode": "static",
+                            "criteriaRhsInput": 500,
+                            "criteriaRhs": "500"
+                        }
+                    ],
+                    "tooltip": "",
+                    "className": "criteria-group-row-outermost",
+                    "matchChoice": "all"
+                }
+            }
+
+        }
+      ]
+}

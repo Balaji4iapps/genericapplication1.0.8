@@ -1,0 +1,81 @@
+{
+    "items": [
+        {
+            "product_num": "100",
+            "product_name": "DailyMilk",
+            "product_location": "Pondy",
+            "pincode": 605007,
+            "mobile": 9795893703,
+            "manufacture_date": "2022-02-21T00:00:00Z",
+            "expiry_date": "2022-06-12T00:00:00Z"
+        },
+        {
+            "product_num": "200",
+            "product_name": "DailymilkSilk",
+            "product_location": "Chennai",
+            "pincode": 605002,
+            "mobile": 8937349873,
+            "manufacture_date": "2022-02-25T00:00:00Z",
+            "expiry_date": "2022-06-14T00:00:00Z"
+        },
+        {
+            "product_num": "300",
+            "product_name": "Biscuit",
+            "product_location": "Trichy",
+            "pincode": 605003,
+            "mobile": 9759578434,
+            "manufacture_date": "2022-02-27T00:00:00Z",
+            "expiry_date": "2022-06-15T00:00:00Z"
+        },
+        {
+            "product_num": "700",
+            "product_name": "Cream",
+            "product_location": "Navallur",
+            "pincode": 605008,
+            "mobile": 9783847947,
+            "manufacture_date": "2022-03-02T00:00:00Z",
+            "expiry_date": "2022-06-28T00:00:00Z"
+        },
+        {
+            "product_num": "400",
+            "product_name": "Rice",
+            "product_location": "Theni",
+            "pincode": 605004,
+            "mobile": 9796689756,
+            "manufacture_date": "2022-02-18T00:00:00Z",
+            "expiry_date": "2022-06-29T00:00:00Z"
+        },
+        {
+            "product_num": "500",
+            "product_name": "Curd",
+            "product_location": "Tnagar",
+            "pincode": 605005,
+            "mobile": 7839839334,
+            "manufacture_date": "2022-02-12T00:00:00Z",
+            "expiry_date": "2022-06-22T00:00:00Z"
+        },
+        {
+            "product_num": "600",
+            "product_name": "Milk",
+            "product_location": "PondyEast",
+            "pincode": 605006,
+            "mobile": 6748379379,
+            "manufacture_date": "2022-02-09T00:00:00Z",
+            "expiry_date": "2022-06-26T00:00:00Z"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 7,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/productapplication/get"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/productapplication/item"
+        }
+    ]
+}

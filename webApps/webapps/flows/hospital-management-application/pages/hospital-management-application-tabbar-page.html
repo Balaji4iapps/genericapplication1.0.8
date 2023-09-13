@@ -1,0 +1,52 @@
+<div class="oj-panel oj-panel-shadow-md oj-selected">
+  <div id="sampleDemo" style="" class="demo-padding demo-container">
+    <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+      <div class="demo-tabbar-container oj-panel">
+        <oj-tab-bar edge="top" id="oj-tab-bar-1562501295-1" class="oj-flex-item oj-sm-12 oj-md-12"
+          selection="{{ $variables.tabbar }}">
+          <ul>
+            <li id="Tab1">
+              <a href="#" id="travelline-tab1">Tab 1</a>
+            </li>
+            <li id="Tab2">
+              <a href="#" id="oj-tab-bar-1562501295-1-tab-2-tab">Tab 2</a>
+            </li>
+            <li id="Tab3">
+              <a href="#" id="oj-tab-bar-1562501295-1-tab-3-tab">Tab 3</a>
+            </li>
+          </ul>
+        </oj-tab-bar>
+      </div>
+      <div class="demo-switcher-container oj-panel">
+        <oj-switcher value="[[ $variables.tabbar ]]">
+<!-- ----------------------TAB1---------------- -->
+          <div slot="Tab1" id="travelline-tab-panel1" role="tabpanel1" aria-labelledby="travelline-tab1"
+            style="height: 22rem;">
+            <div class="demo-content">
+              <img :src="[[ $flow.path + 'resources/images/plus.png' ]]" width="30" height="30">
+            </div>
+          </div>
+<!-- -------------------TAB2------------- -->
+          <div slot="Tab2" id="testing" role="tabpanel1" aria-labelledby="oj-tab-bar-1562501295-1-tab-2-tab"
+            style="height: 22rem;">
+            <div class="demo-content">
+              <img :src="[[ $flow.path + 'resources/images/loading_spinner.gif' ]]" width="30" height="30">
+            </div>
+          </div>
+<!-- ----------------TAB3------------- -->
+          <div slot="Tab3" id="travelline-tab-panel1" role="tabpanel1" aria-labelledby="oj-tab-bar-1562501295-1-tab-3-tab"
+            style="height: 22rem;">
+            <div class="demo-content">
+              <img :src="[[ $flow.path + 'resources/images/delete_icon_4.png' ]]" width="30" height="30">
+            </div>
+          </div>
+<!-- ---------------------------------------------- -->
+        </oj-switcher>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

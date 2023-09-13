@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToHospitalManagementApplicationActioncard2",
+  "actions": {
+    "navigateToHospitalManagementApplicationActioncard2": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "hospital-management-application-actioncard2"
+      }
+    }
+  },
+  "variables": {}
+}

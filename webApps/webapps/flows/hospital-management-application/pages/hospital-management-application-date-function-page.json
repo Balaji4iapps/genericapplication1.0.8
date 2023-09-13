@@ -1,0 +1,64 @@
+{
+  "title": "hospital management application date function",
+  "description": "",
+  "variables": {
+    "datefun": {
+      "type": "postProductappP_METHODP_PRIMARYKEY"
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.postProductappP_METHODP_PRIMARYKEY": {
+      "endpoint": "postProductappP_METHODP_PRIMARYKEY",
+      "service": "Productapplication",
+      "path": "request"
+    },
+    "postProductappP_METHODP_PRIMARYKEY": {
+      "expiry_date": "string",
+      "manufacture_date": "string",
+      "mobile": "number",
+      "pincode": "number",
+      "product_location": "string",
+      "product_name": "string",
+      "product_num": "string",
+      "stock_remain": "string"
+    }
+  },
+  "eventListeners": {
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      }
+    }
+  }
+}

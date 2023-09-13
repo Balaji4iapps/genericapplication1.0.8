@@ -1,0 +1,58 @@
+{
+  "description": "",
+  "root": "callRestPostMatchPMETHODPPRIMARYKEY2",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostMatchPMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostMatchPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/postMatchP_METHODP_PRIMARYKEY2",
+        "uriParams": {
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $page.variables.matches }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "type": "confirmation",
+        "displayMode": "transient",
+        "summary": "[[$application.translations.app.fireNotification2_summary_bc34]]",
+        "message": "[[$application.translations.app.fireNotification2_message_9966]]"
+      },
+      "outcomes": {
+        "success": "callChainMatchdeletepopupclose"
+      }
+    },
+    "callChainMatchdeletepopupclose": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "matchdeletepopupclose"
+      },
+      "outcomes": {
+        "success": "callChainOnloaddatabyid"
+      }
+    },
+    "callChainOnloaddatabyid": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onloaddatabyid"
+      }
+    }
+  },
+  "variables": {}
+}

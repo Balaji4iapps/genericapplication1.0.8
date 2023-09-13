@@ -1,0 +1,214 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "Checkbox": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "getGet"
+      },
+      "required": true,
+      "input": "fromCaller"
+    },
+    "Dataapplication": {
+      "type": "any"
+    },
+    "deletevar": {
+      "type": "number"
+    },
+    "getGetListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "Productapplication/getGet",
+        "keyAttributes": "product_num",
+        "itemsPath": "items",
+        "responseType": "getGetResponse",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "product_name"
+          ]
+        }
+      }
+    },
+    "productname": {
+      "type": "string"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getGet": {
+      "endpoint": "getGet",
+      "service": "Productapplication",
+      "path": "response"
+    },
+    "@decorators.getGetResponse": {
+      "endpoint": "getGet",
+      "service": "Productapplication",
+      "path": "response"
+    },
+    "getGet": {
+    
+          "expiry_date": "string",
+          "manufacture_date": "string",
+          "mobile": "number",
+          "pincode": "number",
+          "product_location": "string",
+          "product_name": "string",
+          "product_num": "string"
+        
+    },
+    "getGetResponse": {
+      "items": [
+        {
+          "expiry_date": "string",
+          "manufacture_date": "string",
+          "mobile": "number",
+          "pincode": "number",
+          "product_location": "string",
+          "product_name": "string",
+          "product_num": "string"
+        }
+      ]
+    }
+
+  },
+  "eventListeners": {
+    "booleanCheckboxComponentValue": {
+      "chains": [
+        {
+          "chainId": "BooleanCheckboxComponentValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "searchaction"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "Resetbutton"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "Createbutton"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "deletepopup"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "hyperlinkClick": {
+      "chains": [
+        {
+          "chainId": "HyperlinkClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "deletepopupopen",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick2": {
+      "chains": [
+        {
+          "chainId": "deletepopupclose"
+        }
+      ]
+    },
+    "imageClick3": {
+      "chains": [
+        {
+          "chainId": "Deletesavebutton"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "onloadtable"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-sample-checkbox-switch": {
+        "path": "oj-sample/checkbox-switch/loader"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      }
+    }
+  }
+}

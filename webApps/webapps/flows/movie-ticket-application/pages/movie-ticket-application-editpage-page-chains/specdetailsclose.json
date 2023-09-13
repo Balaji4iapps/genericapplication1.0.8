@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentSpectatordetailsClose",
+  "actions": {
+    "callComponentSpectatordetailsClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Spectatordetails') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

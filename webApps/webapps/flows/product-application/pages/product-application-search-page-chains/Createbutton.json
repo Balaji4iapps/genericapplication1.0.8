@@ -1,0 +1,18 @@
+{
+  "description": "",
+  "root": "navigatetopost",
+  "actions": {
+    "navigatetopost": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "product-application-post",
+        "params": {
+          "method": "CREATE",
+          "primarykey": "0",
+          "box": "{{ $page.variables.Checkbox.data[0] }}"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

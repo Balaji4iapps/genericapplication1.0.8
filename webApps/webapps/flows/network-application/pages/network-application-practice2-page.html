@@ -1,0 +1,142 @@
+<div class="oj-flex">
+  <h1 class="oj-flex-item oj-sm-12 oj-md-12" style="color:green;" >Network Records</h1>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-form-layout label-edge="top" columns="3">
+      <oj-input-text label-hint="Network Name" value="{{ $variables.networkrecords.network_name }}"></oj-input-text>
+      <oj-input-text label-hint="Data Pack" value="{{ $variables.networkrecords.data_pack }}"></oj-input-text>
+      <oj-input-text label-hint="MRP" value="{{ $variables.networkrecords.mrp }}"></oj-input-text>
+      <oj-input-text label-hint="Validity" value="{{ $variables.networkrecords.validity }}"></oj-input-text>
+      <oj-input-text label-hint="Subscriptions" value="{{ $variables.networkrecords.subscriptions }}"></oj-input-text>
+      <oj-input-text label-hint="SMS" value="{{ $variables.networkrecords.sms }}"></oj-input-text>
+    </oj-form-layout>
+     <div>
+      <oj-button label="Save" on-oj-action="[[$listeners.buttonAction]]"></oj-button>
+      <oj-button label="Save and Close" on-oj-action="[[$listeners.buttonAction3]]"></oj-button>
+      <oj-button label="Close" on-oj-action="[[$listeners.buttonAction2]]"></oj-button> 
+      </div>
+  </div>
+</div>
+<div class="oj-flex">
+  <h1 class="oj-flex-item oj-sm-12 oj-md-12" style="color:green;">Customer Record</h1>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-button label="Create" on-oj-action="[[$listeners.buttonAction4]]"></oj-button>  
+  </div>
+</div>
+
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+    columns='[{"headerText":"Customer Number","field":"customer_id","width":80},{"headerText":"Network Number","field":"network_id","width":80},{"headerText":"Customer Name","field":"customer_name","width":80},{"headerText":"Phone Number","field":"contact_no","width":80},{"headerText":"Residence","field":"residence","width":80},{"headerText":"Pincode","field":"pincode","width":80},{"headerText":"Plan Detail","field":"plan_detail","width":80},{"headerText":"Update","field":"","template":"Update","width":80},{"headerText":"Delete","field":"","template":"Delete","width":80}]'
+    data="[[ $variables.customerrecords ]]" selection-mode.row="single" selection-mode.column="single"
+    edit-mode="rowEdit" horizontal-grid-visible="enabled" vertical-grid-visible="enabled">
+    <oj-paging-control id="paging" class="oj-sm-width-full" page-size="5" slot="bottom" data="[[  $variables.customerrecords ]]">
+</oj-paging-control>
+    <template slot="Update">
+      <img :src="[[ $flow.path + 'resources/images/system-update_2.png' ]]" width="30" height="30"
+        on-click="[[$listeners.imageClick]]">
+    </template>
+    <template slot="Delete">
+      <img :src="[[ $flow.path + 'resources/images/delete_1.png' ]]" width="30" height="30"
+        on-click="[[$listeners.imageClick2]]">
+    </template>
+    
+  </oj-table>
+</div>
+<oj-dialog style="display:none" dialog-title="Alert" id="deletepopup">
+  <div slot="body">
+    <div class="oj-flex">
+      Records will be deleted!
+    </div>
+  </div>
+  <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction7]]">Yes</oj-button>
+    <oj-button on-oj-action="[[$listeners.buttonAction8]]">Cancel</oj-button>
+  </div>
+</oj-dialog>
+<oj-dialog style="display:none" dialog-title="Customer Details" id="customerpopup">
+  <div slot="body">
+    <div class="oj-flex">
+      <div class="oj-flex-item oj-sm-flex-initial">
+        <oj-form-layout label-edge="top" columns="2" max-columns="2">
+     <oj-label for="oj-input-text-502424435-1">Customer Name</oj-label>
+      <oj-input-text id="oj-input-text-502424435-1" value="{{ $variables.customerdatas.customer_name }}" ></oj-input-text>
+      <oj-label for="oj-input-number-502424435-1">Contact Number</oj-label>
+      <oj-input-number id="oj-input-number-502424435-1" value="{{ $variables.customerdatas.contact_no }}" ></oj-input-number>
+      <oj-label for="oj-input-text-502424435-2" >Residence</oj-label>
+      <oj-input-text id="oj-input-text-502424435-2" value="{{ $variables.customerdatas.residence }}" ></oj-input-text>
+      <oj-label for="oj-input-number-502424435-2">Pincode</oj-label>
+      <oj-input-number id="oj-input-number-502424435-2" value="{{ $variables.customerdatas.pincode }}"></oj-input-number>
+      <oj-label for="oj-input-text-502424435-3">Plan Detail</oj-label>
+      <oj-input-text id="oj-input-text-502424435-3" value="{{ $variables.customerdatas.plan_detail }}"></oj-input-text>
+        </oj-form-layout>
+      </div>
+    </div>
+  </div>
+  <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction10]]">Save</oj-button>
+    <oj-button on-oj-action="[[$listeners.buttonAction9]]">Close</oj-button>
+  </div>
+</oj-dialog>
+<h1 style="color:green;">Customer Work</h1>
+<div>
+  <oj-button label="Create" on-oj-action="[[$listeners.buttonAction5]]"></oj-button>
+</div>
+<oj-table scroll-policy="loadMoreOnScroll"
+  columns='[{"headerText":"Customer_Number","field":"customer_id"},{"headerText":"Customer_Name","field":"customer_name"},{"headerText":"Company","field":"company"},{"headerText":"DOB","field":"dob"},{"headerText":"Employee_Number","field":"employee_num"},{"headerText":"Job","field":"job"},{"headerText":"Salary","field":"salary"},{"headerText":"Update","field":"","template":"Update"},{"headerText":"Delete","field":"","template":"Delete"}]'
+  data="[[ $variables.cusworktable ]]" selection-mode.row="single" selection-mode.column="single" edit-mode="rowEdit"
+  vertical-grid-visible="enabled" horizontal-grid-visible="enabled">
+  <oj-paging-control id="paging" class="oj-sm-width-full" page-size="5" slot="bottom"
+    data="[[ $variables.cusworktable ]]">
+</oj-paging-control>
+  <template slot="Update">
+    <img :src="[[ $flow.path + 'resources/images/system-update_3.png' ]]" width="30" height="30"
+      on-click="[[$listeners.imageClick3]]">
+  </template>
+  <template slot="Delete">
+    <img :src="[[ $flow.path + 'resources/images/dellete_2.png' ]]" width="30" height="30"
+      on-click="[[$listeners.imageClick4]]">
+  </template>
+  
+</oj-table>
+<oj-dialog style="display:none" dialog-title="Customer Work Details" id="cuswrkpopup">
+  <div slot="body">
+    <div class="oj-flex">
+      <oj-label for="oj-input-text-502424435-4">Customer Name</oj-label>
+      <oj-input-text id="oj-input-text-502424435-4" value="{{ $variables.cuswrkdatas.customer_name }}"></oj-input-text>
+      <oj-label for="oj-input-date-502424435-1">DOB</oj-label>
+      <oj-input-date id="oj-input-date-502424435-1" value="{{ $variables.cuswrkdatas.dob }}" max="2002-12-31"></oj-input-date>
+      <oj-label for="oj-input-text-502424435-5">Company</oj-label>
+      <oj-input-text id="oj-input-text-502424435-5" value="{{ $variables.cuswrkdatas.company }}"></oj-input-text>
+      <oj-label for="oj-input-text-502424435-6">Job</oj-label>
+      <oj-input-text id="oj-input-text-502424435-6" value="{{ $variables.cuswrkdatas.job }}"></oj-input-text>
+      <oj-label for="oj-input-number-502424435-3">Salary</oj-label>
+      <oj-input-number id="oj-input-number-502424435-3" value="{{ $variables.cuswrkdatas.salary }}"></oj-input-number>
+    </div>
+  </div>
+  <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction11]]">Save</oj-button>
+    <oj-button on-oj-action="[[$listeners.buttonAction6]]">Close</oj-button>
+  </div>
+</oj-dialog>
+<oj-dialog style="display:none" dialog-title="Alert" id="cuswrkdelete">
+  <div slot="body">
+    <div class="oj-flex">
+      Record will be deleted!
+    </div>
+  </div>
+  <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction12]]">Yes</oj-button>
+    <oj-button>Cancel</oj-button>
+  </div>
+</oj-dialog>
+
+
+
+
+
+
+
+

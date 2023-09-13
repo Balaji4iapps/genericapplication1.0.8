@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentEmployeeDeleteClose",
+  "actions": {
+    "callComponentEmployeeDeleteClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('EmployeeDelete') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

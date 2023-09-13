@@ -1,0 +1,35 @@
+{
+  "description": "",
+  "root": "callChainHdrOnload",
+  "actions": {
+    "callChainHdrOnload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "hdrOnload"
+      }
+    }
+  },
+  "variables": {
+    "interval": {
+
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "tick": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "skipped": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "throttled": {
+      "required": true,
+      "type": "boolean",
+      "input": "fromCaller"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "description": "",
+  "root": "assignVariablesMethodchild1",
+  "actions": {
+    "callComponentChild1createeditOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('child1createedit') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestGetSmartchild"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetSmartchild.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetSmartchild": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "supermartapplication/getSmartchild",
+        "uriParams": {
+          "productid": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesAllcolumnchild1"
+      }
+    },
+    "assignVariablesAllcolumnchild1": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.allcolumnchild1": {
+          "source": "{{ $chain.results.callRestGetSmartchild.body.items[0] }}",
+          "auto": "always"
+        }
+      }
+    },
+    "assignVariablesMethodchild1": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.methodchild1": {
+          "source": "edit"
+        },
+        "$page.variables.primarykeychild1": {
+          "source": "{{ $variables.key }}"
+        },
+        "$page.variables.allcolumnchild1": {
+          "source": {
+            "manufacturer_id": "{{ $page.variables.primarykey }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentChild1createeditOpen"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

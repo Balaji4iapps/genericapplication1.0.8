@@ -1,0 +1,22 @@
+{
+  "description": "",
+  "root": "callChainSaveinheader",
+  "actions": {
+    "callChainSaveinheader": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "Saveinheader"
+      },
+      "outcomes": {
+        "success": "navigateToNetworkDetails"
+      }
+    },
+    "navigateToNetworkDetails": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "network-details"
+      }
+    }
+  },
+  "variables": {}
+}

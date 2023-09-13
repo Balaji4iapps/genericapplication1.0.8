@@ -1,0 +1,67 @@
+{
+  "description": "",
+  "root": "callRestPostVvspectatorspostPMETHODPPRIMARYKEY",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostVvspectatorspostPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostVvspectatorspostPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Moviesticketbooking/postVvspectatorspostP_METHODP_PRIMARYKEY",
+        "uriParams": {
+
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $variables.key }}"
+        },
+        "body": "{{ $page.variables.vvspectatorvariable }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_3942]]",
+        "type": "error",
+        "displayMode": "persist"
+      },
+      "outcomes": {
+        "success": "callChainEditpageonload"
+      }
+    },
+    "callChainEditpageonload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "editpageonload"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

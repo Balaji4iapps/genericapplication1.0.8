@@ -1,0 +1,15 @@
+{
+  "description": "",
+  "root": "resetVariablesManufacturevariable",
+  "actions": {
+    "resetVariablesManufacturevariable": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.manufacturevariable"
+        ]
+      }
+    }
+  },
+  "variables": {}
+}

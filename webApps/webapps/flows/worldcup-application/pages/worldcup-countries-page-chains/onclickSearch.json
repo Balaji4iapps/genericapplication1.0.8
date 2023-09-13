@@ -1,0 +1,50 @@
+{
+  "description": "",
+  "root": "callRestGetGetcon",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetGetcon.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetGetcon": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/getGetcon",
+        "uriParams": {
+          "cid": "{{ $page.variables.c_id }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetGetcon.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesSearch"
+      }
+    },
+    "assignVariablesSearch": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.search": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,85 @@
+{
+  "description": "",
+  "root": "assignVariablesDiagnosis",
+  "actions": {
+    "assignVariablesDiagnosis": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.diagnosis": {
+          "source": {
+            "pat_id": "{{ $page.variables.primarykey }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        },
+        "$page.variables.diagkey": {
+          "source": "{{ $variables.key }}"
+        },
+        "$page.variables.diagmethod": {
+          "source": "edit"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentDiagnosisOpen"
+      }
+    },
+    "callComponentDiagnosisOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('diagnosis') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestGetPatientdiagnosisbypatientdiagnosispk"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetPatientdiagnosisbypatientdiagnosispk.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetPatientdiagnosisbypatientdiagnosispk": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/getPatientdiagnosisbypatientdiagnosispk",
+        "uriParams": {
+          "diagid": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesDiagnosis2"
+      }
+    },
+    "assignVariablesDiagnosis2": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.diagnosis": {
+          "source": "{{ $chain.results.callRestGetPatientdiagnosisbypatientdiagnosispk.body.items[0] }}",
+          "auto": "always"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

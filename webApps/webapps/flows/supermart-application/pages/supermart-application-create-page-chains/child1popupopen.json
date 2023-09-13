@@ -1,0 +1,66 @@
+{
+  "description": "",
+  "root": "ifPrimarykey",
+  "actions": {
+    "callComponentChild1createeditOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('child1createedit') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "assignVariablesMethodchild1"
+      }
+    },
+    "assignVariablesMethodchild1": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.methodchild1": {
+          "source": "CREATE"
+        },
+        "$page.variables.primarykeychild1": {
+          "source": "0"
+        },
+        "$page.variables.allcolumnchild1": {
+          "source": {
+            "manufacturer_id": "{{ $page.variables.primarykey }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "resetVariablesAllcolumnchild1"
+      }
+    },
+    "ifPrimarykey": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.primarykey!=0 ]]"
+      },
+      "outcomes": {
+        "true": "callComponentChild1createeditOpen",
+        "false": "fireNotification"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification_summary_3175]]",
+        "message": "[[$application.translations.app.fireNotification_message_5c6c]]",
+        "displayMode": "transient",
+        "type": "warning"
+      }
+    },
+    "resetVariablesAllcolumnchild1": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.allcolumnchild1"
+        ]
+      }
+    }
+  },
+  "variables": {}
+}

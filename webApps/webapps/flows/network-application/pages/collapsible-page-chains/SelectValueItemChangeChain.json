@@ -1,0 +1,75 @@
+{
+  "description": "",
+  "root": "ifData",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetname.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetname.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesNettable"
+      }
+    },
+    "assignVariablesNettable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.nettable": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    },
+    "ifData": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $variables.data!=null ]]"
+      },
+      "outcomes": {
+        "true": "callRestGetname"
+      }
+    },
+    "callRestGetname": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Network1312/getname",
+        "uriParams": {
+          "p_search_value": "{{ $page.variables.postvar.network_name }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingLine"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "data": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "metadata": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

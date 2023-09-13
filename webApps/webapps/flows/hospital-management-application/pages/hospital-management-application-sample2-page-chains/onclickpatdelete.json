@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentDeletepatientClose",
+  "actions": {
+    "callComponentDeletepatientClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Deletepatient') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

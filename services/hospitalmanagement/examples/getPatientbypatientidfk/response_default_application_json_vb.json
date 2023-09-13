@@ -1,0 +1,26 @@
+{
+    "items": [
+        {
+            "pat_id": 19,
+            "pat_name": "ZZZ",
+            "pat_gender": "F",
+            "pat_address": null,
+            "pat_number": null,
+            "pat_doc_code": 1011
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1310/patientbypatientidfk?patid=19"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1310/item"
+        }
+    ]
+}

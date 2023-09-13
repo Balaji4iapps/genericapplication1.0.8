@@ -1,0 +1,28 @@
+{
+  "description": "",
+  "root": "callComponentPOPUPOpen",
+  "actions": {
+    "callComponentPOPUPOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('POPUP') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "assignVariablesMethod"
+      }
+    },
+    "assignVariablesMethod": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Method": {
+          "source": "create"
+        },
+        "$page.variables.Primarykey": {
+          "source": "0"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

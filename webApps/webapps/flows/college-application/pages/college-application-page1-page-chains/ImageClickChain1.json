@@ -1,0 +1,33 @@
+{
+  "description": "",
+  "root": "navigateToCollegeApplicationPage2",
+  "actions": {
+    "navigateToCollegeApplicationPage2": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "college-application-page2",
+        "params": {
+          "method": "EDIT",
+          "primarykeyed": "{{ $variables.key }}"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

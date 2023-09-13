@@ -1,0 +1,27 @@
+{
+    "items": [
+        {
+            "moviesno": 2,
+            "spectatorno": 2,
+            "spectatorname": "Vikram",
+            "spectatorage": 22,
+            "mobilenumber": 9988766553,
+            "seatingrow": "B",
+            "gender": "Male"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/moviestable/Specgetbyidpk?pspectatorno=2"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/moviestable/item"
+        }
+    ]
+}

@@ -1,0 +1,117 @@
+{
+  "description": "",
+  "root": "if",
+  "actions": {
+    "ifPostmethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.postmethod=='CREATE' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostPostvvmoiesPMETHODPPRIMARYKEY",
+        "false": "callRestPostPostvvmoiesPMETHODPPRIMARYKEY2"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostPostvvmoiesPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostPostvvmoiesPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Moviesticketbooking/postPostvvmoiesP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.moviepost }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_a655]]",
+        "message": "[[$application.translations.app.fireNotification2_message_65ad]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "assignVariablesPostprimarykey"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostPostvvmoiesPMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostPostvvmoiesPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Moviesticketbooking/postPostvvmoiesP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.postprimarykey }}"
+        },
+        "body": "{{ $page.variables.moviepost }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification4_summary_da92]]",
+        "message": "[[$application.translations.app.fireNotification4_message_3218]]",
+        "type": "confirmation",
+        "displayMode": "transient"
+      }
+    },
+    "callChainEditpageonload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "editpageonload"
+      }
+    },
+    "assignVariablesPostprimarykey": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.postprimarykey": {
+          "source": "{{ $chain.results.callRestPostPostvvmoiesPMETHODPPRIMARYKEY.body.p_primarykey }}"
+        },
+        "$page.variables.postmethod": {
+          "source": "edit"
+        }
+      },
+      "outcomes": {
+        "success": "callChainEditpageonload"
+      }
+    },
+    "if": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $functions.isFormValid(\"hdrmovies\") ]]"
+      },
+      "outcomes": {
+        "true": "ifPostmethod"
+      }
+    }
+  },
+  "variables": {}
+}

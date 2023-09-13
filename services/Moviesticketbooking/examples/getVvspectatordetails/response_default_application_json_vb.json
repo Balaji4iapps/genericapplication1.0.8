@@ -1,0 +1,63 @@
+{
+    "items": [
+        {
+            "spectatorno": 1,
+            "locationno": 1,
+            "locationname": "Vellore",
+            "address": "Gandhinagar",
+            "pincode": 632001,
+            "country": "India",
+            "state": "Tamilnadu"
+        },
+        {
+            "spectatorno": 2,
+            "locationno": 2,
+            "locationname": "Katpadi",
+            "address": "Bharathinagar",
+            "pincode": 632002,
+            "country": "India",
+            "state": "Tamilnadu"
+        },
+        {
+            "spectatorno": 3,
+            "locationno": 3,
+            "locationname": "Kvkuppam",
+            "address": "KKnagar",
+            "pincode": 632007,
+            "country": "India",
+            "state": "Tamilnadu"
+        },
+        {
+            "spectatorno": 4,
+            "locationno": 4,
+            "locationname": "Latheri",
+            "address": "Swamynagar",
+            "pincode": 632004,
+            "country": "India",
+            "state": "Tamilnadu"
+        },
+        {
+            "spectatorno": 5,
+            "locationno": 5,
+            "locationname": "Gudiyatham",
+            "address": "Gandhinagar",
+            "pincode": 632009,
+            "country": "India",
+            "state": "Tamilnadu"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 5,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/moviestable/vvspectatordetails"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/moviestable/item"
+        }
+    ]
+}

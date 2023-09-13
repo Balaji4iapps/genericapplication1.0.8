@@ -1,0 +1,206 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "address": {
+      "type": {
+        "address": "string",
+        "address_id": "number",
+        "city_id": "number",
+        "district": "string",
+        "last_update": "string",
+        "phone": "number",
+        "postal_code": "number",
+        "seq_place": "string"
+      }
+    },
+    "staff": {
+      "type": "Getstaff"
+    },
+    "staffADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "Getstaff",
+        "keyAttributes": "staff_id"
+      }
+    },
+    "stafftable": {
+      "type": {
+        "address_id": "number",
+        "email": "string",
+        "firstname": "string",
+        "lastname": "string",
+        "staff_id": "number"
+      }
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.Getplace": {
+      "endpoint": "Getplace",
+      "service": "DvdORDS",
+      "path": "response-_-items[0]"
+    },
+    "@decorators.Getstaff": {
+      "endpoint": "Getstaff",
+      "service": "DvdORDS",
+      "path": "response-_-items[0]"
+    },
+    "Getplace": {
+      "address": "string",
+      "address_id": "number",
+      "city_id": "number",
+      "district": "string",
+      "phone": "number",
+      "postal_code": "number"
+    },
+    "Getstaff": {
+      "address_id": "number",
+      "email": "string",
+      "first_name": "string",
+      "last_name": "string",
+      "last_update": "string",
+      "seq_staff": "any",
+      "staff_id": "number",
+      "store_id": "number",
+      "username": "string"
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "AddressSavePopup"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "CancelAddressPopup"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "OnPressDelete",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "StaffDetailSave"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "OnPressStaffCancel"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "OnPressHome"
+        }
+      ]
+    },
+    "hyperlinkClick": {
+      "chains": [
+        {
+          "chainId": "HyperlinkClickChainstaffID",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "hyperlinkClick2": {
+      "chains": [
+        {
+          "chainId": "HyperlinkClickChainaddressID",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "OnLoadStaff"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-action-card": {
+        "path": "ojs/ojactioncard"
+      },
+      "oj-avatar": {
+        "path": "ojs/ojavatar"
+      },
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-radioset": {
+        "path": "ojs/ojradioset"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      }
+
+    },
+    "modules": {
+      "ojValidationBase": {
+        "path": "ojs/ojvalidation-base"
+      },
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+    }
+  }
+}

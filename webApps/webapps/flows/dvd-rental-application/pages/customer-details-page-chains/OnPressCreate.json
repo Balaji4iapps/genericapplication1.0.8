@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToNewCustomer",
+  "actions": {
+    "navigateToNewCustomer": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "new-customer"
+      }
+    }
+  },
+  "variables": {}
+}

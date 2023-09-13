@@ -1,0 +1,116 @@
+{
+  "title": "hospital management application inline edit",
+  "description": "",
+  "variables": {
+    "Dataobj": {
+      "type": "getDoctorbydoctorid"
+    },
+    "getDoctordetailsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "hospitalmanagement/getDoctordetails",
+        "keyAttributes": "doc_code",
+        "itemsPath": "items",
+        "responseType": "getDoctordetailsResponse"
+      }
+    },
+    "saveSucessVar": {
+      "type": "string"
+    },
+    "TableADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "getDoctorbydoctorid",
+        "keyAttributes": "@index"
+      }
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getDoctorbydoctorid": {
+      "endpoint": "getDoctorbydoctorid",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "@decorators.getDoctordetailsResponse": {
+      "endpoint": "getDoctordetails",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "getDoctorbydoctorid": {
+          "doc_address": "string",
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_gender": "string",
+          "doc_name": "string",
+          "doc_number": "number"
+    },
+    "getDoctordetailsResponse": {
+      "items": [
+        {
+          "doc_address": "string",
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_name": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "savebutton"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "Onload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+
+    }
+  }
+}

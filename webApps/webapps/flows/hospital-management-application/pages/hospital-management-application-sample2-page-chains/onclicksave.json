@@ -1,0 +1,99 @@
+{
+  "description": "",
+  "root": "ifMethod",
+  "actions": {
+    "ifMethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.method=='create' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostDoctordetailsPMETHODPPRIMARYKEY",
+        "false": "callRestPostDoctordetailsPMETHODPPRIMARYKEY2"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostDoctordetailsPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostDoctordetailsPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/postDoctordetailsP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.doctorc }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification2"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostDoctordetailsPMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostDoctordetailsPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/postDoctordetailsP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.primarykey }}"
+        },
+        "body": "{{ $page.variables.doctorc }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification3",
+        "success": "fireNotification5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostDoctordetailsPMETHODPPRIMARYKEY2.body.p_err_msg ]]",
+        "message": "[[$application.translations.app.fireNotification4_message_2f05]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_caa2]]",
+        "message": "[[$application.translations.app.fireNotification2_message_be3f]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "assignVariablesMethod"
+      }
+    },
+    "assignVariablesMethod": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.method": {
+          "source": "edit"
+        },
+        "$page.variables.primarykey": {
+          "source": "{{ $chain.results.callRestPostDoctordetailsPMETHODPPRIMARYKEY.body.p_primarykey }}"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

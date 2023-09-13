@@ -1,0 +1,17 @@
+{
+  "description": "",
+  "root": "navigateToWorldcupCreate",
+  "actions": {
+    "navigateToWorldcupCreate": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "worldcup-create",
+        "params": {
+          "Method": "create",
+          "PrimaryKey": "0"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

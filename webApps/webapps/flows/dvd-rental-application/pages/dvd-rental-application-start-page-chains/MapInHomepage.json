@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentStoreLocationMapOpen",
+  "actions": {
+    "callComponentStoreLocationMapOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('StoreLocationMap') }}",
+        "method": "open"
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,24 @@
+{
+  "description": "",
+  "root": "resetVariablesLovsearch",
+  "actions": {
+    "resetVariablesLovsearch": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.lovsearch"
+        ]
+      },
+      "outcomes": {
+        "success": "callChainVbpageload"
+      }
+    },
+    "callChainVbpageload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "vbpageload"
+      }
+    }
+  },
+  "variables": {}
+}

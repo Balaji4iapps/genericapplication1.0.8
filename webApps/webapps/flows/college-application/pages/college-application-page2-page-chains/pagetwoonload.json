@@ -1,0 +1,93 @@
+{
+  "root": "ifMethod",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "ifMethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.method=='EDIT' ]]"
+      },
+      "outcomes": {
+        "true": "callRestGetCollegegetid"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetCollegegetid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetCollegegetid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "collegeapplication/getCollegegetid",
+        "uriParams": {
+          "staff_id": "{{ $page.variables.primarykeyed }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesCollege"
+      }
+    },
+    "assignVariablesCollege": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.college": {
+          "source": "{{ $chain.results.callRestGetCollegegetid.body.items[0] }}",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callRestStudentdetailsgetidfk"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestStudentdetailsgetidfk.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestStudentdetailsgetidfk": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "collegeapplication/Studentdetailsgetidfk",
+        "uriParams": {
+          "staff_id": "{{ $page.variables.primarykeyed }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestStudentdetailsgetidfk.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesStudentload"
+      }
+    },
+    "assignVariablesStudentload": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.studentload": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+    "items": [
+        {
+            "service_id": 20,
+            "service_short_name": "PAAS",
+            "company_full_name": "Product As A Service",
+            "storage_used": "1000 TB",
+            "started_date": "2018-07-16T00:00:00Z",
+            "bond_duration": "5 YEARS",
+            "bond_type": "PERMANENT",
+            "company_id": 101
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/cloud18/servicegetbypk?pservice_id=20"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/cloud18/item"
+        }
+    ]
+}

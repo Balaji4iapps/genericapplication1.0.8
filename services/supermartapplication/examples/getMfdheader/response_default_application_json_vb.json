@@ -1,0 +1,98 @@
+{
+    "items": [
+        {
+            "manufacturer_id": "1001",
+            "manufacturer": "Mek Raw Foods",
+            "city": "Ludhiana",
+            "mail_id": "mkrawfoods@gmail.com",
+            "contact_number": "8754887766",
+            "account_number": "50000198998",
+            "industry_type": "Large scale",
+            "state_location": "punjab"
+        },
+        {
+            "manufacturer_id": "1002",
+            "manufacturer": "SS Sugar Mills",
+            "city": "Cuddalore",
+            "mail_id": "sssugar@gmail.com",
+            "contact_number": "7766889900",
+            "account_number": "10000354565",
+            "industry_type": "Large scale",
+            "state_location": "TamilNadu"
+        },
+        {
+            "manufacturer_id": "1003",
+            "manufacturer": "Kar Rice Factory",
+            "city": "\tTanjavur",
+            "mail_id": "\tkarrice@gmail.com\t",
+            "contact_number": "6311277659",
+            "account_number": "30000283668",
+            "industry_type": "\tLarge scale",
+            "state_location": "TamilNadu"
+        },
+        {
+            "manufacturer_id": "1004",
+            "manufacturer": "Kumari Oils",
+            "city": "Kanniyakumari",
+            "mail_id": "kumarioils@gmail.com",
+            "contact_number": "9994564459",
+            "account_number": "70000276792",
+            "industry_type": "Medium Scale",
+            "state_location": "TamilNadu"
+        },
+        {
+            "manufacturer_id": "1005",
+            "manufacturer": "Maa Diary Farm",
+            "city": "Nagpur",
+            "mail_id": "maadf@gmail.com",
+            "contact_number": "8870211334",
+            "account_number": "50000735567",
+            "industry_type": "Small scale",
+            "state_location": "Maharastra"
+        },
+        {
+            "manufacturer_id": "1006",
+            "manufacturer": "DS Honey",
+            "city": "Trinelveli",
+            "mail_id": "dshoney@gmail.com",
+            "contact_number": "8754367765",
+            "account_number": "20000899067",
+            "industry_type": "Small scale",
+            "state_location": "TamilNadu"
+        },
+        {
+            "manufacturer_id": "1007",
+            "manufacturer": "SS Nuts",
+            "city": "Tenkasi",
+            "mail_id": "ssnuts@gmail.com",
+            "contact_number": "9999887766",
+            "account_number": "70003455674",
+            "industry_type": "\tSmall scale",
+            "state_location": "TamilNadu"
+        },
+        {
+            "manufacturer_id": "1008",
+            "manufacturer": "Premium Spices",
+            "city": "Trivandrum",
+            "mail_id": "\tpstvm@gmail.com",
+            "contact_number": "6677558876",
+            "account_number": "40009900896",
+            "industry_type": "\tLarge scale",
+            "state_location": "kerala"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 8,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1313mod/mfdheader"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1313mod/item"
+        }
+    ]
+}

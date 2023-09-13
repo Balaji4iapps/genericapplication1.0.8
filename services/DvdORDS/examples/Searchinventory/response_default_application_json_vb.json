@@ -1,0 +1,25 @@
+{
+    "items": [
+        {
+            "inventory_id": 2288,
+            "film_id": 496,
+            "store_id": 1,
+            "last_update": "0021-05-18T12:10:09Z",
+            "seq_inventory": 2288
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/dvdrental/searchinventory?inventory_id=2288"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/dvdrental/item"
+        }
+    ]
+}

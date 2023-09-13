@@ -1,0 +1,36 @@
+<h1></h1>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-form-layout>
+      <oj-button class="oj-button-sm" chroming="solid"
+        style="margin-left:0.5%;margin-right:1.5%;" on-oj-action="[[$listeners.buttonAction2]]" display="icons" >Close
+  <img slot="startIcon" :src="[[ $flow.path + 'resources/images/icons8-left_2.gif' ]]" width="30" height="30">
+      </oj-button>
+      <div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-1"></div>
+  <oj-select-single label-hint="Select (Roll Number)" class="oj-flex-item oj-sm-12 oj-md-6"
+    item-text="student_id" value="{{ $variables.lov }}" data="[[$variables.studentdetailgetListSDP4]]"></oj-select-single>
+  <div class="oj-flex-item oj-sm-12 oj-md-4">
+    <oj-button label="Button" on-oj-action="[[$listeners.buttonAction]]" display="icons" chroming="borderless">
+      <img slot="startIcon" :src="[[ $flow.path + 'resources/images/icons8-send-25.png' ]]">
+    </oj-button>
+  </div>
+</div>
+
+
+
+
+    </oj-form-layout>
+  </div>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-2"></div>
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    <img :src="[[ $flow.path + 'resources/images/student-11208.png' ]]" width="700">
+  </div>
+</div>
+
+
+
+
+

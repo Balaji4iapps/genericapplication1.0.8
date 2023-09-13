@@ -1,0 +1,101 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+
+    "match": {
+      "type": "postMatchP_METHODP_PRIMARYKEY2"
+    },
+    "method": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "primarykey": {
+      "type": "any",
+      "required": true,
+      "input": "fromUrl"
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.postMatchP_METHODP_PRIMARYKEY2": {
+      "endpoint": "postMatchP_METHODP_PRIMARYKEY2",
+      "service": "WorldCupApplication",
+      "path": "request"
+    },
+    "postMatchP_METHODP_PRIMARYKEY2": {
+      "c_id": "number",
+      "capacity_": "number",
+      "date_": "string",
+      "fixtures": "string",
+      "group_": "string",
+      "match_no": "number",
+      "s_no": "number",
+      "stadium": "string",
+      "time_": "string"
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "onclicksave"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-input-time": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-radioset": {
+        "path": "ojs/ojradioset"
+      },
+      "oj-select-one": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-tab-bar": {
+        "path": "ojs/ojnavigationlist"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      }
+    }
+  }
+}

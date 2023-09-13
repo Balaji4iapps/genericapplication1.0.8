@@ -1,0 +1,190 @@
+{
+  "root": "ifPagenavigation",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "ifPagenavigation": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.pagenavigation=='Edit' ]]"
+      },
+      "outcomes": {
+        "true": "callRestGetCarbycarid",
+        "false": "runInParallel"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetCarbycarid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetCarbycarid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CarApplication/getCarbycarid",
+        "uriParams": {
+          "p_car_id": "{{ $page.variables.carid }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariables"
+      }
+    },
+    "assignVariables": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.cardetails": {
+          "source": "{{ $chain.results.callRestGetCarbycarid.body.items[0] }}",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "runInParallel"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetCostomerbycarid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetCostomerbycarid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CarApplication/getCostomerbycarid",
+        "uriParams": {
+          "p_car_id": "{{ $page.variables.carid }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetCostomerbycarid.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesCustomervariable"
+      }
+    },
+    "assignVariablesCustomervariable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.customervariable": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetEmployeebycarid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetEmployeebycarid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CarApplication/getEmployeebycarid",
+        "uriParams": {
+          "p_car_id": "{{ $page.variables.carid }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification3",
+        "success": "callFunctionPagingLineEmployee"
+      }
+    },
+    "callFunctionPagingLineEmployee": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLineEmployee",
+        "params": [
+          "{{ $chain.results.callRestGetEmployeebycarid.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesEmployeevariable"
+      }
+    },
+    "runInParallel": {
+      "module": "vb/action/builtin/forkAction",
+      "parameters": {
+        "actions": {
+          "callRestGetCostomerbycarid": "callRestGetCostomerbycarid",
+          "callRestGetEmployeebycarid": "callRestGetEmployeebycarid",
+          "callRest": "callRestGetManufacturebycarid"
+        }
+      }
+    },
+    "assignVariablesEmployeevariable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.employeevariable": {
+          "source": "{{ $chain.results.callFunctionPagingLineEmployee }}"
+        }
+      }
+    },
+    "fireNotification4": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetManufacturebycarid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetManufacturebycarid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CarApplication/getManufacturebycarid",
+        "uriParams": {
+          "p_car_id": "{{ $page.variables.carid }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification4",
+        "success": "callFunctionPagingLineManufacture"
+      }
+    },
+    "callFunctionPagingLineManufacture": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLineManufacture",
+        "params": [
+          "{{ $chain.results.callRestGetManufacturebycarid.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesManufacturevariable"
+      }
+    },
+    "assignVariablesManufacturevariable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.manufacturevariable": {
+          "source": "{{ $chain.results.callFunctionPagingLineManufacture }}"
+        }
+      }
+    }
+  }
+}

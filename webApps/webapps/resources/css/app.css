@@ -1,0 +1,45 @@
+.oj-table-body-row{
+    height: 1rem !important;
+    min-height: 0rem !important;
+}
+
+.oj-collection-grid-header{
+  height: 0rem !important;
+}
+
+.oj-table-grid-display .oj-table-header {
+    background-color: var(--oj-collection-header-bg-color);
+    border-bottom: 1px solid var(--oj-collection-border-color);
+    background-color: #0a4393;
+    color: white;
+    /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+    /* font-size: 12px;
+    border: 1px solid #D6DFE6;
+    font-weight: bold;
+    border-radius: 2px;
+    background-repeat: no-repeat; */
+}
+
+.oj-table-column-header {
+    font-size: initial;
+    position: relative;
+    float: none;
+    text-overflow: inherit;
+    overflow: inherit;
+    white-space: normal;
+    display: inline-flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.oj-required-inline-container {
+    text-align: right;
+    display: none;
+}
+
+.merged-header-grid .a-DG-header-cell:nth-child(2) {
+    grid-column: 2 / span 2; /* Merge 2 columns starting from column 2 */
+}
+
+
+/* Table End */

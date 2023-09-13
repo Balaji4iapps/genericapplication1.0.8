@@ -1,0 +1,139 @@
+{
+  "root": "ifMethod",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "ifMethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.method=='edit' ]]"
+      },
+      "outcomes": {
+        "true": "callRestGetDoctorbydoctorid"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetDoctorbydoctorid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetDoctorbydoctorid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/getDoctorbydoctorid",
+        "uriParams": {
+          "p_doc_code": "{{ $page.variables.primarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesDoctorc"
+      }
+    },
+    "assignVariablesDoctorc": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.doctorc": {
+          "source": "{{ $chain.results.callRestGetDoctorbydoctorid.body.items[0] }}",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callRestGetPatientbypatientidpk"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetPatientbypatientidpk.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetPatientbypatientidpk.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesPatienttable"
+      }
+    },
+    "assignVariablesPatienttable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.patienttable": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      },
+      "outcomes": {
+        "success": "callRestGetPatientdiagnosisbypatientdiagnosisfk"
+      }
+    },
+    "callRestGetPatientbypatientidpk": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/getPatientbypatientidpk",
+        "uriParams": {
+          "patdoccode": "{{ $page.variables.primarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetPatientdiagnosisbypatientdiagnosisfk.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callFunctionPagingLineOne": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLineOne",
+        "params": [
+          "{{ $chain.results.callRestGetPatientdiagnosisbypatientdiagnosisfk.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesDiagtable"
+      }
+    },
+    "assignVariablesDiagtable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.diagtable": {
+          "source": "{{ $chain.results.callFunctionPagingLineOne }}"
+        }
+      }
+    },
+    "callRestGetPatientdiagnosisbypatientdiagnosisfk": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/getPatientdiagnosisbypatientdiagnosisfk",
+        "uriParams": {
+          "patid": "{{ $page.variables.primarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification3",
+        "success": "callFunctionPagingLineOne"
+      }
+    }
+  }
+}

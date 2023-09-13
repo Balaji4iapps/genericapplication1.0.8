@@ -1,0 +1,19 @@
+{
+  "description": "",
+  "root": "callChainDepartnumsavebutton",
+  "actions": {
+    "callChainDepartnumsavebutton": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "departnumsavebutton"
+      },
+      "outcomes": {
+        "success": "navigateBack"
+      }
+    },
+    "navigateBack": {
+      "module": "vb/action/builtin/navigateBackAction"
+    }
+  },
+  "variables": {}
+}

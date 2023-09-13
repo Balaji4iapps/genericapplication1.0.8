@@ -1,0 +1,8 @@
+{
+  "id": "bussiness-object",
+  "description": "Flow main",
+  "defaultPage": "bussiness-object-start",
+  "services": {},
+  "types": {},
+  "variables": {}
+}

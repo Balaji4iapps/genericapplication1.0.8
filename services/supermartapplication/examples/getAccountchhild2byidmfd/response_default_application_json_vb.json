@@ -1,0 +1,29 @@
+{
+    "items": [
+        {
+            "own_ref_id": "100",
+            "manufacturer_name": "\tMek Raw Foods",
+            "manufacturer_id": "1001",
+            "account_number": "800009988",
+            "ifsc_code": "IOBA004455\t",
+            "branch_name": "Ludhiana",
+            "bank_name": "\tIOB",
+            "pending_amount": "\tRS.24000",
+            "bill_book_number": "N11"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1313mod/accountchhild2byidmfd?manufacturerid=1001"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1313mod/item"
+        }
+    ]
+}

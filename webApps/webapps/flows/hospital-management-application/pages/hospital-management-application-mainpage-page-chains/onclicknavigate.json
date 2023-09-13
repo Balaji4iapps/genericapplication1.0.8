@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToHospitalManagementApplicationSample1",
+  "actions": {
+    "navigateToHospitalManagementApplicationSample1": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "hospital-management-application-sample1"
+      }
+    }
+  },
+  "variables": {}
+}

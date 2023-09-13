@@ -1,0 +1,201 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "lov": {
+      "type": "any"
+    },
+    "studentdetailgetListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "collegeapplication/studentdetailget",
+        "keyAttributes": "student_name",
+        "itemsPath": "items",
+        "responseType": "studentdetailgetResponse",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "student_id"
+          ]
+        }
+      }
+    },
+    "studentdetailgetListSDP2": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "collegeapplication/studentdetailget",
+        "keyAttributes": "student_id",
+        "itemsPath": "items",
+        "responseType": "studentdetailgetResponse2",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "student_name"
+          ]
+        }
+      }
+    },
+    "studentdetailgetListSDP3": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "collegeapplication/studentdetailget",
+        "keyAttributes": "@value",
+        "itemsPath": "items",
+        "responseType": "studentdetailgetResponse4",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "student_id"
+          ]
+        }
+      }
+    },
+    "studentdetailgetListSDP4": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "collegeapplication/studentdetailget",
+        "keyAttributes": "student_id",
+        "itemsPath": "items",
+        "responseType": "studentdetailgetResponse5",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "student_id"
+          ]
+        }
+      }
+    },
+    "studid": {
+      "type": "any"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.studentdetailgetResponse": {
+      "endpoint": "studentdetailget",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "@decorators.studentdetailgetResponse2": {
+      "endpoint": "studentdetailget",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "@decorators.studentdetailgetResponse3": {
+      "endpoint": "studentdetailget",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "@decorators.studentdetailgetResponse4": {
+      "endpoint": "studentdetailget",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "@decorators.studentdetailgetResponse5": {
+      "endpoint": "studentdetailget",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "studentdetailgetResponse": {
+      "items": [
+        {
+          "contact_number": "number",
+          "department": "string",
+          "dob": "string",
+          "email": "string",
+          "gender": "string",
+          "staff_id": "number",
+          "student_id": "number",
+          "student_name": "string"
+        }
+      ]
+    },
+    "studentdetailgetResponse2": {
+      "items": [
+        {
+          "student_id": "number",
+          "student_name": "string"
+        }
+      ]
+    },
+    "studentdetailgetResponse3": {
+      "items": [
+        {
+          "address": "string",
+          "contact_number": "number",
+          "department": "string",
+          "dob": "string",
+          "email": "string",
+          "gender": "string",
+          "staff_id": "number",
+          "student_id": "number",
+          "student_name": "string"
+        }
+      ]
+    },
+    "studentdetailgetResponse4": {
+      "items": [
+        {
+          "contact_number": "number",
+          "department": "string",
+          "dob": "string",
+          "email": "string",
+          "gender": "string",
+          "staff_id": "number",
+          "student_id": "number",
+          "student_name": "string"
+        }
+      ]
+    },
+    "studentdetailgetResponse5": {
+      "items": [
+        {
+          "address": "string",
+          "contact_number": "number",
+          "department": "string",
+          "dob": "string",
+          "email": "string",
+          "gender": "string",
+          "staff_id": "number",
+          "student_id": "number",
+          "student_name": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      }
+
+    }
+  }
+}

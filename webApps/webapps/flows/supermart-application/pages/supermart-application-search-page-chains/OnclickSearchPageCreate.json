@@ -1,0 +1,69 @@
+{
+  "description": "",
+  "root": "callRestGetMfdheaderbyid2",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetMfdheaderbyid2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetMfdheaderbyid2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "supermartapplication/getMfdheaderbyid2",
+        "uriParams": {
+          "ManufacturerId": "{{ $page.variables.lovsearch }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetMfdheaderbyid2.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "resetVariablesExport"
+      }
+    },
+    "assignVariablesPageloaddata": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.pageloaddata": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        },
+        "$page.variables.export": {
+          "source": {
+            "data": "{{ $chain.results.callRestGetMfdheaderbyid2.body.items }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      }
+    },
+    "resetVariablesExport": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.export.data"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesPageloaddata"
+      }
+    }
+  },
+  "variables": {}
+}

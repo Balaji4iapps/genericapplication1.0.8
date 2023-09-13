@@ -1,0 +1,39 @@
+{
+  "root": "callRestGetstaff",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetstaff.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetstaff": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/Getstaff"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesStaffADP"
+      }
+    },
+    "assignVariablesStaffADP": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.staffADP": {
+          "source": {
+              "data": "{{ $chain.results.callRestGetstaff.body.items }}"
+            },
+          "reset": "toDefault",
+          "auto": "always"
+
+        }
+      }
+    }
+  }
+}

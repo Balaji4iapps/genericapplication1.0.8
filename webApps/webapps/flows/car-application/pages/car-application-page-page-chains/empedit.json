@@ -1,0 +1,92 @@
+{
+  "description": "",
+  "root": "assignVariablesEmployeedetails2",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetEmployeebyemployeeid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetEmployeebyemployeeid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CarApplication/getEmployeebyemployeeid",
+        "uriParams": {
+          "p_employee_id": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesEmployeedetails"
+      }
+    },
+    "assignVariablesEmployeedetails": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.employeedetails": {
+          "source": "{{ $chain.results.callRestGetEmployeebyemployeeid.body.items[0] }}",
+          "auto": "always"
+        },
+        "$page.variables.empnavigation": {
+          "source": "edit"
+        }
+      },
+      "outcomes": {
+        "success": "callChainOnload"
+      }
+    },
+    "callComponentEmployeedetailPopupOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('EmployeedetailPopup') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestGetEmployeebyemployeeid"
+      }
+    },
+    "callChainOnload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onload"
+      }
+    },
+    "assignVariablesEmployeedetails2": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.employeedetails": {
+          "source": {
+            "employee_id": "{{ $variables.key }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentEmployeedetailPopupOpen"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

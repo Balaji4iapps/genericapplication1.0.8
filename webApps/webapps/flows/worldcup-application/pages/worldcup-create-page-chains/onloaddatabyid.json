@@ -1,0 +1,139 @@
+{
+  "root": "ifMethod",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "ifMethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.Method=='edit' ]]"
+      },
+      "outcomes": {
+        "true": "callRestGetGetcon"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetGetcon.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetGetcon": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/getGetcon",
+        "uriParams": {
+          "cid": "{{ $page.variables.PrimaryKey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesCountryAdd"
+      }
+    },
+    "assignVariablesCountryAdd": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.countryAdd": {
+          "source": "{{ $chain.results.callRestGetGetcon.body.items[0] }}",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callRestGetWc2022Matches"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetWc2022Matches.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetWc2022Matches": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/getWc2022_matches",
+        "uriParams": {
+          "cid": "{{ $page.variables.PrimaryKey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetWc2022Matches.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesMatches"
+      }
+    },
+    "assignVariablesMatches": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.matches": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      },
+      "outcomes": {
+        "success": "callRestGetWcplayers2"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetWcplayers2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetWcplayers2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/getWcplayers2",
+        "uriParams": {
+          "cid": "{{ $page.variables.PrimaryKey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification3",
+        "success": "callFunctionPagingLineone"
+      }
+    },
+    "callFunctionPagingLineone": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLineone",
+        "params": [
+          "{{ $chain.results.callRestGetWcplayers2.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesPlayers"
+      }
+    },
+    "assignVariablesPlayers": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.players": {
+          "source": "{{ $chain.results.callFunctionPagingLineone }}"
+        }
+      }
+    }
+  }
+}

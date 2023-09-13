@@ -1,0 +1,130 @@
+<div class="oj-flex">
+  <h1 class="oj-flex-item oj-sm-12 oj-md-12">Countries Playing</h1>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-form-layout>
+      <img
+        :src="[[ $flow.path + 'resources/images/24076140051754495724708485751594236391101888n-16304027215022001409628-crop-1630402892636558776793.jpg' ]]"
+        width="1300">
+      
+
+      
+    </oj-form-layout>
+  </div>
+</div>
+
+
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-6">
+    <oj-form-layout label-edge="start">
+      <oj-select-single label-hint="Country Name" data="[[$variables.getWc2022ListSDP]]" item-text="country_name"
+        value="{{ $variables.c_id }}">
+        
+       <template slot="collectionTemplate" data-oj-as="collection">
+
+            <oj-table scroll-policy="loadMoreOnScroll"
+
+                  selection-mode='{"row": "single"}'
+
+                  columns-default='{"resizable": "disabled","sortable": "disabled"}'
+
+                  class="oj-select-results"
+
+                  columns=' [
+
+                                {"headerText":"C ID","field":"c_id"},
+
+                                {"headerText":"COUNTRY NAME","field":"country_name"},
+
+                                {"headerText":"GROUP","field":"group_"},
+
+                                {"headerText":"TEAM BASE","field":"team_base"}
+
+                            ]'
+
+                on-oj-row-action="[[collection.handleRowAction]]"
+
+                data="[[collection.data]]" selected.row="[[collection.selected]]"
+
+                current-row="{{collection.currentRow}}">
+
+            </oj-table>
+
+          </template>
+      
+      ></oj-select-single>
+      <oj-button label="[[$application.translations.app.button_label_7ccb]]" chroming="solid"
+        on-oj-action="[[$listeners.buttonAction4]]"></oj-button>
+    </oj-form-layout>
+  </div>
+  <div class="oj-flex-item oj-sm-12 oj-md-2"></div>
+  <div class="oj-flex-item oj-sm-12 oj-md-1">
+    <oj-button label="[[$application.translations.app.button_label]]" chroming="solid"
+      on-oj-action="[[$listeners.buttonAction]]"></oj-button>
+  </div>
+  <div class="oj-flex-item oj-sm-12 oj-md-1">
+    <oj-button label="[[$application.translations.app.button_label_0e1f]]" chroming="danger"
+      on-oj-action="[[$listeners.buttonAction2]]"></oj-button>
+  </div>
+</div>
+
+<div id="sampleDemo" style="" class="demo-padding demo-container">
+<div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+<div id="mainContent">
+
+      <oj-table scroll-policy="loadMoreOnScroll" class="oj-sm-width-full oj-bg-body tablerowdata" selection-mode.row="single"
+  edit-mode="rowEdit" display="grid" selection-mode.column="single" 
+      columns='[{"headerText":"C_ID","field":"c_id"},
+      {"headerText":"FLAG","field":"","template":"flag"},
+        {"headerText":"COUNTRY NAME","field":"country_name"},
+        {"headerText":"WC TITLES","field":"wc_titles"},
+        {"headerText":"FIFA RANKING","field":"fifa_ranking"},
+        {"headerText":"GROUP","field":"group_"},
+        {"headerText":"SQUAD STRENGHT","field":"squad_strenght"},
+        {"headerText":"TEAM BASE","field":"team_base"},
+        {"headerText":"ACTION","field":"","template":"edit"},
+        {"headerText":"ACTION","field":"","template":"delete"}]'
+        data="[[ $variables.search ]]" >
+
+        <template slot = "flag">
+
+        </template>
+        <template slot ="edit">
+                <img :src="[[ $flow.path + 'resources/images/icon_update_2.png' ]]" width="25" height="24"
+                  on-click="[[$listeners.imageClick3]]">
+                
+          
+        </template>
+        <template slot="delete">
+                <img :src="[[ $flow.path + 'resources/images/icons8-remove-64_3.png' ]]" width="25" height="24"
+                  on-click="[[$listeners.imageClick2]]"
+                  >
+          
+        </template>
+        
+
+        <oj-paging-control id="paging" 
+class="oj-sm-width-full" page-size="15" data="[[$variables.search]]"
+slot="bottom">
+</oj-paging-control>
+      </oj-table>
+      <oj-button label="[[$application.translations.app.button_label_fde5]]"
+        on-oj-action="[[$listeners.buttonAction3]]" chroming="solid"></oj-button>
+    
+</div>
+</div>
+</div>
+<oj-dialog style="display:none" dialog-title="Delete" id="deletepopup">
+  <div slot="body">
+    <div class="oj-flex">
+      Are you sure you want to delete this record?
+    </div>
+  </div>
+  <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction5]]" chroming="danger"  >Ok</oj-button>
+    <oj-button on-oj-action="[[$listeners.buttonAction6]]" chroming="solid"  >Cancel</oj-button>
+  </div>
+</oj-dialog>  
+
+

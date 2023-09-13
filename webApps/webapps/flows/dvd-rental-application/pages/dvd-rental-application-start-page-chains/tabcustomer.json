@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentActioncusOpen",
+  "actions": {
+    "callComponentActioncusOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('actioncus') }}",
+        "method": "open"
+      }
+    }
+  },
+  "variables": {}
+}

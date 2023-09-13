@@ -1,0 +1,33 @@
+{
+  "description": "",
+  "root": "navigateToWorldcupCreate",
+  "actions": {
+    "navigateToWorldcupCreate": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "worldcup-create",
+        "params": {
+          "Method": "edit",
+          "PrimaryKey": "{{ $variables.key }}"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

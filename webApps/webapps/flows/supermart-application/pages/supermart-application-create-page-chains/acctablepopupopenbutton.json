@@ -1,0 +1,62 @@
+{
+  "description": "",
+  "root": "ifPrimarykey",
+  "actions": {
+    "callComponentPopuptable3Open": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('popuptable3') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "assignVariablesMethod3"
+      }
+    },
+    "ifPrimarykey": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.primarykey!=0 ]]"
+      },
+      "outcomes": {
+        "true": "callComponentPopuptable3Open",
+        "false": "fireNotification"
+      }
+    },
+    "assignVariablesMethod3": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.method3": {
+          "source": "CREATE"
+        },
+        "$page.variables.primarykey3": {
+          "source": "0"
+        },
+        "$page.variables.table3": {
+          "source": "{{ $page.variables.primarykey }}"
+        }
+      },
+      "outcomes": {
+        "success": "resetVariablesAllcolumnchild2"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification_summary_2a94]]",
+        "message": "[[$application.translations.app.fireNotification_message_928a]]",
+        "displayMode": "persist",
+        "type": "warning"
+      }
+    },
+    "resetVariablesAllcolumnchild2": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.allcolumnchild2"
+        ]
+      }
+    }
+  },
+  "variables": {}
+}

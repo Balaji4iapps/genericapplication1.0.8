@@ -1,0 +1,68 @@
+{
+    "items": [
+        {
+            "manufacturer_id": "1004",
+            "manufacturer": "Kumari Oils",
+            "city": "Kanniyakumari",
+            "mail_id": "kumarioils@gmail.com",
+            "contact_number": "9994564459",
+            "industry_type": "Medium scale",
+            "state_location": "TamilNadu",
+            "product_id": "105",
+            "product_name": "Coconut Oil",
+            "qty_in_stock": "\t80L",
+            "price_per_kg_l": "175",
+            "mfd_date": "2021-12-13T00:00:00Z",
+            "exp_date": "2023-12-13T00:00:00Z",
+            "catagory": "\tOil",
+            "packed": "No",
+            "own_ref_id": "103",
+            "manufacturer_name": "Kumari Oils",
+            "account_number": "70000276792",
+            "ifsc_code": "\tUTIB44590",
+            "branch_name": "\tKanniyakumari",
+            "bank_name": "\tAxis",
+            "pending_amount": "\tRs.30000",
+            "bill_book_number": "N14"
+        },
+        {
+            "manufacturer_id": "1004",
+            "manufacturer": "Kumari Oils",
+            "city": "Kanniyakumari",
+            "mail_id": "kumarioils@gmail.com",
+            "contact_number": "9994564459",
+            "industry_type": "Medium scale",
+            "state_location": "TamilNadu",
+            "product_id": "112",
+            "product_name": "Sesame Oil",
+            "qty_in_stock": "\t100L",
+            "price_per_kg_l": "116",
+            "mfd_date": "2020-10-22T00:00:00Z",
+            "exp_date": "2022-02-24T00:00:00Z",
+            "catagory": "Oil",
+            "packed": "No",
+            "own_ref_id": "103",
+            "manufacturer_name": "Kumari Oils",
+            "account_number": "70000276792",
+            "ifsc_code": "\tUTIB44590",
+            "branch_name": "\tKanniyakumari",
+            "bank_name": "\tAxis",
+            "pending_amount": "\tRs.30000",
+            "bill_book_number": "N14"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 2,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1313mod/alldatagetbyid?MANUFACTURERID=1004"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1313mod/item"
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+{
+  "description": "",
+  "root": "callRestPostStaff",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostStaff.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostStaff": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/PostStaff",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.staff.seq_staff }}"
+        },
+        "body": "{{ $page.variables.staff }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callChainOnLoadStaff"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.RecordSaved]]",
+        "displayMode": "transient",
+        "type": "info"
+      },
+      "outcomes": {
+        "success": "callComponentStaffdetailpopupClose"
+      }
+    },
+    "callChainOnLoadStaff": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "OnLoadStaff"
+      },
+      "outcomes": {
+        "success": "fireNotification3"
+      }
+    },
+    "callComponentStaffdetailpopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('staffdetailpopup') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

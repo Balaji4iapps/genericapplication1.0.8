@@ -1,0 +1,51 @@
+{
+  "description": "",
+  "root": "ifPrimaryKey",
+  "actions": {
+    "ifPrimaryKey": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.PrimaryKey!=0 ]]"
+      },
+      "outcomes": {
+        "true": "assignVariablesPlayerstowatch",
+        "false": "fireNotification"
+      }
+    },
+    "assignVariablesPlayerstowatch": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.playerstowatch": {
+          "source": "create"
+        },
+        "$page.variables.postplayers": {
+          "source": {
+            "c_id": "{{ $page.variables.PrimaryKey }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentPlayerpopupOpen"
+      }
+    },
+    "callComponentPlayerpopupOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('playerpopup') }}",
+        "method": "open"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification_summary_819e]]",
+        "message": "[[$application.translations.app.fireNotification_message_b343]]",
+        "displayMode": "transient"
+      }
+    }
+  },
+  "variables": {}
+}

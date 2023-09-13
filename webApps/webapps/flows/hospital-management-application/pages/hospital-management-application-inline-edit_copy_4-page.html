@@ -1,0 +1,134 @@
+<oj-validation-group>
+<oj-button label="ADD ROW" on-oj-action="[[$listeners.buttonAction]]" chroming="solid"></oj-button>
+<oj-button label="SAVE"  chroming="solid" on-oj-action="[[$listeners.buttonAction2]]"></oj-button>
+<oj-button label="NAV"  chroming="solid" on-oj-action="[[$listeners.buttonAction3]]" ></oj-button>
+</oj-validation-group>
+ <br>
+
+
+<oj-validation-group id="Tableform">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12" data="[[ $variables.TableADP ]]"
+    columns='[{"headerText":"Doctor Name","field":"doc_name","template":"doc_name"},
+    {"headerText":"Doctor Gender","field":"doc_gender","template":"Doctor Gender"},
+    {"headerText":"Doctor Address","field":"doc_address","template":"doc_address"},
+    {"headerText":"Doctor Designation","field":"doc_designation","template":"doc_designation"},
+    {"headerText":"Doctor Fees","field":"doc_fees","template":"Doctor fees"},
+    {"headerText":"Medical Fees","field":"medical_fees","template":"Medical fees"},
+    {"headerText":"Total","field":"total_fees","template":"Total Fee"},
+    {"headerText":"Cancel","field":"","template":"Cancel"},
+    {"headerText":"Delete","field":"","template":"Delete"}]' display="grid" id="searchLnsTable"
+    selection-mode.row="none" horizontal-grid-visible="enabled" vertical-grid-visible="enabled"
+    selection-required="true">
+  <template slot="doc_designation">
+      <!-- <oj-input-text :id="[['doc_designation'+$current.index]]" value="[[ $current.row.doc_designation ]]"
+            required="true" disabled="[[ $current.row.doc_code != 0 ]]">
+         </oj-input-text> -->
+               <oj-input-text :id="[['doc_designation'+$current.index]]" value="[[ $current.row.doc_designation ]]"
+            required="true" >
+         </oj-input-text>
+  </template>
+  <template slot="doc_address">
+      <!-- <oj-input-text :id="[['doc_address'+$current.index]]" value="[[ $current.row.doc_address ]]"
+            required="true" disabled="[[ $current.row.doc_code != 0 ]]">
+         </oj-input-text> -->
+           <oj-input-text :id="[['doc_address'+$current.index]]" value="[[ $current.row.doc_address ]]"
+            required="true" >
+         </oj-input-text>
+  </template>
+  <!-- <template slot="doc_name">
+             <oj-input-text :id="[['doc_name'+$current.index]]" value="[[ $current.row.doc_name ]]"
+            required="true">
+         </oj-input-text>
+  </template> -->
+
+
+   <template slot="doc_name">
+         <!-- <oj-row-expander id="1" context="[[ $current.data.doc_name ]]"> -->
+         <!-- <oj-bind-if test="[[ $current.row.doc_code == 0 ]]"> -->
+         <!-- <oj-combobox-one :id="[['doc_name'+$current.index]]" value="[[ $current.row.doc_name ]]"
+           options-keys.value="doc_name" disabled="[[ $current.row.doc_code != 0 ]]" required="true"
+           options="[[ $variables.Doc_name_sdp ]]" on-value-changed="[[$listeners.docNameValue]]">
+         </oj-combobox-one> -->
+         <oj-combobox-one :id="[['doc_name'+$current.index]]" value="[[ $current.row.doc_name ]]"
+           options-keys.value="doc_name" required="true"
+           options="[[ $variables.Doc_name_sdp ]]" on-value-changed="[[$listeners.docNameValue]]">
+         </oj-combobox-one>
+          </oj-bind-if>
+          <!-- </oj-row-expander> -->
+         
+ <!-- <oj-bind-if test="[[ $current.row.doc_code != 0 ]]">
+             <oj-input-text :id="[['doc_name'+$current.index]]" value="[[ $current.row.doc_name ]]"
+            required="true" disabled="[[ $current.row.doc_code != 0 ]]">
+          </oj-bind-if>  -->
+      </template>
+
+  <!-- <template slot="Doctor Gender">
+      <oj-input-text :id="[['doc_gender'+$current.index]]" value="[[ $current.row.doc_gender ]]"
+            required="true">
+         </oj-input-text>
+  </template> -->
+
+   <template slot="Doctor Gender">
+         <!-- <oj-bind-if test="[[ $current.row.doc_code == 0 ]]"> -->
+         <!-- <oj-combobox-one :id="[['doc_gender'+$current.index]]" value="[[ $current.row.doc_gender ]]"
+           options-keys.value="doc_gender" disabled="[[ $current.row.doc_code != 0 ]]" required="true"
+           options="[[ $variables.doc_Gen_sdp ]]" on-value-changed="[[$listeners.docGenderValue]]">
+         </oj-combobox-one> -->
+                 <oj-combobox-one :id="[['doc_gender'+$current.index]]" value="[[ $current.row.doc_gender ]]"
+           options-keys.value="doc_gender" required="true"
+           options="[[ $variables.doc_Gen_sdp ]]" on-value-changed="[[$listeners.docGenderValue]]">
+         </oj-combobox-one>
+          <!-- </oj-bind-if> -->
+         
+ <!-- <oj-bind-if test="[[ $current.row.doc_code != 0 ]]">
+             <oj-input-text :id="[['doc_gender'+$current.index]]" value="[[ $current.row.doc_gender ]]"
+            required="true" disabled="[[ $current.row.doc_code != 0 ]]">
+          </oj-bind-if>  -->
+      </template>
+
+
+         <template slot="Doctor fees">
+             <oj-input-number :id="[['doc_fees'+$current.index]]" value="[[ $current.row.doc_fees ]]"
+               converter='{"options":{"minimumFractionDigits":2,"maximumFractionDigits":2},"type":"number"}'
+           ></oj-input-number>
+      </template>
+
+               <template slot="Medical fees">
+             <oj-input-number :id="[['medical_fees'+$current.index]]" value="[[ $current.row.medical_fees ]]"
+               on-value-changed="[[$listeners.medicalFeesValue]]"
+               converter='{"options":{"minimumFractionDigits":2,"maximumFractionDigits":2},"type":"number"}'
+            ></oj-input-number>
+      </template>
+
+               <template slot="Total Fee">
+             <oj-input-number :id="[['total_fees'+$current.index]]" value="{{ $current.row.total_fees }}"
+               converter='{"options":{"minimumFractionDigits":2,"maximumFractionDigits":2},"type":"number"}'
+               disabled="true" 
+             ></oj-input-number>
+      </template>
+
+            <template slot="Cancel">
+        <img :src="[[ $flow.path + 'resources/images/prohibition.png' ]]" on-click="[[$listeners.imageClick2]]"
+          width="20" height="20"
+        >
+      </template>
+
+
+      <template slot="Delete">
+          <img :src="[[ $flow.path + 'resources/images/delete_ena_1.png' ]]" on-click="[[$listeners.imageClick]]"
+        > 
+      </template>
+
+</oj-table>
+</oj-validation-group>
+
+<oj-dialog dialog-title="Dialog" id="Delete" drag-affordance="title-bar" cancel-behavior="icon"
+  resize-behavior="resizable">
+         <div slot="body">
+      Are you sure? Do you want to delete?
+         </div>
+         <div slot="footer">
+      <oj-button on-oj-action="[[$listeners.buttonAction4]]" >Yes</oj-button>
+      <oj-button on-oj-action="[[$listeners.buttonAction5]]" >No</oj-button>
+         </div>
+</oj-dialog>

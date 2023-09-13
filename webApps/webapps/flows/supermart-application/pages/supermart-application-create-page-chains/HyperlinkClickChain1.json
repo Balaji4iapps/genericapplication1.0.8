@@ -1,0 +1,81 @@
+{
+  "description": "",
+  "root": "assignVariablesMethod3",
+  "actions": {
+    "callComponentPopuptable3Open": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('popuptable3') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestGetAccountchild2byid"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetAccountchild2byid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetAccountchild2byid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "supermartapplication/getAccountchild2byid",
+        "uriParams": {
+          "ownrefid": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesAllcolumnchild2"
+      }
+    },
+    "assignVariablesAllcolumnchild2": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.allcolumnchild2": {
+          "source": "{{ $chain.results.callRestGetAccountchild2byid.body.items[0] }}",
+          "auto": "always"
+        }
+      }
+    },
+    "assignVariablesMethod3": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.method3": {
+          "source": "edit"
+        },
+        "$page.variables.primarykey3": {
+          "source": "{{ $variables.key }}"
+        },
+        "$page.variables.table3": {
+          "source": "{{ $page.variables.primarykey }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentPopuptable3Open"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

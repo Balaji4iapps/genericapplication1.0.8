@@ -1,0 +1,81 @@
+{
+  "description": "",
+  "root": "assignVariablesStatusmethod",
+  "actions": {
+    "assignVariablesStatusmethod": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.statusmethod": {
+          "source": "edit"
+        },
+        "$page.variables.statusprimarykey": {
+          "source": "{{ $variables.key }}"
+        },
+        "$page.variables.statusfk": {
+          "source": "{{ $page.variables.studentprimarykey }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentOjDialog17105916021Open"
+      }
+    },
+    "callComponentOjDialog17105916021Open": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog-1710591602-1') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestStudentstatusgetidpk"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestStudentstatusgetidpk.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "assignVariablesStudentstatuspost": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.studentstatuspost": {
+          "source": "{{ $chain.results.callRestStudentstatusgetidpk.body.items[0] }}",
+          "auto": "always"
+        }
+      }
+    },
+    "callRestStudentstatusgetidpk": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "collegeapplication/Studentstatusgetidpk",
+        "uriParams": {
+          "student_statusid": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesStudentstatuspost"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

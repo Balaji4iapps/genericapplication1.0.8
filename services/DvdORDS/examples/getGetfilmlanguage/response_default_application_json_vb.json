@@ -1,0 +1,54 @@
+{
+    "items": [
+        {
+            "language_id": 1,
+            "name": "English             ",
+            "last_update": "0015-02-18T06:10:02Z",
+            "seq_film_language": null
+        },
+        {
+            "language_id": 2,
+            "name": "Italian             ",
+            "last_update": "0015-02-18T06:10:02Z",
+            "seq_film_language": null
+        },
+        {
+            "language_id": 3,
+            "name": "Japanese            ",
+            "last_update": "0015-02-18T06:10:02Z",
+            "seq_film_language": null
+        },
+        {
+            "language_id": 4,
+            "name": "Mandarin            ",
+            "last_update": "0015-02-18T06:10:02Z",
+            "seq_film_language": null
+        },
+        {
+            "language_id": 5,
+            "name": "French              ",
+            "last_update": "0015-02-18T06:10:02Z",
+            "seq_film_language": null
+        },
+        {
+            "language_id": 6,
+            "name": "German              ",
+            "last_update": "0015-02-18T06:10:02Z",
+            "seq_film_language": null
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 6,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/dvdrental/getfilmlanguage"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/dvdrental/item"
+        }
+    ]
+}

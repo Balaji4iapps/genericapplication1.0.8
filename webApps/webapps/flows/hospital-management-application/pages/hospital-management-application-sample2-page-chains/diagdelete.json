@@ -1,0 +1,41 @@
+{
+  "description": "",
+  "root": "assignVariablesDiadelete",
+  "actions": {
+    "callComponentDeletedignosisOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Deletedignosis') }}",
+        "method": "open"
+      }
+    },
+    "assignVariablesDiadelete": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.diadelete": {
+          "source": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentDeletedignosisOpen"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

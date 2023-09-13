@@ -1,0 +1,22 @@
+{
+  "description": "",
+  "root": "callChainOnClickSaveCloud",
+  "actions": {
+    "callChainOnClickSaveCloud": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "OnClickSaveCloud"
+      },
+      "outcomes": {
+        "success": "navigateToCloudApplicationSearchPage"
+      }
+    },
+    "navigateToCloudApplicationSearchPage": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "cloud-application-search-page"
+      }
+    }
+  },
+  "variables": {}
+}

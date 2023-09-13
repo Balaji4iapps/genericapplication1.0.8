@@ -1,0 +1,67 @@
+<h3>All Data</h3>
+
+
+<div class="oj-panel">
+
+    <oj-label for="alldatalov" class="oj-flex-item oj-sm-flex-initial">Manufacturer</oj-label>
+    <oj-select-single id="alldatalov" class="oj-flex-item oj-sm-flex-initial oj-form-control-max-width-sm"
+      required="true" value="{{ $variables.lovalldatasearch }}" data="[[$variables.getMfdheaderListSDP]]"
+      item-text="manufacturer"></oj-select-single>
+  <oj-sample-export-data data="[[ $variables.exportdata ]]"
+    columns='[{"field":"","headerText":"","type":""},{"field":"","headerText":"","type":""},{"field":"","headerText":"","type":""},{"field":"","headerText":"","type":""},{"field":"","headerText":"","type":""},{"field":"","headerText":"","type":""}]'></oj-sample-export-data>
+      
+<div>
+  
+  <div style= "display:flex;justify-content:flex-end;margin-bottom:1%;">
+  <oj-button label="Search" style="margin-left:0.5%;margin-right:1.5%" on-oj-action="[[$listeners.buttonAction]]"
+    class="oj-button-sm" chroming="solid"></oj-button>
+  <oj-button label="Reset" on-oj-action="[[$listeners.buttonAction2]]" class="oj-button-sm" chroming="solid"></oj-button>
+  <oj-button label="Back" style="margin-left:1.5%;margin-right:1.5%" class="oj-button-sm" chroming="solid"
+    on-oj-action="[[$listeners.buttonAction3]]"></oj-button>
+</div>
+
+</div>
+
+
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+
+    columns='[
+    {"headerText":" Manufacturer","field":"manufacturer","template":" Manufacturer"},
+    {"headerText":" City","field":"city"},
+    {"headerText":" Mail Id","field":"mail_id"},
+    {"headerText":" Contact Number","field":"contact_number"},
+    {"headerText":" Account Number","field":"account_number","template":" Account Number"},
+    {"headerText":" Industry Type","field":"industry_type"},
+    {"headerText":" State Loacation","field":"state_location"},
+    {"headerText":" Product Name","field":"product_name","template":" Product Name"},
+    {"headerText":"  Quantity","field":"qty_in_stock"},
+    {"headerText":"  Price","field":"price_per_kg_l"},
+    {"headerText":" Manufacturer Date ","field":"mfd_date","template":"mfd_date"},
+    {"headerText":" Expiry Date","field":"exp_date","template":"mfd_date"},
+    {"headerText":" Catagory ","field":"catagory"},
+    {"headerText":"Packed","field":"packed"},
+    {"headerText":" Manufacturer","field":"manufacturer_name"},
+    {"headerText":" IFSC Code","field":"ifsc_code"},
+    {"headerText":" Branch Name","field":"branch_name"},
+    {"headerText":" Bank Name","field":"bank_name"},
+    {"headerText":" Pending Amount","field":"pending_amount"},
+    {"headerText":" Bill Book Number ","field":"bill_book_number"}
+   ]' data="[[ $variables.alldata ]]" display="grid"     >
+
+   <template slot="mfd_date">
+  <oj-input-date value="[[$current.data]]" readonly="true"
+   converter='{"type": "datetime", "options": {"pattern":"dd-MMM-yyyy"}}'></oj-input-date>
+</template>
+  
+  </oj-table>
+</div>
+
+
+<oj-paging-control id="paging" 
+class="oj-sm-width-full" data="[[ $variables.alldata ]]"  page-size="15" >
+</oj-paging-control>
+
+</div>
+
+

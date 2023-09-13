@@ -1,0 +1,86 @@
+{
+  "title": "hospital management application timeevent2",
+  "description": "",
+  "variables": {
+    "exportdata": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "getDoctordetailsResponse"
+      }
+    },
+    "getDoctordetailsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "hospitalmanagement/getDoctordetails",
+        "keyAttributes": "doc_code",
+        "itemsPath": "items",
+        "responseType": "getDoctordetailsResponse"
+      }
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getDoctordetailsblah": {
+      "endpoint": "getDoctordetails",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "@decorators.getDoctordetailsResponse": {
+      "endpoint": "getDoctordetails",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "getDoctordetailsblah": {
+      
+          "doc_address": "string",
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_gender": "string",
+          "doc_name": "string",
+          "doc_number": "number"
+        
+    },
+    "getDoctordetailsResponse": {
+      "items": [
+        {
+          "doc_address": "string",
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_gender": "string",
+          "doc_name": "string",
+          "doc_number": "number"
+        }
+      ]
+    }
+
+  },
+  "eventListeners": {
+
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-sample-export-data": {
+        "path": "oj-sample/export-data/loader"
+      },
+      "oj-sample-timed-event": {
+        "path": "oj-sample/timed-event/loader"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    }
+  }
+}

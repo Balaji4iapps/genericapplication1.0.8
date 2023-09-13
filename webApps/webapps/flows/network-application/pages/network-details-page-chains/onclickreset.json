@@ -1,0 +1,24 @@
+{
+  "description": "",
+  "root": "resetVariablesNetworkname",
+  "actions": {
+    "resetVariablesNetworkname": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.networkname"
+        ]
+      },
+      "outcomes": {
+        "success": "callChainOnloadheader"
+      }
+    },
+    "callChainOnloadheader": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onloadheader"
+      }
+    }
+  },
+  "variables": {}
+}

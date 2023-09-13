@@ -1,0 +1,1481 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "hospitalmanagement",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1310",
+            "description": "Ords Dyrords",
+            "x-vb": {
+                "forceProxy": "cors"
+            }
+        }
+    ],
+    "paths": {
+        "/doctordetails": {
+            "get": {
+                "operationId": "getDoctordetails",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetDoctordetails"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getDoctordetails/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                },
+                "parameters": [
+                    {
+                        "name": "p_search_value",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            }
+        },
+        "/doctorbydoctorid": {
+            "get": {
+                "operationId": "getDoctorbydoctorid",
+                "parameters": [
+                    {
+                        "name": "p_search_value",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetDoctorbydoctorid"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getDoctorbydoctorid/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/doctor_1310/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ]
+        },
+        "/doctordetails/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    },
+                    "x-vb": {
+                        "defaultValue": "POST"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    },
+                    "x-vb": {
+                        "defaultValue": "0"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postDoctordetailsP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostDoctordetailsP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postDoctordetailsP_METHODP_PRIMARYKEY/request_application_json_vb.json",
+                                    "summary": "Example stored by VB User"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostDoctordetailsP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postDoctordetailsP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/patientdetails": {
+            "get": {
+                "operationId": "getPatientdetails",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetPatientdetails"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getPatientdetails/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/patientbypatientidpk": {
+            "get": {
+                "operationId": "getPatientbypatientidpk",
+                "parameters": [
+                    {
+                        "name": "patdoccode",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "x-vb": {
+                            "defaultValue": "0"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetPatientbypatientidpk"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getPatientbypatientidpk/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/patient/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    },
+                    "x-vb": {
+                        "defaultValue": "POST"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    },
+                    "x-vb": {
+                        "defaultValue": "0"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postPatientP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Post1310PatientP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postPatientP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostPatientP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postPatientP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/patientdiagnosisdetails": {
+            "get": {
+                "operationId": "getPatientdiagnosisdetails",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetPatientdiagnosisdetails"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getPatientdiagnosisdetails/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/patientdiagnosisbypatientdiagnosispk": {
+            "get": {
+                "operationId": "getPatientdiagnosisbypatientdiagnosispk",
+                "parameters": [
+                    {
+                        "name": "diagid",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "x-vb": {
+                            "defaultValue": "0"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetPatientdiagnosisbypatientdiagnosispk"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getPatientdiagnosisbypatientdiagnosispk/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/patientdiagnosisbypatientdiagnosisfk": {
+            "get": {
+                "operationId": "getPatientdiagnosisbypatientdiagnosisfk",
+                "parameters": [
+                    {
+                        "name": "patid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "x-vb": {
+                            "defaultValue": ""
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetPatientdiagnosisbypatientdiagnosisfk"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getPatientdiagnosisbypatientdiagnosisfk/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/patientdiagnosis/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postPatientdiagnosisP_METHODP_PRIMARYKEY2",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostPatientdiagnosisP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postPatientdiagnosisP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostPatientdiagnosisP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postPatientdiagnosisP_METHODP_PRIMARYKEY2/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/patientbypatientidfk": {
+            "get": {
+                "operationId": "getPatientbypatientidfk",
+                "parameters": [
+                    {
+                        "name": "patid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "x-vb": {
+                            "defaultValue": ""
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetPatientbypatientidfk"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getPatientbypatientidfk/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/doctor/docnamelov": {
+            "get": {
+                "operationId": "getDoctorDocnamelov",
+                "parameters": [
+                    {
+                        "name": "searchvalue",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetDoctorDocnamelov"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getDoctorDocnamelov/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/doctor/namewithgenderlov": {
+            "get": {
+                "operationId": "getDoctorNamewithgenderlov",
+                "parameters": [
+                    {
+                        "name": "P_DOC_NAME",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "searchvalue",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetDoctorNamewithgenderlov"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getDoctorNamewithgenderlov/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/treeView": {
+            "post": {
+                "operationId": "postTreeView",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostTreeViewRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postTreeView/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostTreeViewResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postTreeView/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "GetDoctordetails": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "doc_code": {
+                                    "type": "integer"
+                                },
+                                "doc_name": {
+                                    "type": "string"
+                                },
+                                "doc_gender": {
+                                    "type": "string"
+                                },
+                                "doc_address": {
+                                    "type": "string"
+                                },
+                                "doc_designation": {
+                                    "type": "string"
+                                },
+                                "doc_number": {
+
+                                    "nullable": true
+                                },
+                                "doc_fees": {
+                                    "type": "integer"
+                                },
+                                "medical_fees": {
+                                    "type": "integer"
+                                },
+                                "total_fees": {
+                                    "type": "integer"
+                                },
+                                "rownum": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetDoctorbydoctorid": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "doc_code": {
+                                    "type": "integer"
+                                },
+                                "doc_name": {
+                                    "type": "string"
+                                },
+                                "doc_gender": {
+                                    "type": "string"
+                                },
+                                "doc_address": {
+                                    "type": "string"
+                                },
+                                "doc_designation": {
+                                    "type": "string"
+                                },
+                                "doc_number": {
+                                    "nullable": true
+                                },
+                                "doc_fees": {
+                                    "type": "integer"
+                                },
+                                "medical_fees": {
+                                    "type": "integer"
+                                },
+                                "total_fees": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostDoctor_1310P_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostDoctor_1310P_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "doc_code": {
+                        "type": "integer"
+                    },
+                    "doc_name": {
+                        "type": "string"
+                    },
+                    "doc_gender": {
+                        "type": "string"
+                    },
+                    "doc_address": {
+                        "type": "string"
+                    },
+                    "doc_designation": {
+                        "type": "string"
+                    },
+                    "doc_number": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostDoctordetailsP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "doc_code": {
+                        "type": "integer"
+                    },
+                    "doc_name": {
+                        "type": "string"
+                    },
+                    "doc_gender": {
+                        "type": "string"
+                    },
+                    "doc_address": {
+                        "type": "string"
+                    },
+                    "doc_designation": {
+                        "type": "string"
+                    },
+                    "doc_number": {
+                        "nullable": true
+                    },
+                    "doc_fees": {
+                        "nullable": true
+                    },
+                    "medical_fees": {
+                        "nullable": true
+                    },
+                    "total_fees": {
+                        "nullable": true
+                    }
+                }
+            },
+            "PostDoctordetailsP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetPatientdetails": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "pat_id": {
+                                    "type": "integer"
+                                },
+                                "pat_name": {
+                                    "type": "string"
+                                },
+                                "pat_gender": {
+                                    "type": "string"
+                                },
+                                "pat_address": {
+                                    "type": "string"
+                                },
+                                "pat_number": {
+                                    "type": "integer"
+                                },
+                                "pat_doc_code": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetPatientbypatientid": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "pat_id": {
+                                    "type": "integer"
+                                },
+                                "pat_name": {
+                                    "type": "string"
+                                },
+                                "pat_gender": {
+                                    "type": "string"
+                                },
+                                "pat_address": {
+                                    "type": "string"
+                                },
+                                "pat_number": {
+                                    "type": "integer"
+                                },
+                                "pat_doc_code": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetPatientbypatientidpk": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "pat_id": {
+                                    "type": "integer"
+                                },
+                                "pat_name": {
+                                    "type": "string"
+                                },
+                                "pat_gender": {
+                                    "type": "string"
+                                },
+                                "pat_address": {
+                                    "type": "string"
+                                },
+                                "pat_number": {
+                                    "type": "integer"
+                                },
+                                "pat_doc_code": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "Post1310PatientP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "pat_id": {
+                        "type": "integer"
+                    },
+                    "pat_name": {
+                        "type": "string"
+                    },
+                    "pat_gender": {
+                        "type": "string"
+                    },
+                    "pat_address": {
+                        "type": "string"
+                    },
+                    "pat_number": {
+                        "type": "integer"
+                    },
+                    "pat_doc_code": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostPatientP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetPatientdiagnosisdetails": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "diag_id": {
+                                    "type": "integer"
+                                },
+                                "diag_details": {
+                                    "type": "string"
+                                },
+                                "diag_remarks": {
+                                    "type": "string"
+                                },
+                                "pat_id": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetPatientdiagnosisbypatientdiagnosispk": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "diag_id": {
+                                    "type": "integer"
+                                },
+                                "diag_details": {
+                                    "type": "string"
+                                },
+                                "diag_remarks": {
+                                    "type": "string"
+                                },
+                                "pat_id": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetPatientdiagnosisbypatientdiagnosisfk": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "diag_id": {
+                                    "type": "integer"
+                                },
+                                "diag_details": {
+                                    "type": "string"
+                                },
+                                "diag_remarks": {
+                                    "type": "string"
+                                },
+                                "pat_id": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostPatientdiagnosisP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "diag_id": {
+                        "type": "integer"
+                    },
+                    "diag_details": {
+                        "type": "string"
+                    },
+                    "diag_remarks": {
+                        "type": "string"
+                    },
+                    "pat_id": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostPatientdiagnosisP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetPatientbypatientidfk": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "pat_id": {
+                                    "type": "integer"
+                                },
+                                "pat_name": {
+                                    "type": "string"
+                                },
+                                "pat_gender": {
+                                    "type": "string"
+                                },
+                                "pat_address": {
+                                    "nullable": true
+                                },
+                                "pat_number": {
+                                    "nullable": true
+                                },
+                                "pat_doc_code": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetDoctorDocnamelov": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "doc_code": {
+                                    "type": "integer"
+                                },
+                                "doc_name": {
+                                    "type": "string"
+                                },
+                                "doc_gender": {
+                                    "type": "string"
+                                },
+                                "doc_address": {
+                                    "type": "string"
+                                },
+                                "doc_designation": {
+                                    "type": "string"
+                                },
+                                "doc_number": {
+                                    "nullable": true
+                                },
+                                "doc_fees": {
+                                    "nullable": true
+                                },
+                                "medical_fees": {
+                                    "nullable": true
+                                },
+                                "total_fees": {
+                                    "nullable": true
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetDoctorNamewithgenderlov": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "doc_code": {
+                                    "type": "integer"
+                                },
+                                "doc_name": {
+                                    "type": "string"
+                                },
+                                "doc_gender": {
+                                    "type": "string"
+                                },
+                                "doc_address": {
+                                    "type": "string"
+                                },
+                                "doc_designation": {
+                                    "type": "string"
+                                },
+                                "doc_number": {
+                                    "nullable": true
+                                },
+                                "doc_fees": {
+                                    "nullable": true
+                                },
+                                "medical_fees": {
+                                    "nullable": true
+                                },
+                                "total_fees": {
+                                    "nullable": true
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostTreeViewRequest": {
+                "type": "object",
+                "properties": {
+                    "P_DOC_CODE": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostTreeViewResponse": {
+                "type": "object",
+                "properties": {
+                    "P_RESULT": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "doc_code": {
+                                    "type": "integer"
+                                },
+                                "doc_name": {
+                                    "type": "string"
+                                },
+                                "doc_gender": {
+                                    "type": "string"
+                                },
+                                "doc_address": {
+                                    "type": "string"
+                                },
+                                "doc_designation": {
+                                    "type": "string"
+                                },
+                                "doc_number": {
+                                    "nullable": true
+                                },
+                                "pat_id": {
+                                    "type": "integer"
+                                },
+                                "pat_name": {
+                                    "type": "string"
+                                },
+                                "pat_gender": {
+                                    "type": "string"
+                                },
+                                "pat_number": {
+                                    "type": "integer"
+                                },
+                                "pat_address": {
+                                    "type": "string"
+                                },
+                                "pat_doc_code": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

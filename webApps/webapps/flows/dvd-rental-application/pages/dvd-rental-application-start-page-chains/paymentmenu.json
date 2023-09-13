@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentActionPopOpen",
+  "actions": {
+    "callComponentActionPopOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('actionPop') }}",
+        "method": "open"
+      }
+    }
+  },
+  "variables": {}
+}

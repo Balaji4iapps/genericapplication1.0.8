@@ -1,0 +1,57 @@
+{
+  "description": "",
+  "root": "callRestPostCarPMETHODPPRIMARYKEY",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCarPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostCarPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CarApplication/postCarP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $page.variables.carid }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_03d5]]",
+        "message": "[[$application.translations.app.fireNotification2_message_8ba3]]"
+      },
+      "outcomes": {
+        "success": "callComponentDeleteClose"
+      }
+    },
+    "callComponentDeleteClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Delete') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainOnload"
+      }
+    },
+    "callChainOnload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onload"
+      }
+    }
+  },
+  "variables": {}
+}

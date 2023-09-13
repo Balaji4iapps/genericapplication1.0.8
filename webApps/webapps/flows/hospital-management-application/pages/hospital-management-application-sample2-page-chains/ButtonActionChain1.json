@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentDeletedignosisClose",
+  "actions": {
+    "callComponentDeletedignosisClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Deletedignosis') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

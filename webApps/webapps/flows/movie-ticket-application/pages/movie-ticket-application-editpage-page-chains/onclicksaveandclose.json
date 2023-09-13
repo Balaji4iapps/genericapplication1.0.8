@@ -1,0 +1,22 @@
+{
+  "description": "",
+  "root": "callChainOnclicksave",
+  "actions": {
+    "callChainOnclicksave": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onclicksave"
+      },
+      "outcomes": {
+        "success": "navigateToMovieTicketApplicationCreatepage"
+      }
+    },
+    "navigateToMovieTicketApplicationCreatepage": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "movie-ticket-application-createpage"
+      }
+    }
+  },
+  "variables": {}
+}

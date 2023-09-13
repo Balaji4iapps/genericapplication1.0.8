@@ -1,0 +1,24 @@
+{
+    "items": [
+        {
+            "diag_id": 102,
+            "diag_details": "Suffering from Migrane",
+            "diag_remarks": "Avoid Stress,improve sleep habit",
+            "pat_id": 2
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1310/patientdiagnosisbypatientdiagnosisfk?patid=2"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1310/item"
+        }
+    ]
+}

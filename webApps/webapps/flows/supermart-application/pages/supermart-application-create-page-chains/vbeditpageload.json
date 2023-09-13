@@ -1,0 +1,160 @@
+{
+  "root": "callComponentLoadingOpen",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "ifMethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.method=='edit' ]]"
+      },
+      "outcomes": {
+        "true": "callRestGetMfdheaderbyid2",
+        "false": "callComponentLoadingClose"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetMfdheaderbyid2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetMfdheaderbyid2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "supermartapplication/getMfdheaderbyid2",
+        "uriParams": {
+          "ManufacturerId": "{{ $page.variables.primarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesAllcolumn"
+      }
+    },
+    "assignVariablesAllcolumn": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.allcolumn": {
+          "source": "{{ $chain.results.callRestGetMfdheaderbyid2.body.items[0] }}",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callRestGetSmartchildbyid"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetSmartchildbyid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetSmartchildbyid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "supermartapplication/getSmartchildbyid",
+        "uriParams": {
+          "manufacturerid": "{{ $page.variables.primarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetSmartchildbyid.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesChildtable"
+      }
+    },
+    "assignVariablesChildtable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.childtable": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      },
+      "outcomes": {
+        "success": "callRestGetAccountchhild2byidmfd"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetAccountchhild2byidmfd.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetAccountchhild2byidmfd": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "supermartapplication/getAccountchhild2byidmfd",
+        "uriParams": {
+          "manufacturerid": "{{ $page.variables.primarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification3",
+        "success": "callFunctionPagingLineNewone"
+      }
+    },
+    "callFunctionPagingLineNewone": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLineNewone",
+        "params": [
+          "{{ $chain.results.callRestGetAccountchhild2byidmfd.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariables"
+      }
+    },
+    "assignVariables": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.accchildtable": {
+          "source": "{{ $chain.results.callFunctionPagingLineNewone }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentLoadingClose"
+      }
+    },
+    "callComponentLoadingOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('loading') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "ifMethod"
+      }
+    },
+    "callComponentLoadingClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('loading') }}",
+        "method": "close"
+      }
+    }
+  }
+}

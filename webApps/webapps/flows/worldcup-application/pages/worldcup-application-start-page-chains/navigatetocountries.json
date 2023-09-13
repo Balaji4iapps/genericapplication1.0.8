@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToWorldcupCountries",
+  "actions": {
+    "navigateToWorldcupCountries": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "worldcup-countries"
+      }
+    }
+  },
+  "variables": {}
+}

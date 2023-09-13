@@ -1,0 +1,28 @@
+<div class="oj-flex">
+  <h5 class="oj-header oj-flex-item oj-sm-12 oj-md-12">CheckBox</h5>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-10">
+    <oj-form-layout label-edge='start'>
+      <oj-select-single label-hint="Doctor Search:" data="[[$variables.getDoctordetailsListSDP]]" item-text="doc_name"
+        value="{{ $variables.hdrsearch }}"></oj-select-single>
+      </oj-form-layout>
+  </div>
+</div>
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+    columns='[{"headerText":"Doctor Name","field":"doc_name","template":"doc_name","footerStyle":"background-color:#FF0000"},{"headerText":"Doctor Code","field":"doc_code","template":"doc name"},{"headerText":"Doctor Address","field":"doc_address"},{"headerText":"Doctor Designation","field":"doc_designation"},{"headerText":"Doctor Gender","field":"doc_gender"},{"headerText":"Delete","field":"","template":"Delete"}]'
+    edit-mode="rowEdit" display="grid" horizontal-grid-visible="enabled" vertical-grid-visible="enabled"
+    data="[[ $variables.table ]]" :id="[[ $variables.table ]]">
+  <oj-paging-control id="paging" 
+class="oj-sm-width-full" page-size="5" 
+slot="bottom" data="[[ $variables.table ]]">
+</oj-paging-control>
+  
+
+  
+ 
+    
+</div>
+  
+

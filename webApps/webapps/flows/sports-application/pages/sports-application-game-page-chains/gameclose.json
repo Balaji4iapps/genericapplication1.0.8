@@ -1,0 +1,17 @@
+{
+  "description": "",
+  "root": "navigateToSportsApplicationPost",
+  "actions": {
+    "navigateToSportsApplicationPost": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "sports-application-post",
+        "params": {
+          "primarykey": "{{ $page.variables.fk }}",
+          "playeradd": "edit"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

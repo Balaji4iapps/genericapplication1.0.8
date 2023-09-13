@@ -1,0 +1,26 @@
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-form-layout label-edge='start' columns="2" max-columns="2" label-width="39%">
+      <oj-input-text label-hint="Product Name" value="{{ $variables.datefun.product_name }}"></oj-input-text>
+      <oj-input-text label-hint="Stock" value="{{ $variables.datefun.stock_remain }}"></oj-input-text>
+      <oj-input-text label-hint="Location" value="{{ $variables.datefun.product_location }}"></oj-input-text>
+   
+<!-- <form>
+    <label for="date1">From Date</label>
+    <input type="date" id="date1" name="date1">
+-
+    <label for="date2">To Date:</label>
+    <input type="date" id="date2" name="date2">
+</form> -->
+
+<oj-form-layout columns="2" max-columns="2" label-width="43%">
+  <oj-label style="margin-left:90%; "id="11" for="oj-input-date-1820599107-1">Date</oj-label>
+  <oj-input-date style="margin-left:68%;" id="oj-input-date-1820599107-1"
+    converter='{"type": "datetime", "options": {"pattern":"dd/MMM/yyyy"}}'></oj-input-date>--
+  <oj-input-date style="margin-right:75%;" label-hint="-"
+    converter='{"type": "datetime", "options": {"pattern":"dd/MMM/yyyy"}}'></oj-input-date>
+</oj-form-layout>
+
+    </oj-form-layout>
+  </div>
+</div>

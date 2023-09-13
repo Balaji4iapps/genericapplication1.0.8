@@ -1,0 +1,50 @@
+{
+  "description": "",
+  "root": "callRestGetGetbyid",
+  "actions": {
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetGetbyid.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesDataapplication"
+      }
+    },
+    "assignVariablesDataapplication": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Dataapplication": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    },
+    "callRestGetGetbyid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Productapplication/getGetbyid",
+        "uriParams": {
+          "ProductNum": "{{ $page.variables.productname }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetGetbyid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    }
+  },
+  "variables": {}
+}

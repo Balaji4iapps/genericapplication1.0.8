@@ -1,0 +1,30 @@
+
+<div>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-form-layout label-edge='start'>
+      <div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-1"></div>
+  <oj-label for="oj-select-single-824530125-1" class="oj-flex-item oj-sm-12 oj-md-2">Product Name</oj-label>
+  <oj-select-single id="oj-select-single-824530125-1" class="oj-flex-item oj-sm-12 oj-md-4"
+    data="[[$variables.getGetListSDP2]]" item-text="product_name" value="{{ $variables.lov }}"></oj-select-single>
+</div>
+<div style= "display:flex;justify-content:flex-end;margin-bottom:1%;">
+  <oj-button label="Search" style="margin-left:0.5%;margin-right:1.5%" on-oj-action="[[$listeners.buttonAction]]"></oj-button>
+  <oj-button label="Reset" on-oj-action="[[$listeners.buttonAction2]]"></oj-button>
+</div>
+
+      <oj-table scroll-policy="loadMoreOnScroll"
+        columns='[{"headerText":"product_name","field":"product_name"},
+        {"headerText":"product_location","field":"product_location"},
+        {"headerText":"pincode","field":"pincode"},{"headerText":"mobile","field":"mobile"},
+        {"headerText":"manufacture_date","field":"manufacture_date"},
+        {"headerText":"expiry_date","field":"expiry_date"}]'
+        data="[[ $variables.tablevalue ]]"></oj-table>
+        <oj-paging-control id="paging" class="oj-sm-width-full" page-size="4" data="[[ $variables.tablevalue ]]"
+          page-options.type="dots" draggable="true" >
+</oj-paging-control>
+    </oj-form-layout>
+  </div>
+</div>

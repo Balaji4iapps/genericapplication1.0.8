@@ -1,0 +1,59 @@
+{
+  "description": "",
+  "root": "callRestPostEmployeePMETHODPPRIMARYKEY",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostEmployeePMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_3f33]]",
+        "message": "[[$application.translations.app.fireNotification2_message_212e]]",
+        "displayMode": "transient",
+        "type": "warning"
+      },
+      "outcomes": {
+        "success": "callComponentEmployeeDeleteClose"
+      }
+    },
+    "callChainOnload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onload"
+      }
+    },
+    "callComponentEmployeeDeleteClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('EmployeeDelete') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainOnload"
+      }
+    },
+    "callRestPostEmployeePMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CarApplication/postEmployeeP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $page.variables.employeedetails.employee_id }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification2"
+      }
+    }
+  },
+  "variables": {}
+}

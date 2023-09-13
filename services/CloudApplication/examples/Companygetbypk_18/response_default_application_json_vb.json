@@ -1,0 +1,28 @@
+{
+    "items": [
+        {
+            "company_id": 101,
+            "company_name": "5 ELEMENTS",
+            "company_location": "CHENNAI",
+            "company_mailid": null,
+            "owner_name": null,
+            "turnover_million": 150,
+            "started_date": null,
+            "cloud_id": 20
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/cloud18/Companygetbypk?pcompanyid=101"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/cloud18/item"
+        }
+    ]
+}

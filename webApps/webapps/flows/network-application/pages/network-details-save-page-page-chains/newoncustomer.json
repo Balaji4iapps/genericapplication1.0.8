@@ -1,0 +1,38 @@
+{
+  "description": "",
+  "root": "ifNetworkid",
+  "actions": {
+    "ifNetworkid": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.networkid!=0 ]]"
+      },
+      "outcomes": {
+        "true": "navigateToNetworkCustomerWorkPage",
+        "false": "fireNotification"
+      }
+    },
+    "navigateToNetworkCustomerWorkPage": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "network-customer-work-page",
+        "params": {
+          "cusmethod": "CREATE",
+          "cusidpkey": "0",
+          "cusfknetid": "{{ $page.variables.networkid }}"
+        }
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification_summary_84b7]]",
+        "message": "[[$application.translations.app.fireNotification_message_8ab6]]",
+        "displayMode": "transient",
+        "type": "warning"
+      }
+    }
+  },
+  "variables": {}
+}

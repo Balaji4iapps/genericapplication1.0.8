@@ -1,0 +1,68 @@
+{
+    "items": [
+        {
+            "service_id": 20,
+            "service_short_name": "PAAS",
+            "company_full_name": "Product As A Service",
+            "storage_used": "1000 TB",
+            "started_date": "2018-07-16T00:00:00Z",
+            "bond_duration": "5 YEARS",
+            "bond_type": "PERMANENT",
+            "company_id": 101
+        },
+        {
+            "service_id": 50,
+            "service_short_name": null,
+            "company_full_name": null,
+            "storage_used": null,
+            "started_date": null,
+            "bond_duration": null,
+            "bond_type": null,
+            "company_id": null
+        },
+        {
+            "service_id": 65,
+            "service_short_name": "PAAS",
+            "company_full_name": "Product As A Service",
+            "storage_used": "1000 TB",
+            "started_date": "2018-07-16T00:00:00Z",
+            "bond_duration": "2 YEARS",
+            "bond_type": "PERMANENT",
+            "company_id": 103
+        },
+        {
+            "service_id": 35,
+            "service_short_name": null,
+            "company_full_name": null,
+            "storage_used": null,
+            "started_date": null,
+            "bond_duration": null,
+            "bond_type": null,
+            "company_id": 102
+        },
+        {
+            "service_id": 60,
+            "service_short_name": "PAAS",
+            "company_full_name": "Product As A Service",
+            "storage_used": "1000 TB",
+            "started_date": "2018-07-16T00:00:00Z",
+            "bond_duration": "3 YEARS",
+            "bond_type": "PERMANENT",
+            "company_id": 102
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 5,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/cloud18/getservice18"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/cloud18/item"
+        }
+    ]
+}

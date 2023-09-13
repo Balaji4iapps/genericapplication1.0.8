@@ -1,0 +1,38 @@
+{
+  "description": "",
+  "root": "ifPrimarykey",
+  "actions": {
+    "ifPrimarykey": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.primarykey!=0 ]]"
+      },
+      "outcomes": {
+        "true": "navigateToSportsApplicationGame",
+        "false": "fireNotification"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification_summary]]",
+        "message": "[[$application.translations.app.fireNotification_message]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      }
+    },
+    "navigateToSportsApplicationGame": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "sports-application-game",
+        "params": {
+          "gamekey": "0",
+          "gamemethod": "create",
+          "fk": "{{ $page.variables.primarykey }}"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

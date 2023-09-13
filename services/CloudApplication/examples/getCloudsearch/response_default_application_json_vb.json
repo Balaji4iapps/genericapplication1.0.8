@@ -1,0 +1,68 @@
+{
+    "items": [
+        {
+            "cloud_id": 20,
+            "cloud_name": "GOOGLE CLOUD",
+            "cloud_provider": "GOOGLE",
+            "email_id": "CLOUDSERVICE@GOOGLE.COM",
+            "contact_number": "1200340056",
+            "business_type": "INTERNATIONAL",
+            "started_year": "1996-11-01T00:00:00Z",
+            "founder_name": "Larry Page"
+        },
+        {
+            "cloud_id": 30,
+            "cloud_name": "Amazon Web Service",
+            "cloud_provider": "Amazon",
+            "email_id": "Cloudservice@aws.com",
+            "contact_number": "9897180010",
+            "business_type": "international",
+            "started_year": "2002-06-03T00:00:00Z",
+            "founder_name": "JEFF BESOS"
+        },
+        {
+            "cloud_id": 50,
+            "cloud_name": "IBM CLOUD",
+            "cloud_provider": "IBM",
+            "email_id": "Cloudservice@ibm.com",
+            "contact_number": "1898007645",
+            "business_type": "International",
+            "started_year": null,
+            "founder_name": null
+        },
+        {
+            "cloud_id": 40,
+            "cloud_name": "MICRSOFT AZURE",
+            "cloud_provider": "MICROSOFT ",
+            "email_id": "Cloudservice@.microsoft.com",
+            "contact_number": "181803034545",
+            "business_type": "International",
+            "started_year": null,
+            "founder_name": null
+        },
+        {
+            "cloud_id": 10,
+            "cloud_name": "ORACLE CLOUD",
+            "cloud_provider": "ORACLE",
+            "email_id": "cloudservice@oracle.com",
+            "contact_number": "0088994343",
+            "business_type": "International",
+            "started_year": "1996-11-01T00:00:00Z",
+            "founder_name": "Larry Ellision"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 5,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/cloud18/cloudsearch"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/cloud18/item"
+        }
+    ]
+}

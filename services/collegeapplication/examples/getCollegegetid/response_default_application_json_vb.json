@@ -1,0 +1,29 @@
+{
+    "items": [
+        {
+            "staff_id": 1103,
+            "staff_name": "J.pream",
+            "email": "pream@gmail.com",
+            "dob": "1988-06-23T00:00:00Z",
+            "date_of_joining": "1990-02-10T00:00:00Z",
+            "gender": "male",
+            "phone_number": 8767968999,
+            "salary": 25000,
+            "address": "Trichy"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1326/collegegetid?staff_id=1103"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1326/item"
+        }
+    ]
+}

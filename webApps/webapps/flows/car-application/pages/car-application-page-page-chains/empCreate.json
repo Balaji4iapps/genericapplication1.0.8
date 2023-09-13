@@ -1,0 +1,45 @@
+{
+  "description": "",
+  "root": "ifCarid",
+  "actions": {
+    "callComponentEmployeedetailPopupOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('EmployeedetailPopup') }}",
+        "method": "open"
+      }
+    },
+    "ifCarid": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.carid!=0 ]]"
+      },
+      "outcomes": {
+        "true": "resetVariablesEmployeedetails"
+      }
+    },
+    "resetVariablesEmployeedetails": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.employeedetails"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesEmpnavigation"
+      }
+    },
+    "assignVariablesEmpnavigation": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.empnavigation": {
+          "source": "Create"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentEmployeedetailPopupOpen"
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,132 @@
+{
+  "description": "",
+  "root": "assignVariablesPostmatch",
+  "actions": {
+    "ifMatchfixtures": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.matchfixtures=='create' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostMatchPMETHODPPRIMARYKEY2",
+        "false": "callRestPostMatchPMETHODPPRIMARYKEY22"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostMatchPMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostMatchPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/postMatchP_METHODP_PRIMARYKEY2",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.postmatch }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_27d7]]",
+        "message": "[[$application.translations.app.fireNotification2_message_85df]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callChainButtonActionChain"
+      }
+    },
+    "callChainButtonActionChain": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "matchpopupclose"
+      },
+      "outcomes": {
+        "success": "callChainOnloaddatabyid"
+      }
+    },
+    "assignVariablesPostmatch2": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.postmatch": {
+          "reset": "toDefault"
+        }
+      }
+    },
+    "callChainOnloaddatabyid": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onloaddatabyid"
+      },
+      "outcomes": {
+        "success": "assignVariablesPostmatch2"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostMatchPMETHODPPRIMARYKEY22.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostMatchPMETHODPPRIMARYKEY22": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/postMatchP_METHODP_PRIMARYKEY2",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.postmatch.s_no }}"
+        },
+        "body": "{{ $page.variables.postmatch }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification4_summary_651a]]",
+        "message": "[[$application.translations.app.fireNotification4_message_4a1a]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callChainButtonActionChain"
+      }
+    },
+    "assignVariablesPostmatch": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.postmatch": {
+          "source": {
+            "c_id": "{{ $page.variables.PrimaryKey }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "ifMatchfixtures"
+      }
+    }
+  },
+  "variables": {}
+}

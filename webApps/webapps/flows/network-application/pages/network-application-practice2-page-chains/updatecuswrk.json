@@ -1,0 +1,81 @@
+{
+  "description": "",
+  "root": "assignVariablesCuswrkmethod",
+  "actions": {
+    "assignVariablesCuswrkmethod": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.cuswrkmethod": {
+          "source": "EDIT"
+        },
+        "$page.variables.cuswrkpk": {
+          "source": "{{ $variables.key }}"
+        },
+        "$page.variables.cuswrkfk": {
+          "source": "{{ $page.variables.cuspk }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentCuswrkpopupOpen"
+      }
+    },
+    "callComponentCuswrkpopupOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('cuswrkpopup') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestCustomerworkgetid1312"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestCustomerworkgetid1312.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestCustomerworkgetid1312": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Network1312/Customerworkgetid_1312",
+        "uriParams": {
+          "employee_num": "{{ $page.variables.cuswrkpk }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesCuswrkdatas"
+      }
+    },
+    "assignVariablesCuswrkdatas": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.cuswrkdatas": {
+          "source": "{{ $chain.results.callRestCustomerworkgetid1312.body.items[0] }}",
+          "auto": "always"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

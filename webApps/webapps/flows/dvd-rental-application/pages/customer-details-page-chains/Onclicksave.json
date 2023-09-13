@@ -1,0 +1,101 @@
+{
+  "description": "",
+  "root": "runInParallel",
+  "actions": {
+    "runInParallel": {
+      "module": "vb/action/builtin/forkAction",
+      "parameters": {
+        "actions": {
+          "callRest": "callRestPostPlace",
+          "callRestPostcustomer": "callRestPostcustomer"
+        }
+      },
+      "outcomes": {
+        "join": "callChainOnLoadCustomer"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostcustomer.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostcustomer": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/postcustomer",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.seq_customer }}"
+        },
+        "body": "{{ $page.variables.customerpopup }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.recordmodified]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      }
+    },
+    "callChainOnLoadCustomer": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "OnLoadCustomer"
+      },
+      "outcomes": {
+        "success": "callComponentCustomerdetailsPopupClose"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostPlace.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostPlace": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/PostPlace",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.place.seq_place }}"
+        },
+        "body": "{{ $page.variables.place }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification4"
+      }
+    },
+    "fireNotification4": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.addresssaved]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      }
+    },
+    "callComponentCustomerdetailsPopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('CustomerdetailsPopup') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

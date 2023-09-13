@@ -1,0 +1,41 @@
+{
+  "description": "",
+  "root": "assignVariablesStatusprimarykey",
+  "actions": {
+    "callComponentOjDialogDeleteOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog-delete') }}",
+        "method": "open"
+      }
+    },
+    "assignVariablesStatusprimarykey": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.statusprimarykey": {
+          "source": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentOjDialogDeleteOpen"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

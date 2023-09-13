@@ -1,0 +1,17 @@
+{
+  "description": "",
+  "root": "navigateToCloudApplicationCreateEdit",
+  "actions": {
+    "navigateToCloudApplicationCreateEdit": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "cloud-application-create-edit",
+        "params": {
+          "PageNavigation": "create",
+          "Cloud_id": "0"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,55 @@
+{
+  "description": "",
+  "root": "ifPrimarykey",
+  "actions": {
+    "assignVariablesPatientprimarykey": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.patientprimarykey": {
+          "source": "0"
+        },
+        "$page.variables.patientmethod": {
+          "source": "create"
+        },
+        "$page.variables.patientvariable": {
+          "source": {
+            "pat_doc_code": "{{ $page.variables.primarykey }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentPatientcreateOpen"
+      }
+    },
+    "callComponentPatientcreateOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('patientcreate') }}",
+        "method": "open"
+      }
+    },
+    "ifPrimarykey": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.primarykey!=0 ]]"
+      },
+      "outcomes": {
+        "true": "assignVariablesPatientprimarykey",
+        "false": "fireNotification"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification_summary_e8b4]]",
+        "message": "[[$application.translations.app.fireNotification_message_b6ce]]",
+        "displayMode": "transient",
+        "type": "warning"
+      }
+    }
+  },
+  "variables": {}
+}

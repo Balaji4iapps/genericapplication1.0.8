@@ -1,0 +1,29 @@
+{
+    "items": [
+        {
+            "s_no": 3,
+            "match_no": 2,
+            "date_": "2022-11-21T00:00:00Z",
+            "time_": "18:30",
+            "c_id": 11,
+            "fixtures": "England VS Iran",
+            "group_": "B",
+            "stadium": "Khalifa International Stadium,Doha",
+            "capacity_": 40000
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1331/matchfixture?sno=3"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1331/item"
+        }
+    ]
+}

@@ -1,0 +1,83 @@
+{
+  "description": "",
+  "root": "onclickstatusdelete",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.onclickstatusdelete.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "onclickstatusdelete": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "collegeapplication/studentstatuspost",
+        "uriParams": {
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $page.variables.statusprimarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callComponentOjDialogDeleteClose"
+      }
+    },
+    "callComponentOjDialogDeleteClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog-delete') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callRestStudentstatusidfks"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestStudentstatusidfks.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestStudentstatusidfks": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "collegeapplication/Studentstatusidfks",
+        "uriParams": {
+          "student_id": "{{ $page.variables.studentprimarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestStudentstatusidfks.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesStudentstatus"
+      }
+    },
+    "assignVariablesStudentstatus": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.studentstatus": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

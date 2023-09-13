@@ -1,0 +1,129 @@
+{
+  "description": "",
+  "root": "assignVariablesRecordscustomer",
+  "actions": {
+    "ifCusmethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.cusmethod=='CREATE' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostCustomer1312PMETHODPPRIMARYKEY",
+        "false": "callRestPostCustomer1312PMETHODPPRIMARYKEY2"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCustomer1312PMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostCustomer1312PMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Network1312/postCustomer_1312P_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.recordscustomer }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "assignVariablesRecordscustomer": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.recordscustomer": {
+          "source": {
+            "network_id": "{{ $page.variables.cusfknetid }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "ifCusmethod"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_a281]]",
+        "message": "[[$application.translations.app.fireNotification2_message_289b]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "assignVariablesCusworkmethod"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCustomer1312PMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostCustomer1312PMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Network1312/postCustomer_1312P_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.cusidpkey }}"
+        },
+        "body": "{{ $page.variables.recordscustomer }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification4_summary_93b1]]",
+        "message": "[[$application.translations.app.fireNotification4_message_c177]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      }
+    },
+    "assignVariablesCusworkmethod": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.cusworkmethod": {
+          "source": "edit"
+        },
+        "$page.variables.cusidpkey": {
+          "source": "{{ $chain.results.callRestPostCustomer1312PMETHODPPRIMARYKEY.body.p_primarykey }}"
+        }
+      },
+      "outcomes": {
+        "success": "assignVariablesCusworkpopup"
+      }
+    },
+    "assignVariablesCusworkpopup": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.cusworkpopup": {
+          "source": {
+            "customer_id": "{{ $page.variables.cusidpkey }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

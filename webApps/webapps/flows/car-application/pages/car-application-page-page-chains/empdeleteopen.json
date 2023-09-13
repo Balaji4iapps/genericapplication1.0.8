@@ -1,0 +1,46 @@
+{
+  "description": "",
+  "root": "assignVariablesEmployeedetails",
+  "actions": {
+
+    "assignVariablesEmployeedetails": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.employeedetails": {
+          "source": {
+            "employee_id": "{{ $variables.key }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentEmployeeDeleteOpen"
+      }
+    },
+    "callComponentEmployeeDeleteOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('EmployeeDelete') }}",
+        "method": "open"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentDiagnosisClose",
+  "actions": {
+    "callComponentDiagnosisClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('diagnosis') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

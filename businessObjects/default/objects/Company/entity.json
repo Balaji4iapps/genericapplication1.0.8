@@ -1,0 +1,99 @@
+{
+    "fields": [
+        {
+            "type": "number",
+            "name": "id",
+            "internal": false,
+            "key": true,
+            "oid": "c9e07d29-5f35-4df2-a63a-acc8344960a0",
+            "required": true,
+            "unique": true,
+            "displayLabel": "Id"
+        },
+        {
+            "type": "datetime",
+            "name": "creationDate",
+            "internal": false,
+            "oid": "6140d559-6627-484a-8a05-25d61b021792",
+            "displayLabel": "Created",
+            "historyType": "timeCreated"
+        },
+        {
+            "type": "datetime",
+            "name": "lastUpdateDate",
+            "internal": false,
+            "oid": "cc6a1922-dc8b-495e-b953-8280fd90e9a1",
+            "displayLabel": "Last Updated",
+            "historyType": "timeUpdated"
+        },
+        {
+            "type": "string",
+            "name": "createdBy",
+            "internal": false,
+            "oid": "512cf309-603d-4918-aba8-8467524120d6",
+            "displayLabel": "Created By",
+            "historyType": "createdBy"
+        },
+        {
+            "type": "string",
+            "name": "lastUpdatedBy",
+            "internal": false,
+            "oid": "49753315-8af1-4706-930b-b6ba056296bf",
+            "displayLabel": "Last Updated By",
+            "historyType": "updatedBy"
+        },
+{
+            "type": "number",
+            "name": "versionNumber",
+            "internal": false,
+            "oid": "ad1d48d2-e166-471d-8d54-88c91495d15e",
+            "displayLabel": "Version Number",
+            "historyType": "versionNumber"
+        },
+        {
+            "type": "string",
+            "name": "companyname",
+            "oid": "294748bc-237a-4ebf-98cc-9d4f908f9438",
+            "displayLabel": "companyname"
+        }        ,
+        {
+            "type": "string",
+            "name": "companylocation",
+            "oid": "72898d99-eb28-4785-97aa-ad174e4413b5",
+            "displayLabel": "companylocation"
+        }        ,
+        {
+            "type": "string",
+            "name": "address",
+            "oid": "24c7fedd-c769-4958-985c-69a94f1e31d9",
+            "displayLabel": "Address"
+        }        ,
+        {
+            "type": "number",
+            "name": "income",
+            "oid": "45aec927-7340-4899-af3d-0b26a791326c",
+            "displayLabel": "income",
+            "required": true
+        }
+    ],
+    "name": "Company",
+    "oid": "60ebb6de-a752-415a-b144-469d760a5bfc",
+    "displayLabel": "Company",
+    "triggers": [
+{
+            "definition": "// Trigger Beginning \nprintln 'Trigger started: Testing, business object: Company, event: BeforeInsert';\n\ntry {\n\n  // Execute Conditionally Criterion (Execute Conditionally)\n  def codeCriterion_1 = (income < 500);\n  println \"Trigger condition (income < 500) is \" + codeCriterion_1;\n  if (codeCriterion_1) {\n    // Action Group (Action Group)\n    eMailNotification_1: {\n      def variables = [:];\n\n      Email.send('asik.j@4iapps.com', \"nobody@oracle.com\", \"New mail\", variables);\n    };\n  }\n\n} finally {\n\n  // Trigger End \n  println 'Trigger ended: Testing';\n\n}",
+            "displayName": "Testing",
+            "name": "BeforeInsert_Rule_0",
+            "refId": "81b86432-a076-4e66-aa1a-7732b7ae230f",
+            "type": "BeforeInsert"
+        },
+{
+            "definition": "// Field Trigger Beginning \nprintln 'Field Trigger started: Testcase, business object: Company, field: income';\n\ntry {\n\n  // Execute Conditionally Criterion (Execute Conditionally)\n  def codeCriterion_1 = (income > 500);\n  println \"Trigger condition (income > 500) is \" + codeCriterion_1;\n  if (codeCriterion_1) {\n    // Action Group (Action Group)\n    eMailNotification_1: {\n      def variables = [:];\n\n      Email.send('asik.j@4iapps.com', \"nobody@oracle.com\", \"New mail\", variables);\n    };\n  }\n\n} finally {\n\n  // Field Trigger End \n  println 'Field Trigger ended: Testcase';\n\n}",
+            "displayName": "Testcase",
+            "name": "income_Field_Rule_1",
+            "refId": "0c0d7c87-9d8d-4a40-b4b1-761d4d1333fa",
+            "type": "Modify",
+            "onProperty": "income"
+        }
+    ]
+}

@@ -1,0 +1,174 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "box": {
+      "type": "any",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "deletevar": {
+      "type": "string"
+    },
+    "depart": {
+      "type": "any"
+    },
+    "method": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "primarykey": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "productcreate": {
+      "type": "postProductappP_METHODP_PRIMARYKEY"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.postProductappP_METHODP_PRIMARYKEY": {
+      "endpoint": "postProductappP_METHODP_PRIMARYKEY",
+      "service": "Productapplication",
+      "path": "request"
+    },
+    "postProductappP_METHODP_PRIMARYKEY": {
+      "expiry_date": "string",
+      "manufacture_date": "string",
+      "mobile": "number",
+      "pincode": "number",
+      "product_location": "string",
+      "product_name": "string",
+      "product_num": "string",
+      "stock_remain": "string"
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "SearchPutsavebutton"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "headerclosebutton"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "createdepart1"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "hyperlinkClick": {
+      "chains": [
+        {
+          "chainId": "HyperlinkClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick2": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain1"
+        }
+      ]
+    },
+    "imageClick3": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain2"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "postonload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-input-time": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      },
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "description": "",
+  "root": "assignVariablesServicefk",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestServicegetbyfk.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestServicegetbyfk": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/Servicegetbyfk",
+        "uriParams": {
+          "pcompanyid": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingservice"
+      }
+    },
+    "callFunctionPagingservice": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingservice",
+        "params": [
+          "{{ $chain.results.callRestServicegetbyfk.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesServicetable"
+      }
+    },
+    "assignVariablesServicetable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Servicetable": {
+          "source": "{{ $chain.results.callFunctionPagingservice }}"
+        }
+      }
+    },
+    "callComponentServicepopupOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Servicepopup') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestServicegetbyfk"
+      }
+    },
+    "assignVariablesServicefk": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.servicefk": {
+          "source": "{{ $variables.key }}"
+        },
+        "$page.variables.servicemethod": {
+          "source": "create"
+        },
+        "$page.variables.servicepk": {
+          "source": "0"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentServicepopupOpen"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

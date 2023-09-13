@@ -1,0 +1,41 @@
+{
+  "description": "",
+  "root": "if",
+  "actions": {
+    "if": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.manifacturedetails.stock=='Y' ]]"
+      },
+      "outcomes": {
+        "true": "assignVariablesManifacturedetails",
+        "false": "assignVariablesManifacturedetails2"
+      }
+    },
+    "assignVariablesManifacturedetails": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.manifacturedetails": {
+          "source": {
+            "stock": "N"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      }
+    },
+    "assignVariablesManifacturedetails2": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.manifacturedetails": {
+          "source": {
+            "stock": "Y"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

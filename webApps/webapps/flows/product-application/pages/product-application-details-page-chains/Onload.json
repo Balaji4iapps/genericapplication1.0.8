@@ -1,0 +1,48 @@
+{
+  "root": "callRestGetGetalltable",
+  "description": "",
+  "variables": {},
+  "actions": {
+
+    "callRestGetGetalltable": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Productapplication/getGetalltable"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetGetalltable.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesTable"
+      }
+    },
+    "assignVariablesTable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.table": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetGetalltable.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    }
+  }
+}

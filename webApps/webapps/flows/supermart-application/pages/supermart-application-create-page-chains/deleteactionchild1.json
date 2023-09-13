@@ -1,0 +1,59 @@
+{
+  "description": "",
+  "root": "callRestPostSmartchildPMETHODPPRIMARYKEY2",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostSmartchildPMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostSmartchildPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "supermartapplication/postSmartchildP_METHODP_PRIMARYKEY2",
+        "uriParams": {
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $page.variables.deletechild1 }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostSmartchildPMETHODPPRIMARYKEY2.body.p_err_code ]]",
+        "message": "[[ $chain.results.callRestPostSmartchildPMETHODPPRIMARYKEY2.body.p_err_msg ]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callComponentDeletechildpopup1Close"
+      }
+    },
+    "callComponentDeletechildpopup1Close": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('deletechildpopup1') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainDeletechild1onload"
+      }
+    },
+    "callChainDeletechild1onload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "deletechild1onload"
+      }
+    }
+  },
+  "variables": {}
+}

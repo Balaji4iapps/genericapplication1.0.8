@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentChild1createeditClose",
+  "actions": {
+    "callComponentChild1createeditClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('child1createedit') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

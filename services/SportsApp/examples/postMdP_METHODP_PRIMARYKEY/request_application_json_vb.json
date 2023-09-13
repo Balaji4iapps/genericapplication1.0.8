@@ -1,0 +1,12 @@
+
+   {
+            "game_id": 10,
+            "medical_id": 0,
+            "phy_challenged": "YES",
+            "allergies": "NO",
+            "last_match_injuire_status": "HAND INJURIES",
+            "dose_level": "MEDIUM",
+            "insurances": "YES",
+            "therapy_assistant": "REBEL",
+            "remarks": "NEED OBSERVATION FOR 3 WEEKS"
+        }

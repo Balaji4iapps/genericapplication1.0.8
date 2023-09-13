@@ -1,0 +1,99 @@
+<div class="oj-panel" style="background-color:#90EE90">
+<h2>Product Application</h2>
+<div style="background-color: rgba(255, 255, 255, 0);">
+</div>
+<oj-form-layout label-edge="start" direction="column" max-columns="3">
+  <oj-select-single label-hint="Product_Name"  item-text="product_name"
+    value="{{ $variables.productname }}" data="[[$variables.getGetListSDP]]" required="true"></oj-select-single>
+</oj-form-layout>
+  
+<div style="display:flex;justify-content:flex-end;margin-bottom:1%;">
+  <oj-button label="Search" style="margin-left:0.5%;margin-right:1.5%" class="oj-button-sm" chroming="solid"
+    on-oj-action="[[$listeners.buttonAction]]">
+  <img slot="startIcon" :src="[[ $flow.path + 'resources/images/search.png' ]]" width="16">
+  </oj-button>
+  <oj-button label="Reset" class="oj-button-sm" chroming="solid" on-oj-action="[[$listeners.buttonAction2]]">
+  <img slot="startIcon" :src="[[ $flow.path + 'resources/images/circular.png' ]]" width="20">
+  </oj-button>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-4">
+  <oj-button label="Create" class="oj-button-sm" chroming="solid" on-oj-action="[[$listeners.buttonAction3]]">
+  <img slot="startIcon" :src="[[ $flow.path + 'resources/images/pencil.png' ]]" width="22">
+  </oj-button>
+  </div>
+</div>
+  
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+    columns='[{"headerText":"Checkbox","template":"customTemplate"},{"headerText":"Product_Name","field":"product_name","template":"Product Name"},{"headerText":"Product_Location","field":"product_location"},{"headerText":"Pincode","field":"pincode"},{"headerText":"Mobile","field":"mobile"},{"headerText":"Manufacture_Date","field":"manufacture_date","template":"mfd_date"},{"headerText":"Expiry_Date","field":"expiry_date","template":"mfd_date"},{"headerText":"Stock_Remain","field":"stock_remain"},{"headerText":"Delete","template":"Delete"}]'
+    data="[[ $variables.Dataapplication ]]" display="grid" >
+
+
+
+
+<template slot="mfd_date">
+  <oj-input-date value="[[$current.data]]" readonly="true"
+   converter='{"type": "datetime", "options": {"pattern":"dd-MMM-yyyy"}}'></oj-input-date>
+</template>
+
+
+
+  <template slot="Delete">
+  <img :src="[[ $flow.path + 'resources/images/delete.png' ]]" width="33" on-click="[[$listeners.imageClick]]">
+</template>
+
+<template slot="Product Name">
+ <a target="_blank" style="color:v;font-weight: bold;" on-click="[[$listeners.hyperlinkClick]]">
+ <oj-bind-text value="[[ $current.data ]]"></oj-bind-text>
+
+ </a>
+</template>
+  <template slot="customTemplate">
+  <oj-sample-checkbox-switch on-value-changed="[[$listeners.booleanCheckboxComponentValue]]"></oj-sample-checkbox-switch>
+  </template>
+
+</oj-table>
+</div>
+  <div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-10"></div>
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+  <oj-button label="Back" chroming="solid" class="oj-button-sm" on-oj-action="[[$listeners.buttonAction5]]"></oj-button>
+  </div>
+  </div>
+
+<oj-dialog style="display:none" dialog-title="Delete" id="deletepopup">
+  <div slot="body">
+  <div class="oj-flex">
+
+    Do you want to delete?
+  </div>
+  </div>
+  <div slot="footer">
+  <img :src="[[ $flow.path + 'resources/images/checked.png' ]]" width="46" height="40"
+    style="object-fit: fill; object-position: 0.10%;margin-right:5%;" class="oj-helper-justify-content-center"
+    on-click="[[$listeners.imageClick3]]">
+  <img :src="[[ $flow.path + 'resources/images/close.png' ]]" width="40" height="40"
+    on-click="[[$listeners.imageClick2]]">
+  </div>
+</oj-dialog>
+
+
+<template  slot="delete">
+  <img>
+</template>
+  
+
+
+
+
+<oj-paging-control id="paging" 
+class="oj-sm-width-full"  page-size="10" data="[[ $variables.Dataapplication ]]" >
+</oj-paging-control>
+
+</div>
+<oj-dialog style="display:none" dialog-title="Loading" id="loading">
+  <div slot="body">
+    <img :src="[[ $flow.path + 'resources/images/container_1.gif' ]]" width="201" height="150"> 
+   </div>
+ 

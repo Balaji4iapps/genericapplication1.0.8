@@ -1,0 +1,29 @@
+{
+    "items": [
+        {
+            "own_ref_id": "101",
+            "manufacturer_name": "SS Sugar Mills",
+            "manufacturer_id": "1002",
+            "account_number": "9000899223",
+            "ifsc_code": "\tUTIB37764",
+            "branch_name": "\tCuddalore",
+            "bank_name": "\tAxis",
+            "pending_amount": "\tNil",
+            "bill_book_number": "N12"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1313mod/accountchild2byid?ownrefid=101"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1313mod/item"
+        }
+    ]
+}

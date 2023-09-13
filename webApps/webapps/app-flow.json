@@ -1,0 +1,219 @@
+{
+  "id": "webapps",
+  "description": "A new VB app",
+  "defaultPage": "shell",
+  "services": {},
+  "translations": {
+    "app": {
+      "path": "./resources/strings/app/nls/app-strings"
+    }
+  },
+  "events": {
+    "navigateToItem": {
+      "payloadType": {
+        "item": "string"
+      },
+      "description": "Event to configure navigation between items/tabs."
+    },
+    "toggleDrawer": {
+      "description": "Event to toggle the drawer."
+    }
+  },
+  "types": {
+    "navigationItem": {
+      "id": "string",
+      "name": "string",
+      "iconClass": "string"
+    },
+    "globalHeaderItem": {
+      "id": "string",
+      "name": "string",
+      "iconClass": "string"
+    },
+    "avatarMenuItem": {
+      "id": "string",
+      "name": "string",
+      "iconClass": "string"
+    }
+  },
+  "variables": {
+    "globalHeadersADP": {
+      "type": "vb/ArrayDataProvider2",
+      "description": "The model describing the Global Applications headers",
+      "defaultValue": {
+        "keyAttributes": "id",
+        "data": "{{ $variables.globalHeadersData }}",
+        "itemType": "navigationItem"
+      }
+    },
+    "navigationADP": {
+      "type": "vb/ArrayDataProvider2",
+      "description": "The model describing the flows in the app",
+      "defaultValue": {
+        "keyAttributes": "id",
+        "data": "{{ $variables.navigationData }}",
+        "itemType": "navigationItem"
+      }
+    },
+    "avatarItems": {
+      "type": "avatarMenuItem[]",
+      "defaultValue": [
+        {
+          "name": "Sign Out",
+          "id": "signout",
+          "iconClass": "oj-ux-ico-logout"
+        }
+      ]
+    },
+    "globalHeadersData": {
+      "type": "globalHeaderItem[]",
+      "defaultValue": [
+        {
+          "name": "Example 1",
+          "id": "settings",
+          "iconClass": "oj-ux-ico-settings"
+        },
+        {
+          "name": "Example 2",
+          "id": "like",
+          "iconClass": "oj-ux-ico-thumbs-up"
+        },
+        {
+          "name": "Example 3",
+          "id": "bookmark",
+          "iconClass": "oj-ux-ico-bookmark-add"
+        }
+      ]
+    },
+    "navigationData": {
+      "type": "navigationItem[]",
+      "defaultValue": "[[ [\n                    {\n                        \"name\": \"Main\",\n                        \"id\": \"main\",\n                        \"iconClass\": \"oj-ux-ico-list\"\n                    },\n                    {\n                        \"name\": \"Sports Application\",\n                        \"id\": \"sports-application\",\n                        \"iconClass\": \"oj-ux-ico-list\"\n                    },\n                    {\n                        \"name\": \"Car Application\",\n                        \"id\": \"car-application\",\n                        \"iconClass\": \"oj-ux-ico-list\"\n                    },\n                    {\n                        \"name\": \"Hospital Management Application\",\n                        \"id\": \"hospital-management-application\",\n                        \"iconClass\": \"oj-ux-ico-list\"\n                    },\n                    {\n                        \"name\": \"Supermart Application\",\n                        \"id\": \"supermart-application\",\n                        \"iconClass\": \"oj-ux-ico-list\"\n                    },\n                    {\n                        \"name\": \"Cloud Application\",\n                        \"id\": \"cloud-application\",\n                        \"iconClass\": \"oj-ux-ico-list\"\n                    },\n                    {\n                        \"name\": \"Network Application\",\n                        \"id\": \"network-application\",\n                        \"iconClass\": \"oj-ux-ico-list\"\n                    },\n                    {\n                        \"name\": \"Product Application\",\n                        \"id\": \"product-application\",\n                        \"iconClass\": \"oj-ux-ico-list\"\n                    },\n                    {\n                        \"name\": \"College Application\",\n                        \"id\": \"college-application\",\n                        \"iconClass\": \"oj-ux-ico-list\"\n                    },\n                    {\n                        \"name\": \"DVD Rental Application\",\n                        \"id\": \"dvd-rental-application\",\n                        \"iconClass\": \"oj-ux-ico-list\"\n                    },\n                    {\n                        \"name\": \"Movie Ticket Application\",\n                        \"id\": \"movie-ticket-application\",\n                        \"iconClass\": \"oj-ux-ico-list\"\n                    },\n                    {\n                        \"name\": \"WorldCup Application\",\n                        \"id\": \"worldcup-application\",\n                        \"iconClass\": \"oj-ux-ico-list\"\n                    },\n                    {\n                        \"name\": \"Bussiness Object\",\n                        \"id\": \"bussiness-object\",\n                        \"iconClass\": \"oj-ux-ico-list\"\n                    },\n                    {\n                        \"name\": \"Bussiness Object new\",\n                        \"id\": \"bussiness-object-new\",\n                        \"iconClass\": \"oj-ux-ico-list\"\n                    },\n                    {\n                        \"name\": \"Barcode Scanner\",\n                        \"id\": \"barcodescanner\",\n                        \"iconClass\": \"oj-ux-ico-list\"\n                    }\n] ]]"    }
+  },
+  "eventListeners": {
+    "vbResourceChanged": {
+      "chains": [
+        {
+          "chainId": "resourceChangedHandler",
+          "parameters": {
+            "event": "{{ $event }}"
+          }
+        }
+      ]
+    }
+  },
+  "userConfig": {
+    "type": "vb/DefaultSecurityProvider",
+    "configuration": {},
+    "embedding": "deny"
+  },
+  "security": {},
+  "imports": {
+    "css": [
+      "/resources/css/app.css",
+      "/resources/css/redwood-overrides.css",
+      "https://static.oracle.com/cdn/fnd/gallery/2207.0.0/images/iconfont/ojuxIconFont.min.css"
+    ]
+  },
+  "@dt": {
+    "applicationTemplateType": "redwood"
+  },
+  "requirejs": {
+    "paths": {
+      "oj-dyn": "https://static.oracle.com/cdn/jet/packs/oj-dyn/12.1.4/min/",
+      "oj-dynamic": "https://static.oracle.com/cdn/jet/packs/oj-dynamic/12.1.4/min/",
+      "oj-sample": "https://static.oracle.com/cdn/jet/packs/oj-sample/8.0.0/min"
+
+    },
+    "bundles": {
+      "oj-dyn/all-bundle": [
+        "oj-dyn/bind-field/loader",
+        "oj-dyn/bind-section/loader",
+        "oj-dyn/container/loader",
+        "oj-dyn/form/loader",
+        "oj-dyn/form/resources/nls"
+      ],
+      "oj-dynamic/all-bundle": [
+        "oj-dynamic/bind-field/loader",
+        "oj-dynamic/bind-section/loader",
+        "oj-dynamic/container/loader",
+        "oj-dynamic/form/loader",
+        "oj-dynamic/table/loader",
+        "oj-dynamic/table/resources/nls",
+        "oj-dynamic/form/resources/nls",
+        "oj-dynamic/providers/MetadataProviderFactory",
+        "oj-dynamic/providers/TransformState",
+        "oj-dynamic/providers/MetadataUtils",
+        "oj-dynamic/providers/MetadataContentManager",
+        "oj-dynamic/providers/MetadataTransformer",
+        "oj-dynamic/providers/AdfBCExtension",
+        "oj-dynamic/providers/DefaultFetchable",
+        "oj-dynamic/providers/DynamicDataProvider",
+        "oj-dynamic/providers/DynamicLayoutEngine",
+        "oj-dynamic/providers/MetadataProviderManager",
+        "oj-dynamic/providers/JsonMetadataProvider",
+        "oj-dynamic/providers/ServiceMetadataProvider",
+        "oj-dynamic/providers/DynamicLayoutProvider",
+        "oj-dynamic/providers/DynamicLayoutMetadataProvider",
+        "oj-dynamic/providers/DynamicLayoutMetadataProviderFactory",
+        "oj-dynamic/providers/Extension",
+        "oj-dynamic/providers/Fetchable",
+        "oj-dynamic/providers/JsonMetadataProviderFactory",
+        "oj-dynamic/providers/JsonMetadataSchema",
+        "oj-dynamic/providers/OpenAPISchema",
+        "oj-dynamic/providers/ServiceFetchable",
+        "oj-dynamic/providers/ServiceMetadataProviderFactory",
+        "oj-dynamic/providers/ContainerMetadataProviderFactory",
+        "oj-dynamic/shared/CommonUtils",
+        "oj-dynamic/shared/DynamicComponentUtil",
+        "oj-dynamic/shared/DataProviderFactory",
+        "oj-dynamic/shared/UriTemplateUtils",
+        "oj-dynamic/shared/DefaultRestDataProvider",
+        "oj-dynamic/shared/DataProviderFactoryManager",
+        "oj-dynamic/shared/DynamicInputContacts",
+        "oj-dynamic/shared/DynamicLOVUtil",
+        "oj-dynamic/shared/DynamicInputRegistry",
+        "oj-dynamic/shared/DynamicInputFactory",
+        "oj-dynamic/shared/DynamicUIMetadata",
+        "oj-dynamic/shared/MetadataProvider",
+        "oj-dynamic/shared/polyfills",
+        "oj-dynamic/shared/MicroTaskQueue",
+        "oj-dynamic/shared/UtilTypes"
+      ],
+      "oj-sample/calendar-bundle": [
+        "oj-sample/calendar/loader",
+        "oj-sample/calendar-event/loader",
+        "oj-sample/calendar-provider/loader"
+      ],
+      "oj-sample/controls-bundle": [
+        "oj-sample/checkbox-switch/loader",
+        "oj-sample/copy-text/loader",
+        "oj-sample/country-picker/loader",
+        "oj-sample/export-data/loader",
+        "oj-sample/highlight-text/loader",
+        "oj-sample/input-email/loader",
+        "oj-sample/input-text-typeahead/loader",
+        "oj-sample/input-url/loader",
+        "oj-sample/metric/loader",
+        "oj-sample/organization-tree/loader",
+        "oj-sample/organization-tree-item/loader",
+        "oj-sample/qr-code/loader",
+        "oj-sample/tooltip/loader",
+        "oj-sample/utils/validators/emailValidatorFactory",
+        "oj-sample/utils/validators/urlValidatorFactory",
+        "oj-sample/utils/validators/countryValidatorFactory",
+        "oj-sample/utils/export/dataCollectionExporter",
+        "oj-sample/utils/export/visualizationExporter",
+        "oj-sample/visualization-exporter/loader"
+      ],
+      "oj-sample/layout-bundle": [
+        "oj-sample/drawer/loader",
+        "oj-sample/flip-card/loader",
+        "oj-sample/online-detector/loader",
+        "oj-sample/orientation-detector/loader",
+        "oj-sample/show-when-ready/loader",
+        "oj-sample/timed-event/loader"
+      ]
+
+    }
+  }
+}

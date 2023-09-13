@@ -1,0 +1,152 @@
+<div>
+</div>
+
+<div style= "display:flex;justify-content:flex-end;margin-bottom:1%;">
+  <oj-button label="Save" style="margin-left:0.5%;margin-right:1.5%" on-oj-action="[[$listeners.buttonAction]]"
+    class="oj-button-sm" chroming="callToAction"></oj-button>
+  <oj-button label="SaveandClose" style="margin-left:0.5%;margin-right:1.5%" on-oj-action="[[$listeners.buttonAction8]]"
+    class="oj-button-sm" chroming="callToAction"></oj-button>
+  <oj-button label="Close" on-oj-action="[[$listeners.buttonAction2]]" class="oj-button-sm" chroming="danger"></oj-button>
+</div>
+<div>
+  <div class="oj-panel oj-panel-shadow-lg">
+    
+<oj-form-layout columns="2" label-edge="start" class="" style="background-color:#77F750">
+
+  <oj-input-text label-hint="Shop Name" class="oj-flex-item oj-sm-12 oj-md-6"
+    value="{{ $variables.department.shop_name }}" required="true"></oj-input-text>
+  <oj-input-text label-hint="Store Short Code" class="oj-flex-item oj-sm-12 oj-md-6"
+    value="{{ $variables.department.store_short_code }}" required="true"></oj-input-text>
+
+
+  <oj-input-text label-hint="Product Num" class="oj-flex-item oj-sm-12 oj-md-6"
+    value="{{ $variables.department.product_num }}" disabled="true"></oj-input-text>
+
+
+  <oj-input-text label-hint="Shop Location" class="oj-flex-item oj-sm-12 oj-md-6"
+    value="{{ $variables.department.shop_location }}" required="true"></oj-input-text>
+
+  <oj-input-date label-hint="Delivery Date" class="oj-flex-item oj-sm-12 oj-md-6"
+    value="{{ $variables.department.delivery_date }}" required="true"></oj-input-date>
+
+
+  <oj-input-number label-hint="Dispatch No" class="oj-flex-item oj-sm-12 oj-md-6"
+    value="{{ $variables.department.dispatch_no }}" required="true"></oj-input-number>
+  <oj-radioset label-hint="Manager" value="{{ $variables.department.manager_name }}">
+    <oj-option value="">Yes</oj-option>
+    <oj-bind-if test="[[ $variables.department.manager_name=='' ]]">
+    <oj-input-text label-hint="Manager" value="{{ $variables.department.manager_name }}">
+    </oj-input-text>
+    </oj-bind-if>
+    <oj-option value="No">No</oj-option>
+  </oj-radioset>
+
+
+</oj-form-layout>
+  </div>
+  </div>
+<div>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    <oj-button label="Create" class="oj-button-sm" on-oj-action="[[$listeners.buttonAction3]]" chroming="solid">
+    <img slot="startIcon" :src="[[ $flow.path + 'resources/images/pencil_2.png' ]]" width="24">
+    </oj-button>
+  </div>
+  <div class="oj-flex-item oj-sm-12 oj-md-8"></div>
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    <oj-button label="Details" chroming="callToAction" on-oj-action="[[$listeners.buttonAction9]]" class="oj-button-sm"></oj-button>
+  </div>
+</div>
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+    columns='[{"headerText":"Customer Name","field":"customer_name","template":"Customer Name"},
+    {"headerText":"Customer Location","field":"customer_location"},
+    {"headerText":"Depart Num","field":"depart_num"},
+    {"headerText":"Salesman","field":"salesman"},
+    {"headerText":"Area No","field":"area_no"},
+    {"headerText":"Order Date","field":"order_date","template":"mfd_date"},
+    {"headerText":"Email Id","field":"email_id"},
+    {"headerText":"Action","field":"","template":"Action"}]'
+    data="[[ $variables.Customertable ]]" display="grid">
+
+    
+<template slot="mfd_date">
+  <oj-input-date value="[[$current.data]]" readonly="true"
+   converter='{"type": "datetime", "options": {"pattern":"dd-MMM-yyyy"}}'></oj-input-date>
+</template>
+
+    <template slot="Customer Name">
+    <a target="_blank","ColorText":"Red" on-click="[[$listeners.hyperlinkClick]]">
+     <oj-bind-text value="[[$current.data]]"></oj-bind-text>
+    </a>
+    </template>
+    <template slot="Action">
+    <img :src="[[ $flow.path + 'resources/images/delete_2.png' ]]" width="32" height="32"
+      on-click="[[$listeners.imageClick]]">
+    </template>
+    </oj-table>
+
+
+
+
+<oj-paging-control id="paging" 
+class="oj-sm-width-full"data="[[ $variables.Customertable ]]" page-size="15" >
+</oj-paging-control>
+
+
+<oj-dialog style="display:none;" id="customerpopid">
+
+  <div slot="body">
+<div class="oj-flex-item oj-sm-12 oj-md-12">
+  
+        <oj-form-layout columns="2" label-edge="start" label-width="48%" >
+            <oj-input-text label-hint="Customer Name" value="{{ $variables.customerservice.customer_name }}"></oj-input-text>
+            <oj-input-text label-hint="Customer Location" value="{{ $variables.customerservice.customer_location }}"></oj-input-text>
+            <oj-input-text label-hint="Depart Num" value="{{ $variables.customerservice.depart_num }}" disabled="true"></oj-input-text>
+            <oj-input-text label-hint="Salesman" value="{{ $variables.customerservice.salesman }}"></oj-input-text>
+            <oj-select-one label-hint="Area Code" id="dependentlovindustrytype" placeholder="Select Type"
+              required="true" value="{{ $variables.customerservice.area_no }}"
+ >
+<oj-option value="10">10</oj-option>
+<oj-option value="20">20</oj-option>
+<oj-option value="30">30</oj-option>
+<oj-option value="40">40</oj-option>
+</oj-select-one>
+            <oj-input-date label-hint="Order Date" value="{{ $variables.customerservice.order_date }}"></oj-input-date>
+            <oj-input-text virtual-keyboard="email"
+              validators='[{"type":"regexp", "options":{"pattern":"([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})", "hint":"Enter an email address.", "messageDetail": "Value must be of the form xxx@xxx.xx"}}]'
+              label-hint="Email" value="{{ $variables.customerservice.email_id }}"></oj-input-text>
+        
+        </oj-form-layout>
+    </div>
+  </div>
+  
+  <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction5]]">Save</oj-button>
+    <oj-button on-oj-action="[[$listeners.buttonAction4]]">Close</oj-button>
+  </div>
+</oj-dialog>
+
+<oj-dialog style="display:none" dialog-title="Dialog" id="oj-dialog-1436948144-2">
+  <div slot="body">
+    <div class="oj-flex"></div>
+  </div>
+  <div slot="footer">
+    <oj-button>Button</oj-button>
+  </div>
+</oj-dialog>
+<oj-dialog style="display:none" dialog-title="" id="customerdeletebutton">
+  <div slot="body">
+    <div class="oj-flex">
+    <div class="oj-flex-item oj-sm-12 oj-md-4">
+    </div>
+
+      Are you sure<img :src="[[ $flow.path + 'resources/images/remove-user.png' ]]" width="20" height="22">
+    </div>
+  </div>
+  <div slot="footer">
+    <oj-button chroming="solid" on-oj-action="[[$listeners.buttonAction7]]">Delete</oj-button>
+    <oj-button chroming="solid" on-oj-action="[[$listeners.buttonAction6]]">Cancel</oj-button>
+  </div>
+</oj-dialog>

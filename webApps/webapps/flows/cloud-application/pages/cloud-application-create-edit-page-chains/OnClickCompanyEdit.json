@@ -1,0 +1,81 @@
+{
+  "description": "",
+  "root": "assignVariablesChildmethod",
+  "actions": {
+    "callComponentCompanydataOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Companydata') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestCompanygetbypk18"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestCompanygetbypk18.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestCompanygetbypk18": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/Companygetbypk_18",
+        "uriParams": {
+          "pcompanyid": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesPostCompany18"
+      }
+    },
+    "assignVariablesPostCompany18": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.postCompany_18": {
+          "source": "{{ $chain.results.callRestCompanygetbypk18.body.items[0] }}",
+          "auto": "always"
+        }
+      }
+    },
+    "assignVariablesChildmethod": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Childmethod": {
+          "source": "edit"
+        },
+        "$page.variables.childpk": {
+          "source": "{{ $variables.key }}"
+        },
+        "$page.variables.childfk": {
+          "source": "{{ $page.variables.Cloud_id }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentCompanydataOpen"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

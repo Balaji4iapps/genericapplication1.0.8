@@ -1,0 +1,59 @@
+{
+  "description": "",
+  "root": "callRestPostMfdheaderPMETHODPPRIMARYKEY2",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification_summary_5997]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostMfdheaderPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "supermartapplication/postMfdheaderP_METHODP_PRIMARYKEY2",
+        "uriParams": {
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $page.variables.deletecall }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification2"
+      }
+    },
+    "callComponentDeletepopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('deletepopup') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainVbpageload"
+      }
+    },
+    "callChainVbpageload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "vbpageload"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification3_summary_8f15]]",
+        "message": "[[$application.translations.app.fireNotification3_message_8da7]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callComponentDeletepopupClose"
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,168 @@
+<div 
+  style="display:flex; justify-content:flex-end; margin-bottom:1%;">
+      <oj-button class="oj-button-sm" chroming="callToAction" style="margin-left:0.5%;margin-right:1.5%;"
+        on-oj-action="[[$listeners.buttonAction]]">Save</oj-button>
+      <oj-button class="oj-button-sm" chroming="callToAction"
+        style="margin-left:0.5%;margin-right:1.5%;" on-oj-action="[[$listeners.buttonAction3]]">Save and Close</oj-button>
+      <oj-button class="oj-button-sm" chroming="danger"
+        style="margin-left:0.5%;margin-right:1.5%;" on-oj-action="[[$listeners.buttonAction2]]">Close</oj-button>
+  </div>
+<div class="oj-flex">
+  <div class="oj-panel oj-flex-item oj-sm-12 oj-md-12" style="background-color:#00bfff">
+    <div class="oj-flex">
+      <div class="oj-flex-item oj-sm-12 oj-md-12">
+        <oj-form-layout columns="2" label-edge="start">
+          <oj-input-text label-hint="Name" value="{{ $variables.doctorc.doc_name }}"></oj-input-text>
+          <oj-input-number label-hint="Doctor Code" value="{{ $variables.doctorc.doc_code }}" disabled="true"></oj-input-number>
+          <oj-input-text label-hint="Designation" value="{{ $variables.doctorc.doc_designation }}"></oj-input-text>
+          <oj-radioset label-hint="Gender" value="{{ $variables.doctorc.doc_gender }}">
+            <oj-option value="M"> Male</oj-option>
+            <oj-option value="F"> Female</oj-option>
+          </oj-radioset>
+          <oj-input-text label-hint="Address" value="{{ $variables.doctorc.doc_address }}"></oj-input-text>
+          <oj-input-number label-hint="Contact Number" value="{{ $variables.doctorc.doc_number }}"
+            converter='{"options":{"useGrouping":false},"type":"number"}'></oj-input-number>
+        </oj-form-layout>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+<div>
+          <h5>PATIENT</h5>
+  
+</div>
+
+      <oj-button label="Create" on-oj-action="[[$listeners.buttonAction4]]" chroming="callToAction">
+          <img slot="startIcon" :src="[[ $flow.path + 'resources/images/user-avatar.png' ]]" width="30" height="30">
+      </oj-button>
+  
+</div>
+
+<oj-table scroll-policy="loadMoreOnScroll"
+  columns='[{"headerText":"Patient Name","field":"pat_name","template":"pat_name"},
+  {"headerText":"Patient Doctor Code","field":"pat_doc_code"},
+  {"headerText":"Patient Gender","field":"pat_gender"},
+  {"headerText":"Patient Code","field":"pat_id"},
+  {"headerText":"Patient Address","field":"pat_address"},
+  {"headerText":"Patient Number","field":"pat_number"},
+  {"headerText":"Delete","field":"","template":"Delete"}]'
+  edit-mode="rowEdit" display="grid" horizontal-grid-visible="enabled" vertical-grid-visible="enabled"
+  data="[[ $variables.patienttable ]]" style="background-color:#00bfff">
+  <oj-paging-control id="paging" 
+class="oj-sm-width-full" page-size="5" 
+slot="bottom" data="[[ $variables.patienttable ]]">
+</oj-paging-control>
+  <template slot="pat_name">
+          <a target="_blank" on-click="[[$listeners.hyperlinkClick]]">
+      <oj-bind-text value="[[$current.data]]"></oj-bind-text>
+          </a>
+  </template>
+  <template slot="Delete">
+          <img on-click="[[$listeners.imageClick]]" :src="[[ $flow.path + 'resources/images/delete_icon_1.png' ]]"
+            width="30" height="30">
+  </template> 
+</oj-table>
+
+<oj-dialog style="display:none" dialog-title="Dialog" id="patientcreate">
+            <oj-form-layout columns="2" label-edge="start">
+          <oj-input-text label-hint=" Patient Name" value="{{ $variables.patientvariable.pat_name }}"></oj-input-text>
+          <oj-input-number label-hint="Patient Doctor Code" disabled="true"></oj-input-number>
+          <oj-radioset label-hint="Gender" value="{{ $variables.patientvariable.pat_gender }}">
+      <oj-option value="M">Male</oj-option>
+      <oj-option value="F">Female</oj-option>
+          </oj-radioset>
+          
+          <oj-input-text label-hint="Address" value="{{ $variables.patientvariable.pat_address }}"></oj-input-text>
+          <oj-input-number label-hint="Contact Number" value="{{ $variables.patientvariable.pat_number }}"
+            converter='{"options":{"useGrouping":false},"type":"number"}'></oj-input-number>
+        </oj-form-layout>
+          
+
+      
+      <div slot="footer">
+            <oj-button on-oj-action="[[$listeners.buttonAction6]]" chroming="callToAction">Save & Close</oj-button>
+            <oj-button on-oj-action="[[$listeners.buttonAction5]]" chroming="danger">Cancel</oj-button>
+      </div>
+</oj-dialog>
+<oj-dialog style="display:none" dialog-title="DELETE" id="Deletepatient">
+  <div slot="body">
+  <div class="oj-flex">
+    Are You Sure Want To Delete This Record?
+  </div>
+  </div>
+  <div slot="footer">
+  <oj-button on-oj-action="[[$listeners.buttonAction8]]" chroming="callToAction" >OK</oj-button>
+  <oj-button on-oj-action="[[$listeners.buttonAction7]]" chroming="danger" >Cancel</oj-button>
+
+  </div>
+</oj-dialog>
+<div>
+  <h5>PATIENT DIAGNOSIS</h5>
+  
+</div>
+<oj-form-layout>
+<oj-button label="Create" on-oj-action="[[$listeners.buttonAction9]]" chroming="callToAction">
+          <img slot="startIcon" :src="[[ $flow.path + 'resources/images/user-avatar_1.png' ]]" width="30" height="30">
+</oj-button>
+</oj-form-layout>
+
+
+
+
+<oj-table scroll-policy="loadMoreOnScroll"
+  columns='[{"headerText":"Diagnosis Details","field":"diag_details","template":"diag_details"},
+  {"headerText":"Diagnosis Code","field":"diag_id"},
+  {"headerText":"Diagnosis Remarks","field":"diag_remarks"},
+  {"headerText":"Patient Code","field":"pat_id"},
+  {"headerText":"Delete","field":"","template":"Delete1"}]'
+  edit-mode="rowEdit" display="grid" horizontal-grid-visible="enabled" vertical-grid-visible="enabled"
+  data="[[ $variables.diagtable ]]" style="background-color:#00bfff">
+  <oj-paging-control id="paging" class="oj-sm-width-full" page-size="5" slot="bottom" data="[[ $variables.diagtable ]]">
+</oj-paging-control>
+  <template slot="pat_name">
+          <a target="_blank" on-click="[[$listeners.hyperlinkClick]]">
+      <oj-bind-text value="[[$current.data]]"></oj-bind-text>
+          </a>
+  </template>
+  <template slot="Delete">
+          <img on-click="[[$listeners.imageClick]]">
+  </template>
+  <template slot="diag_details">
+          <a target="_blank" on-click="[[$listeners.hyperlinkClick2]]">
+      <oj-bind-text value="[[$current.data]]"></oj-bind-text>
+          </a>
+  </template>
+  <template slot="Delete1">
+          <img on-click="[[$listeners.imageClick2]]" :src="[[ $flow.path + 'resources/images/delete_icon_2.png' ]]"
+            width="30" height="30">
+  </template> 
+</oj-table>
+<oj-dialog style="display:none" dialog-title="Diagnosis" id="diagnosis">
+  <div slot="body">
+            <oj-form-layout columns="1" label-edge="start">
+              <oj-input-number label-hint="Patient Code" value="{{ $variables.diagnosis.pat_id }}" disabled="true"></oj-input-number>
+              <oj-input-text label-hint="Diagnosis Details" value="{{ $variables.diagnosis.diag_details }}"
+                required="true"></oj-input-text>
+              <oj-input-text label-hint="Diagnosis Remarks" value="{{ $variables.diagnosis.diag_remarks }}"
+                required="true"></oj-input-text>
+              
+            </oj-form-layout>
+          </div>
+  <div slot="footer">
+          <oj-button on-oj-action="[[$listeners.buttonAction11]]" chroming="callToAction">OK</oj-button>
+          <oj-button on-oj-action="[[$listeners.buttonAction10]]" chroming="danger">Cancel</oj-button>
+  </div>
+</oj-dialog>
+<oj-dialog style="display:none" dialog-title="DELETE" id="Deletedignosis">
+  <div slot="body">
+  <div class="oj-flex">
+    Are You Sure Want To Delete This Record?
+  </div>
+  </div>
+  <div slot="footer">
+  <oj-button on-oj-action="[[$listeners.buttonAction12]]" chroming="callToAction"  >OK</oj-button>
+  <oj-button on-oj-action="[[$listeners.buttonAction13]]" chroming="danger"  >Cancel</oj-button>
+
+  </div>
+</oj-dialog>

@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "deletepopclose",
+  "actions": {
+    "deletepopclose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog-1009527024-1') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

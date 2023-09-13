@@ -1,0 +1,10 @@
+    {
+            "service_id": 20,
+            "service_short_name": "PAAS",
+            "company_full_name": "Product As A Service",
+            "storage_used": "1000 TB",
+            "started_date": "2018-07-16T00:00:00Z",
+            "bond_duration": "2 YEARS",
+            "bond_type": "PERMANENT",
+            "company_id": 103
+        }

@@ -1,0 +1,20 @@
+{
+  "variables": {
+    "companyId": {
+      "type": "string",
+      "input": "fromCaller",
+      "defaultValue": ""
+    }
+  },
+  "root": "assignVariable",
+  "actions": {
+    "assignVariable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.oj_table_273117136_1SelectedId": {
+          "source": "[[ $variables.companyId ]]"
+        }
+      }
+    }
+  }
+}

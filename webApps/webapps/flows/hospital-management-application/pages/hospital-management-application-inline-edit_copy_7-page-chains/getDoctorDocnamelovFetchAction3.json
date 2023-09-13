@@ -1,0 +1,62 @@
+{
+  "root": "ifConfiguration",
+  "actions": {
+    "callRestEndpoint1": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "requestType": "json",
+        "endpoint": "hospitalmanagement/getDoctorDocnamelov",
+        "responseType": "getDoctorDocnamelov2new",
+        "hookHandler": "{{ $variables.configuration.hookHandler }}"
+      },
+      "outcomes": {
+        "success": "return1"
+      }
+    },
+    "return1": {
+      "module": "vb/action/builtin/returnAction",
+      "parameters": {
+        "outcome": "success",
+        "payload": "{{ $chain.results.callRestEndpoint1 }}"
+      }
+    },
+    "ifConfiguration": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $variables.configuration.hookHandler.context.fetchOptions.filterCriterion ]]"
+      },
+      "outcomes": {
+        "false": "callRestEndpoint1",
+        "true": "callRestGetDoctorDocnamelov"
+      }
+    },
+    "callRestGetDoctorDocnamelov": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/getDoctorDocnamelov",
+        "uriParams": {
+          "searchvalue": "{{ $variables.configuration.hookHandler.context.fetchOptions.filterCriterion.value }}"
+        }
+      },
+      "outcomes": {
+        "success": "return"
+      }
+    },
+    "return": {
+      "module": "vb/action/builtin/returnAction",
+      "parameters": {
+        "outcome": "success",
+        "payload": "{{ $chain.results.callRestGetDoctorDocnamelov }}"
+      }
+    }
+  },
+  "variables": {
+    "configuration": {
+      "type": {
+        "hookHandler": "vb/RestHookHandler"
+      },
+      "input": "fromCaller",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<h1><oj-bind-text value="[[$application.translations.app.Company_Table]]"></oj-bind-text></h1>
+<div style="margin-left:95%;margin-top:6px">
+      <oj-button label="[[$application.translations.app.back]]" on-oj-action="[[$listeners.buttonAction]]" > </oj-button>
+    </div><br><div class="oj-flex">
+   
+  <oj-chart type="bar" style="max-width:100%;" class="oj-flex-item oj-sm-12"
+    data="[[$variables.company18GetallListSDP2]]" y-axis.title="Turnover in Millions" x-axis.title="Cloud ID"
+    legend.title="company_name" animation-on-display="auto">
+    <template slot="itemTemplate">
+          <oj-chart-item value="[[ $current.data.turnover_million ]]" group-id="[[[ $current.data.cloud_id ]]]"
+            series-id="[[ $current.data.company_name ]]" border-color="#F5F5DC"></oj-chart-item>
+    </template>
+  </oj-chart>
+</div>
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+    data="[[$variables.company18GetallListSDP]]"
+    columns='[{"headerText":"Company Id","field":"company_id"},
+    {"headerText":"Company Location","field":"company_location"},
+    {"headerText":"Company Name","field":"company_name"},
+    {"headerText":"Company Mail Id","field":"company_mailid"},
+    {"headerText":"Cloud Id","field":"cloud_id"},
+    {"headerText":"Started Date","field":"started_date","template":"date"},
+    {"headerText":"Owner Name","field":"owner_name"},
+    {"headerText":"Turnover In Millions","field":"turnover_million"}]'
+    horizontal-grid-visible="enabled" vertical-grid-visible="enabled" selection-mode.row="none"
+    selection-mode.column="none" display="grid"><template slot="date">
+          <oj-input-date value="[[$current.data]]" readonly="true"
+            converter='{"type": "datetime", "options": {"pattern":"dd-mm-yyyy"}}'></oj-input-date>
+        </template></oj-table>
+</div>

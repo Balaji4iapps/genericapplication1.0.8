@@ -1,0 +1,148 @@
+{
+    "items": [
+        {
+            "staff_id": 1100,
+            "student_id": 11,
+            "student_statusid": 101,
+            "student_name": "A.pradeep",
+            "semester": 1,
+            "attendance": 70,
+            "lab_attendance": 90,
+            "leave_taken": 2,
+            "project_name": "heat",
+            "project_mark": 77,
+            "sem_marks": 83
+        },
+        {
+            "staff_id": 1101,
+            "student_id": 12,
+            "student_statusid": 102,
+            "student_name": "K.lokesh",
+            "semester": 1,
+            "attendance": 80,
+            "lab_attendance": 92,
+            "leave_taken": 3,
+            "project_name": "bridge",
+            "project_mark": 86,
+            "sem_marks": 78
+        },
+        {
+            "staff_id": 1102,
+            "student_id": 13,
+            "student_statusid": 103,
+            "student_name": "M.aravinth",
+            "semester": 1,
+            "attendance": 76,
+            "lab_attendance": 88,
+            "leave_taken": 4,
+            "project_name": "data loading",
+            "project_mark": 78,
+            "sem_marks": 91
+        },
+        {
+            "staff_id": 1103,
+            "student_id": 14,
+            "student_statusid": 104,
+            "student_name": "K.devi",
+            "semester": 1,
+            "attendance": 88,
+            "lab_attendance": 89,
+            "leave_taken": 3,
+            "project_name": "circuit ",
+            "project_mark": 98,
+            "sem_marks": 98
+        },
+        {
+            "staff_id": 1104,
+            "student_id": 15,
+            "student_statusid": 105,
+            "student_name": "L.prakash",
+            "semester": 1,
+            "attendance": 91,
+            "lab_attendance": 89,
+            "leave_taken": 1,
+            "project_name": "wiring",
+            "project_mark": 76,
+            "sem_marks": 78
+        },
+        {
+            "staff_id": 1105,
+            "student_id": 16,
+            "student_statusid": 106,
+            "student_name": "S.aishwarya",
+            "semester": 1,
+            "attendance": 79,
+            "lab_attendance": 87,
+            "leave_taken": 3,
+            "project_name": "hacking",
+            "project_mark": 78,
+            "sem_marks": 88
+        },
+        {
+            "staff_id": 1106,
+            "student_id": 17,
+            "student_statusid": 107,
+            "student_name": "M.priyanka",
+            "semester": 1,
+            "attendance": 88,
+            "lab_attendance": 88,
+            "leave_taken": 2,
+            "project_name": "driven loader",
+            "project_mark": 83,
+            "sem_marks": 78
+        },
+        {
+            "staff_id": 1107,
+            "student_id": 18,
+            "student_statusid": 108,
+            "student_name": "J.karthik",
+            "semester": 1,
+            "attendance": 72,
+            "lab_attendance": 89,
+            "leave_taken": 4,
+            "project_name": "coder",
+            "project_mark": 87,
+            "sem_marks": 67
+        },
+        {
+            "staff_id": 1108,
+            "student_id": 19,
+            "student_statusid": 109,
+            "student_name": "D.venkat",
+            "semester": 1,
+            "attendance": 70,
+            "lab_attendance": 72,
+            "leave_taken": 3,
+            "project_name": "lab tester",
+            "project_mark": 97,
+            "sem_marks": 77
+        },
+        {
+            "staff_id": 1109,
+            "student_id": 20,
+            "student_statusid": 110,
+            "student_name": "J.keerthi",
+            "semester": 1,
+            "attendance": 89,
+            "lab_attendance": 88,
+            "leave_taken": 4,
+            "project_name": "wind turbine",
+            "project_mark": 77,
+            "sem_marks": 88
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 10,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1326/studentstatusget"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1326/item"
+        }
+    ]
+}

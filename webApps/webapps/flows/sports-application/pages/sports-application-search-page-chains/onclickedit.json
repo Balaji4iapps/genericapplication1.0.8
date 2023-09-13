@@ -1,0 +1,33 @@
+{
+  "description": "",
+  "root": "navigateToSportsApplicationPost",
+  "actions": {
+    "navigateToSportsApplicationPost": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "sports-application-post",
+        "params": {
+          "playeradd": "edit",
+          "primarykey": "{{ $variables.key }}"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

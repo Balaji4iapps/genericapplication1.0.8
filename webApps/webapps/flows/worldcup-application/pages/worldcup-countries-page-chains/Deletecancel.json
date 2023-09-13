@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentDeletepopupClose",
+  "actions": {
+    "callComponentDeletepopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('deletepopup') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,97 @@
+{
+  "title": "bussiness object",
+  "description": "",
+  "variables": {
+    "companyListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "businessObjects/getall_Company",
+        "keyAttributes": "id",
+        "itemsPath": "items",
+        "responseType": "getallCompanyResponse"
+      }
+    },
+    "oj_table_273117136_1SelectedId": {
+      "type": "string",
+      "defaultValue": ""
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getallCompanyResponse": {
+      "endpoint": "getall_Company",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "getallCompanyResponse": {
+      "items": [
+        {
+          "address": "string",
+          "companylocation": "string",
+          "companyname": "string",
+          "id": "number",
+          "income": "number"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "createCompanyButtonClicked": {
+      "chains": [
+        {
+          "chainId": "navigateToCreateCompanyChain"
+        }
+      ]
+    },
+    "editCompanyButtonClicked": {
+      "chains": [
+        {
+          "chainId": "navigateToEditCompanyChain",
+          "parameters": {
+            "companyId": "[[ $variables.oj_table_273117136_1SelectedId ]]"
+          }
+        }
+      ]
+    },
+    "oj_table_273117136_1SelectionChanged": {
+      "chains": [
+        {
+          "chainId": "oj_table_273117136_1ChangeSelectionChain",
+          "parameters": {
+            "companyId": "[[ $event.detail.value.key || '' ]]"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      }
+    }
+  }
+}

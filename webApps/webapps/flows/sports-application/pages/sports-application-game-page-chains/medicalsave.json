@@ -1,0 +1,170 @@
+{
+  "description": "",
+  "root": "assignVariablesMedivar",
+  "actions": {
+    "ifMedicalmethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.medicalmethod=='create' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostMdPMETHODPPRIMARYKEY",
+        "false": "callRestPostMdPMETHODPPRIMARYKEY2"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostMdPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostMdPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "SportsApp/postMdP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.medivar }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostMdPMETHODPPRIMARYKEY.body.p_err_msg ]]",
+        "message": "[[ $chain.results.callRestPostMdPMETHODPPRIMARYKEY.body.p_err_msg ]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "resetVariablesMedivar"
+      }
+    },
+    "assignVariablesMedivar": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.medivar": {
+          "source": {
+            "game_id": "{{ $page.variables.gamekey }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "ifMedicalmethod"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostMdPMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostMdPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "SportsApp/postMdP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.medikey }}"
+        },
+        "body": "{{ $page.variables.medivar }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostMdPMETHODPPRIMARYKEY2.body.p_err_msg ]]",
+        "message": "[[ $chain.results.callRestPostMdPMETHODPPRIMARYKEY2.body.p_err_msg ]]",
+        "type": "confirmation",
+        "displayMode": "transient"
+      },
+      "outcomes": {
+        "success": "resetVariablesMedivar"
+      }
+    },
+    "callComponentOjDialog9828729301Close": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog--982872930-1') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callRestGetMedical"
+      }
+    },
+    "fireNotification4": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetMedical.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetMedical": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "SportsApp/getMedical",
+        "uriParams": {
+          "mgame": "{{ $page.variables.gamekey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification4",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetMedical.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesMedicaltable"
+      }
+    },
+    "assignVariablesMedicaltable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.medicaltable": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    },
+    "resetVariablesMedivar": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.medivar"
+        ]
+      },
+      "outcomes": {
+        "success": "callComponentOjDialog9828729301Close"
+      }
+    }
+  },
+  "variables": {}
+}

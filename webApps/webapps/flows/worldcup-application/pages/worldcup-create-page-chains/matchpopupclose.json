@@ -1,0 +1,25 @@
+{
+  "description": "",
+  "root": "callComponentMatchfixturespopupClose",
+  "actions": {
+    "callComponentMatchfixturespopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('matchfixturespopup') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "assignVariablesPostmatch"
+      }
+    },
+    "assignVariablesPostmatch": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.postmatch": {
+          "reset": "toDefault"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

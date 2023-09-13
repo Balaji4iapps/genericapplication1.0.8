@@ -1,0 +1,22 @@
+{
+  "description": "",
+  "root": "callChainOnclicksave",
+  "actions": {
+    "callChainOnclicksave": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onclicksave"
+      },
+      "outcomes": {
+        "success": "navigateToHospitalManagementApplicationSample1"
+      }
+    },
+    "navigateToHospitalManagementApplicationSample1": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "hospital-management-application-sample1"
+      }
+    }
+  },
+  "variables": {}
+}

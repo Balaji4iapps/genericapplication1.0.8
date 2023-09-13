@@ -1,0 +1,50 @@
+{
+  "description": "",
+  "root": "assignVariables",
+  "actions": {
+    "assignVariables": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.workenumpk": {
+          "source": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentOjDelete17176323811Open"
+      }
+    },
+    "callComponentOjDelete17176323811Open": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-delete-1717632381-1') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callChainOnloadpage3"
+      }
+    },
+    "callChainOnloadpage3": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onloadpage3"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

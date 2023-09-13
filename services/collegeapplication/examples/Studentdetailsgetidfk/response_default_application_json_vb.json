@@ -1,0 +1,29 @@
+{
+    "items": [
+        {
+            "staff_id": 1103,
+            "student_id": 14,
+            "student_name": "K.devi",
+            "email": "devi@gmail.com",
+            "dob": "1990-01-30T00:00:00Z",
+            "department": "ECE",
+            "gender": "FEMALE",
+            "contact_number": 8965430088,
+            "address": "Dindugal"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1326/studentdetailsfk?staff_id=1103"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1326/item"
+        }
+    ]
+}

@@ -1,0 +1,128 @@
+{
+    "items": [
+        {
+            "staff_id": 1100,
+            "student_id": 11,
+            "student_name": "A.pradeep",
+            "email": "pradeep@gmail.com",
+            "dob": "2022-11-02T00:00:00Z",
+            "department": "Mechanical",
+            "gender": "MALE",
+            "contact_number": 9878657678,
+            "address": "Trichy"
+        },
+        {
+            "staff_id": 1101,
+            "student_id": 12,
+            "student_name": "K.lokesh",
+            "email": "lokesh@gmail.com",
+            "dob": "1990-02-14T00:00:00Z",
+            "department": "Civil",
+            "gender": "MALE",
+            "contact_number": 9754323421,
+            "address": "Chennai"
+        },
+        {
+            "staff_id": 1102,
+            "student_id": 13,
+            "student_name": "M.aravinth",
+            "email": "aravinth@gmail.com",
+            "dob": "1992-05-19T00:00:00Z",
+            "department": "CSE",
+            "gender": "MALE",
+            "contact_number": 8965438761,
+            "address": "Theni"
+        },
+        {
+            "staff_id": 1103,
+            "student_id": 14,
+            "student_name": "K.devi",
+            "email": "devi@gmail.com",
+            "dob": "1990-01-30T00:00:00Z",
+            "department": "ECE",
+            "gender": "FEMALE",
+            "contact_number": 8965430088,
+            "address": "Dindugal"
+        },
+        {
+            "staff_id": 1104,
+            "student_id": 15,
+            "student_name": "L.prakash",
+            "email": "prakash@gmail.com",
+            "dob": "1991-10-01T00:00:00Z",
+            "department": "EEE",
+            "gender": "MALE",
+            "contact_number": 7786785434,
+            "address": "Namakal"
+        },
+        {
+            "staff_id": 1105,
+            "student_id": 16,
+            "student_name": "S.aishwarya",
+            "email": "aishwarya@gmail.com",
+            "dob": "1994-11-21T00:00:00Z",
+            "department": "IT",
+            "gender": "FEMALE",
+            "contact_number": 8876565678,
+            "address": "salem"
+        },
+        {
+            "staff_id": 1106,
+            "student_id": 17,
+            "student_name": "M.priyanka",
+            "email": "priyanka@gmail.com",
+            "dob": "1990-02-10T00:00:00Z",
+            "department": "Automobile",
+            "gender": "FEMALE",
+            "contact_number": 9987675643,
+            "address": "chennai"
+        },
+        {
+            "staff_id": 1107,
+            "student_id": 18,
+            "student_name": "J.karthik",
+            "email": "karthi@gmail.com",
+            "dob": "1988-03-16T00:00:00Z",
+            "department": "Data Science",
+            "gender": "MALE",
+            "contact_number": 7162534567,
+            "address": "trichy"
+        },
+        {
+            "staff_id": 1108,
+            "student_id": 19,
+            "student_name": "D.venkat",
+            "email": "venkat@gmail.com",
+            "dob": "1993-03-19T00:00:00Z",
+            "department": "Chemical Eng",
+            "gender": "FEMALE",
+            "contact_number": 9098887898,
+            "address": "chennai"
+        },
+        {
+            "staff_id": 1109,
+            "student_id": 20,
+            "student_name": "J.keerthi",
+            "email": "keerthi@gmail.com",
+            "dob": "1990-01-08T00:00:00Z",
+            "department": "Aerospace Eng",
+            "gender": "FEMALE",
+            "contact_number": 8876543245,
+            "address": "trichy"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 10,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1326/studentdetailsget"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1326/item"
+        }
+    ]
+}

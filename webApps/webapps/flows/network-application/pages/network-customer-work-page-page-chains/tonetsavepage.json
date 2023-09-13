@@ -1,0 +1,17 @@
+{
+  "description": "",
+  "root": "navigateToNetworkDetailsSavePage",
+  "actions": {
+    "navigateToNetworkDetailsSavePage": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "network-details-save-page",
+        "params": {
+          "method": "edit",
+          "networkid": "{{ $page.variables.recordscustomer.network_id }}"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

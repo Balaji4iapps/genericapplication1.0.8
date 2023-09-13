@@ -1,0 +1,56 @@
+<h1 style="color:green;">Customer Network Service</h1>
+<div class="oj-flex">
+  <oj-label for="oj-select-single--1995591502-1" " class="oj-sm-align-self-center">Search</oj-label>
+  <oj-select-single id="Netwroksearch" class="oj-flex-item oj-sm-12 oj-md-8" label-hint="NetworkSearch"
+    data="[[$variables.getNetwork1312ListSDP]]" item-text="network_name"
+    value="{{ $variables.networklov }}"></oj-select-single>
+</div>
+<!-- <div class="oj-flex"> -->
+  <div style="display:flex; justify-content:flex-end;">
+    <oj-button style="create margin-left:0.5%;margin-right:1.5%;" label="Create"
+      on-oj-action="[[$listeners.buttonAction5]]"></oj-button>
+    <oj-button style="create margin-left:0.5%;margin-right:1.5%;" label="search" on-oj-action="[[$listeners.buttonAction]]"></oj-button>
+    <oj-button style="create margin-left:0.5%;margin-right:1.5%;" label="Reset"
+      on-oj-action="[[$listeners.buttonAction2]]"></oj-button>
+    <oj-button style="create margin-left:0.5%;margin-right:1.5%;" label="Back"></oj-button>   
+  </div>
+<!-- </div> -->
+
+
+
+<oj-table style="margin-top:0.5%;margin-right:0.5%" scroll-policy="loadMoreOnScroll"
+     columns='[{"headerText":"Network Number","field":"network_id"},
+     {"headerText":"Network Name","field":"network_name"},
+     {"headerText":"Data Pack","field":"data_pack"},
+     {"headerText":"Validity","field":"validity"},
+     {"headerText":"Subscriptions","field":"subscriptions"},
+     {"headerText":"SMS","field":"sms"},
+     {"headerText":"Update","field":"","template":"Update"},
+     {"headerText":"Delete","field":"","template":"Delete"}]'
+     data="[[ $variables.networkdatas ]]" edit-mode="rowEdit" display="grid" selection-mode.row="single"
+     selection-mode.column="single">
+     <oj-paging-control id="paging" class="oj-sm-width-full" page-size="5" slot="bottom" data="[[ $variables.networkdatas ]]">
+</oj-paging-control>
+     <template slot="Update">
+    <img :src="[[ $flow.path + 'resources/images/system-update_1.png' ]]" width="30" height="30"
+      on-click="[[$listeners.imageClick2]]">
+     </template>
+     <template slot="Delete">
+    <img :src="[[ $flow.path + 'resources/images/dellete_1.png' ]]" width="30" height="30"
+      on-click="[[$listeners.imageClick]]">
+     </template>
+     
+      </oj-table>
+<oj-dialog style="display:none" dialog-title="Alert" id="oj-dialog--1995591502-1">
+    <div slot="body">
+    <div class="oj-flex">
+      Records will be deleted!
+    </div>
+    </div>
+    <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction3]]">yes</oj-button>
+    <oj-button on-oj-action="[[$listeners.buttonAction4]]">cancel</oj-button>
+    </div>
+</oj-dialog>
+      
+

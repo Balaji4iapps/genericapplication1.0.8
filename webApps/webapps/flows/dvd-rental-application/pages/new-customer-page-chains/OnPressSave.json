@@ -1,0 +1,97 @@
+{
+  "description": "",
+  "root": "callRestPostPlace",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostPlace.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      },
+      "outcomes": {
+        "success": "assignVariablesCustomer"
+      }
+    },
+    "callRestPostPlace": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/PostPlace",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.Address }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesAddressId"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostcustomer.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.RecordSaved]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      }
+    },
+    "assignVariablesAddressId": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Address_id": {
+          "source": "{{ $page.variables.Address.address_id }}"
+        }
+      },
+      "outcomes": {
+        "success": "assignVariablesCustomer"
+      }
+    },
+    "callRestPostcustomer": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/postcustomer",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.Customer }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification3"
+      }
+    },
+    "assignVariablesCustomer": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Customer": {
+          "source": {
+            "address_id": "{{ $page.variables.Address_id }}",
+            "store_id": "1",
+            "active": "1",
+            "create_date": "22-11-2022",
+            "last_update": "22-11-22"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callRestPostcustomer"
+      }
+    }
+  },
+  "variables": {}
+}

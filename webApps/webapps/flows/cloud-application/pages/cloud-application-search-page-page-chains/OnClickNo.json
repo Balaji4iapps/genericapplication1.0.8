@@ -1,0 +1,23 @@
+{
+  "description": "",
+  "root": "callComponentCloudDeleteClose",
+  "actions": {
+    "callComponentCloudDeleteClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('cloud_delete') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainOnLoadCloudTable"
+      }
+    },
+    "callChainOnLoadCloudTable": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "OnLoadCloudTable"
+      }
+    }
+  },
+  "variables": {}
+}

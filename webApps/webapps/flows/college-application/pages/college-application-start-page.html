@@ -1,0 +1,91 @@
+<!-- Mobile only header and page title -->
+
+<header role="banner" class="oj-sm-flex-initial vb-web-applayout-header oj-md-hide">
+  <div role="image" class="vb-web-applayout-header-image-stripe"></div>
+  <div class="oj-flex-bar oj-sm-align-items-center vb-web-applayout-header-content">
+    <!-- Navigator toggle button will render only if we have a drawer -->
+    <oj-bind-if test="[[ document.querySelector('oj-vb-fragment[name=\'shell-drawer\']') ]]">
+      <div class="oj-flex-bar">
+        <oj-button on-oj-action="[[$listeners.toggleDrawer]]" chroming="borderless"
+                   display="icons">
+          <span slot="startIcon" class="oj-ux-ico-menu"></span>
+          <span><oj-bind-text value="[[$application.translations.app.app_title_navigation_drawer]]"></oj-bind-text></span>
+        </oj-button>
+      </div>
+    </oj-bind-if>
+    <!-- Page specific title and actions with overflow menu displayed -->
+    <div class="oj-sm-margin-2x-horizontal oj-sm-align-items-center oj-md-hide oj-sm-flex-1">
+      <div class="vb-content-header oj-flex oj-sm-flex-items-initial oj-sm-align-items-center">
+        <div class="oj-flex-item">
+          <div class="oj-typography-body-lg oj-typography-semi-bold">
+            <oj-bind-text value="College Application"></oj-bind-text>
+          </div>
+          <!-- Add Page specific actions etc -->
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Page specific title and actions for desktop formfactor -->
+<div class="vb-content-header oj-flex oj-sm-flex-1 oj-sm-only-hide oj-sm-align-items-center">
+  <div class="oj-flex-item">
+    <div class="oj-typography-body-lg oj-typography-semi-bold">
+      <h1>College Application</h1>
+    </div>
+    <!-- Add Page specific actions etc -->
+  </div>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    <oj-button label="Staff Portal" on-oj-action="[[$listeners.buttonAction]]" class="button button1"
+      chroming="borderless">
+      <img slot="startIcon" :src="[[ $flow.path + 'resources/images/icons8-staff-64.png' ]]" width="30" height="30">
+    </oj-button>
+  </div>
+      <div class="oj-flex-item oj-sm-12 oj-md-2">
+    <oj-button label="Student Portal" class="button button1" on-oj-action="[[$listeners.buttonAction2]]"
+      chroming="borderless">
+      <img slot="startIcon" :src="[[ $flow.path + 'resources/images/icons8-student-64.png' ]]" width="30" height="30">
+    </oj-button>
+  </div>
+
+
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-2"></div>
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    <img :src="[[ $flow.path + 'resources/images/pngwing.com_(2)_1.png' ]]" height="500" width="1000">
+  </div>
+</div>
+<div
+<html>
+<head>
+<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: white;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: none #4CAF50;
+}
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+</html>
+</div>
+
+
+
+
+

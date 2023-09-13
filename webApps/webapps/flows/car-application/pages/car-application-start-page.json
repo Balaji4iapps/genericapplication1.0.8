@@ -1,0 +1,203 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "carid": {
+      "type": "number",
+      "required": false,
+      "input": "none"
+    },
+    "getCardetailsListSDP2": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "CarApplication/getCardetails",
+        "keyAttributes": "car_id",
+        "itemsPath": "items",
+        "responseType": "getCardetailsResponse2",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "car_id"
+          ]
+        }
+      }
+    },
+    "pagecontrol": {
+      "type": "any",
+      "required": false,
+      "input": "none"
+    },
+    "searchobjectvarible": {
+      "type": {
+        "car_brand": "string",
+        "car_colour": "string",
+        "car_id": "string",
+        "car_no": "string",
+        "fuel_type": "string",
+        "gear_type": "string",
+        "no_of_seaters": "string"
+      }
+    }
+
+  },
+  "metadata": {},
+  "types": {
+
+    "@decorators.getCardetailsResponse2": {
+      "endpoint": "getCardetails",
+      "service": "CarApplication",
+      "path": "response"
+    },
+    "getCardetailsResponse2": {
+      "items": [
+        {
+          "car_brand": "string",
+          "car_colour": "string",
+          "car_id": "number",
+          "car_no": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "search"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "Reset"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "create"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "update",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "deleteopen",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "delete"
+        }
+      ]
+    },
+    "buttonAction7": {
+      "chains": [
+        {
+          "chainId": "Back"
+        }
+      ]
+    },
+    "buttonAction8": {
+      "chains": [
+        {
+          "chainId": "deleteclose"
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "onload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-radioset": {
+        "path": "ojs/ojradioset"
+      },
+      "oj-sample-tooltip": {
+        "path": "oj-sample/tooltip/loader"
+      },
+      "oj-select-one": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      },
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+    }
+  }
+}

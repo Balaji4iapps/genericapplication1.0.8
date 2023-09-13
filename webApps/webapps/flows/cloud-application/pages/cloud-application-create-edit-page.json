@@ -1,0 +1,322 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "childfk": {
+      "type": "number"
+    },
+    "Childmethod": {
+      "type": "string"
+    },
+    "childpk": {
+      "type": "number"
+    },
+    "Cloud_id": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "companytable": {
+      "type": "any"
+    },
+    "PageNavigation": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "PostCloud18": {
+      "type": "PostCloud18"
+    },
+    "postCompany_18": {
+      "type": "postCompany_18"
+    },
+    "Postservice": {
+      "type": "postService18"
+    },
+    "servicefk": {
+      "type": "number"
+    },
+    "servicemethod": {
+      "type": "string"
+    },
+    "servicepk": {
+      "type": "number"
+    },
+    "Servicetable": {
+      "type": "any"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.PostCloud18": {
+      "endpoint": "PostCloud18",
+      "service": "CloudApplication",
+      "path": "request"
+    },
+    "@decorators.postCompany_18": {
+      "endpoint": "postCompany_18",
+      "service": "CloudApplication",
+      "path": "request"
+    },
+    "@decorators.postService18": {
+      "endpoint": "postService18",
+      "service": "CloudApplication",
+      "path": "request"
+    },
+    "PostCloud18": {
+      "business_type": "string",
+      "cloud_id": "number",
+      "cloud_name": "string",
+      "cloud_provider": "string",
+      "contact_number": "string",
+      "email_id": "string",
+      "founder_name": "string",
+      "started_year": "string"
+    },
+    "postCompany_18": {
+      "cloud_id": "number",
+      "company_id": "number",
+      "company_location": "string",
+      "company_mailid": "string",
+      "company_name": "string",
+      "owner_name": "string",
+      "started_date": "any",
+      "turnover_million": "number"
+    },
+    "postService18": {
+      "bond_duration": "string",
+      "bond_type": "string",
+      "company_full_name": "string",
+      "company_id": "number",
+      "service_id": "number",
+      "service_short_name": "string",
+      "started_date": "string",
+      "storage_used": "string"
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "OnClickSaveCloud"
+        }
+      ]
+    },
+    "buttonAction10": {
+      "chains": [
+        {
+          "chainId": "OnClickCompanyOk"
+        }
+      ]
+    },
+    "buttonAction11": {
+      "chains": [
+        {
+          "chainId": "OnCickCompanyAbout",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction12": {
+      "chains": [
+        {
+          "chainId": "OnClickSerPopClose"
+        }
+      ]
+    },
+    "buttonAction13": {
+      "chains": [
+        {
+          "chainId": "OnClickSaveService"
+        }
+      ]
+    },
+    "buttonAction14": {
+      "chains": [
+        {
+          "chainId": "OnClickServiceEdit",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction15": {
+      "chains": [
+        {
+          "chainId": "OnClickDelServiceCancel"
+        }
+      ]
+    },
+    "buttonAction16": {
+      "chains": [
+        {
+          "chainId": "OnClickServiceDelete",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction17": {
+      "chains": [
+        {
+          "chainId": "OnClickSerDeleteOk"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "OnClickClose"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "OnClickSaveClose"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "OnClickCreateCompany"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "OnClickCompanyClose"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "OnClickSaveCompany"
+        }
+      ]
+    },
+    "buttonAction7": {
+      "chains": [
+        {
+          "chainId": "OnClickCompanyEdit",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction8": {
+      "chains": [
+        {
+          "chainId": "OnClickCompanyDelete",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction9": {
+      "chains": [
+        {
+          "chainId": "OnClickDeleteCancel"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "OnLoadCreateEdit"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-date-time": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-optgroup": {
+        "path": "ojs/ojoptgroup"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-radioset": {
+        "path": "ojs/ojradioset"
+      },
+      "oj-select-one": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+
+    },
+    "modules": {
+      "ojValidationBase": {
+        "path": "ojs/ojvalidation-base"
+      },
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      },
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+
+    }
+  }
+}

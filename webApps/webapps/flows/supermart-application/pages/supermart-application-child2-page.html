@@ -1,0 +1,24 @@
+
+<h3>Manufacturer Account Details</h3>
+
+
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+  columns='[
+  {"headerText":" Manufacturer","field":"Manufacturer"},
+  {"headerText":" Account Number","field":"account_number"},
+  {"headerText":" IFSC Code","field":"ifsc_code"},
+  {"headerText":" Branch Name","field":"branch_name"},
+  {"headerText":" Bank Name","field":"bank_name"},
+  {"headerText":" Pending Amount","field":"pending_amount"},
+  {"headerText":" Bill Book Number ","field":"bill_book_number"}
+  ]' data="[[ $variables.accchildtable ]]"
+  
+  
+  >
+  </oj-table>
+</div>
+
+<oj-paging-control id="paging" 
+class="oj-sm-width-full"  data="[[ $variables.accchildtable ]]" page-size="15" >
+</oj-paging-control>

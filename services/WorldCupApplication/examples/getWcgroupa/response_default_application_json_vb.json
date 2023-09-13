@@ -1,0 +1,62 @@
+{
+    "items": [
+        {
+            "s_no": 1,
+            "country_name": "Netherland",
+            "c_id": 19,
+            "match_pld": 0,
+            "win": 0,
+            "draw": 0,
+            "loss": 0,
+            "gd": 0,
+            "pts": 0
+        },
+        {
+            "s_no": 2,
+            "country_name": "Ecuador",
+            "c_id": 10,
+            "match_pld": 0,
+            "win": 0,
+            "draw": 0,
+            "loss": 0,
+            "gd": 0,
+            "pts": 0
+        },
+        {
+            "s_no": 3,
+            "country_name": "Senegal",
+            "c_id": 24,
+            "match_pld": 0,
+            "win": 0,
+            "draw": 0,
+            "loss": 0,
+            "gd": 0,
+            "pts": 0
+        },
+        {
+            "s_no": 4,
+            "country_name": "Qatar",
+            "c_id": 22,
+            "match_pld": 0,
+            "win": 0,
+            "draw": 0,
+            "loss": 0,
+            "gd": 0,
+            "pts": 0
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 4,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1331/wcgroupa"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1331/item"
+        }
+    ]
+}

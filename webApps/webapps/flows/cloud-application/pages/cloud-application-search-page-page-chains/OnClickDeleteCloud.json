@@ -1,0 +1,41 @@
+{
+  "description": "",
+  "root": "callComponentCloudDeleteOpen",
+  "actions": {
+    "callComponentCloudDeleteOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('cloud_delete') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "assignVariablesCloudId"
+      }
+    },
+    "assignVariablesCloudId": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.cloud_id": {
+          "source": "{{ $variables.key }}"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

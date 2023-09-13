@@ -1,0 +1,19 @@
+<h6>CHECKBOX</h6>
+<div class="oj-flex-item oj-sm-flex-initial">
+    <oj-button label="SAVE" on-oj-action="[[$listeners.buttonAction]]"></oj-button>
+  </div>
+  <br>
+  
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+    columns='[{"headerText":"Select","template":"customTemplate"},{"headerText":"Doctor Name","field":"doc_name"},{"headerText":"Doctor Address","field":"doc_address"},{"headerText":"Doctor Designation","field":"doc_designation"},{"headerText":"Doctor Gender","field":"doc_gender"},{"headerText":"Doctor Code","field":"doc_code"},{"headerText":"Doctor Number","field":"doc_number"}]'
+    data="[[ $variables.hdrtable ]]" selection-mode.row="single" display="grid">
+  <template slot="customTemplate">
+  <oj-sample-checkbox-switch on-value-changed="[[$listeners.booleanCheckboxComponentValue]]"></oj-sample-checkbox-switch>
+  </template>
+     </oj-table>
+  <oj-paging-control page-size="5" data="[[ $variables.hdrtable ]]" class="oj-flex-item oj-sm-flex-initial"></oj-paging-control>
+</div>
+
+  
+

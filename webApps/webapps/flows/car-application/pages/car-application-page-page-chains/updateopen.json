@@ -1,0 +1,84 @@
+{
+  "description": "",
+  "root": "assignVariablesLinevariable",
+  "actions": {
+    "callComponentCustomerdetailPopupOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('CustomerdetailPopup') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestGetCustomerbycustomerid"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetCustomerbycustomerid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetCustomerbycustomerid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CarApplication/getCustomerbycustomerid",
+        "uriParams": {
+          "p_customer_id": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesCustomerdetails"
+      }
+    },
+    "assignVariablesCustomerdetails": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.customerdetails": {
+          "source": "{{ $chain.results.callRestGetCustomerbycustomerid.body.items[0] }}",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callChainOnload"
+      }
+    },
+    "callChainOnload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onload"
+      }
+    },
+    "assignVariablesLinevariable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.linevariable": {
+          "source": "edit"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentCustomerdetailPopupOpen"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

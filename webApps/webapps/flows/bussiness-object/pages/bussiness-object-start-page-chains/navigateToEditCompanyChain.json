@@ -1,0 +1,21 @@
+{
+  "root": "navigateToEdit",
+  "variables": {
+    "companyId": {
+      "type": "string",
+      "input": "fromCaller",
+      "required": true
+    }
+  },
+  "actions": {
+    "navigateToEdit": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "bussiness-object-edit-company",
+        "params": {
+          "companyId": "[[ $variables.companyId ]]"
+        }
+      }
+    }
+  }
+}

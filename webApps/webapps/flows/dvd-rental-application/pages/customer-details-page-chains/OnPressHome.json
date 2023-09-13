@@ -1,0 +1,18 @@
+{
+  "description": "",
+  "root": "navigateToDvdRentalApplicationDvdRentalApplicationStart",
+  "actions": {
+    "navigateToDvdRentalApplicationDvdRentalApplicationStart": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "target": "parent",
+        "flow": "dvd-rental-application",
+        "page": "dvd-rental-application-start"
+      },
+      "@dt": {
+        "targetType": "flow"
+      }
+    }
+  },
+  "variables": {}
+}

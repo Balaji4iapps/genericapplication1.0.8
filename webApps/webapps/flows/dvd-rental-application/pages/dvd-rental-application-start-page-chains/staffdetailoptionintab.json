@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentActionstaffOpen",
+  "actions": {
+    "callComponentActionstaffOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('actioninvent') }}",
+        "method": "open"
+      }
+    }
+  },
+  "variables": {}
+}

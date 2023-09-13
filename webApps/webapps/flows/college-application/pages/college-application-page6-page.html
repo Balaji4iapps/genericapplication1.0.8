@@ -1,0 +1,63 @@
+<oj-form-layout label-edge='start'>
+    <oj-select-single label-hint="Select Staff Name" label-edge="inside"
+        item-text="staff_name" data="[[$variables.getCollegegetListSDP4]]" value="{{ $variables.lov }}"
+        
+       >
+    <template slot="collectionTemplate" data-oj-as="collection">
+  <oj-table scroll-policy="loadMoreOnScroll" selection-mode='{"row": "single"}'
+    columns-default='{"resizable": "disabled","sortable": "disabled"}' class="oj-select-results"
+    columns=' [{"headerText":"Staff No","field":"staff_id"} ,
+    {"headerText":"Staff Name","field":"staff_name"}                
+                            ]' on-oj-row-action="[[collection.handleRowAction]]" data="[[collection.data]]"
+    selected.row="[[collection.selected]]" current-row="{{collection.currentRow}}"></oj-table>
+    </template>
+    <template slot="itemTemplate">
+    </template>
+      </oj-select-single>
+    <oj-button label="search" on-oj-action="[[$listeners.buttonAction]]"></oj-button>
+    <oj-button label="reset" on-oj-action="[[$listeners.buttonAction2]]"></oj-button>
+    <oj-button label="create" on-oj-action="[[$listeners.buttonAction3]]"></oj-button>
+
+    
+    <oj-dialog style="display:none" dialog-title="staff" id="oj-dialog-614704821-1">
+    <div slot="body">
+    <div class="oj-flex"></div>
+    </div>
+    <div slot="footer">
+    <oj-button>Save</oj-button>
+    <oj-button>close</oj-button>
+    </div>
+    </oj-dialog>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+</oj-form-layout>
+
+
+
+
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+    columns='[{"headerText":"staff_name","field":"staff_name"},{"headerText":"address","field":"address"},{"headerText":"date_of_joining","field":"date_of_joining"},{"headerText":"dob","field":"dob"},{"headerText":"email","field":"email"},{"headerText":"gender","field":"gender"},{"headerText":"phone_number","field":"phone_number"},{"headerText":"salary","field":"salary"},{"headerText":"staff_id","field":"staff_id"}]'
+    data="[[ $variables.tableone ]]">
+    <oj-paging-control id="paging" class="oj-sm-width-full" page-size="5" slot="bottom" data="[[ $variables.tableone ]]"
+           
+       >
+</oj-paging-control>
+    
+    
+    
+    </oj-table>
+  
+</div>

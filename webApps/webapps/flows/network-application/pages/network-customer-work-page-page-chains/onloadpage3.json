@@ -1,0 +1,93 @@
+{
+  "root": "ifCusmethod",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "ifCusmethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.cusmethod=='edit' ]]"
+      },
+      "outcomes": {
+        "true": "callRestCustomerbycustomerid"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestCustomerbycustomerid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestCustomerbycustomerid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Network1312/customerbycustomerid",
+        "uriParams": {
+          "customer_id": "{{ $page.variables.cusidpkey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesRecordscustomer"
+      }
+    },
+    "assignVariablesRecordscustomer": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.recordscustomer": {
+          "source": "{{ $chain.results.callRestCustomerbycustomerid.body.items[0] }}",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callRestCustomerworkfkget1312"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestCustomerworkfkget1312.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestCustomerworkfkget1312": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Network1312/Customerworkfkget_1312",
+        "uriParams": {
+          "customer_id": "{{ $page.variables.cusidpkey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestCustomerworkfkget1312.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesCustomerworktable"
+      }
+    },
+    "assignVariablesCustomerworktable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.customerworktable": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    }
+  }
+}

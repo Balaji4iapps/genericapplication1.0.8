@@ -1,0 +1,22 @@
+{
+  "description": "",
+  "root": "callChainSavebutton",
+  "actions": {
+    "callChainSavebutton": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "savebutton"
+      },
+      "outcomes": {
+        "success": "navigateToCarApplicationStart"
+      }
+    },
+    "navigateToCarApplicationStart": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "car-application-start"
+      }
+    }
+  },
+  "variables": {}
+}

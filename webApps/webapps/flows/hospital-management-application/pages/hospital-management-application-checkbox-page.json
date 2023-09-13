@@ -1,0 +1,145 @@
+{
+  "title": "hospital management application checkbox",
+  "description": "",
+  "variables": {
+    "getDoctordetailsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "keyAttributes": "doc_code",
+        "itemsPath": "items",
+        "responseType": "getDoctordetailsResponse",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "doc_name"
+          ]
+        },
+        "fetchChainId": "getDoctordetailsFetchAction"
+      }
+    },
+    "getDoctordetailsListSDP2": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "hospitalmanagement/getDoctordetails",
+        "keyAttributes": "doc_code",
+        "itemsPath": "items",
+        "responseType": "getDoctordetailsResponse3"
+      }
+    },
+    "hdrcolumns": {
+      "type": "object[]",
+      "defaultValue": [
+        {
+          "headerText": "Doctor Name",
+          "field": "doc_name"
+        },
+        {
+          "headerText": "Doctor Address",
+          "field": "doc_address"
+        },
+        {
+          "headerText": "Doctor Designation",
+          "field": "doc_designation"
+        },
+        {
+          "headerText": "Doctor Gender",
+          "field": "doc_gender"
+        }
+      ]
+    },
+    "hdrsearch": {
+      "type": "any"
+    },
+    "table": {
+      "type": "any"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getDoctordetailsResponse": {
+      "endpoint": "getDoctordetails",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "@decorators.getDoctordetailsResponse2": {
+      "endpoint": "getDoctordetails",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "@decorators.getDoctordetailsResponse3": {
+      "endpoint": "getDoctordetails",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "getDoctordetailsResponse": {
+      "items": [
+        {
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_name": "string"
+        }
+      ]
+    },
+    "getDoctordetailsResponse2": {
+      "items": [
+        {
+          "doc_address": "string",
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_gender": "string",
+          "doc_name": "string"
+        }
+      ]
+    },
+    "getDoctordetailsResponse3": {
+      "items": [
+        {
+          "doc_address": "string",
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_gender": "string",
+          "doc_name": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "onload"
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+    }
+  }
+}

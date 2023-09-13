@@ -1,0 +1,28 @@
+{
+    "items": [
+        {
+            "player_id": 1000,
+            "player_name": "ZION",
+            "gender": "MALE",
+            "dop": "1996-06-05T15:05:56Z",
+            "email_id": "ZION@GMAIL.COM",
+            "con_num": "9876543210",
+            "address": "CHENNAI",
+            "state": "TAMILNADU"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/sports/player"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/sports/item"
+        }
+    ]
+}

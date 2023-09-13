@@ -1,0 +1,171 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "creatingcustomer": {
+      "type": "postCustomer_1312P_METHODP_PRIMARYKEY"
+    },
+    "creatingnetwork": {
+      "type": "postNetwork_1312P_METHODP_PRIMARYKEY"
+    },
+    "customercreate": {
+      "type": "any"
+    },
+    "customerid": {
+      "type": "number"
+    },
+    "method": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "networkid": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.postCustomer_1312P_METHODP_PRIMARYKEY": {
+      "endpoint": "postCustomer_1312P_METHODP_PRIMARYKEY",
+      "service": "Network1312",
+      "path": "request"
+    },
+    "@decorators.postNetwork_1312P_METHODP_PRIMARYKEY": {
+      "endpoint": "postNetwork_1312P_METHODP_PRIMARYKEY",
+      "service": "Network1312",
+      "path": "request"
+    },
+    "postCustomer_1312P_METHODP_PRIMARYKEY": {
+      "contact_no": "number",
+      "customer_id": "number",
+      "customer_name": "string",
+      "network_id": "number",
+      "pincode": "number",
+      "plan_detail": "string",
+      "residence": "string"
+    },
+    "postNetwork_1312P_METHODP_PRIMARYKEY": {
+      "data_pack": "string",
+      "mrp": "string",
+      "network_id": "number",
+      "network_name": "string",
+      "sms": "string",
+      "subscriptions": "string",
+      "validity": "string"
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "Saveinheader"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "closeheader"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "savecloseheader"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "newoncustomer"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "oktodelete"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "updatecustomer",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick2": {
+      "chains": [
+        {
+          "chainId": "customerdelete",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "onloadsavepage"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    }
+  }
+}

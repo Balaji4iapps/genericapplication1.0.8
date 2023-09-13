@@ -1,0 +1,499 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "cardetails": {
+      "type": "postCarP_METHODP_PRIMARYKEY"
+    },
+    "carid": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "customerdetails": {
+      "type": "postCustomerP_METHODP_PRIMARYKEY"
+    },
+    "customervariable": {
+      "type": "any"
+    },
+    "employeedetails": {
+      "type": "postEmployeeP_METHODP_PRIMARYKEY"
+    },
+    "employeevariable": {
+      "type": "any"
+    },
+    "empnavigation": {
+      "type": "string"
+    },
+    "linevariable": {
+      "type": "string"
+    },
+    "manifacturedetails": {
+      "type": "postManufactureP_METHODP_PRIMARYKEY",
+      "defaultValue": {
+        "stock": "Y"
+      }
+    },
+    "manufacturenavigation": {
+      "type": "string"
+    },
+    "manufacturevariable": {
+      "type": "any"
+    },
+    "pagenavigation": {
+      "type": "any",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "selectedTab": {
+      "type": "string",
+      "defaultValue": "customerslot"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getCustomer1318Response": {
+      "endpoint": "getCustomer1318",
+      "service": "CarApplication",
+      "path": "response"
+    },
+    "@decorators.getEmployeedetailsResponse": {
+      "endpoint": "getEmployeedetails",
+      "service": "CarApplication",
+      "path": "response"
+    },
+    "@decorators.getManufacturebycaridResponse": {
+      "endpoint": "getManufacturebycarid",
+      "service": "CarApplication",
+      "path": "response"
+    },
+    "@decorators.postCarP_METHODP_PRIMARYKEY": {
+      "endpoint": "postCarP_METHODP_PRIMARYKEY",
+      "service": "CarApplication",
+      "path": "request"
+    },
+    "@decorators.postCustomerP_METHODP_PRIMARYKEY": {
+      "endpoint": "postCustomerP_METHODP_PRIMARYKEY",
+      "service": "CarApplication",
+      "path": "request"
+    },
+    "@decorators.postEmployeeP_METHODP_PRIMARYKEY": {
+      "endpoint": "postEmployeeP_METHODP_PRIMARYKEY",
+      "service": "CarApplication",
+      "path": "request"
+    },
+    "@decorators.postManufactureP_METHODP_PRIMARYKEY": {
+      "endpoint": "postManufactureP_METHODP_PRIMARYKEY",
+      "service": "CarApplication",
+      "path": "request"
+    },
+    "getCustomer1318Response": {
+      "items": [
+        {
+          "address": "string",
+          "car_id": "number",
+          "customer_id": "number",
+          "customer_name": "string",
+          "date_of_birth": "string",
+          "email_id": "string",
+          "id_proof": "string",
+          "payment_status": "string",
+          "payment_type": "string",
+          "phone_no": "number"
+        }
+      ]
+    },
+    "getEmployeedetailsResponse": {
+      "items": [
+        {
+          "address": "any",
+          "car_id": "number",
+          "contact_no": "number",
+          "customer_id": "number",
+          "date_of_birth": "string",
+          "email_id": "string",
+          "employee_id": "number",
+          "employee_name": "string",
+          "employee_no": "number"
+        }
+      ]
+    },
+    "getManufacturebycaridResponse": {
+      "items": [
+        {
+          "car_id": "number",
+          "end_date": "string",
+          "manufacture_location": "string",
+          "manufacturing_id": "number",
+          "price": "number",
+          "start_date": "string",
+          "stock": "string"
+        }
+      ]
+    },
+    "postCarP_METHODP_PRIMARYKEY": {
+      "car_brand": "string",
+      "car_colour": "string",
+      "car_id": "number",
+      "car_no": "string",
+      "engine_number": "number",
+      "fuel_type": "string",
+      "gear_type": "string",
+      "no_of_seaters": "number"
+
+    },
+    "postCustomerP_METHODP_PRIMARYKEY": {
+      "address": "string",
+      "car_id": "number",
+      "customer_id": "number",
+      "customer_name": "string",
+      "date_of_birth": "string",
+      "email_id": "string",
+      "id_proof": "string",
+      "payment_status": "string",
+      "payment_type": "string",
+      "phone_no": "number"
+    },
+    "postEmployeeP_METHODP_PRIMARYKEY": {
+      "address": "string",
+      "car_id": "number",
+      "contact_no": "number",
+      "customer_id": "number",
+      "date_of_birth": "string",
+      "email_id": "string",
+      "employee_id": "number",
+      "employee_location": "string",
+      "employee_name": "string",
+      "employee_no": "number"
+
+    },
+    "postManufactureP_METHODP_PRIMARYKEY": {
+      "car_id": "number",
+      "end_date": "string",
+      "manufacture_location": "string",
+      "manufacturing_id": "number",
+      "price": "number",
+      "start_date": "string",
+      "stock": "string"
+
+    }
+
+  },
+  "eventListeners": {
+    "booleanCheckboxComponentClick": {
+      "chains": [
+        {
+          "chainId": "BooleanCheckboxComponentClickChain"
+        }
+      ]
+    },
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "savebutton"
+        }
+      ]
+    },
+    "buttonAction10": {
+      "chains": [
+        {
+          "chainId": "deleteclose"
+        }
+      ]
+    },
+    "buttonAction11": {
+      "chains": [
+        {
+          "chainId": "updateopen",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction12": {
+      "chains": [
+        {
+          "chainId": "empCreate"
+        }
+      ]
+    },
+    "buttonAction13": {
+      "chains": [
+        {
+          "chainId": "empcancel"
+        }
+      ]
+    },
+    "buttonAction14": {
+      "chains": [
+        {
+          "chainId": "empsave"
+        }
+      ]
+    },
+    "buttonAction15": {
+      "chains": [
+        {
+          "chainId": "about"
+        }
+      ]
+    },
+    "buttonAction16": {
+      "chains": [
+        {
+          "chainId": "manufactureclose"
+        }
+      ]
+    },
+    "buttonAction17": {
+      "chains": [
+        {
+          "chainId": "empedit",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction18": {
+      "chains": [
+        {
+          "chainId": "manufacturesave"
+        }
+      ]
+    },
+    "buttonAction19": {
+      "chains": [
+        {
+          "chainId": "manufactureupdate",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "saveandclose"
+        }
+      ]
+    },
+    "buttonAction20": {
+      "chains": [
+        {
+          "chainId": "empdeleteopen",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction21": {
+      "chains": [
+        {
+          "chainId": "deletenew"
+        }
+      ]
+    },
+    "buttonAction22": {
+      "chains": [
+        {
+          "chainId": "manufacturedeleteopen",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction23": {
+      "chains": [
+        {
+          "chainId": "Deleteclosenew"
+        }
+      ]
+    },
+    "buttonAction24": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "buttonAction25": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "buttonAction26": {
+      "chains": [
+        {
+          "chainId": "mansaveandcontinue"
+        }
+      ]
+    },
+    "buttonAction27": {
+      "chains": [
+        {
+          "chainId": "manufacturerefers"
+        }
+      ]
+    },
+    "buttonAction28": {
+      "chains": [
+        {
+          "chainId": "backtohome"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "Close"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "linecreate"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "cancel"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "saveandcontinue"
+        }
+      ]
+    },
+    "buttonAction7": {
+      "chains": [
+        {
+          "chainId": "linesavebtn"
+        }
+      ]
+    },
+    "buttonAction8": {
+      "chains": [
+        {
+          "chainId": "deleteopen",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction9": {
+      "chains": [
+        {
+          "chainId": "Delete"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "onload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-radioset": {
+        "path": "ojs/ojradioset"
+      },
+      "oj-sample-checkbox-switch": {
+        "path": "oj-sample/checkbox-switch/loader"
+      },
+      "oj-select-one": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-switcher": {
+        "path": "ojs/ojswitcher"
+      },
+      "oj-tab-bar": {
+        "path": "ojs/ojnavigationlist"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+
+    },
+    "modules": {
+      "ojValidationBase": {
+        "path": "ojs/ojvalidation-base"
+      },
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      },
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+
+    }
+  }
+}

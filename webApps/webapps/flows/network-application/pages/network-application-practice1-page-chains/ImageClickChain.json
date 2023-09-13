@@ -1,0 +1,41 @@
+{
+  "description": "",
+  "root": "assignVariablesNetworkid",
+  "actions": {
+    "callComponentOjDialog19955915021Open": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog--1995591502-1') }}",
+        "method": "open"
+      }
+    },
+    "assignVariablesNetworkid": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.networkid": {
+          "source": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentOjDialog19955915021Open"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

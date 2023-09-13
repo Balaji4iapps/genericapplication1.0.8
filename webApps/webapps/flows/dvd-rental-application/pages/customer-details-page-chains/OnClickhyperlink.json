@@ -1,0 +1,111 @@
+{
+  "description": "",
+  "root": "callRestGetbyidcustomer",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetbyid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetbyid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/getbyid",
+        "uriParams": {
+          "addressid": "{{ $chain.results.callRestGetbyidcustomer.body.items[0].address_id }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesPlace"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetbyidcustomer.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetbyidcustomer": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/Getbyidcustomer",
+        "uriParams": {
+          "customerid": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "assignVariablesCustomerpopup"
+      }
+    },
+    "assignVariablesPlace": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.place": {
+          "source": "{{ $chain.results.callRestGetbyid.body.items[0] }}",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentCustomerdetailsPopupOpen"
+      }
+    },
+    "callComponentCustomerdetailsPopupOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('CustomerdetailsPopup') }}",
+        "method": "open"
+      }
+    },
+    "assignVariablesCustomerpopup": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.customerpopup": {
+          "source": "{{ $chain.results.callRestGetbyidcustomer.body.items[0] }}",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "assignVariablesSeqCustomer"
+      }
+    },
+    "assignVariablesSeqCustomer": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.seq_customer": {
+          "source": "{{ $chain.results.callRestGetbyidcustomer.body.items[0].seq_customer }}",
+          "reset": "empty"
+        }
+      },
+      "outcomes": {
+        "success": "callRestGetbyid"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

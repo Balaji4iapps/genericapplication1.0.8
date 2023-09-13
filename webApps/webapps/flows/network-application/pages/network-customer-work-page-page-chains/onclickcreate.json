@@ -1,0 +1,36 @@
+{
+  "description": "",
+  "root": "assignVariablesCusworkmethod",
+  "actions": {
+
+    "callComponentOjUpdate17176323811Open": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-update-1717632381-1') }}",
+        "method": "open"
+      }
+    },
+    "assignVariablesCusworkmethod": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.cusworkmethod": {
+          "source": "create"
+        },
+        "$page.variables.cusworkpopup": {
+          "source": {
+            "customer_id": "{{ $page.variables.cusidpkey }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        },
+        "$page.variables.cswrkpk": {
+          "source": "0"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentOjUpdate17176323811Open"
+      }
+    }
+  },
+  "variables": {}
+}

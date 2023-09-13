@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentOjDialog6147048211Open",
+  "actions": {
+    "callComponentOjDialog6147048211Open": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog-614704821-1') }}",
+        "method": "open"
+      }
+    }
+  },
+  "variables": {}
+}

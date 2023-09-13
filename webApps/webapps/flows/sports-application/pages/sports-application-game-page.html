@@ -1,0 +1,144 @@
+  <div>
+  <h4><i>Enter Game Details</i></h4></div>
+  <div 
+  style="display:flex; justify-content:flex-end; margin-bottom:1%;">
+      <oj-button class="oj-button-sm" chroming="callToAction" style="margin-left:0.5%;margin-right:1.5%;"
+        on-oj-action="[[$listeners.buttonAction2]]">Save</oj-button>
+      <oj-button class="oj-button-sm" chroming="callToAction"
+        style="margin-left:0.5%;margin-right:1.5%;" on-oj-action="[[$listeners.buttonAction4]]">Save and Close</oj-button>
+      <oj-button class="oj-button-sm" chroming="danger"
+        style="margin-left:0.5%;margin-right:1.5%;" on-oj-action="[[$listeners.buttonAction]]">Close</oj-button> 
+  </div>
+<!-- <oj-form-layout>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12"> -->
+    <oj-validation-group id="MediVal">
+<div class="oj-panel oj-panel-shadow-lg" style="background-color:#FFD39B">
+  <!-- <div class="oj-flex"> -->
+      <oj-form-layout columns="2" label-edge="start">
+          <oj-input-text label-hint="[[$application.translations.app.input_text_label_hint_d750]]"
+            value="{{ $variables.game.game_name }}" required="true"></oj-input-text>
+          <oj-radioset label-hint="[[$application.translations.app.radioset_label_hint]]"
+            value="{{ $variables.game.kits }}">
+            <oj-option value="ISSUED">Issued</oj-option>
+            <oj-option value="NOTISSUED">Pending</oj-option>
+          </oj-radioset>
+          <oj-radioset label-hint="Modes" value="{{ $variables.game.modes }}"style="margin-right:0.1%;" >
+            <oj-option value="INDOOR">Indoor</oj-option>
+            <oj-option value="OUTDOOR">Outdoor</oj-option>
+          </oj-radioset>
+          <oj-select-one label-hint="Work Out Evalution" id="oj-select-one-651077415-1"
+            value="{{ $variables.game.workout_evalution }}" placeholder="Select One">
+
+<oj-option value="FAIR">Fair</oj-option>
+<oj-option value="MODERATE">Moderate</oj-option>
+<oj-option value="EXCELLENT">Excellent</oj-option>
+</oj-select-one>
+          <!-- <oj-checkboxset label-hint="[[$application.translations.app.checkboxset_label_hint]]"
+            value="{{ $variables.game.awards }}">
+            <oj-option value="GOLD">Gold</oj-option>
+            <oj-option value="SILVER">Silver</oj-option>
+            <oj-option value="BRONZE">Bronze</oj-option>
+            
+  <oj-bind-if test="[[ $variables.game.awards=='GOLD']]">
+  <oj-bind-if test="[[ $variables.game.awards=='SILVER' ]]">
+    <oj-bind-if test="[[ $variables.game.awards=='BRONZE' ]]"> 
+  
+  </oj-bind-if>
+  </oj-bind-if>
+  </oj-bind-if>
+  <oj-option value="NO REWARDS">No Rewards</oj-option>
+          </oj-checkboxset> -->
+  
+    
+  <oj-input-text label-hint="Awards" value="{{ $variables.game.awards }}"></oj-input-text>        
+         <oj-radioset label-hint="[[$application.translations.app.radioset_label_hint_d778]]"
+           class="oj-flex-item oj-sm-12 oj-md-6" value="{{ $variables.game.participants }}">
+    <oj-option value="MATCHES">Yes</oj-option>
+    
+      <oj-bind-if test="[[ $variables.game.participants=='MATCHES' ]]" >
+<oj-input-text label-hint="Text" value="{{ $variables.game.participants }}">
+    </oj-input-text>
+      </oj-bind-if>
+    <oj-option value="No">No</oj-option>
+  </oj-radioset>
+<oj-input-text label-hint="Trainer Name" value="{{ $variables.game.trainer_name }}"></oj-input-text>
+</oj-form-layout>  
+  </div>
+<oj-form-layout>
+  <oj-button label="[[$application.translations.app.create]]" class="oj-button-sm" chroming="callToAction"
+    style="margin-top:5%" on-oj-action="[[$listeners.buttonAction6]]">
+    <img slot="startIcon" :src="[[ $flow.path + 'resources/images/add_ena_1.png' ]]">
+</oj-button>  
+</oj-form-layout>
+ <div 
+  style="display:flex; justify-content:flex-end; margin-bottom:1%;">
+      <oj-button class="oj-button-sm" chroming="danger"
+        style="margin-left:0.5%;margin-right:1.5%;" on-oj-action="[[$listeners.buttonAction10]]" >Details</oj-button> 
+  </div>
+</oj-validation-group>
+<oj-table scroll-policy="loadMoreOnScroll" selection-mode.row="single" edit-mode="rowEdit"
+  selection-mode.column="single"
+  columns='[{"headerText":"Physically Challenged","field":"phy_challenged"},{"headerText":"Allergies","field":"allergies"},{"headerText":"Last Match Injuire Status","field":"last_match_injuire_status"},{"headerText":"Dose Level","field":"dose_level"},{"headerText":"Insurances","field":"insurances"},{"headerText":"Therapy Assistant","field":"therapy_assistant"},{"headerText":"Remarks","field":"remarks"},{"headerText":"Update","field":"","template":"Update"},{"headerText":"Delete","field":"","template":"Delete"}]'
+  data="[[ $variables.medicaltable ]]" display="grid">
+<oj-paging-control id="paging" 
+class="oj-sm-width-full" data="[[ $variables.medicaltable ]]" page-size="15" 
+slot="bottom">
+</oj-paging-control>
+  <template slot="Update">
+    <img :src="[[ $flow.path + 'resources/images/icons8-update-64.png' ]]" width="24" height="22"
+      on-click="[[$listeners.imageClick]]">
+  </template>
+  <template slot="Delete">
+    <img :src="[[ $flow.path + 'resources/images/icons8-close-90_3.png' ]]" width="24" height="22"
+      on-click="[[$listeners.imageClick2]]">
+  </template>
+</oj-table>
+<oj-dialog style="display:none; width: 450; height: 450;" dialog-title="Medical Details" id="oj-dialog--982872930-1">
+  <div slot="body">
+  <div class="oj-panel oj-flex-item oj-sm-flex-initial">
+  <div class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-form-layout columns="2" label-edge="top">
+  <oj-radioset label-hint="Physically Challenged" value="{{ $variables.medivar.phy_challenged }}">
+    <oj-option value="Yes">Yes</oj-option>
+    <oj-option value="No">No</oj-option>
+  </oj-radioset>
+  
+  <oj-input-text label-hint="Allergies" required="true" value="{{ $variables.medivar.allergies }}"></oj-input-text>
+  <oj-input-text label-hint="Last Match Injuire Status" required="true"
+    value="{{ $variables.medivar.last_match_injuire_status }}"></oj-input-text>
+ <oj-select-one label-hint="Dose Level" id="oj-select-one-651077415-1"
+            value="{{ $variables.medivar.dose_level }}" placeholder="Select One">
+
+<oj-option value="LOW">Low</oj-option>
+<oj-option value="MEDIUM">Medium</oj-option>
+<oj-option value="HIGH">High</oj-option>
+<oj-option value="No dose">No Dose</oj-option>
+</oj-select-one>
+ <oj-input-text label-hint="Insurances" required="true" value="{{ $variables.medivar.insurances }}"></oj-input-text>
+  <oj-input-text label-hint="Therapy Assistant" required="true" value="{{ $variables.medivar.therapy_assistant }}"></oj-input-text>
+  <oj-input-text label-hint="Remarks" required="true" value="{{ $variables.medivar.remarks }}"></oj-input-text>
+
+    </oj-form-layout>
+  </div>
+      
+    </div>
+  </div>
+  <div slot="footer">
+    <oj-button class="oj-button-sm" chroming="solid" on-oj-action="[[$listeners.buttonAction7]]">Save</oj-button>
+    <oj-button on-oj-action="[[$listeners.buttonAction5]]" class="oj-button-sm" chroming="danger">Cancel</oj-button>
+  </div>
+</oj-dialog>
+
+           
+<oj-dialog style="display:none" dialog-title="Delete" id="delete">
+        <div slot="body">
+          <div class="oj-flex">
+            Are You Sure Want To Delete A Record?
+          </div>
+        </div>
+        <div slot="footer">
+          <oj-button chroming="danger" class="oj-button-sm" on-oj-action="[[$listeners.buttonAction8]]" >Delete</oj-button>
+           <oj-button chroming="solid" class="oj-button-sm" on-oj-action="[[$listeners.buttonAction9]]">Cancel</oj-button>
+        </div>
+</oj-dialog>

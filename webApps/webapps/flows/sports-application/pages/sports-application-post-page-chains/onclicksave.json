@@ -1,0 +1,120 @@
+{
+  "description": "",
+  "root": "if",
+  "actions": {
+    "ifPlayeradd": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.playeradd=='create' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostPdPMETHODPPRIMARYKEY",
+        "false": "callRestPostPdPMETHODPPRIMARYKEY2"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostPdPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist",
+        "message": "[[ $chain.results.callRestPostPdPMETHODPPRIMARYKEY.status ]]"
+      }
+    },
+    "callRestPostPdPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "SportsApp/postPdP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.playerpost }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary]]",
+        "message": "[[$application.translations.app.fireNotification2_message]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "assignVariablesPrimarykey2"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostPdPMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostPdPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "SportsApp/postPdP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.primarykey }}"
+        },
+        "body": "{{ $page.variables.playerpost }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification4_summary]]",
+        "message": "[[$application.translations.app.fireNotification4_message]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      }
+    },
+    "assignVariablesPrimarykey": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.primarykey": {
+          "source": "{{ $page.variables.playerpost.player_id }}"
+        }
+      },
+      "outcomes": {
+        "success": "ifPlayeradd"
+      }
+    },
+    "if": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $functions.isFormValid(\"HdrForm\") ]]"
+      },
+      "outcomes": {
+        "true": "assignVariablesPrimarykey"
+      }
+    },
+    "assignVariablesPrimarykey2": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.primarykey": {
+          "source": "{{ $chain.results.callRestPostPdPMETHODPPRIMARYKEY.body.p_primarykey }}"
+        },
+        "$page.variables.childmethod": {
+          "source": "edit"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

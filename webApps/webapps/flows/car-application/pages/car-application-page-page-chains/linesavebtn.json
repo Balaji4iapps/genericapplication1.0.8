@@ -1,0 +1,147 @@
+{
+  "description": "",
+  "root": "if",
+  "actions": {
+    "ifLinevariable": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.linevariable=='Create' ]]"
+      },
+      "outcomes": {
+        "true": "assignVariablesCustomerdetails",
+        "false": "callRestPostCustomerPMETHODPPRIMARYKEY2"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCustomerPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostCustomerPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CarApplication/postCustomerP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.customerdetails }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCustomerPMETHODPPRIMARYKEY.body.p_err_msg ]]",
+        "message": "[[ $chain.results.callRestPostCustomerPMETHODPPRIMARYKEY.body.p_err_msg ]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callComponentCustomerdetailPopupClose"
+      }
+    },
+    "callComponentCustomerdetailPopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('CustomerdetailPopup') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainOnload"
+      }
+    },
+    "callChainOnload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onload"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCustomerPMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "assignVariablesCustomerdetails": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.customerdetails": {
+          "source": {
+            "car_id": "{{ $page.variables.carid }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callRestPostCustomerPMETHODPPRIMARYKEY"
+      }
+    },
+    "callRestPostCustomerPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CarApplication/postCustomerP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.customerdetails.customer_id }}"
+        },
+        "body": "{{ $page.variables.customerdetails }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCustomerPMETHODPPRIMARYKEY2.body.p_err_msg ]]",
+        "message": "[[ $chain.results.callRestPostCustomerPMETHODPPRIMARYKEY2.body.p_err_msg ]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callComponentCustomerdetailPopupClose2"
+      }
+    },
+    "callComponentCustomerdetailPopupClose2": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('CustomerdetailPopup') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainOnload2"
+      }
+    },
+    "if": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $functions.isFormValid(\"customerdetailsform\") ]]"
+      },
+      "outcomes": {
+        "true": "ifLinevariable"
+      }
+    },
+    "callChainOnload2": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onload"
+      }
+    }
+  },
+  "variables": {}
+}

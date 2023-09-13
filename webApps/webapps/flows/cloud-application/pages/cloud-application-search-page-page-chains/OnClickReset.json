@@ -1,0 +1,24 @@
+{
+  "description": "",
+  "root": "resetVariablesCloudId",
+  "actions": {
+    "resetVariablesCloudId": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.cloud_id"
+        ]
+      },
+      "outcomes": {
+        "success": "callChainOnLoadCloudTable"
+      }
+    },
+    "callChainOnLoadCloudTable": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "OnLoadCloudTable"
+      }
+    }
+  },
+  "variables": {}
+}

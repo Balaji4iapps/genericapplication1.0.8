@@ -1,0 +1,33 @@
+<!-- <oj-validation-group>
+<oj-button label="ADD ROW" on-oj-action="[[$listeners.buttonAction]]" chroming="solid"></oj-button>
+<oj-button label="SAVE"  chroming="solid" on-oj-action="[[$listeners.buttonAction2]]"></oj-button>
+<oj-button label="NAV"  chroming="solid" on-oj-action="[[$listeners.buttonAction3]]" ></oj-button>
+</oj-validation-group> -->
+ <br>
+
+
+<oj-validation-group id="Tableform">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12" data="[[ $variables.TableADP ]]"
+    columns='[{"headerText":"Doctor Name","field":"doc_name","template":"new"},{"headerText":"Doctor Gender","field":"doc_gender"},{"headerText":"Doctor Address","field":"doc_address"},{"headerText":"Doctor Designation","field":"doc_designation"}]'
+    display="grid" id="searchLnsTable" selection-mode.row="single" horizontal-grid-visible="enabled"
+    vertical-grid-visible="enabled" selection-required="true" edit-mode="rowEdit">
+
+    <template slot="new">
+         <oj-row-expander id="test" context="[[ $variables.TableADP ]]"></oj-row-expander>
+    </template>
+
+
+</oj-table>
+</oj-validation-group>
+
+<!-- <oj-dialog dialog-title="Dialog" id="Delete" drag-affordance="title-bar" cancel-behavior="icon"
+  resize-behavior="resizable">
+         <div slot="body">
+      Are you sure? Do you want to delete?
+         </div>
+         <div slot="footer">
+      <oj-button on-oj-action="[[$listeners.buttonAction4]]" >Yes</oj-button>
+      <oj-button on-oj-action="[[$listeners.buttonAction5]]" >No</oj-button>
+         </div>
+</oj-dialog> -->
+

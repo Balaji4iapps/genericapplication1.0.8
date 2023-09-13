@@ -1,0 +1,1474 @@
+{
+  "app_title_navigation_drawer": "Application Navigation Drawer",
+  "@app_title_navigation_drawer": {
+    "description": "Title for Application Navigation Drawer"
+  },
+  "app_footer_about_link": "About",
+  "@app_footer_about_link": {
+    "description": "About link on shell footer"
+  },
+  "app_footer_copyright": "Created with Visual Builder, Copyright © 2022",
+  "@app_footer_copyright": {
+    "description": "Copyright text on shell footer"
+  },
+  "app_sign_out": "Sign Out",
+  "@app_sign_out": {
+    "description": "Text on menu option to log out of the application"
+  },
+  "search": "Search",
+  "@search": {
+    "description": "Search"
+  },
+  "reset": "Reset",
+  "@reset": {
+    "description": "Reset"
+  },
+  "create": "Create",
+  "@create": {
+    "description": "Create"
+  },
+  "select_single_label_hint": "Player Name",
+  "@select_single_label_hint": {
+    "description": ""
+  },
+  "fireNotification2_summary": "Player Added",
+  "@fireNotification2_summary": {
+    "description": "Player Added"
+  },
+  "fireNotification2_message": "Player Added",
+  "@fireNotification2_message": {
+    "description": "Player Added"
+  },
+  "input_text_label_hint": "Contact Number",
+  "@input_text_label_hint": {
+    "description": ""
+  },
+  "fireNotification4_summary": "Player Detail Updated",
+  "@fireNotification4_summary": {
+    "description": "Player Detail Updated"
+  },
+  "fireNotification4_message": "Player Detail Updated",
+  "@fireNotification4_message": {
+    "description": "Player Detail Updated"
+  },
+  "input_text_label_hint_d750": "Game Name",
+  "@input_text_label_hint_d750": {
+    "description": "Game Name"
+  },
+  "radioset_label_hint": "Kits",
+  "@radioset_label_hint": {
+    "description": "Kits"
+  },
+  "checkboxset_label_hint": "Awards",
+  "@checkboxset_label_hint": {
+    "description": "Awards"
+  },
+  "fireNotification2_summary_340b": "Game Details Added",
+  "@fireNotification2_summary_340b": {
+    "description": "Game Details Added"
+  },
+  "fireNotification2_summary_c650": "Record Deleted",
+  "@fireNotification2_summary_c650": {
+    "description": "Record Deleted"
+  },
+  "fireNotification2_summary_211d": "Record Deleted",
+  "@fireNotification2_summary_211d": {
+    "description": "Record Deleted"
+  },
+  "fireNotification2_message_c57a": "Record Deleted",
+  "@fireNotification2_message_c57a": {
+    "description": "Record Deleted"
+  },
+  "fireNotification_summary": "Create Player Details",
+  "@fireNotification_summary": {
+    "description": "Create Player Details"
+  },
+  "fireNotification_message": "Create Player Details",
+  "@fireNotification_message": {
+    "description": "Create Player Details"
+  },
+  "h1__text": "FIFA WORLDCUP QATAR 2022",
+  "@h1__text": {
+    "description": ""
+  },
+  "radioset_label_hint_d778": "Match Played",
+  "@radioset_label_hint_d778": {
+    "description": "Match Played"
+  },
+  "text_area_label_hint": "The 2022 FIFA World Cup is scheduled to be the 22nd running of the FIFA World Cup competition, the quadrennial international men's football championship contested by the senior national teams of the member associations of FIFA. It is scheduled to take place in Qatar from 20 November to 18 December 2022. This will be the first World Cup ever to be held in the Arab world,[1] and the second World Cup held entirely in Asia after the 2002 tournament in South Korea and Japan.[a]  ",
+  "@text_area_label_hint": {
+    "description": ""
+  },
+  "p__text": "The 2022 FIFA World Cup is scheduled to be the 22nd running of the FIFA World Cup competition, the quadrennial international men's football championship contested by the senior national teams of the member associations of FIFA. It is scheduled to take place in Qatar from 20 November to 18 December 2022. This will be the first World Cup ever to be held in the Arab world and the second World Cup held entirely in Asia after the 2002 tournament in South Korea and Japan.",
+  "@p__text": {
+    "description": ""
+  },
+  "table__text": ">",
+  "@table__text": {
+    "description": ""
+  },
+  "select_single_label_hint_09fd": "Manufacturer Name",
+  "@select_single_label_hint_09fd": {
+    "description": ""
+  },
+  "button_label": "Search",
+  "@button_label": {
+    "description": ""
+  },
+  "button_label_0e1f": "Reset",
+  "@button_label_0e1f": {
+    "description": ""
+  },
+  "button_label_7ccb": "Add",
+  "@button_label_7ccb": {
+    "description": ""
+  },
+  "fireNotification2_summary_03d5": "Record Deleted Sucessfully",
+  "@fireNotification2_summary_03d5": {
+    "description": "Record Deleted Sucessfully"
+  },
+  "fireNotification2_message_8ba3": "Record Deleted Sucessfully",
+  "@fireNotification2_message_8ba3": {
+    "description": "Record Deleted Sucessfully"
+  },
+  "button_label_fde5": "Back",
+  "@button_label_fde5": {
+    "description": ""
+  },
+  "fireNotification2_summary_a17e": "Record Create Successfully",
+  "@fireNotification2_summary_a17e": {
+    "description": "Record Create Successfully"
+  },
+  "fireNotification2_message_2633": "Record Create Successfully",
+  "@fireNotification2_message_2633": {
+    "description": "Record Create Successfully"
+  },
+  "fireNotification2_summary_7bcd": "Error",
+  "@fireNotification2_summary_7bcd": {
+    "description": "Error"
+  },
+  "fireNotification2_message_3367": "Error",
+  "@fireNotification2_message_3367": {
+    "description": "Error"
+  },
+  "fireNotification_summary_08b5": "Enter the car details",
+  "@fireNotification_summary_08b5": {
+    "description": "Enter the car details"
+  },
+  "fireNotification_message_5b78": "Enter the car details",
+  "@fireNotification_message_5b78": {
+    "description": "Enter the car details"
+  },
+  "fireNotification4_summary_c388": "error",
+  "@fireNotification4_summary_c388": {
+    "description": "error"
+  },
+  "fireNotification4_message_a9be": "error",
+  "@fireNotification4_message_a9be": {
+    "description": "error"
+  },
+  "fireNotification2_summary_3f33": "Record Delete",
+  "@fireNotification2_summary_3f33": {
+    "description": "Record Delete"
+  },
+  "fireNotification2_message_212e": "Record Delete",
+  "@fireNotification2_message_212e": {
+    "description": "Record Delete"
+  },
+  "fireNotification2_summary_bee6": "Record Successfully Created",
+  "@fireNotification2_summary_bee6": {
+    "description": "Record Successfully Created"
+  },
+  "fireNotification2_message_0429": "Record Successfully Created",
+  "@fireNotification2_message_0429": {
+    "description": "Record Successfully Created"
+  },
+  "radioset_label_hint_7c31": "Group",
+  "@radioset_label_hint_7c31": {
+    "description": ""
+  },
+  "input_text_label_hint_8756": "Country Name",
+  "@input_text_label_hint_8756": {
+    "description": ""
+  },
+  "input_number_label_hint": "WC Titles",
+  "@input_number_label_hint": {
+    "description": ""
+  },
+  "input_number_label_hint_6935": "Fifa Ranking",
+  "@input_number_label_hint_6935": {
+    "description": ""
+  },
+  "input_number_label_hint_b9af": "Squad Strenght",
+  "@input_number_label_hint_b9af": {
+    "description": ""
+  },
+  "input_text_label_hint_4e26": "Team Base",
+  "@input_text_label_hint_4e26": {
+    "description": ""
+  },
+  "fireNotification_summary_b19a": "added",
+  "@fireNotification_summary_b19a": {
+    "description": ""
+  },
+  "fireNotification_message_6dca": "Country added",
+  "@fireNotification_message_6dca": {
+    "description": ""
+  },
+  "fireNotification3_summary": "UPDATED",
+  "@fireNotification3_summary": {
+    "description": ""
+  },
+  "fireNotification3_message": "country details updated",
+  "@fireNotification3_message": {
+    "description": ""
+  },
+  "fireNotification2_summary_c1f0": "Deleted Successfully",
+  "@fireNotification2_summary_c1f0": {
+    "description": ""
+  },
+  "fireNotification2_message_d6be": "Record Deleted successfully",
+  "@fireNotification2_message_d6be": {
+    "description": ""
+  },
+  "fireNotification2_summary_ee10": "Game Details Created",
+  "@fireNotification2_summary_ee10": {
+    "description": "Game Details Created"
+  },
+  "fireNotification2_message_935b": "Game Details Created",
+  "@fireNotification2_message_935b": {
+    "description": "Game Details Created"
+  },
+  "fireNotification4_summary_38f2": "Game Detail Updated",
+  "@fireNotification4_summary_38f2": {
+    "description": "Game Detail Updated"
+  },
+  "fireNotification4_message_8f3c": "Game Detail Updated",
+  "@fireNotification4_message_8f3c": {
+    "description": "Game Detail Updated"
+  },
+  "fireNotification2_summary_8e16": "Information deleted successfully!",
+  "@fireNotification2_summary_8e16": {
+    "description": ""
+  },
+  "fireNotification2_message_8f3f": "Information deleted successfully!",
+  "@fireNotification2_message_8f3f": {
+    "description": ""
+  },
+  "fireNotification2_summary_5ca0": "Delete Successfully",
+  "@fireNotification2_summary_5ca0": {
+    "description": "Delete Successfully"
+  },
+  "fireNotification2_summary_46dd": "deleted",
+  "@fireNotification2_summary_46dd": {
+    "description": ""
+  },
+  "fireNotification2_message_eef5": "deleted",
+  "@fireNotification2_message_eef5": {
+    "description": ""
+  },
+  "fireNotification2_summary_4a7f": "Deleted",
+  "@fireNotification2_summary_4a7f": {
+    "description": ""
+  },
+  "fireNotification2_message_0dc1": "Information deleted successfully",
+  "@fireNotification2_message_0dc1": {
+    "description": ""
+  },
+  "fireNotification2_summary_a917": "Deleted",
+  "@fireNotification2_summary_a917": {
+    "description": ""
+  },
+  "fireNotification2_message_9d48": "Record Deleted Successfully",
+  "@fireNotification2_message_9d48": {
+    "description": ""
+  },
+  "fireNotification2_summary_0012": "Record Deleted",
+  "@fireNotification2_summary_0012": {
+    "description": "Record Deleted"
+  },
+  "fireNotification2_message_4d37": "Record Deleted",
+  "@fireNotification2_message_4d37": {
+    "description": "Record Deleted"
+  },
+  "fireNotification2_summary_6177": "Deleted",
+  "@fireNotification2_summary_6177": {
+    "description": ""
+  },
+  "fireNotification2_message_7631": "Deleted succesfully",
+  "@fireNotification2_message_7631": {
+    "description": ""
+  },
+  "fireNotification3_summary_b559": "Create Successfully",
+  "@fireNotification3_summary_b559": {
+    "description": ""
+  },
+  "fireNotification3_message_152d": "Create Successfully",
+  "@fireNotification3_message_152d": {
+    "description": ""
+  },
+  "fireNotification4_summary_ce62": "Put Successfully",
+  "@fireNotification4_summary_ce62": {
+    "description": ""
+  },
+  "fireNotification3_message_904e": "Put Successfully",
+  "@fireNotification3_message_904e": {
+    "description": ""
+  },
+  "fireNotification4_summary_e20b": " Successfully",
+  "@fireNotification4_summary_e20b": {
+    "description": ""
+  },
+  "fireNotification4_message_cb51": "Successfully",
+  "@fireNotification4_message_cb51": {
+    "description": ""
+  },
+  "fireNotification_summary_3528": "create",
+  "@fireNotification_summary_3528": {
+    "description": ""
+  },
+  "fireNotification_message_a84b": "create",
+  "@fireNotification_message_a84b": {
+    "description": ""
+  },
+  "fireNotification2_summary_e97e": "New information created!",
+  "@fireNotification2_summary_e97e": {
+    "description": ""
+  },
+  "fireNotification2_message_bf68": "New information created!",
+  "@fireNotification2_message_bf68": {
+    "description": ""
+  },
+  "fireNotification4_summary_2c3b": "Data updated",
+  "@fireNotification4_summary_2c3b": {
+    "description": ""
+  },
+  "fireNotification4_message_30b1": "Data updated successfully",
+  "@fireNotification4_message_30b1": {
+    "description": ""
+  },
+  "fireNotification2_summary_25d5": "New Record Added",
+  "@fireNotification2_summary_25d5": {
+    "description": "New Record Added\n"
+  },
+  "fireNotification4_summary_38b0": "Record Edited",
+  "@fireNotification4_summary_38b0": {
+    "description": "Record Edited"
+  },
+  "fireNotification2_summary_a655": "Record Created",
+  "@fireNotification2_summary_a655": {
+    "description": "Record Created"
+  },
+  "fireNotification2_message_65ad": "Record Created",
+  "@fireNotification2_message_65ad": {
+    "description": "Record Created"
+  },
+  "button_label_6def": "Add",
+  "@button_label_6def": {
+    "description": ""
+  },
+  "fireNotification3_summary_08b5": "Record deleted successfully",
+  "@fireNotification3_summary_08b5": {
+    "description": "Record deleted successfully"
+  },
+  "fireNotification3_message_b8e9": "Record deleted successfully",
+  "@fireNotification3_message_b8e9": {
+    "description": "Record deleted successfully"
+  },
+  "fireNotification4_summary_da92": "Record updated",
+  "@fireNotification4_summary_da92": {
+    "description": "Record updated"
+  },
+  "fireNotification4_message_3218": "Record updated",
+  "@fireNotification4_message_3218": {
+    "description": "Record updated"
+  },
+  "fireNotification2_summary_0d55": "Record deleted",
+  "@fireNotification2_summary_0d55": {
+    "description": "Record deleted"
+  },
+  "fireNotification2_message_63dc": "Record deleted",
+  "@fireNotification2_message_63dc": {
+    "description": "Record deleted"
+  },
+  "fireNotification_summary_d785": "Create Game Details",
+  "@fireNotification_summary_d785": {
+    "description": "Create Game Details"
+  },
+  "fireNotification_message_95cc": "Create Game Details",
+  "@fireNotification_message_95cc": {
+    "description": "Create Game Details"
+  },
+  "fireNotification_summary_dd3c": "Select Staff",
+  "@fireNotification_summary_dd3c": {
+    "description": "Select Staff"
+  },
+  "fireNotification2_summary_30a1": "student added",
+  "@fireNotification2_summary_30a1": {
+    "description": "student added"
+  },
+  "fireNotification3_summary_0117": "Successfully",
+  "@fireNotification3_summary_0117": {
+    "description": ""
+  },
+  "fireNotification3_message_008c": "Successfully",
+  "@fireNotification3_message_008c": {
+    "description": ""
+  },
+  "fireNotification4_summary_3844": "failer",
+  "@fireNotification4_summary_3844": {
+    "description": ""
+  },
+  "fireNotification4_message_3816": "failer",
+  "@fireNotification4_message_3816": {
+    "description": ""
+  },
+  "fireNotification2_summary_4ddb": "Deleted Successfully",
+  "@fireNotification2_summary_4ddb": {
+    "description": ""
+  },
+  "fireNotification2_message_6075": "Deleted Successfully",
+  "@fireNotification2_message_6075": {
+    "description": ""
+  },
+  "fireNotification2_summary_c100": "Network Details Deleted",
+  "@fireNotification2_summary_c100": {
+    "description": ""
+  },
+  "fireNotification2_summary_b967": "Record Added",
+  "@fireNotification2_summary_b967": {
+    "description": "Record Added"
+  },
+  "fireNotification4_summary_a3f0": "Edited Successfully",
+  "@fireNotification4_summary_a3f0": {
+    "description": ""
+  },
+  "input_number_label_hint_c114": "Match Number",
+  "@input_number_label_hint_c114": {
+    "description": ""
+  },
+  "input_number_label_hint_a3e7": "Time",
+  "@input_number_label_hint_a3e7": {
+    "description": ""
+  },
+  "input_text_label_hint_fe45": "Fixtures",
+  "@input_text_label_hint_fe45": {
+    "description": ""
+  },
+  "input_text_label_hint_877d": "Stadium",
+  "@input_text_label_hint_877d": {
+    "description": ""
+  },
+  "radioset_label_hint_4d84": "Capacity",
+  "@radioset_label_hint_4d84": {
+    "description": ""
+  },
+  "option__text": "40000",
+  "@option__text": {
+    "description": ""
+  },
+  "option__text_fbf4": "60000",
+  "@option__text_fbf4": {
+    "description": ""
+  },
+  "option__text_8000": "80000",
+  "@option__text_8000": {
+    "description": ""
+  },
+  "fireNotification3_summary_8b13": "Information created successfully!",
+  "@fireNotification3_summary_8b13": {
+    "description": ""
+  },
+  "fireNotification3_message_5f16": "Information created successfully!",
+  "@fireNotification3_message_5f16": {
+    "description": ""
+  },
+  "fireNotification4_summary_acd5": "Information updated successfully!",
+  "@fireNotification4_summary_acd5": {
+    "description": ""
+  },
+  "fireNotification4_message_c35d": "Information updated successfully!",
+  "@fireNotification4_message_c35d": {
+    "description": ""
+  },
+  "Cloud_Details": "Cloud Details",
+  "@Cloud_Details": {
+    "description": "Cloud Details"
+  },
+  "Cloud_Details_": "Cloud Details",
+  "@Cloud_Details_": {
+    "description": "Cloud Details"
+  },
+  "fireNotification3_summary_8a2e": "Record Deleted Successfully",
+  "@fireNotification3_summary_8a2e": {
+    "description": "Record Deleted Successfully"
+  },
+  "fireNotification3_message_6462": "Record Deleted Successfully",
+  "@fireNotification3_message_6462": {
+    "description": "Record Deleted Successfully"
+  },
+  "Cloud_Search_Page": "Cloud Search Page",
+  "@Cloud_Search_Page": {
+    "description": "Cloud Search Page"
+  },
+  "New_Request": "New Request",
+  "@New_Request": {
+    "description": "New Request"
+  },
+  "Search": "Search",
+  "@Search": {
+    "description": "Search"
+  },
+  "Reset": "Reset",
+  "@Reset": {
+    "description": "Reset"
+  },
+  "input_number_label_hint_6e72": "Match Number",
+  "@input_number_label_hint_6e72": {
+    "description": ""
+  },
+  "input_text_label_hint_064c": "Time",
+  "@input_text_label_hint_064c": {
+    "description": ""
+  },
+  "input_text_label_hint_e99a": "Fixture",
+  "@input_text_label_hint_e99a": {
+    "description": ""
+  },
+  "select_one_label_hint": "GROUP",
+  "@select_one_label_hint": {
+    "description": ""
+  },
+  "input_text_label_hint_f67a": "Stadium",
+  "@input_text_label_hint_f67a": {
+    "description": ""
+  },
+  "radioset_label_hint_8ebe": "Capacity",
+  "@radioset_label_hint_8ebe": {
+    "description": ""
+  },
+  "button__text": "Save",
+  "@button__text": {
+    "description": ""
+  },
+  "fireNotification2_summary_27d7": "Added",
+  "@fireNotification2_summary_27d7": {
+    "description": ""
+  },
+  "fireNotification2_summary_dbe7": "Deleted Successfully",
+  "@fireNotification2_summary_dbe7": {
+    "description": "Deleted Successfully"
+  },
+  "fireNotification2_message_85df": "fixtures added successfully",
+  "@fireNotification2_message_85df": {
+    "description": ""
+  },
+  "fireNotification_summary_3175": "Please create manufacturer details! ",
+  "@fireNotification_summary_3175": {
+    "description": ""
+  },
+  "fireNotification_message_5c6c": "Please create manufacturer details!",
+  "@fireNotification_message_5c6c": {
+    "description": ""
+  },
+  "You_need_to_select_cloud_name": "You need to select cloud name.",
+  "@You_need_to_select_cloud_name": {
+    "description": "You need to select cloud name."
+  },
+  "You_need_to_select_cloud_name_": "You need to select cloud name.",
+  "@You_need_to_select_cloud_name_": {
+    "description": "You need to select cloud name."
+  },
+  "Save": "Save",
+  "@Save": {
+    "description": "Save"
+  },
+  "Saveclose": "Save&Close",
+  "@Saveclose": {
+    "description": "Save&Close"
+  },
+  "close": "Close",
+  "@close": {
+    "description": "Close"
+  },
+  "Cloud_Data_Page": "Cloud Data Page",
+  "@Cloud_Data_Page": {
+    "description": "Cloud Data Page"
+  },
+  "CloudName": "Cloud Name",
+  "@CloudName": {
+    "description": "Cloud Name"
+  },
+  "Cloud_Provider": "Cloud Provider",
+  "@Cloud_Provider": {
+    "description": "Cloud Provider"
+  },
+  "Founder_Name": "Founder Name",
+  "@Founder_Name": {
+    "description": "Founder Name"
+  },
+  "Started_Year": "Started Year",
+  "@Started_Year": {
+    "description": "Started Year"
+  },
+  "Company_Mail_Id": "Company Mail Id",
+  "@Company_Mail_Id": {
+    "description": "Company Mail Id"
+  },
+  "Company_Mail_Id_": "Company Mail Id",
+  "@Company_Mail_Id_": {
+    "description": "Company Mail Id"
+  },
+  "Contact_Number": "Contact Number",
+  "@Contact_Number": {
+    "description": "Contact Number"
+  },
+  "Business_Type": "Business Type",
+  "@Business_Type": {
+    "description": "Business Type"
+  },
+  "fireNotification4_summary_651a": "Updated",
+  "@fireNotification4_summary_651a": {
+    "description": ""
+  },
+  "fireNotification4_message_4a1a": "Schedule Updated Successfully",
+  "@fireNotification4_message_4a1a": {
+    "description": ""
+  },
+  "Started_Year_": "Started Year",
+  "@Started_Year_": {
+    "description": "Started Year"
+  },
+  "fireNotification4_summary_bb14": "Record Edited",
+  "@fireNotification4_summary_bb14": {
+    "description": "Record Edited"
+  },
+  "fireNotification3_summary_80e8": "New Record Added",
+  "@fireNotification3_summary_80e8": {
+    "description": "New Record Added"
+  },
+  "fireNotification2_summary_bc34": "Deleted",
+  "@fireNotification2_summary_bc34": {
+    "description": ""
+  },
+  "fireNotification2_message_9966": "Fixture Deleted Successfully",
+  "@fireNotification2_message_9966": {
+    "description": ""
+  },
+  "Information_Saved_Successfully": "Information Saved Successfully",
+  "@Information_Saved_Successfully": {
+    "description": "Information Saved Successfully"
+  },
+  "InformationSavedSuccessfully_": "Information Saved Successfully",
+  "@InformationSavedSuccessfully_": {
+    "description": "Information Saved Successfully"
+  },
+  "InformationEditedSuccessfully": "Information Edited Successfully",
+  "@InformationEditedSuccessfully": {
+    "description": "Information Edited Successfully"
+  },
+  "InformationEditedSucessfully_": "Information Edited Successfully",
+  "@InformationEditedSucessfully_": {
+    "description": "Information Edited Successfully"
+  },
+  "edit": "Edit",
+  "@edit": {
+    "description": "Edit"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Delete"
+  },
+  "fireNotification_summary_10d9": "Please Add Game Details",
+  "@fireNotification_summary_10d9": {
+    "description": ""
+  },
+  "fireNotification_message_8db0": "Please Add Game Details",
+  "@fireNotification_message_8db0": {
+    "description": ""
+  },
+  "fireNotification_summary_5eaa": "Please Add Game Details",
+  "@fireNotification_summary_5eaa": {
+    "description": "Please Add Game Details"
+  },
+  "fireNotification_message_f7c7": "Please Add Game Details",
+  "@fireNotification_message_f7c7": {
+    "description": "Please Add Game Details"
+  },
+  "fireNotification_summary_329f": "Please Create Game Details",
+  "@fireNotification_summary_329f": {
+    "description": "Please Create Game Details"
+  },
+  "fireNotification_message_3757": "Please Create Game Details",
+  "@fireNotification_message_3757": {
+    "description": "Please Create Game Details"
+  },
+  "fireNotification_summary_269a": "Select Student Details",
+  "@fireNotification_summary_269a": {
+    "description": "Select Student Details"
+  },
+  "Yes": "Yes",
+  "@Yes": {
+    "description": "Yes"
+  },
+  "No": "No",
+  "@No": {
+    "description": "No"
+  },
+  "button_label_d1e2": "Add",
+  "@button_label_d1e2": {
+    "description": ""
+  },
+  "Records_Deleted": "Records Deleted",
+  "@Records_Deleted": {
+    "description": "Records Deleted"
+  },
+  "Records_Deleted_": "Records Deleted",
+  "@Records_Deleted_": {
+    "description": "Records Deleted"
+  },
+  "input_text_label_hint_c732": "Player Name",
+  "@input_text_label_hint_c732": {
+    "description": ""
+  },
+  "input_number_label_hint_1898": "Age",
+  "@input_number_label_hint_1898": {
+    "description": ""
+  },
+  "input_text_label_hint_6dd0": "Country",
+  "@input_text_label_hint_6dd0": {
+    "description": ""
+  },
+  "select_one_label_hint_5fc4": "Positions",
+  "@select_one_label_hint_5fc4": {
+    "description": ""
+  },
+  "input_number_label_hint_71cd": "Fifa Rating",
+  "@input_number_label_hint_71cd": {
+    "description": ""
+  },
+  "input_number_label_hint_67d0": "Goal Scored",
+  "@input_number_label_hint_67d0": {
+    "description": ""
+  },
+  "fireNotification2_summary_8eb8": "Created",
+  "@fireNotification2_summary_8eb8": {
+    "description": ""
+  },
+  "fireNotification4_summary_9a0c": "Updated",
+  "@fireNotification4_summary_9a0c": {
+    "description": ""
+  },
+  "fireNotification4_message_6054": "Player details updated successfully",
+  "@fireNotification4_message_6054": {
+    "description": ""
+  },
+  "fireNotification3_message_6a7e": "player added Successfully",
+  "@fireNotification3_message_6a7e": {
+    "description": ""
+  },
+  "fireNotification2_summary_d8e8": "Deleted",
+  "@fireNotification2_summary_d8e8": {
+    "description": ""
+  },
+  "fireNotification2_message_7866": "Player record deleted successfully",
+  "@fireNotification2_message_7866": {
+    "description": ""
+  },
+  "fireNotification2_summary_09a9": "Deleted",
+  "@fireNotification2_summary_09a9": {
+    "description": ""
+  },
+  "fireNotification2_message_6582": "Record Deleted Successfully",
+  "@fireNotification2_message_6582": {
+    "description": ""
+  },
+  "fireNotification4_summary_6825": "Please Fill Required Field",
+  "@fireNotification4_summary_6825": {
+    "description": ""
+  },
+  "fireNotification4_message_ad1a": "Please Fill Required Field ",
+  "@fireNotification4_message_ad1a": {
+    "description": ""
+  },
+  "Company_Table": "Company Table",
+  "@Company_Table": {
+    "description": "Company Table"
+  },
+  "fireNotification2_summary_9b8d": "Deleted",
+  "@fireNotification2_summary_9b8d": {
+    "description": ""
+  },
+  "fireNotification2_message_3f39": "Country Deleted successfully",
+  "@fireNotification2_message_3f39": {
+    "description": ""
+  },
+  "create_": "Create",
+  "@create_": {
+    "description": "Create"
+  },
+  "CompanyDetails": "Company Details",
+  "@CompanyDetails": {
+    "description": "CompanyDetails"
+  },
+  "Ok": "Ok",
+  "@Ok": {
+    "description": "ok"
+  },
+  "Cancel": "Cancel",
+  "@Cancel": {
+    "description": "Cancel"
+  },
+  "Company_Name": "Company Name",
+  "@Company_Name": {
+    "description": "Company Name"
+  },
+  "Company_Location": "Company Location",
+  "@Company_Location": {
+    "description": "Company Location"
+  },
+  "Owner_Name": "Owner Name",
+  "@Owner_Name": {
+    "description": "Owner Name"
+  },
+  "Started_Date": " Started Date",
+  "@Started_Date": {
+    "description": "Started Date"
+  },
+  "Company_Email": "Company Email",
+  "@Company_Email": {
+    "description": "Company Email"
+  },
+  "Cloud_Id": "Cloud Id",
+  "@Cloud_Id": {
+    "description": "Cloud Id"
+  },
+  "Cloud_Form_Should_not_be_empty": "Cloud Form Should not be empty",
+  "@Cloud_Form_Should_not_be_empty": {
+    "description": "Cloud Form Should not be empty"
+  },
+  "Cloud_Form_Should_not_be_empty_": "Cloud Form Should not be empty",
+  "@Cloud_Form_Should_not_be_empty_": {
+    "description": "Cloud Form Should not be empty"
+  },
+  "Save_": "Save",
+  "@Save_": {
+    "description": "Save"
+  },
+  "Close": "Close",
+  "@Close": {
+    "description": "Close"
+  },
+  "button__text_c085": "Save",
+  "@button__text_c085": {
+    "description": ""
+  },
+  "Company_Records_Saved": "Company Records Saved",
+  "@Company_Records_Saved": {
+    "description": "Company Records Saved"
+  },
+  "Company_Records_Saved_": "Company Records Saved",
+  "@Company_Records_Saved_": {
+    "description": "Company Records Saved"
+  },
+  "select_single_placeholder": "Choose the match",
+  "@select_single_placeholder": {
+    "description": ""
+  },
+  "Company_Records_Edited_successfully": "Company Records Edited Successfully.",
+  "@Company_Records_Edited_successfully": {
+    "description": "Company Records Edited Successfully."
+  },
+  "Company_Records_Edited_sucessfully_": "Company Records Edited Successfully.",
+  "@Company_Records_Edited_sucessfully_": {
+    "description": "Company Records Edited Successfully."
+  },
+  "fireNotification3_summary_6ac6": "success",
+  "@fireNotification3_summary_6ac6": {
+    "description": "success"
+  },
+  "fireNotification3_summary_a845": "Successfully",
+  "@fireNotification3_summary_a845": {
+    "description": ""
+  },
+  "fireNotification3_message_5066": "Successfully",
+  "@fireNotification3_message_5066": {
+    "description": ""
+  },
+  "fireNotification4_summary_2e70": "Edit Successfully",
+  "@fireNotification4_summary_2e70": {
+    "description": ""
+  },
+  "fireNotification4_message_6ea8": "Edit Successfully",
+  "@fireNotification4_message_6ea8": {
+    "description": ""
+  },
+  "button_label_93b6": "search",
+  "@button_label_93b6": {
+    "description": ""
+  },
+  "button_label_d841": "reset",
+  "@button_label_d841": {
+    "description": ""
+  },
+  "fireNotification4_summary_0d7a": "FIll The Form",
+  "@fireNotification4_summary_0d7a": {
+    "description": "FIll The Form"
+  },
+  "fireNotification4_message_5b9d": "",
+  "@fireNotification4_message_5b9d": {
+    "description": ""
+  },
+  "fireNotification2_summary_7122": "Record deleted",
+  "@fireNotification2_summary_7122": {
+    "description": "Record deleted"
+  },
+  "fireNotification2_message_90da": "Record deleted",
+  "@fireNotification2_message_90da": {
+    "description": "Record deleted"
+  },
+  "fireNotification2_summary_63d7": "Record Deleted",
+  "@fireNotification2_summary_63d7": {
+    "description": ""
+  },
+  "fireNotification2_message_1208": "Record Deleted",
+  "@fireNotification2_message_1208": {
+    "description": ""
+  },
+  "fireNotification_summary_d019": "Create Record",
+  "@fireNotification_summary_d019": {
+    "description": "Create Record"
+  },
+  "fireNotification_message_7958": "Create Record",
+  "@fireNotification_message_7958": {
+    "description": "Create Record"
+  },
+  "Data_Deleted_Successfully": "Data Deleted Successfully",
+  "@Data_Deleted_Successfully": {
+    "description": "Data Deleted Successfully"
+  },
+  "Data_Deleted_Successfully_": "Data Deleted Successfully",
+  "@Data_Deleted_Successfully_": {
+    "description": "Data Deleted Successfully"
+  },
+  "fireNotification2_summary_b6d7": "Record Created",
+  "@fireNotification2_summary_b6d7": {
+    "description": "Record Created"
+  },
+  "fireNotification2_message_b97f": "Record Created",
+  "@fireNotification2_message_b97f": {
+    "description": "Record Created"
+  },
+  "fireNotification3_summary_70a7": "Please fill the form",
+  "@fireNotification3_summary_70a7": {
+    "description": ""
+  },
+  "fireNotification3_message_53fd": "Please fill the form",
+  "@fireNotification3_message_53fd": {
+    "description": ""
+  },
+  "fireNotification3_summary_cd71": "123",
+  "@fireNotification3_summary_cd71": {
+    "description": ""
+  },
+  "About_": "About",
+  "@About_": {
+    "description": "About"
+  },
+  "fireNotification2_summary_a281": "Record Saved",
+  "@fireNotification2_summary_a281": {
+    "description": "Record Saved"
+  },
+  "fireNotification2_message_289b": "Record Saved",
+  "@fireNotification2_message_289b": {
+    "description": "Record Saved"
+  },
+  "fireNotification4_summary_93b1": "Record Edited",
+  "@fireNotification4_summary_93b1": {
+    "description": ""
+  },
+  "fireNotification4_message_c177": "Record Edited",
+  "@fireNotification4_message_c177": {
+    "description": ""
+  },
+  "About": "About",
+  "@About": {
+    "description": "About"
+  },
+  "Company__id": "Company Id",
+  "@Company__id": {
+    "description": "Company Id"
+  },
+  "Service_Short_Name": "Service Short Name",
+  "@Service_Short_Name": {
+    "description": "Service Short Name"
+  },
+  "Service_Full_Name": "Service Full Name",
+  "@Service_Full_Name": {
+    "description": "Service Full Name"
+  },
+  "Started__Date1": "Started Date",
+  "@Started__Date1": {
+    "description": "Started Date"
+  },
+  "Storage_Used": "Storage Used",
+  "@Storage_Used": {
+    "description": "Storage Used"
+  },
+  "Bond_Duration": "Bond Duration",
+  "@Bond_Duration": {
+    "description": "Bond Duration"
+  },
+  "Bond_Type": "Bond Type",
+  "@Bond_Type": {
+    "description": "Bond Type"
+  },
+  "Service_data_saved_successfully": "Service data saved successfully",
+  "@Service_data_saved_successfully": {
+    "description": "Service data saved successfully"
+  },
+  "Service_data_saved_successfully_": "Service data saved successfully",
+  "@Service_data_saved_successfully_": {
+    "description": "Service data saved successfully"
+  },
+  "Service_data_Edited_successfully": "Service Data Edited Successfully",
+  "@Service_data_Edited_successfully": {
+    "description": "Service Data Edited successfully"
+  },
+  "fireNotification4_summary_44a8": "Updated",
+  "@fireNotification4_summary_44a8": {
+    "description": ""
+  },
+  "fireNotification4_message_92f2": "Updated",
+  "@fireNotification4_message_92f2": {
+    "description": ""
+  },
+  "fireNotification2_summary_6dd9": "Updated",
+  "@fireNotification2_summary_6dd9": {
+    "description": ""
+  },
+  "fireNotification2_message_0843": "Updated",
+  "@fireNotification2_message_0843": {
+    "description": ""
+  },
+  "fireNotification2_summary_99c3": "Record Deleted",
+  "@fireNotification2_summary_99c3": {
+    "description": "Record Deleted"
+  },
+  "fireNotification2_message_2c72": "Record Deleted",
+  "@fireNotification2_message_2c72": {
+    "description": "Record Deleted"
+  },
+  "fireNotification_summary_2a94": "Please create manufacturer details! ",
+  "@fireNotification_summary_2a94": {
+    "description": ""
+  },
+  "fireNotification_message_928a": "Please create manufacturer details! ",
+  "@fireNotification_message_928a": {
+    "description": ""
+  },
+  "RecordDeleted": "Record Deleted ",
+  "@RecordDeleted": {
+    "description": "Record Deleted "
+  },
+  "Company_Data": "Company Data",
+  "@Company_Data": {
+    "description": "Company Data"
+  },
+  "Service": "Service",
+  "@Service": {
+    "description": "Service"
+  },
+  "fireNotification4_message_2f05": "Success",
+  "@fireNotification4_message_2f05": {
+    "description": ""
+  },
+  "fireNotification3_summary_aaf2": "Information created successfully!",
+  "@fireNotification3_summary_aaf2": {
+    "description": ""
+  },
+  "fireNotification3_message_7626": "Information created successfully!",
+  "@fireNotification3_message_7626": {
+    "description": ""
+  },
+  "fireNotification4_summary_5d33": "Information updated successfully!",
+  "@fireNotification4_summary_5d33": {
+    "description": ""
+  },
+  "fireNotification4_message_ae92": "Information updated successfully!",
+  "@fireNotification4_message_ae92": {
+    "description": ""
+  },
+  "fireNotification3_summary_e6e8": "record modified",
+  "@fireNotification3_summary_e6e8": {
+    "description": "record modified"
+  },
+  "recordmodified": "record modified",
+  "@recordmodified": {
+    "description": "record modified"
+  },
+  "addresssaved": "address saved",
+  "@addresssaved": {
+    "description": "address saved"
+  },
+  "input_text_label_hint_4b89": "Title",
+  "@input_text_label_hint_4b89": {
+    "description": "Title"
+  },
+  "input_number_label_hint_9f29": "Film ID",
+  "@input_number_label_hint_9f29": {
+    "description": "Film ID"
+  },
+  "input_text_label_hint_e8a9": "Title",
+  "@input_text_label_hint_e8a9": {
+    "description": "Title"
+  },
+  "fireNotification3_summary_4aac": "Record Deleted Successfully",
+  "@fireNotification3_summary_4aac": {
+    "description": "Record Deleted Successfully"
+  },
+  "fireNotification2_message_5d60": "Record Deleted Successfully",
+  "@fireNotification2_message_5d60": {
+    "description": "Record Deleted Successfully"
+  },
+  "back": "Back",
+  "@back": {
+    "description": "Back"
+  },
+  "Service_Page_Details": "Service Page Details",
+  "@Service_Page_Details": {
+    "description": "Service Page Details"
+  },
+  "fireNotification_summary_84b7": "Save Network Record",
+  "@fireNotification_summary_84b7": {
+    "description": ""
+  },
+  "fireNotification_message_8ab6": "Save Network Record",
+  "@fireNotification_message_8ab6": {
+    "description": ""
+  },
+  "fireNotification3_summary_a95c": "Record deleted successfully!",
+  "@fireNotification3_summary_a95c": {
+    "description": ""
+  },
+  "fireNotification3_message_3b03": "deleted successfully!",
+  "@fireNotification3_message_3b03": {
+    "description": ""
+  },
+  "Welcome_To_Cloud_Application": "Welcome To Cloud Application !..",
+  "@Welcome_To_Cloud_Application": {
+    "description": "Welcome To Cloud Application !.."
+  },
+  "SearchPage": "Search Page",
+  "@SearchPage": {
+    "description": "Search Page"
+  },
+  "CloudPage": "Cloud Page",
+  "@CloudPage": {
+    "description": "Cloud Page"
+  },
+  "CloudTable": "Cloud Table",
+  "@CloudTable": {
+    "description": "Cloud Table"
+  },
+  "CompanyTable": "Company Table",
+  "@CompanyTable": {
+    "description": "Company Table"
+  },
+  "ServiceTable": "Service Table",
+  "@ServiceTable": {
+    "description": "Service Table"
+  },
+  "fireNotification_summary_63b3": "Error in create information.",
+  "@fireNotification_summary_63b3": {
+    "description": ""
+  },
+  "fireNotification_message_f8bf": "Error in create information.",
+  "@fireNotification_message_f8bf": {
+    "description": ""
+  },
+  "fireNotification2_summary_2533": "Error in update information.",
+  "@fireNotification2_summary_2533": {
+    "description": ""
+  },
+  "fireNotification2_message_320c": "Error in update information.",
+  "@fireNotification2_message_320c": {
+    "description": ""
+  },
+  "Cloud_Table_": "Cloud Table",
+  "@Cloud_Table_": {
+    "description": "Cloud Table"
+  },
+  "Company_Record_Deleted_Successfully": "Company Record Deleted Successfully",
+  "@Company_Record_Deleted_Successfully": {
+    "description": "Company Record Deleted Successfully"
+  },
+  "Service_record_saved_successfully": "Service record saved successfully",
+  "@Service_record_saved_successfully": {
+    "description": "Service record saved successfully"
+  },
+  "Service_record_edited_successfully_": "Service record edited successfully",
+  "@Service_record_edited_successfully_": {
+    "description": "Service record edited successfully"
+  },
+  "Service_record_edited_successfully": "Service record edited successfully",
+  "@Service_record_edited_successfully": {
+    "description": "Service record edited successfully"
+  },
+  "button_label_52bc": "Save",
+  "@button_label_52bc": {
+    "description": "Save"
+  },
+  "Service_record_saved_successfully_": "Service record saved successfully",
+  "@Service_record_saved_successfully_": {
+    "description": "Service record saved successfully"
+  },
+  "button_label_4336": "Cancel",
+  "@button_label_4336": {
+    "description": "Cancel"
+  },
+  "Service_record_deleted": "Service record deleted",
+  "@Service_record_deleted": {
+    "description": "Service record deleted"
+  },
+  "Service_record_deleted_": "Service record deleted",
+  "@Service_record_deleted_": {
+    "description": "Service record deleted"
+  },
+  "fireNotification2_summary_fa2f": "Record Modified",
+  "@fireNotification2_summary_fa2f": {
+    "description": "Record Modified"
+  },
+  "RecordModified": "Record Modified",
+  "@RecordModified": {
+    "description": "Record Modified"
+  },
+  "RecordSaved": "Record Saved",
+  "@RecordSaved": {
+    "description": "Record Saved"
+  },
+  "fireNotification2_summary_3942": "DELETED",
+  "@fireNotification2_summary_3942": {
+    "description": ""
+  },
+  "fireNotification3_summary_8f15": "Information deleted successfully!",
+  "@fireNotification3_summary_8f15": {
+    "description": ""
+  },
+  "fireNotification3_message_8da7": "Information deleted successfully!",
+  "@fireNotification3_message_8da7": {
+    "description": ""
+  },
+  "fireNotification_summary_5997": "Delete failed!",
+  "@fireNotification_summary_5997": {
+    "description": ""
+  },
+  "fireNotification3_summary_d801": "Deleted Successfully",
+  "@fireNotification3_summary_d801": {
+    "description": ""
+  },
+  "fireNotification3_message_e35c": "Deleted Successfully",
+  "@fireNotification3_message_e35c": {
+    "description": ""
+  },
+  "fireNotification3_summary_eab8": "Deleted Successfully",
+  "@fireNotification3_summary_eab8": {
+    "description": ""
+  },
+  "fireNotification3_message_a4ae": "Deleted Successfully",
+  "@fireNotification3_message_a4ae": {
+    "description": ""
+  },
+  "fireNotification6_summary": "Please fill the form",
+  "@fireNotification6_summary": {
+    "description": ""
+  },
+  "fireNotification6_message": "Please fill the form",
+  "@fireNotification6_message": {
+    "description": ""
+  },
+  "fireNotification2_summary_caa2": "Created Successfully",
+  "@fireNotification2_summary_caa2": {
+    "description": ""
+  },
+  "fireNotification2_message_be3f": "Created Successfully",
+  "@fireNotification2_message_be3f": {
+    "description": ""
+  },
+  "fireNotification_summary_a48d": "fill the country details",
+  "@fireNotification_summary_a48d": {
+    "description": ""
+  },
+  "fireNotification_message_c225": "fill the country details",
+  "@fireNotification_message_c225": {
+    "description": ""
+  },
+  "fireNotification_summary_819e": "fill the country details",
+  "@fireNotification_summary_819e": {
+    "description": ""
+  },
+  "fireNotification_message_b343": "fill the country details",
+  "@fireNotification_message_b343": {
+    "description": ""
+  },
+  "fireNotification4_summary_012a": "Spectator Details Edited",
+  "@fireNotification4_summary_012a": {
+    "description": "Spectator Details Edited"
+  },
+  "fireNotification4_message_a6ac": "Spectator Details Edited",
+  "@fireNotification4_message_a6ac": {
+    "description": "Spectator Details Edited"
+  },
+  "fireNotification2_summary_7914": "Record Deleted",
+  "@fireNotification2_summary_7914": {
+    "description": "Record Deleted"
+  },
+  "fireNotification2_message_bfa5": "Record Deleted",
+  "@fireNotification2_message_bfa5": {
+    "description": "Record Deleted"
+  },
+  "fireNotification_summary_e8b4": "Fill Doctor Details ",
+  "@fireNotification_summary_e8b4": {
+    "description": ""
+  },
+  "fireNotification_message_b6ce": "Fill Doctor Details ",
+  "@fireNotification_message_b6ce": {
+    "description": ""
+  },
+  "fireNotification5_summary": "Record Edited",
+  "@fireNotification5_summary": {
+    "description": "Record Edited"
+  },
+  "fireNotification5_message": "Record Edited",
+  "@fireNotification5_message": {
+    "description": "Record Edited"
+  },
+  "fireNotification_summary_9d75": "Fill Patient Details ",
+  "@fireNotification_summary_9d75": {
+    "description": ""
+  },
+  "fireNotification_message_a875": "Fill Patient Details ",
+  "@fireNotification_message_a875": {
+    "description": ""
+  },
+  "fireNotification2_summary_e2cf": "Fill Patient Details ",
+  "@fireNotification2_summary_e2cf": {
+    "description": ""
+  },
+  "fireNotification2_message_9997": "Fill Patient Details ",
+  "@fireNotification2_message_9997": {
+    "description": ""
+  },
+  "h1__text_7a53": "GroupA",
+  "@h1__text_7a53": {
+    "description": ""
+  },
+  "h1__text_3aff": " GroupB",
+  "@h1__text_3aff": {
+    "description": ""
+  },
+  "h1__text_f350": "GroupC",
+  "@h1__text_f350": {
+    "description": ""
+  },
+  "h1__text_75fb": "GroupD",
+  "@h1__text_75fb": {
+    "description": ""
+  },
+  "h1__text_945b": "GroupE",
+  "@h1__text_945b": {
+    "description": ""
+  },
+  "h1__text_c875": "GroupF",
+  "@h1__text_c875": {
+    "description": ""
+  },
+  "h1__text_cb48": "GroupG",
+  "@h1__text_cb48": {
+    "description": ""
+  },
+  "h1__text_f528": "GroupH",
+  "@h1__text_f528": {
+    "description": ""
+  },
+  "h4__text": "GroupA",
+  "@h4__text": {
+    "description": ""
+  },
+  "h1__text_ace3": "GroupB",
+  "@h1__text_ace3": {
+    "description": ""
+  },
+  "h4__text_78e8": "GroupC",
+  "@h4__text_78e8": {
+    "description": ""
+  },
+  "h1__text_4bd1": "GroupD",
+  "@h1__text_4bd1": {
+    "description": ""
+  },
+  "h1__text_fff4": "GroupE",
+  "@h1__text_fff4": {
+    "description": ""
+  },
+  "h1__text_b5ec": "GroupF",
+  "@h1__text_b5ec": {
+    "description": ""
+  },
+  "h1__text_3350": "GroupG",
+  "@h1__text_3350": {
+    "description": ""
+  },
+  "h1__text_c079": "GroupH",
+  "@h1__text_c079": {
+    "description": ""
+  },
+  "Cloud_Provider_Details": "Cloud Provider Details",
+  "@Cloud_Provider_Details": {
+    "description": "Cloud Provider Details"
+  },
+  "select_single_label_hint_6217": "Select Fixture",
+  "@select_single_label_hint_6217": {
+    "description": ""
+  },
+  "button_label_3756": "Back",
+  "@button_label_3756": {
+    "description": ""
+  },
+  "h1__text_f6fb": "GROUPS",
+  "@h1__text_f6fb": {
+    "description": ""
+  },
+  "button_label_b486": "Back",
+  "@button_label_b486": {
+    "description": ""
+  },
+  "button__text_55f5": "Back",
+  "@button__text_55f5": {
+    "description": ""
+  },
+  "button_label_5fdc": "Back",
+  "@button_label_5fdc": {
+    "description": ""
+  },
+  "fireNotification2_summary_0eb8": "SAVED",
+  "@fireNotification2_summary_0eb8": {
+    "description": ""
+  },
+  "fireNotification2_summary_72ce": "DE4LETED",
+  "@fireNotification2_summary_72ce": {
+    "description": ""
+  },
+  "fireNotification2_message_9623": "OK",
+  "@fireNotification2_message_9623": {
+    "description": ""
+  },
+  "fireNotification5_summary_2c6b": "Success",
+  "@fireNotification5_summary_2c6b": {
+    "description": ""
+  },
+  "input_date_label_hint": " ",
+  "@input_date_label_hint": {
+    "description": ""
+  }
+}

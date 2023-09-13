@@ -1,0 +1,46 @@
+{
+  "description": "",
+  "root": "assignVariablesCustomerdetails",
+  "actions": {
+
+    "assignVariablesCustomerdetails": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.customerdetails": {
+          "source": {
+            "customer_id": "{{ $variables.key }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentDeleteOpen"
+      }
+    },
+    "callComponentDeleteOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Delete') }}",
+        "method": "open"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "description": "",
+  "root": "resetVariablesFlimname",
+  "actions": {
+    "resetVariablesFlimname": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.flimname",
+          "$page.variables.getfilm"
+        ]
+      },
+      "outcomes": {
+        "success": "resetVariablesGetinventory"
+      }
+    },
+    "resetVariablesGetinventory": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.getinventory",
+          "$page.variables.getinventory.data",
+          "inven"
+        ]
+      }
+    }
+  },
+  "variables": {}
+}

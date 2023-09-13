@@ -1,0 +1,51 @@
+{
+  "description": "",
+  "root": "callRestGetDoctorbydoctorid",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetDoctorbydoctorid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetDoctorbydoctorid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/getDoctorbydoctorid",
+        "uriParams": {
+          "p_doc_code": "{{ $page.variables.searchobj }}",
+          "p_search_value": "{{ $page.variables.searchobj }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingSearchData"
+      }
+    },
+    "callFunctionPagingSearchData": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingSearchData",
+        "params": [
+          "{{ $chain.results.callRestGetDoctorbydoctorid.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesHdrtable"
+      }
+    },
+    "assignVariablesHdrtable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Hdrtable": {
+          "source": "{{ $chain.results.callFunctionPagingSearchData }}"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

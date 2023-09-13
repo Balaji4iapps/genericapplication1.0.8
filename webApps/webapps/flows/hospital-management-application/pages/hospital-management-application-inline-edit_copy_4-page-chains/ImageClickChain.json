@@ -1,0 +1,36 @@
+{
+  "description": "",
+  "root": "fireDataProviderEventTableADP",
+  "actions": {
+    "fireDataProviderEventTableADP": {
+      "module": "vb/action/builtin/fireDataProviderEventAction",
+      "parameters": {
+        "target": "[[ $page.variables.TableADP ]]",
+        "remove": {
+
+          "data": "{{ $variables.current.row }}",
+          "indexes": [
+            "{{ $variables.index }}"
+          ]
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

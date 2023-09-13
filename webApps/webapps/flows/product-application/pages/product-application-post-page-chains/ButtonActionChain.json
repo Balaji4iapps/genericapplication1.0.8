@@ -1,0 +1,22 @@
+{
+  "description": "",
+  "root": "callChainSearchPutsavebutton",
+  "actions": {
+    "callChainSearchPutsavebutton": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "SearchPutsavebutton"
+      },
+      "outcomes": {
+        "success": "navigateToProductApplicationSearch"
+      }
+    },
+    "navigateToProductApplicationSearch": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "product-application-search"
+      }
+    }
+  },
+  "variables": {}
+}

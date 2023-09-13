@@ -1,0 +1,189 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "getCollegegetListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "collegeapplication/getCollegeget",
+        "keyAttributes": "staff_id",
+        "itemsPath": "items",
+        "responseType": "getCollegegetResponse2",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "staff_name"
+          ]
+        }
+      }
+    },
+    "lov": {
+      "type": "string"
+    },
+    "primarykey": {
+      "type": "any"
+    },
+    "searchpage": {
+      "type": "any"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getCollegegetResponse": {
+      "endpoint": "getCollegeget",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "@decorators.getCollegegetResponse2": {
+      "endpoint": "getCollegeget",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "getCollegegetResponse": {
+      "items": [
+        {
+
+          "date_of_joining": "string",
+          "dob": "string",
+          "email": "string",
+          "gender": "string",
+          "phone_number": "number",
+          "salary": "number",
+          "staff_id": "number",
+          "staff_name": "string"
+
+        }
+      ]
+    },
+    "getCollegegetResponse2": {
+      "items": [
+        {
+          "address": "string",
+          "date_of_joining": "string",
+          "dob": "string",
+          "email": "string",
+          "gender": "string",
+          "phone_number": "number",
+          "salary": "number",
+          "staff_id": "number",
+          "staff_name": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "onclickheadersearch"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain2"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain3"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain4"
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick2": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain1",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "headerloadpage"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      }
+    }
+  }
+}

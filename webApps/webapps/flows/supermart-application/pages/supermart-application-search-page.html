@@ -1,0 +1,88 @@
+<div>
+<h4>Manufacturer Details</h4>
+</div>
+
+
+<oj-form-layout label-edge="start">
+  <oj-select-single label-hint="[[$application.translations.app.select_single_label_hint_09fd]]"
+    item-text="manufacturer" data="[[$variables.getMfdheaderListSDP]]" value="{{ $variables.lovsearch }}"
+    required="true" ></oj-select-single>
+  </oj-form-layout>
+
+
+<div style= "display:flex;justify-content:flex-end;margin-bottom:1%;">
+  <oj-sample-export-data data="[[ $variables.export ]]"
+    columns='[{"field":"mail_id","headerText":"Mail Id","type":""},{"field":"city","headerText":"City","type":""},{"field":"manufacturer","headerText":"Manufacturer","type":""}]'
+    file-name="Meta"></oj-sample-export-data>
+
+  <oj-button label="Search" style="margin-left:0.5%;margin-right:1.5%" chroming="solid"
+    on-oj-action="[[$listeners.buttonAction]]">
+    <img slot="startIcon" :src="[[ $flow.path + 'resources/images/magnifying-glass.png' ]]" width="22" height="21">
+  </oj-button>
+  <oj-button label="Reset" chroming="solid" on-oj-action="[[$listeners.buttonAction2]]">
+    <img slot="startIcon" :src="[[ $flow.path + 'resources/images/reset.png' ]]" width="22" height="22">
+  </oj-button>  
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-4">
+    <oj-button label="Create" chroming="solid" on-oj-action="[[$listeners.buttonAction5]]" class="">
+      <img slot="startIcon" :src="[[ $flow.path + 'resources/images/create.png' ]]" width="22" height="22">
+    </oj-button>
+<oj-button label="Back" chroming="solid"  class="" on-oj-action="[[$listeners.buttonAction6]]">
+      <img slot="startIcon" :src="[[ $flow.path + 'resources/images/back.png' ]]" width="22" height="22">
+    </oj-button >
+  </div>
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    <oj-button label="Delete" on-oj-action="[[$listeners.buttonAction7]]"></oj-button>
+  </div>
+</div>
+
+    
+
+
+
+
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+    columns='[{"headerText":"customTemplate","template":"customTemplate"},{"headerText":" Manufacturer","field":"manufacturer","template":" Manufacturer"},{"headerText":" City","field":"city"},{"headerText":" Mail Id","field":"mail_id"},{"headerText":" Contact Number","field":"contact_number"},{"headerText":" Account Number","field":"account_number","template":" Account Number"},{"headerText":" Industry Type","field":"industry_type"},{"headerText":" State Loacation","field":"state_location"},{"headerText":" Delete","template":" Delete"}]'
+    data="[[ $variables.pageloaddata ]]" display="grid" >
+    <template slot=" Delete">
+      <img :src="[[ $flow.path + 'resources/images/trash.png' ]]" width="24" height="22" style="object-fit: fill;"
+        on-click="[[$listeners.imageClick]]">
+    </template>
+    
+    
+    <template slot=" Manufacturer">
+      <a target="_blank"  style="color: DarkBlue;font-weight: bold;" on-click="[[$listeners.hyperlinkClick]]">
+        <oj-bind-text value="[[$current.data]]"></oj-bind-text>
+      </a>
+    </template>
+    <template slot="customTemplate">
+      <oj-sample-checkbox-switch on-value-changed="[[$listeners.booleanCheckboxComponentValue]]"></oj-sample-checkbox-switch>
+    </template>
+    
+   
+  </oj-table>
+</div>
+
+
+
+<oj-paging-control id="paging" 
+class="oj-sm-width-full"  data="[[ $variables.pageloaddata ]]" page-size="15" >
+</oj-paging-control>
+   
+
+   
+<oj-dialog style="display:none" dialog-title="DELETE" id="deletepopup">
+  <div slot="body">
+    <div class="oj-flex">
+
+      Are you sure? 
+    </div>
+  </div>
+  <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction4]]">Yes</oj-button>
+        <oj-button on-oj-action="[[$listeners.buttonAction3]]">No</oj-button>
+
+  </div>
+</oj-dialog>

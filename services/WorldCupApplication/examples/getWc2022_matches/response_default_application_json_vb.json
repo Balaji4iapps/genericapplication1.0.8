@@ -1,0 +1,29 @@
+{
+    "items": [
+        {
+            "s_no": 9,
+            "match_no": 5,
+            "date_": "2022-11-22T00:00:00Z",
+            "time_": "15:30",
+            "c_id": 1,
+            "fixtures": "Argentina VS Saudi Arabia",
+            "group_": "C",
+            "stadium": "Lusail Iconic Stadium,Lusail",
+            "capacity_": 80000
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1331/wc2022_matches?cid=1"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1331/item"
+        }
+    ]
+}

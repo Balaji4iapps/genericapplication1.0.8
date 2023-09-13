@@ -1,0 +1,66 @@
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-panel oj-panel-shadow-md">
+    <div class="oj-flex">
+      <div class="oj-flex-item oj-sm-12 oj-md-12">
+<oj-collapsible id="c4">
+<!-- <oj-accordion> -->
+ <h1 id="h4" slot="header" style="font-size: larger; font-weight: bold;">PRACTISE</h1>
+    <oj-form-layout columns="2" label-edge="start" label-width="40" style="margin-top:20px;">
+  <oj-select-single label-hint="SEARCH" data="[[$variables.getDoctordetailsListSDP]]" item-text="doc_name"
+    value="{{ $variables.searchobj }}"></oj-select-single>
+  </oj-form-layout> 
+  <br>
+  <div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12 oj-lg-6  oj-xl-6"></div>
+  <div class="oj-flex-item oj-sm-12 oj-md-12 oj-lg-4  oj-xl-4"></div>
+  <div class="oj-flex-item oj-sm-12 oj-md-12 oj-lg-2  oj-xl-2">
+     <oj-button on-oj-action="[[$listeners.buttonAction]]">Search
+        </oj-button>
+        <oj-button on-oj-action="[[$listeners.buttonAction2]]">Reset
+        </oj-button>
+  </div>
+  </div>
+  </div>
+   </div>
+    </div>
+
+ </div>
+    
+    
+  
+<br>
+<div id="sampleDemo" style="" class="demo-padding demo-container">
+  <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+    <div id="mainContent">
+      <oj-button  chroming="half"></oj-button>
+ </div>   
+ </div>
+</div>
+     <oj-button on-oj-action="[[$listeners.buttonAction3]]">CREATE</oj-button>
+      
+        <oj-table scroll-policy="loadMoreOnScroll" 
+        
+          columns='[{"headerText": "Doctor Name","field": "doc_name","template": "Doctor Name"},  
+            {"headerText": "Doctor Code","field": "doc_code"},   
+             {"headerText": "Doctor Designation","field": "doc_designation"}, 
+                {"headerText": "doctor Gender","field": "doc_gender"},  
+                  {"headerText": "Doctor Address","field": "doc_address"},  
+                    {"headerText": "Doctor Number","field": "doc_number"}]'
+          horizontal-grid-visible="enabled" vertical-grid-visible="enabled" display="grid" selection-mode.row="single"
+          data="[[ $variables.Hdrtable ]]">
+
+          <oj-paging-control id="paging" class="oj-sm-width-full"  page-size="10" 
+            slot="bottom" data="[[ $variables.Hdrtable ]]">
+          </oj-paging-control>
+  <template slot="Doctor Name">
+    <a target="_blank" class="oj-link" on-click="[[$listeners.hyperlinkClick]]">
+      <oj-bind-text value="[[$current.data]]"></oj-bind-text>
+    </a>
+  </template>
+  <template slot="Delete">
+    <oj-button label="">
+      <img :src="[[ $flow.path + 'resources/images/delete_icon_5.png' ]]" width="30" height="30"
+        on-click="[[$listeners.imageClick]]">
+    </oj-button>
+  </template>
+        </oj-table>

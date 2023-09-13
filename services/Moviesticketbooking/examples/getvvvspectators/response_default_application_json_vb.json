@@ -1,0 +1,63 @@
+{
+    "items": [
+        {
+            "moviesno": 1,
+            "spectatorno": 1,
+            "spectatorname": "Bharath",
+            "spectatorage": 29,
+            "mobilenumber": 8907623452,
+            "seatingrow": "E",
+            "gender": "Male"
+        },
+        {
+            "moviesno": 2,
+            "spectatorno": 2,
+            "spectatorname": "Vikram",
+            "spectatorage": 22,
+            "mobilenumber": 9988766553,
+            "seatingrow": "B",
+            "gender": "Male"
+        },
+        {
+            "moviesno": 3,
+            "spectatorno": 3,
+            "spectatorname": "Kiran",
+            "spectatorage": 20,
+            "mobilenumber": 8055643209,
+            "seatingrow": "C",
+            "gender": "Male"
+        },
+        {
+            "moviesno": 4,
+            "spectatorno": 4,
+            "spectatorname": "Heamanth",
+            "spectatorage": 22,
+            "mobilenumber": 6709123781,
+            "seatingrow": "F",
+            "gender": "Male"
+        },
+        {
+            "moviesno": 5,
+            "spectatorno": 5,
+            "spectatorname": "Prashant",
+            "spectatorage": 24,
+            "mobilenumber": 9847477700,
+            "seatingrow": "D",
+            "gender": "Male"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 5,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/moviestable/vvvspestators"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/moviestable/item"
+        }
+    ]
+}

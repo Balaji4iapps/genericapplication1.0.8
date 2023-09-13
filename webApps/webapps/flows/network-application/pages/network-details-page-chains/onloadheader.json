@@ -1,0 +1,85 @@
+{
+  "root": "resetVariablesExportdata",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetNetwork1312.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetNetwork1312": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Network1312/getNetwork_1312"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetNetwork1312.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesNetworktable"
+      }
+    },
+    "assignVariablesNetworktable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.networktable": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        },
+        "$page.variables.exportdata": {
+          "source": {
+            "data": "{{ $chain.results.callRestGetNetwork1312.body.items }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentOjDialog11345639952Close"
+      }
+    },
+    "callComponentOjDialog11345639952Open": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog-1134563995-2') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestGetNetwork1312"
+      }
+    },
+    "callComponentOjDialog11345639952Close": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog-1134563995-2') }}",
+        "method": "close"
+      }
+    },
+    "resetVariablesExportdata": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.exportdata.data"
+        ]
+      },
+      "outcomes": {
+        "success": "callComponentOjDialog11345639952Open"
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "description": "",
+  "root": "callFunctionCreateImageBitmap",
+  "actions": {
+    "callFunctionCreateImageBitmap": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "createImageBitmap",
+        "params": [
+          "{{ $variables.files[0] }}"
+        ]
+      },
+      "outcomes": {
+        "success": "scanBarcode"
+      }
+    },
+    "scanBarcode": {
+      "module": "vb/action/builtin/barcodeAction",
+      "parameters": {
+        "image": "[[ $chain.results.callFunctionCreateImageBitmap ]]",
+        "formats": [
+          "qr_code"
+        ]
+      },
+      "outcomes": {
+        "success": "fireNotification"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.scanBarcode.rawValue ]]",
+        "displayMode": "transient",
+        "type": "info"
+      }
+    }
+  },
+  "variables": {
+    "files": {
+      "required": true,
+      "type": "object[]",
+      "input": "fromCaller"
+    }
+  }
+}

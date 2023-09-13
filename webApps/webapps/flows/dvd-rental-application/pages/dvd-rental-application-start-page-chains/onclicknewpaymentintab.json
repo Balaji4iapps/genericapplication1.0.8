@@ -1,0 +1,18 @@
+{
+  "description": "",
+  "root": "navigateToDvdRentalApplicationNewpayment",
+  "actions": {
+    "navigateToDvdRentalApplicationNewpayment": {
+      "module": "vb/action/builtin/navigateAction",
+      "@dt": {
+        "targetType": "flow"
+      },
+      "parameters": {
+        "target": "parent",
+        "flow": "dvd-rental-application",
+        "page": "newpayment"
+      }
+    }
+  },
+  "variables": {}
+}

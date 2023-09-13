@@ -1,0 +1,114 @@
+{
+  "description": "",
+  "root": "assignVariablesDepartment",
+  "actions": {
+    "ifMethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.method=='Create' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostDepartappPMETHODPPRIMARYKEY",
+        "false": "callRestPostDepartappPMETHODPPRIMARYKEY2"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostDepartappPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostDepartappPMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostDepartappPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Productapplication/postDepartappP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.department }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification5"
+      }
+    },
+    "callRestPostDepartappPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Productapplication/postDepartappP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.primarykey }}"
+        },
+        "body": "{{ $page.variables.department }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification3_summary_0117]]",
+        "message": "[[$application.translations.app.fireNotification3_message_008c]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "assignVariablesMethodcus"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification4_summary_3844]]",
+        "message": "[[$application.translations.app.fireNotification4_message_3816]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      }
+    },
+    "assignVariablesDepartment": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.department": {
+          "source": {
+            "product_num": "{{ $page.variables.deparkfk }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "ifMethod"
+      }
+    },
+    "assignVariablesMethodcus": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.methodcus": {
+          "source": "edit"
+        },
+        "$page.variables.primarykey": {
+          "source": "{{ $chain.results.callRestPostDepartappPMETHODPPRIMARYKEY.body.p_primarykey }}"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

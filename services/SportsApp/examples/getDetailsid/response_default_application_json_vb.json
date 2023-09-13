@@ -1,0 +1,66 @@
+{
+    "items": [
+        {
+            "player_id": 1000,
+            "player_name": "ZION",
+            "gender": "MALE",
+            "dop": "1996-06-05T00:00:00Z",
+            "email_id": "ZION@GMAIL.COM",
+            "con_num": "9876543210",
+            "address": "CHENNAI",
+            "state": "TAMILNADU",
+            "game_name": "FOOTBALL",
+            "kits": "ISSUED",
+            "modes": "OUTDOOR",
+            "workout_evalution": "FAIR",
+            "participants": "5-MATCHES",
+            "awards": "GOLD,BRONZE",
+            "trainer_name": "JEN",
+            "phy_challenged": "NO",
+            "allergies": "NO",
+            "last_match_injuire_status": "LEG INJURIES",
+            "dose_level": "MEDIUM",
+            "insurances": "YES",
+            "therapy_assistant": "jenifer",
+            "remarks": "NEED OBSERVATION FOR 2 WEEKS"
+        },
+        {
+            "player_id": 1000,
+            "player_name": "ZION",
+            "gender": "MALE",
+            "dop": "1996-06-05T00:00:00Z",
+            "email_id": "ZION@GMAIL.COM",
+            "con_num": "9876543210",
+            "address": "CHENNAI",
+            "state": "TAMILNADU",
+            "game_name": "FOOTBALL",
+            "kits": "ISSUED",
+            "modes": "OUTDOOR",
+            "workout_evalution": "FAIR",
+            "participants": "5-MATCHES",
+            "awards": "GOLD,BRONZE",
+            "trainer_name": "JEN",
+            "phy_challenged": "YES",
+            "allergies": "NO",
+            "last_match_injuire_status": "HAND INJURIES",
+            "dose_level": "MEDIUM",
+            "insurances": "YES",
+            "therapy_assistant": "REBEL",
+            "remarks": "NEED OBSERVATION FOR 3 WEEKS"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 2,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/sports/detailsid?player=1000"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/sports/item"
+        }
+    ]
+}

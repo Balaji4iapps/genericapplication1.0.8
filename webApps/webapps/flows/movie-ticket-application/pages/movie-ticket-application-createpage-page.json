@@ -1,0 +1,140 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "getVvmovies1ListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "Moviesticketbooking/getVvmovies1",
+        "keyAttributes": "moviesno",
+        "itemsPath": "items",
+        "responseType": "getVvmovies1Response",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "moviename"
+          ]
+        }
+      }
+    },
+    "moviesno": {
+      "type": "number"
+    },
+    "vvmovies1table": {
+      "type": "any"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getVvmovies1Response": {
+      "endpoint": "getVvmovies1",
+      "service": "Moviesticketbooking",
+      "path": "response"
+    },
+    "getVvmovies1Response": {
+      "items": [
+        {
+          "moviedirector": "string",
+          "moviegenre": "string",
+          "moviename": "string",
+          "movieproducer": "string",
+          "moviesno": "number",
+          "movietimings": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "OnLoadgetbyid"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "createmovies"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "onclickreset"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "onclickbacktostartpage"
+        }
+      ]
+    },
+    "hyperlinkClick": {
+      "chains": [
+        {
+          "chainId": "onclickeditmovies",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "deletemovies",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "OnLoadvvmovies1getalldata"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-select-many": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    }
+  }
+}

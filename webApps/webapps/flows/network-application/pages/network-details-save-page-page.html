@@ -1,0 +1,62 @@
+<div class="oj-flex">
+  <h4 class="oj-flex-item oj-sm-12 oj-md-12">Network Records</h4>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-form-layout columns="3" label-edge="top">
+      <oj-input-number label-hint="Network Number" disabled="true" value="{{ $variables.creatingnetwork.network_id }}"></oj-input-number>
+      <oj-input-text label-hint="Network Name" value="{{ $variables.creatingnetwork.network_name }}"></oj-input-text>
+      <oj-input-text label-hint="Data Pack" value="{{ $variables.creatingnetwork.data_pack }}"></oj-input-text>
+      <oj-input-text label-hint="MRP" value="{{ $variables.creatingnetwork.mrp }}"></oj-input-text>
+      <oj-input-text label-hint="Validity" value="{{ $variables.creatingnetwork.validity }}"></oj-input-text>
+      <oj-input-text label-hint="Subscriptions" value="{{ $variables.creatingnetwork.subscriptions }}"></oj-input-text>
+      <oj-input-text label-hint="SMS" value="{{ $variables.creatingnetwork.sms }}"></oj-input-text>      
+    </oj-form-layout>
+  </div>
+</div>
+  <div  style="display:flex;justify-content:flex-end;">
+    <oj-button style="margin-left:0.5%;margin-right:1%;" label="Save" on-oj-action="[[$listeners.buttonAction]]"
+      chroming="solid">
+    <img slot="startIcon" :src="[[ $flow.path + 'resources/images/save_icon.ico' ]]" width="35" height="35">
+    </oj-button>
+    <oj-button style="margin-left:0.5%;margin-right:1%;" label="Save and Close"
+      on-oj-action="[[$listeners.buttonAction3]]" chroming="solid">
+    <img slot="startIcon" :src="[[ $flow.path + 'resources/images/icons8-save-close-50.png' ]]" width="35" height="35">
+    </oj-button>
+    <oj-button style="margin-left:0.5%;" label="Close" on-oj-action="[[$listeners.buttonAction2]]" chroming="solid">
+    <img slot="startIcon" :src="[[ $flow.path + 'resources/images/icons8-cancel-64.png' ]]" height="40" width="40">
+    </oj-button>
+    </div>
+<h3>Customer Records</h3>   
+    <div>
+    <oj-button style="margin-left:0.5%;margin-top:0.5%;margin-bottom:1%;" label="Add New"
+      on-oj-action="[[$listeners.buttonAction4]]" chroming="solid">
+    <img slot="startIcon" :src="[[ $flow.path + 'resources/images/icons8-add-new-48.png' ]]" width="35" height="35">
+    </oj-button>
+      </div>
+<oj-table style="margin-top:0.5%;" scroll-policy="loadMoreOnScroll"
+  columns='[{"headerText":"Customer Number","field":"customer_id","width":80},{"headerText":"Network Number","field":"network_id","width":80},{"headerText":"Customer Name","field":"customer_name","width":80},{"headerText":"Phone Number","field":"contact_no","width":80},{"headerText":"Residence","field":"residence","width":80},{"headerText":"Pincode","field":"pincode","width":80},{"headerText":"Plan Detail","field":"plan_detail","width":80},{"headerText":"Update","field":"","template":"Update","width":80},{"headerText":"Delete","field":"","template":"Delete","width":80}]'
+  display="grid" edit-mode="rowEdit" selection-mode.row="single" selection-mode.column="single"
+  data="[[ $variables.customercreate ]]">
+  <oj-paging-control id="paging" class="oj-sm-width-full" page-size="5" slot="bottom" data="[[ $variables.customercreate ]]">
+</oj-paging-control>
+  <template slot="Update">
+    <img :src="[[ $flow.path + 'resources/images/system-update.png' ]]" width="30" height="30"
+      on-click="[[$listeners.imageClick]]">
+  </template>
+  <template slot="Delete">
+    <img :src="[[ $flow.path + 'resources/images/delete.png' ]]" width="40" height="40"
+      on-click="[[$listeners.imageClick2]]">
+  </template>
+</oj-table>
+<oj-dialog style="display:none" dialog-title="Dialog" id="customerdeletepopup">
+  <div slot="body">
+    <div class="oj-flex">
+      Records will be deleted!
+    </div>
+  </div>
+  <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction5]]">ok</oj-button>
+    <oj-button on-oj-action="[[$listeners.buttonAction6]]">cancel</oj-button>
+  </div>
+</oj-dialog>

@@ -1,0 +1,17 @@
+{
+  "description": "",
+  "root": "navigateToNetworkApplicationPractice2",
+  "actions": {
+    "navigateToNetworkApplicationPractice2": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "network-application-practice2",
+        "params": {
+          "networkmethod": "CREATE",
+          "networkidpk": "0"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

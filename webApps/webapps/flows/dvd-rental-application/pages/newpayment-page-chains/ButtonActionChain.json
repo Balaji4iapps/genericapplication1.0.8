@@ -1,0 +1,16 @@
+{
+  "description": "",
+  "root": "resetVariablesFlimid",
+  "actions": {
+    "resetVariablesFlimid": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.flimid",
+          "$page.variables.getfilm"
+        ]
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,29 @@
+{
+    "items": [
+        {
+            "player_id": 1000,
+            "game_id": 10,
+            "game_name": "FOOTBALL",
+            "kits": "ISSUED",
+            "modes": "OUTDOOR",
+            "workout_evalution": "FAIR",
+            "participants": "5-MATCHES",
+            "awards": "GOLD,BRONZE",
+            "trainer_name": "JEN"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/sports/gameid?gt=10"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/sports/item"
+        }
+    ]
+}

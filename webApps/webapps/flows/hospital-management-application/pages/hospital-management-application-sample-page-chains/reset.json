@@ -1,0 +1,24 @@
+{
+  "description": "",
+  "root": "resetVariablesSearchobj",
+  "actions": {
+    "resetVariablesSearchobj": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.searchobj"
+        ]
+      },
+      "outcomes": {
+        "success": "callChainOnload"
+      }
+    },
+    "callChainOnload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "Onload"
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,80 @@
+<div>
+  <h4>Hospital Management System</h4>  
+</div>
+<oj-form-layout label-edge="start">
+  <oj-select-single label-hint="Doctor Search" value="{{ $variables.doctorlov }}"
+    data="[[$variables.getDoctordetailsListSDP]]" item-text="doc_name"></oj-select-single>
+  <h1 class="oj-header">sample</h1>
+
+</oj-form-layout>
+ <div style="display:flex; justify-content:flex-end;">
+  <oj-button style="searchBtn margin-left:0.5%;margin-right:0.5%;" class="" chroming="solid"
+    label="[[$application.translations.app.search]]" on-oj-action="[[$listeners.buttonAction]]">
+    <img slot="startIcon" :src="[[ $flow.path + 'resources/images/search_1.png' ]]" width="30" height="30">
+  </oj-button>
+  <oj-button style="resetBtn margin-left:0.5%;margin-right:0.5%;" chroming="danger"
+    label="[[$application.translations.app.reset]]" on-oj-action="[[$listeners.buttonAction2]]">
+    <oj-bind-text></oj-bind-text>
+  </oj-button>
+</div>
+<oj-form-layout>
+  <oj-button label="Create" on-oj-action="[[$listeners.buttonAction3]]" chroming="callToAction">
+  <img slot="startIcon" :src="[[ $flow.path + 'resources/images/user-avatar_2.png' ]]" width="30" height="30">
+  </oj-button>
+  <oj-sample-export-data
+    columns='[{"field":"doc_name","headerText":"Doctor Name","type":""},{"field":"doc_code","headerText":"Doctor Code","type":""},{"field":"doc_address","headerText":"Doctor Address","type":""},{"field":"doc_designation","headerText":"Doctor Designation","type":""},{"field":"doc_gender","headerText":"Doctor Gender","type":""},{"field":"doc_number","headerText":"Doctor Number","type":""}]'
+    data="[[ $variables.exportdata ]]"> </oj-sample-export-data>
+  <oj-sample-export-data
+    columns='[{"field":"doc_code","headerText":"Doctor Code","type":""},{"field":"doc_address","headerText":"Doctor Address","type":""},{"field":"","headerText":"","type":""}]'
+    data="[[ $variables.exportdatanew ]]"></oj-sample-export-data>
+
+
+</oj-form-layout>
+
+
+<div class="oj-flex" >
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+    columns='[{"headerText":"Doctor Name","field":"doc_name","template":"doc_name","footerStyle":"background-color:#FF0000"},
+    {"headerText":"Doctor Code","field":"doc_code","template":"doc name"},
+    {"headerText":"Doctor Address","field":"doc_address"},
+    {"headerText":"Doctor Designation","field":"doc_designation"},
+    {"headerText":"Doctor Gender","field":"doc_gender"},
+    {"headerText":"Doctor Number","field":"doc_number"},
+    {"headerText":"Delete","field":"","template":"Delete"}]'
+    edit-mode="rowEdit" display="grid" horizontal-grid-visible="enabled" vertical-grid-visible="enabled"
+    data="[[ $variables.doctortable ]]">
+  <oj-paging-control id="paging" 
+class="oj-sm-width-full" page-size="5" 
+slot="bottom" data="[[ $variables.doctortable ]]">
+</oj-paging-control>
+  <template slot="doc_name">
+  <a target="_blank" on-click="[[$listeners.hyperlinkClick]]">
+  <oj-bind-text value="[[$current.data]]"></oj-bind-text>
+  </a>
+  </template>
+  <!-- <template slot="doc name">
+  <div class="oj-panel" style="background-color:red">
+  <oj-bind-text value="[[$current.data]]"></oj-bind-text>
+  </div>
+  </div>
+    </template>
+   -->
+  <template slot="Delete">
+  <img on-click="[[$listeners.imageClick]]" :src="[[ $flow.path + 'resources/images/delete_icon.png' ]]" width="30"
+    height="30">
+  </template>
+
+
+<oj-dialog style="display:none" dialog-title="DELETE" id="Delete">
+  <div slot="body">
+  <div class="oj-flex">
+    Are You Sure Want To Delete This Record?
+  </div>
+  </div>
+  <div slot="footer">
+  <oj-button on-oj-action="[[$listeners.buttonAction5]]">OK</oj-button>
+  <oj-button on-oj-action="[[$listeners.buttonAction4]]">Cancel</oj-button>
+
+  </div>
+</oj-dialog>
+

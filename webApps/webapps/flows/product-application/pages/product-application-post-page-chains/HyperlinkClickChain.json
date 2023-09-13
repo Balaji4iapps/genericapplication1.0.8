@@ -1,0 +1,34 @@
+{
+  "description": "",
+  "root": "navigateToProductApplicationDepart",
+  "actions": {
+    "navigateToProductApplicationDepart": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "product-application-depart",
+        "params": {
+          "deparkfk": "{{ $page.variables.primarykey }}",
+          "method": "edit",
+          "primarykey": "{{ $variables.key }}"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

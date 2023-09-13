@@ -1,0 +1,41 @@
+{
+  "description": "",
+  "root": "callComponentDeletechildpopup2Open",
+  "actions": {
+    "assignVariablesDeletechild2": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.deletechild2": {
+          "source": "{{ $variables.key }}"
+        }
+      }
+    },
+    "callComponentDeletechildpopup2Open": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('deletechildpopup2') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "assignVariablesDeletechild2"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<div class="oj-flex">
+  <!-- <oj-sample-timed-event class="oj-flex-item oj-sm-12 oj-md-12"
+    on-ojs-timer-expired="[[$listeners.timedEventSTimerExpired]]" interval="5"></oj-sample-timed-event> -->
+</div>
+<div class="oj-flex">
+  <br>
+  <div class="oj-flex-item oj-sm-flex-initial">
+    <oj-button label="SAVE" on-oj-action="[[$listeners.buttonAction]]"></oj-button>
+    <oj-button label="DELETE" on-oj-action="[[$listeners.buttonAction2]]"></oj-button>
+  </div>
+
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12" data="[[ $variables.table_data ]]"
+    columns='[{"headerText":"customTemplate","template":"customTemplate"},{"headerText":"doc_address","field":"doc_address"},{"headerText":"doc_code","field":"doc_code"},{"headerText":"doc_designation","field":"doc_designation"},{"headerText":"doc_gender","field":"doc_gender"},{"headerText":"doc_name","field":"doc_name"},{"headerText":"doc_number","field":"doc_number"}]'>
+    <template slot="customTemplate">
+      <oj-sample-checkbox-switch on-value-changed="[[$listeners.booleanCheckboxComponentValue]]"></oj-sample-checkbox-switch>
+    </template>
+
+    </oj-table>
+     <oj-paging-control class="oj-flex-item oj-sm-12 oj-md-12" data="[[ $variables.table_data ]]"
+       page-options.max-page-links="5" page-size="10"></oj-paging-control>
+</div>
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12" data="[[ $variables.checkboxADP ]]"
+    columns='[{"headerText":"doc_address","field":"doc_address"},{"headerText":"doc_code","field":"doc_code"},{"headerText":"doc_designation","field":"doc_designation"},{"headerText":"doc_gender","field":"doc_gender"},{"headerText":"doc_name","field":"doc_name"},{"headerText":"doc_number","field":"doc_number"}]'></oj-table>
+</div>
+<!-- <div class="oj-flex">
+  <!-- <oj-sample-timed-event class="oj-flex-item oj-sm-12 oj-md-12"
+    on-ojs-timer-expired="[[$listeners.timedEventSTimerExpired2]]" interval="5"></oj-sample-timed-event> -->
+<!-- </div> --> -->
+

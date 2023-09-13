@@ -1,0 +1,9 @@
+     {
+            "customer_id": 0,
+            "network_id": 123,
+            "customer_name": "Parry",
+            "contact_no": 234577,
+            "residence": "Karaikudi",
+            "pincode": 640240,
+            "plan_detail": "prepaid"
+        }

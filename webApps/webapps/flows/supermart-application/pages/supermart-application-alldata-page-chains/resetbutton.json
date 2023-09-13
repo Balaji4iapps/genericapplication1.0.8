@@ -1,0 +1,24 @@
+{
+  "description": "",
+  "root": "resetVariablesLovalldatasearch",
+  "actions": {
+    "resetVariablesLovalldatasearch": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.lovalldatasearch"
+        ]
+      },
+      "outcomes": {
+        "success": "callChainAlldatapageload"
+      }
+    },
+    "callChainAlldatapageload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "alldatapageload"
+      }
+    }
+  },
+  "variables": {}
+}

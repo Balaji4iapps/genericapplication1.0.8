@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentStaffdetailpopupClose",
+  "actions": {
+    "callComponentStaffdetailpopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('staffdetailpopup') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

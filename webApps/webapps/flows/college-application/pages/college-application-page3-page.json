@@ -1,0 +1,270 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "getStudentstatusgetListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "collegeapplication/getStudentstatusget",
+        "keyAttributes": "student_statusid",
+        "itemsPath": "items",
+        "responseType": "getStudentstatusgetResponse"
+      }
+    },
+    "statusfk": {
+      "type": "number"
+    },
+    "statusmethod": {
+      "type": "string"
+    },
+    "statusprimarykey": {
+      "type": "number"
+    },
+    "studentdetail": {
+      "type": "studentdetailspost"
+    },
+    "studentfk": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "studentmethod": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "studentprimarykey": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "studentstatus": {
+      "type": "any"
+    },
+    "studentstatuspost": {
+      "type": "studentstatuspost"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getStudentstatusgetResponse": {
+      "endpoint": "getStudentstatusget",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "@decorators.studentdetailspost": {
+      "endpoint": "studentdetailspost",
+      "service": "collegeapplication",
+      "path": "request"
+    },
+    "@decorators.studentstatuspost": {
+      "endpoint": "studentstatuspost",
+      "service": "collegeapplication",
+      "path": "request"
+    },
+    "getStudentstatusgetResponse": {
+      "items": [
+        {
+          "attendance": "number",
+          "lab_attendance": "number",
+          "leave_taken": "number",
+          "project_mark": "number",
+          "project_name": "string",
+          "sem_marks": "number",
+          "semester": "number",
+          "staff_id": "number",
+          "student_id": "number",
+          "student_name": "string",
+          "student_statusid": "number"
+        }
+      ]
+    },
+    "studentdetailspost": {
+      "address": "string",
+      "contact_number": "number",
+      "department": "string",
+      "dob": "string",
+      "email": "string",
+      "gender": "string",
+      "staff_id": "number",
+      "student_id": "number",
+      "student_name": "string"
+    },
+    "studentstatuspost": {
+      "attendance": "number",
+      "lab_attendance": "number",
+      "leave_taken": "number",
+      "project_mark": "number",
+      "project_name": "string",
+      "sem_marks": "number",
+      "semester": "number",
+      "staff_id": "number",
+      "student_id": "number",
+      "student_name": "string",
+      "student_statusid": "number"
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "onclickbackstudent"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "onclickstudentsave"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "onclickstatussave"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain2"
+        }
+      ]
+    },
+    "buttonAction7": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain3"
+        }
+      ]
+    },
+    "buttonAction8": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain4"
+        }
+      ]
+    },
+    "buttonAction9": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain5"
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain"
+        }
+      ]
+    },
+    "imageClick2": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain1",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick3": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain2",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "studentpage3"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-checkboxset": {
+        "path": "ojs/ojcheckboxset"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-radioset": {
+        "path": "ojs/ojradioset"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-text-area": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+
+    },
+    "modules": {
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+    }
+  }
+}

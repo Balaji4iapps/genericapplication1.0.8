@@ -1,0 +1,43 @@
+{
+  "description": "",
+  "root": "callComponentCustomerpopidOpen",
+  "actions": {
+    "callComponentCustomerpopidOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('customerpopid') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "assignVariablesMethodcus"
+      }
+    },
+    "resetVariablesCustomerservice": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.customerservice"
+        ]
+      }
+    },
+    "assignVariablesMethodcus": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.methodcus": {
+          "source": "CREATE"
+        },
+        "$page.variables.customerservice": {
+          "source": {
+            "customer_num": "{{ $page.variables.primarykeycus }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "resetVariablesCustomerservice"
+      }
+    }
+  },
+  "variables": {}
+}

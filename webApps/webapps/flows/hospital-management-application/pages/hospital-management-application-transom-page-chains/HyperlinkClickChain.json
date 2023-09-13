@@ -1,0 +1,29 @@
+{
+  "description": "",
+  "root": "navigateToHospitalManagementApplicationBindText",
+  "actions": {
+    "navigateToHospitalManagementApplicationBindText": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "hospital-management-application-bind-text"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

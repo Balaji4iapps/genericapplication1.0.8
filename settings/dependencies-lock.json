@@ -1,0 +1,48 @@
+{
+  "component-dependencies": {
+    "oj-dynamic": {
+      "version": "12.1.4",
+      "components": {
+        "shared": "12.1.4",
+        "form": "12.1.4",
+        "utils": "12.1.4",
+        "bind-field": "12.1.4",
+        "providers": "12.1.4",
+        "table": "12.1.4"
+      }
+    },
+    "oj-sample": {
+      "version": "8.0.0",
+      "components": {
+        "utils": "8.0.0",
+        "checkbox-switch": "8.0.0",
+        "qr-code": "8.0.0",
+        "tooltip": "8.0.0",
+        "timed-event": "8.0.0",
+        "export-data": "8.0.0"
+
+      }
+    },
+    "oj-dyn": {
+      "version": "12.1.4",
+      "components": {
+        "form": "12.1.4",
+        "bind-field": "12.1.4"
+      }
+    },
+    "oj-sp": {
+      "version": "2304.0.1",
+      "components": {
+        "dashboard-grid": "2304.0.1",
+        "common-util": "2304.0.1",
+        "common-strings": "2304.0.1",
+        "common": "2304.0.1",
+        "dashboard-panel": "2304.0.1",
+        "dashboard-landing-page-pattern": "2304.0.1",
+        "fa-css": "2304.0.1",
+        "css-additions": "2304.0.1",
+        "dashboard-landing-page": "2304.0.1"
+      }
+    }
+  }
+}

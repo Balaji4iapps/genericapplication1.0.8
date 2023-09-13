@@ -1,0 +1,27 @@
+<oj-button on-oj-action="[[$listeners.buttonAction]]">"SAVE"</oj-button>
+<oj-button on-oj-action="[[$listeners.buttonAction2]]">"DELETE"</oj-button>
+<br>
+<div class="oj-flex">
+  <!-- <oj-sample-timed-event class="oj-flex-item oj-sm-12 oj-md-12"
+    on-ojs-timer-expired="[[$listeners.timedEventSTimerExpired]]" interval="5"></oj-sample-timed-event> -->
+</div>
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+    columns='[{"headerText":"Select","template":"customTemplate"},{"headerText":"Doctor Address","field":"doc_address","template":"Doctor Address"},{"headerText":"Doctor Code","field":"doc_code"},{"headerText":"Doctor Designation","field":"doc_designation"},{"headerText":"Doctor Gender","field":"doc_gender"},{"headerText":"Doctor Name","field":"doc_name"},{"headerText":"Doctor Number","field":"doc_number"}]'
+    data="[[ $variables.hdrtable ]]" edit-mode="rowEdit" display="grid" selection-mode.row="single">
+  <!-- <template slot="customTemplate">
+  <oj-sample-checkbox-switch on-value-changed="[[$listeners.booleanCheckboxComponentValue]]"></oj-sample-checkbox-switch>
+  </template> -->
+  <template slot="customTemplate">
+  <oj-sample-checkbox-switch on-value-changed="[[$listeners.booleanCheckboxComponentValue2]]"></oj-sample-checkbox-switch>
+  </template>
+  <template slot="Doctor Address">
+  <a target="_blank" class="oj-link" on-click="[[$listeners.hyperlinkClick]]">
+  <oj-bind-text value="[[$current.data]]"></oj-bind-text>
+  </a>
+  </template>
+  </oj-table>
+
+<div class="oj-flex">
+  <oj-paging-control class="oj-flex-item oj-sm-12 oj-md-12" data="[[ $variables.hdrtable ]]" page-size="10"></oj-paging-control>
+</div></div>

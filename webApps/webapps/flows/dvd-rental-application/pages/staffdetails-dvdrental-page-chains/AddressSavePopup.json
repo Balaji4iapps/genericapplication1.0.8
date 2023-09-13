@@ -1,0 +1,68 @@
+{
+  "description": "",
+  "root": "callRestPostPlace",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostPlace.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostPlace": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/PostPlace",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.address.seq_place }}"
+        },
+        "body": "{{ $page.variables.address }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callChainOnLoadStaff"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "displayMode": "transient",
+        "summary": "[[$application.translations.app.RecordModified]]",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callComponentAdresspopupinstaffClose"
+      }
+    },
+    "callChainOnLoadStaff": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "OnLoadStaff"
+      },
+      "outcomes": {
+        "success": "fireNotification2"
+      }
+    },
+    "callComponentAdresspopupinstaffClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('adresspopupinstaff') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainOnLoadStaff2"
+      }
+    },
+    "callChainOnLoadStaff2": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "OnLoadStaff"
+      }
+    }
+  },
+  "variables": {}
+}

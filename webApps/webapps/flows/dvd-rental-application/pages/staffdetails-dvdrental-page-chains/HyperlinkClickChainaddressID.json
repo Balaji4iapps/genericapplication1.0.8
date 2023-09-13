@@ -1,0 +1,96 @@
+{
+  "description": "",
+  "root": "callComponentAdresspopupinstaffOpen",
+  "actions": {
+    "callComponentAdresspopupinstaffOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('adresspopupinstaff') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestSearchstaff"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetbyid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetbyid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/getbyid",
+        "uriParams": {
+          "addressid": "{{ $chain.results.callRestSearchstaff.body.items[0].address_id }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariables"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestSearchstaff.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestSearchstaff": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/Searchstaff",
+        "uriParams": {
+          "staff_id": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "callRestGetbyid"
+      }
+    },
+    "assignVariables": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.address": {
+          "source": {
+            "address": "{{ $chain.results.callRestGetbyid.body.items[0].address }}",
+            "address_id": "{{ $chain.results.callRestGetbyid.body.items[0].address_id }}",
+            "city_id": "{{ $chain.results.callRestGetbyid.body.items[0].city_id }}",
+            "district": "{{ $chain.results.callRestGetbyid.body.items[0].district }}",
+            "last_update": "{{ $chain.results.callRestGetbyid.body.items[0].last_update }}",
+            "phone": "{{ $chain.results.callRestGetbyid.body.items[0].phone }}",
+            "postal_code": "{{ $chain.results.callRestGetbyid.body.items[0].postal_code }}",
+            "seq_place": "{{ $chain.results.callRestGetbyid.body.items[0].seq_place }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

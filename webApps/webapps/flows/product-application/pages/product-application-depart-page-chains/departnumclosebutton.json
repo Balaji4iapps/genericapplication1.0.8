@@ -1,0 +1,10 @@
+{
+  "description": "",
+  "root": "firstchildclose",
+  "actions": {
+    "firstchildclose": {
+      "module": "vb/action/builtin/navigateBackAction"
+    }
+  },
+  "variables": {}
+}

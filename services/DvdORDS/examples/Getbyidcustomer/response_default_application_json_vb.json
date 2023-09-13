@@ -1,0 +1,30 @@
+{
+    "items": [
+        {
+            "customer_id": 432,
+            "store_id": 1,
+            "first_name": "Edwin",
+            "last_name": "Burk",
+            "email": "edwin.burk@sakilacustomer.org",
+            "address_id": 437,
+            "create_date": "0022-04-18T07:10:02Z",
+            "last_update": "0022-04-18T07:10:02Z",
+            "active": 1,
+            "seq_customer": 432
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/dvdrental/getbyidcustomer?customerid=432"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/dvdrental/item"
+        }
+    ]
+}

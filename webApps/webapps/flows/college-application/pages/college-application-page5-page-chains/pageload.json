@@ -1,0 +1,84 @@
+{
+  "root": "callRestStudentdetailsgetidpk",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestStudentdetailsgetidpk.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "assignVariablesStudent": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.student": {
+          "source": "{{ $chain.results.callRestStudentdetailsgetidpk.body.items[0] }}",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callRestStudentstatusidfks"
+      }
+    },
+    "callRestStudentdetailsgetidpk": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "collegeapplication/Studentdetailsgetidpk",
+        "uriParams": {
+          "student_id": "{{ $page.variables.studentpk }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesStudent"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestStudentstatusidfks.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestStudentstatusidfks": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "collegeapplication/Studentstatusidfks",
+        "uriParams": {
+          "student_id": "{{ $page.variables.studentpk }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestStudentstatusidfks.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesStatuspage"
+      }
+    },
+    "assignVariablesStatuspage": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.statuspage": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    }
+  }
+}

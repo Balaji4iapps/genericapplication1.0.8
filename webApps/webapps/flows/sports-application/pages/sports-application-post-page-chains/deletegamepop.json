@@ -1,0 +1,60 @@
+{
+  "description": "",
+  "root": "callRestPostGdPMETHODPPRIMARYKEY",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostGdPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostGdPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "SportsApp/postGdP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $page.variables.gameid }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostGdPMETHODPPRIMARYKEY.body.p_err_code ]]",
+        "message": "[[ $chain.results.callRestPostGdPMETHODPPRIMARYKEY.body.p_err_msg ]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callComponentDeletegameClose"
+      }
+    },
+    "callComponentDeletegameClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('deletegame') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainEditonload"
+      }
+    },
+    "callChainEditonload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "editonload"
+      }
+    }
+  },
+  "variables": {}
+}

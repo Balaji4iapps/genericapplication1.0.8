@@ -1,0 +1,118 @@
+{
+  "description": "",
+  "root": "if",
+  "actions": {
+    "callFunctionGenerateDetails": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "GenerateDetails",
+        "params": [
+          "{{ $page.variables.TableADP.data }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesTableADP"
+      }
+    },
+    "assignVariablesTableADP": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.TableADP": {
+          "source": {
+            "data": "{{ $chain.results.callFunctionGenerateDetails.payload.item }}"
+          },
+          "reset": "none",
+          "auto": "always",
+          "mapping": {
+            "$target.data": {
+              "source": "$source.data",
+              "reset": "empty"
+            }
+          }
+        }
+      },
+      "outcomes": {
+        "success": "assignVariablesTableADPspd"
+      }
+    },
+    "fireDataProviderEventTableADP": {
+      "module": "vb/action/builtin/fireDataProviderEventAction",
+      "parameters": {
+        "target": "[[ $page.variables.TableADP ]]",
+        "remove": {
+          "data": "{{ $variables.current.row }}",
+          "keys": [
+            "{{ $variables.current.row.rownum }}"
+          ]
+        }
+      },
+      "outcomes": {
+        "success": "callFunctionPrintArrayValue"
+      }
+    },
+    "callFunctionPrintArrayValue": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "printArrayValue",
+        "params": [
+          "{{ $page.variables.TableADP.data }}"
+        ]
+      }
+    },
+    "if": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $application.functions.isFormValid(\"Tableform\") ]]"
+      },
+      "outcomes": {
+        "true": "callFunctionGenerateDetails"
+      }
+    },
+    "assignVariablesTableADPspd": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.getDoctordetailsListSDP2": {
+          "source": "{{ $chain.results.callFunctionGenerateDetails }}",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "fireDataProviderEventGetDoctordetailsListSDP2"
+      }
+    },
+    "fireDataProviderEventGetDoctordetailsListSDP2": {
+      "module": "vb/action/builtin/fireDataProviderEventAction",
+      "parameters": {
+        "target": "[[ $page.variables.getDoctordetailsListSDP2 ]]",
+        "remove": {
+          "data": "{{ $variables.current.row }}",
+          "keys": [
+            "{{ $variables.current.row.rownum }}"
+          ]
+        }
+      },
+      "outcomes": {
+        "success": "fireDataProviderEventTableADP"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

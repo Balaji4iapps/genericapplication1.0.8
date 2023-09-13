@@ -1,0 +1,315 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "getvvvspectatorsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "Moviesticketbooking/getvvvspectators",
+        "keyAttributes": "spectatorno",
+        "itemsPath": "items",
+        "responseType": "getvvvspectatorsResponse"
+      }
+    },
+    "lineVar": {
+      "type": "string"
+    },
+    "location": {
+      "type": "postSpecdetailsP_METHODP_PRIMARYKEY"
+    },
+    "locationtable": {
+      "type": "any"
+    },
+    "locfk": {
+      "type": "number"
+    },
+    "moviepost": {
+      "type": "postPostvvmoiesP_METHODP_PRIMARYKEY"
+    },
+    "postmethod": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "postprimarykey": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "specdetailskey": {
+      "type": "number"
+    },
+    "specdetailsmethod": {
+      "type": "string"
+    },
+    "vvspectatorvariable": {
+      "type": "postVvspectatorspostP_METHODP_PRIMARYKEY"
+    },
+    "vvvspectatorsmethod": {
+      "type": "string"
+    },
+    "vvvspectatorsprimarykey": {
+      "type": "number"
+    },
+    "vvvspectatorstable": {
+      "type": "any"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getvvvspectatorsResponse": {
+      "endpoint": "getvvvspectators",
+      "service": "Moviesticketbooking",
+      "path": "response"
+    },
+    "@decorators.postPostvvmoiesP_METHODP_PRIMARYKEY": {
+      "endpoint": "postPostvvmoiesP_METHODP_PRIMARYKEY",
+      "service": "Moviesticketbooking",
+      "path": "request"
+    },
+    "@decorators.postSpecdetailsP_METHODP_PRIMARYKEY": {
+      "endpoint": "postSpecdetailsP_METHODP_PRIMARYKEY",
+      "service": "Moviesticketbooking",
+      "path": "request"
+    },
+    "@decorators.postVvspectatorspostP_METHODP_PRIMARYKEY": {
+      "endpoint": "postVvspectatorspostP_METHODP_PRIMARYKEY",
+      "service": "Moviesticketbooking",
+      "path": "request"
+    },
+    "getvvvspectatorsResponse": {
+      "items": [
+        {
+          "gender": "string",
+          "mobilenumber": "number",
+          "moviesno": "number",
+          "seatingrow": "string",
+          "spectatorage": "number",
+          "spectatorname": "string",
+          "spectatorno": "number"
+        }
+      ]
+    },
+    "postPostvvmoiesP_METHODP_PRIMARYKEY": {
+      "moviedirector": "string",
+      "moviegenre": "string",
+      "moviename": "string",
+      "movieproducer": "string",
+      "moviesno": "number",
+      "movietimings": "string"
+    },
+    "postSpecdetailsP_METHODP_PRIMARYKEY": {
+      "address": "string",
+      "country": "string",
+      "locationname": "string",
+      "locationno": "number",
+      "pincode": "number",
+      "spectatorno": "number",
+      "state": "string"
+    },
+    "postVvspectatorspostP_METHODP_PRIMARYKEY": {
+      "gender": "string",
+      "mobilenumber": "number",
+      "moviesno": "number",
+      "seatingrow": "string",
+      "spectatorage": "number",
+      "spectatorname": "string",
+      "spectatorno": "number"
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "onclicksave"
+        }
+      ]
+    },
+    "buttonAction10": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction11": {
+      "chains": [
+        {
+          "chainId": "onclickspecdetailpopupdelete"
+        }
+      ]
+    },
+    "buttonAction12": {
+      "chains": [
+        {
+          "chainId": "onclickspecdetailpopupclose"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "onclicksaveandclose"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "onclickcreate"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "onclicksace"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "onclick"
+        }
+      ]
+    },
+    "buttonAction7": {
+      "chains": [
+        {
+          "chainId": "onclickspecdetailssave"
+        }
+      ]
+    },
+    "buttonAction8": {
+      "chains": [
+        {
+          "chainId": "specdetailsclose"
+        }
+      ]
+    },
+    "buttonAction9": {
+      "chains": [
+        {
+          "chainId": "onclickspecdetailsedit",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "hyperlinkClick": {
+      "chains": [
+        {
+          "chainId": "HyperlinkClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "hyperlinkClick2": {
+      "chains": [
+        {
+          "chainId": "OnClickSpecDelete",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "hyperlinkClick3": {
+      "chains": [
+        {
+          "chainId": "onclicklocationdetnavi",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "specdetailsdeleteClose": {
+      "chains": [
+        {
+          "chainId": "onclickspecdetailsdelete"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+{
+          "parameters": {},
+          "chainId": "editpageonload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-buttonset-many": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-radioset": {
+        "path": "ojs/ojradioset"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+
+    }
+  }
+}

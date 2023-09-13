@@ -1,0 +1,151 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "Customer": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "Getcustomer",
+        "keyAttributes": "customer_id"
+      }
+    },
+    "Customer_ID": {
+      "type": "number"
+    },
+    "flimid": {
+      "type": "any"
+    },
+    "getfilm": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "Getfilm",
+        "keyAttributes": "film_id"
+      }
+    },
+    "Name": {
+      "type": "string"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.Getcustomer": {
+      "endpoint": "Getcustomer",
+      "service": "DvdORDS",
+      "path": "response-_-items[0]"
+    },
+    "@decorators.Getfilm": {
+      "endpoint": "Getfilm",
+      "service": "DvdORDS",
+      "path": "response-_-items[0]"
+    },
+    "Getcustomer": {
+      "active": "number",
+      "address_id": "number",
+      "create_date": "string",
+      "customer_id": "number",
+      "email": "string",
+      "first_name": "string",
+      "last_name": "string",
+      "last_update": "string",
+      "seq_customer": "any",
+      "store_id": "number"
+    },
+    "Getfilm": {
+      "film_id": "number",
+      "language_id": "number",
+      "last_update": "string",
+      "overview": "string",
+      "rating": "string",
+      "release_year": "number",
+      "rental_duration": "number",
+      "rental_rate": "number",
+      "replacement_cost": "number",
+      "run_time": "number",
+      "seq_film": "any",
+      "title": "string"
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "OnPressHome"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "OnPressSearch"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "OnPressReset"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "OnPressSearchpayment"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-checkboxset": {
+        "path": "ojs/ojcheckboxset"
+      },
+      "oj-collapsible": {
+        "path": "ojs/ojcollapsible"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      }
+
+    },
+    "modules": {
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+    }
+  }
+}

@@ -1,0 +1,284 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "diadelete": {
+      "type": "number"
+    },
+    "diagkey": {
+      "type": "number"
+    },
+    "diagmethod": {
+      "type": "string"
+    },
+    "diagnosis": {
+      "type": "postPatientdiagnosisP_METHODP_PRIMARYKEY2"
+    },
+    "diagtable": {
+      "type": "any"
+    },
+    "doctorc": {
+      "type": "postDoctordetailsP_METHODP_PRIMARYKEY"
+    },
+    "method": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "patientdelete": {
+      "type": "number"
+    },
+    "patientmethod": {
+      "type": "any"
+    },
+    "patientprimarykey": {
+      "type": "number"
+    },
+    "patienttable": {
+      "type": "any"
+    },
+    "patientvariable": {
+      "type": "postPatientP_METHODP_PRIMARYKEY"
+    },
+    "primarykey": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.postDoctordetailsP_METHODP_PRIMARYKEY": {
+      "endpoint": "postDoctordetailsP_METHODP_PRIMARYKEY",
+      "service": "hospitalmanagement",
+      "path": "request"
+    },
+    "@decorators.postPatientdiagnosisP_METHODP_PRIMARYKEY2": {
+      "endpoint": "postPatientdiagnosisP_METHODP_PRIMARYKEY2",
+      "service": "hospitalmanagement",
+      "path": "request"
+    },
+    "@decorators.postPatientP_METHODP_PRIMARYKEY": {
+      "endpoint": "postPatientP_METHODP_PRIMARYKEY",
+      "service": "hospitalmanagement",
+      "path": "request"
+    },
+    "postDoctordetailsP_METHODP_PRIMARYKEY": {
+      "doc_address": "string",
+      "doc_code": "number",
+      "doc_designation": "string",
+      "doc_gender": "string",
+      "doc_name": "string",
+      "doc_number": "number"
+    },
+    "postPatientdiagnosisP_METHODP_PRIMARYKEY2": {
+      "diag_details": "string",
+      "diag_id": "number",
+      "diag_remarks": "string",
+      "pat_id": "number"
+    },
+    "postPatientP_METHODP_PRIMARYKEY": {
+      "pat_address": "string",
+      "pat_doc_code": "number",
+      "pat_gender": "string",
+      "pat_id": "number",
+      "pat_name": "string",
+      "pat_number": "number"
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "onclicksave"
+        }
+      ]
+    },
+    "buttonAction10": {
+      "chains": [
+        {
+          "chainId": "diagnosiscreateclose"
+        }
+      ]
+    },
+    "buttonAction11": {
+      "chains": [
+        {
+          "chainId": "diagsaveandclose"
+        }
+      ]
+    },
+    "buttonAction12": {
+      "chains": [
+        {
+          "chainId": "onclickdeletediag"
+        }
+      ]
+    },
+    "buttonAction13": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "onclickclose"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "saveandclose"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "onclickpatientcreate"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "patientsaveandclose"
+        }
+      ]
+    },
+    "buttonAction7": {
+      "chains": [
+        {
+          "chainId": "onclickpatdelete"
+        }
+      ]
+    },
+    "buttonAction8": {
+      "chains": [
+        {
+          "chainId": "onpatientdelete"
+        }
+      ]
+    },
+    "buttonAction9": {
+      "chains": [
+        {
+          "chainId": "diagnosiscreate"
+        }
+      ]
+    },
+    "hyperlinkClick": {
+      "chains": [
+        {
+          "chainId": "patientedit",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "hyperlinkClick2": {
+      "chains": [
+        {
+          "chainId": "onclickupdatediag",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "patientdelete",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick2": {
+      "chains": [
+        {
+          "chainId": "diagdelete",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "onload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-radioset": {
+        "path": "ojs/ojradioset"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+    },
+    "modules": {
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+    }
+  }
+}

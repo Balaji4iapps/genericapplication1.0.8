@@ -1,0 +1,184 @@
+{
+  "title": "hospital management application transom",
+  "description": "",
+  "variables": {
+    "ADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "Checkboxx",
+        "keyAttributes": "doc_code"
+      }
+    },
+    "ADPcheckbox": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "Checkboxx",
+        "keyAttributes": "doc_code"
+      }
+    },
+    "getDoctordetailsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "hospitalmanagement/getDoctordetails",
+        "keyAttributes": "doc_code",
+        "itemsPath": "items",
+        "responseType": "getDoctordetailsResponse"
+      }
+    },
+    "hdrtable": {
+      "type": "any"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.Checkboxx": {
+      "endpoint": "getDoctordetails",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "@decorators.getDoctordetailsResponse": {
+      "endpoint": "getDoctordetails",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "Checkboxx": {
+     
+          "doc_address": "string",
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_gender": "string",
+          "doc_name": "string",
+          "doc_number": "number"
+      
+    },
+    "getDoctordetailsResponse": {
+      "items": [
+        {
+          "doc_address": "string",
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_gender": "string",
+          "doc_name": "string",
+          "doc_number": "number"
+        }
+      ]
+    }
+
+  },
+  "eventListeners": {
+    "booleanCheckboxComponentValue": {
+      "chains": [
+        {
+          "chainId": "BooleanCheckboxComponentValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "booleanCheckboxComponentValue2": {
+      "chains": [
+        {
+          "chainId": "BooleanCheckboxComponentValueChangeChain1",
+          "parameters": {
+            "value": "{{ $event.detail.value }}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "onclickcheckboxsave"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "hyperlinkClick": {
+      "chains": [
+        {
+          "chainId": "HyperlinkClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "timedEventSTimerExpired": {
+      "chains": [
+        {
+          "chainId": "TimedEventSTimerExpiredChain",
+          "parameters": {
+            "interval": "{{$event.detail.interval}}",
+            "tick": "{{$event.detail.tick}}",
+            "skipped": "{{$event.detail.skipped}}",
+            "throttled": "{{$event.detail.throttled}}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "hdrOnload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-menu": {
+        "path": "ojs/ojmenu"
+      },
+      "oj-menu-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-menu-select-many": {
+        "path": "ojs/ojmenuselectmany"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-sample-checkbox-switch": {
+        "path": "oj-sample/checkbox-switch/loader"
+      },
+      "oj-sample-timed-event": {
+        "path": "oj-sample/timed-event/loader"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    }
+  }
+}

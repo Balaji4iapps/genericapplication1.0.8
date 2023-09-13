@@ -1,0 +1,297 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "cusfk": {
+      "type": "number"
+    },
+    "cusmethod": {
+      "type": "string"
+    },
+    "cuspk": {
+      "type": "any"
+    },
+    "customerdatas": {
+      "type": "postCustomer_1312P_METHODP_PRIMARYKEY"
+    },
+    "customerrecords": {
+      "type": "any"
+    },
+    "cusworktable": {
+      "type": "any"
+    },
+    "cuswrkdatas": {
+      "type": "postinCustomerwork"
+    },
+    "cuswrkfk": {
+      "type": "number"
+    },
+    "cuswrkmethod": {
+      "type": "string"
+    },
+    "cuswrkpk": {
+      "type": "number"
+    },
+    "networkidpk": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "networkmethod": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "networkrecords": {
+      "type": "postNetwork_1312P_METHODP_PRIMARYKEY"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.postCustomer_1312P_METHODP_PRIMARYKEY": {
+      "endpoint": "postCustomer_1312P_METHODP_PRIMARYKEY",
+      "service": "Network1312",
+      "path": "request"
+    },
+    "@decorators.postinCustomerwork": {
+      "endpoint": "postinCustomerwork",
+      "service": "Network1312",
+      "path": "request"
+    },
+    "@decorators.postNetwork_1312P_METHODP_PRIMARYKEY": {
+      "endpoint": "postNetwork_1312P_METHODP_PRIMARYKEY",
+      "service": "Network1312",
+      "path": "request"
+    },
+    "postCustomer_1312P_METHODP_PRIMARYKEY": {
+      "contact_no": "number",
+      "customer_id": "number",
+      "customer_name": "string",
+      "network_id": "number",
+      "pincode": "number",
+      "plan_detail": "string",
+      "residence": "string"
+    },
+    "postinCustomerwork": {
+      "company": "string",
+      "customer_id": "number",
+      "customer_name": "string",
+      "dob": "string",
+      "employee_num": "number",
+      "job": "string",
+      "salary": "number"
+    },
+    "postNetwork_1312P_METHODP_PRIMARYKEY": {
+      "data_pack": "string",
+      "mrp": "string",
+      "network_id": "number",
+      "network_name": "string",
+      "sms": "string",
+      "subscriptions": "string",
+      "validity": "string"
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "savenetwork"
+        }
+      ]
+    },
+    "buttonAction10": {
+      "chains": [
+        {
+          "chainId": "savecus"
+        }
+      ]
+    },
+    "buttonAction11": {
+      "chains": [
+        {
+          "chainId": "savecuswrk"
+        }
+      ]
+    },
+    "buttonAction12": {
+      "chains": [
+        {
+          "chainId": "godeletework"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "topage1"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "netsaveclose"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+{
+          "chainId": "cuscreate"
+        },
+        {
+          "chainId": "cuscreate"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "cuswrkcreate"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "workpopupclose"
+        }
+      ]
+    },
+    "buttonAction7": {
+      "chains": [
+        {
+          "chainId": "deleteok"
+        }
+      ]
+    },
+    "buttonAction8": {
+      "chains": [
+        {
+          "chainId": "cusdeleteclose"
+        }
+      ]
+    },
+    "buttonAction9": {
+      "chains": [
+        {
+          "chainId": "cuspopclose"
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+{
+          "chainId": "updatecus",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        },
+        {
+          "chainId": "updatecus",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick2": {
+      "chains": [
+{
+          "chainId": "godelete",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        },
+        {
+          "chainId": "godelete",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick3": {
+      "chains": [
+        {
+          "chainId": "updatecuswrk",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick4": {
+      "chains": [
+        {
+          "chainId": "gowrkdelete",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "onloadpage"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    }
+  }
+}

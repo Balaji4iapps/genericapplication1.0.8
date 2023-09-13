@@ -1,0 +1,53 @@
+{
+  "description": "",
+  "root": "callRestSearchcustomer",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestSearchcustomer.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestSearchcustomer": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/Searchcustomer",
+        "uriParams": {
+          "customer_id": "{{ $page.variables.SearchCustomer.customer_id }}",
+          "email": "{{ $page.variables.SearchCustomer.email }}",
+          "first_name": "{{ $page.variables.SearchCustomer.first_name }}",
+          "last_name": "{{ $page.variables.SearchCustomer.last_name }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestSearchcustomer.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesPagingline"
+      }
+    },
+    "assignVariablesPagingline": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.pagingline": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

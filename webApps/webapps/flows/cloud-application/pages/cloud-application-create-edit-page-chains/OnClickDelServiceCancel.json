@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentServicedeleteClose",
+  "actions": {
+    "callComponentServicedeleteClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('servicedelete') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

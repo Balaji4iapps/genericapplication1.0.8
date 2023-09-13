@@ -1,0 +1,132 @@
+{
+  "description": "",
+  "root": "ifPlayerstowatch",
+  "actions": {
+    "ifPlayerstowatch": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.playerstowatch=='create' ]]"
+      },
+      "outcomes": {
+        "true": "assignVariablesPostplayers",
+        "false": "callRestPostPlayersPMETHODPPRIMARYKEY2"
+      }
+    },
+    "assignVariablesPostplayers": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.postplayers": {
+          "source": {
+            "c_id": "{{ $page.variables.PrimaryKey }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callRestPostPlayersPMETHODPPRIMARYKEY"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostPlayersPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostPlayersPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/postPlayersP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.postplayers }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "type": "confirmation",
+        "displayMode": "transient",
+        "summary": "[[$application.translations.app.fireNotification2_summary_8eb8]]",
+        "message": "[[$application.translations.app.fireNotification3_message_6a7e]]"
+      },
+      "outcomes": {
+        "success": "callChainPlayerpopupclose"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostPlayersPMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostPlayersPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/postPlayersP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.postplayers.s_no }}"
+        },
+        "body": "{{ $page.variables.postplayers }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "type": "confirmation",
+        "displayMode": "transient",
+        "summary": "[[$application.translations.app.fireNotification4_summary_9a0c]]",
+        "message": "[[$application.translations.app.fireNotification4_message_6054]]"
+      },
+      "outcomes": {
+        "success": "callChainPlayerpopupclose"
+      }
+    },
+    "callChainOnloaddatabyid": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onloaddatabyid"
+      },
+      "outcomes": {
+        "success": "assignVariablesPostplayers2"
+      }
+    },
+    "assignVariablesPostplayers2": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.postplayers": {
+          "reset": "toDefault"
+        }
+      }
+    },
+    "callChainPlayerpopupclose": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "playerpopupclose"
+      },
+      "outcomes": {
+        "success": "callChainOnloaddatabyid"
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cloud-application",
+  "description": "Flow main",
+  "defaultPage": "cloud-application-start",
+  "services": {},
+  "types": {},
+  "variables": {}
+}

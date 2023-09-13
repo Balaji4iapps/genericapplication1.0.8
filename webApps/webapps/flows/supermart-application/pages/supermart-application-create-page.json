@@ -1,0 +1,320 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "accchildtable": {
+      "type": "any"
+    },
+    "accountFK": {
+      "type": "string"
+    },
+    "allcolumn": {
+      "type": "postMfdheaderP_METHODP_PRIMARYKEY2"
+    },
+    "allcolumnchild1": {
+      "type": "postSmartchildP_METHODP_PRIMARYKEY2"
+    },
+    "allcolumnchild2": {
+      "type": "postAccountchild2P_METHODP_PRIMARYKEY"
+    },
+    "childtable": {
+      "type": "any"
+    },
+    "deletechild1": {
+      "type": "string"
+    },
+    "deletechild2": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "method3": {
+      "type": "string"
+    },
+    "methodchild1": {
+      "type": "string",
+      "required": false,
+      "input": "none"
+    },
+    "primarykey": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "primarykey3": {
+      "type": "number"
+    },
+    "primarykeychild1": {
+      "type": "number",
+      "required": false,
+      "input": "none"
+    },
+    "table3": {
+      "type": "number"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.postAccountchild2P_METHODP_PRIMARYKEY": {
+      "endpoint": "postAccountchild2P_METHODP_PRIMARYKEY",
+      "service": "supermartapplication",
+      "path": "request"
+    },
+    "@decorators.postMfdheaderP_METHODP_PRIMARYKEY2": {
+      "endpoint": "postMfdheaderP_METHODP_PRIMARYKEY2",
+      "service": "supermartapplication",
+      "path": "request"
+    },
+    "@decorators.postSmartchildP_METHODP_PRIMARYKEY2": {
+      "endpoint": "postSmartchildP_METHODP_PRIMARYKEY2",
+      "service": "supermartapplication",
+      "path": "request"
+    },
+    "postAccountchild2P_METHODP_PRIMARYKEY": {
+      "account_number": "string",
+      "bank_name": "string",
+      "bill_book_number": "string",
+      "branch_name": "string",
+      "ifsc_code": "string",
+      "manufacturer_id": "string",
+      "manufacturer_name": "string",
+      "own_ref_id": "string",
+      "pending_amount": "string"
+    },
+    "postMfdheaderP_METHODP_PRIMARYKEY2": {
+      "account_number": "string",
+      "city": "string",
+      "contact_number": "string",
+      "industry_type": "string",
+      "mail_id": "string",
+      "manufacturer": "string",
+      "manufacturer_id": "string",
+      "state_location": "string"
+    },
+    "postSmartchildP_METHODP_PRIMARYKEY2": {
+      "catagory": "string",
+      "exp_date": "string",
+      "manufacturer_id": "string",
+      "mfd_date": "string",
+      "packed": "string",
+      "price_per_kg_l": "string",
+      "product_id": "string",
+      "product_name": "string",
+      "qty_in_stock": "string"
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "OnClickSavebutton"
+        }
+      ]
+    },
+    "buttonAction10": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "buttonAction11": {
+      "chains": [
+        {
+          "chainId": "child2deleteaction"
+        }
+      ]
+    },
+    "buttonAction12": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain3"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "onclickCloseCreatepage"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "child1popupopen"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "closepopupchild"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "child1saveaction"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "acctablepopupopenbutton"
+        }
+      ]
+    },
+    "buttonAction7": {
+      "chains": [
+        {
+          "chainId": "child2popupclose"
+        }
+      ]
+    },
+    "buttonAction8": {
+      "chains": [
+        {
+          "chainId": "child2saveaction"
+        }
+      ]
+    },
+    "buttonAction9": {
+      "chains": [
+        {
+          "chainId": "deleteactionchild1"
+        }
+      ]
+    },
+    "headingClick": {
+      "chains": [
+        {
+          "chainId": "saveandcloseaction"
+        }
+      ]
+    },
+    "hyperlinkClick": {
+      "chains": [
+        {
+          "chainId": "HyperlinkClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "hyperlinkClick2": {
+      "chains": [
+        {
+          "chainId": "HyperlinkClickChain1",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick2": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain1",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+{
+          "parameters": {},
+          "chainId": "vbeditpageload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-combobox-one": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-radioset": {
+        "path": "ojs/ojradioset"
+      },
+      "oj-select-many": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-select-one": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+
+    },
+    "modules": {
+      "ojValidationBase": {
+        "path": "ojs/ojvalidation-base"
+      }
+    }
+  }
+}

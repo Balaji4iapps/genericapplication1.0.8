@@ -1,0 +1,142 @@
+{
+  "title": "collapsible",
+  "description": "",
+  "variables": {
+    "getnameListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "Network1312/getname",
+        "keyAttributes": "network_name",
+        "itemsPath": "items",
+        "responseType": "getnameResponse",
+        "uriParameters": {
+          "p_search_value": "{{ $variables.postvar.network_name }}"
+        },
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "network_name"
+          ]
+        }
+      }
+    },
+    "nettable": {
+      "type": "any"
+    },
+    "postvar": {
+      "type": "postNetwork_1312P_METHODP_PRIMARYKEY"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getnameResponse": {
+      "endpoint": "getname",
+      "service": "Network1312",
+      "path": "response"
+    },
+    "@decorators.getNetwork_1312": {
+      "endpoint": "getNetwork_1312",
+      "service": "Network1312",
+      "path": "response"
+    },
+    "@decorators.postNetwork_1312P_METHODP_PRIMARYKEY": {
+      "endpoint": "postNetwork_1312P_METHODP_PRIMARYKEY",
+      "service": "Network1312",
+      "path": "request"
+    },
+    "getnameResponse": {
+      "items": [
+        {
+          "network_name": "string"
+        }
+      ]
+    },
+    "getNetwork_1312": {
+      "items": [
+        {
+          "data_pack": "string",
+          "mrp": "string",
+          "network_id": "number",
+          "network_name": "string",
+          "sms": "string",
+          "subscriptions": "string",
+          "validity": "string"
+        }
+      ]
+    },
+    "postNetwork_1312P_METHODP_PRIMARYKEY": {
+      "data_pack": "string",
+      "mrp": "string",
+      "network_id": "number",
+      "network_name": "string",
+      "sms": "string",
+      "subscriptions": "string",
+      "validity": "string"
+    }
+
+  },
+  "eventListeners": {
+    "selectValueItem": {
+      "chains": [
+        {
+          "chainId": "SelectValueItemChangeChain",
+          "parameters": {
+            "key": "{{$event.detail.value.key}}",
+            "data": "{{$event.detail.value.data}}",
+            "metadata": "{{$event.detail.value.metadata}}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-collapsible": {
+        "path": "ojs/ojcollapsible"
+      },
+      "oj-dyn-form": {
+        "path": "oj-dyn/form/loader"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-label-value": {
+        "path": "ojs/ojlabelvalue"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    }
+  }
+}

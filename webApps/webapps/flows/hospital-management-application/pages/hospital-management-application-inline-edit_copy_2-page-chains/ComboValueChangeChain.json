@@ -1,0 +1,71 @@
+{
+  "description": "",
+  "root": "ifValue",
+  "actions": {
+    "ifValue": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $variables.value != null ]]"
+      },
+      "outcomes": {
+        "true": "resetVariablesDocNameFetch"
+      }
+    },
+    "resetVariablesDocNameFetch": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.doc_name_fetch"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesDocNameFetch"
+      }
+    },
+    "assignVariablesDocNameFetch": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.doc_name_fetch": {
+          "source": "{{ $variables.value }}"
+        }
+      },
+      "outcomes": {
+        "success": "assignVariablesDataobj"
+      }
+    },
+    "assignVariablesDataobj": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Dataobj": {
+          "source": {
+            "doc_name": "{{ $variables.value }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      }
+    }
+  },
+  "variables": {
+    "value": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

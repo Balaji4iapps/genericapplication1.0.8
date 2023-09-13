@@ -1,0 +1,20 @@
+{
+  "title": "",
+  "description": "",
+  "eventListeners": {},
+  "events": {},
+  "imports": {
+    "components": {
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      }
+    }
+  },
+  "metadata": {},
+  "types": {},
+  "variables": {},
+  "referenceable": "self"
+}

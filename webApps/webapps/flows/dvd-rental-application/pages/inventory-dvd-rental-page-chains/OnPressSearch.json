@@ -1,0 +1,42 @@
+{
+  "description": "",
+  "root": "callRestSearchfilm",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestSearchfilm.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestSearchfilm": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/Searchfilm",
+        "uriParams": {
+          "title": "{{ $page.variables.flimname }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesGetfilm"
+      }
+    },
+    "assignVariablesGetfilm": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.getfilm": {
+          "source": {
+              "data": "{{ $chain.results.callRestSearchfilm.body.items }}"
+            },
+          "reset": "none",
+          "auto": "always"
+
+        }
+      }
+    }
+  },
+  "variables": {}
+}

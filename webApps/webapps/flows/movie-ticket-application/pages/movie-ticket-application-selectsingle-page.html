@@ -1,0 +1,43 @@
+<div class="oj-flex">
+  <div class="oj-panel oj-flex-item oj-sm-12 oj-md-12">
+    <div class="oj-flex">
+      <oj-collapsible class="oj-flex-item oj-sm-12 oj-md-4">
+        <oj-select-single label-hint="Select" data="[[ $variables.MoviesAdp ]]" item-text="moviename"
+          value="{{ $variables.MovieNo }}" on-value-item-changed="[[$listeners.selectValueItem]]">
+          
+          
+     <template slot="collectionTemplate" data-oj-as="collection">
+	 
+		   <oj-table scroll-policy="loadMoreOnScroll"
+          
+		  selection-mode='{"row": "single"}'
+
+ columns-default='{"resizable": "disabled","sortable": "disabled"}'
+
+class="oj-select-results"
+
+columns='[{"headerText":"Movies No","field":"moviesno"},{"headerText":"Movie Name","field":"moviename"},{"headerText":"Movie Genre","field":"moviegenre"}]'
+
+on-oj-row-action="[[collection.handleRowAction]]"
+
+data="[[collection.data]]" selected.row="[[collection.selected]]"
+
+current-row="{{collection.currentRow}}">
+
+</oj-table>
+
+</template>
+          </oj-select-single> 
+          
+        <oj-input-text id="input1" style="margin-top: 10px" label-hint="Movie No" value="{{ $variables.MovieNo }}"></oj-input-text>
+        <oj-input-text id="input2" style="margin-top: 10px" label-hint="Movie Director"
+          value="{{ $variables.MovieDirector }}"></oj-input-text>
+        
+      </oj-collapsible>
+      <div class="oj-flex-item oj-sm-12 oj-md-1"></div>
+      <div class="oj-flex-item oj-sm-12 oj-md-2">
+      
+      </div>
+    </div>
+  </div>
+</div>

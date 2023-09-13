@@ -1,0 +1,75 @@
+{
+  "description": "",
+  "root": "assignVariablesSpecdetailskey",
+  "actions": {
+    "assignVariablesSpecdetailskey": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.specdetailskey": {
+          "source": "{{ $variables.key }}"
+        },
+        "$page.variables.location": {
+          "source": {
+            "locationno": "{{ $page.variables.location.spectatorno }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        },
+        "$page.variables.specdetailsmethod": {
+          "source": "edit"
+        }
+      },
+      "outcomes": {
+        "success": "callRestGetVvspectatordetails3"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetVvspectatordetails3.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetVvspectatordetails3": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Moviesticketbooking/getVvspectatordetails3",
+        "uriParams": {
+          "plocationno": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesLocation"
+      }
+    },
+    "assignVariablesLocation": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.location": {
+          "source": "{{ $chain.results.callRestGetVvspectatordetails3.body.items[0] }}",
+          "auto": "always"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

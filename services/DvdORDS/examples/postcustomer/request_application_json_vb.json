@@ -1,0 +1,12 @@
+{
+    "customer_id": 989,
+    "store_id": 1,
+    "first_name": "test",
+    "last_name": "test",
+    "email": "test@test.org",
+    "address_id": 1,
+    "create_date": "0015-02-18T06:10:02Z",
+    "last_update": "0015-02-18T06:10:02Z",
+    "active": 1,
+    "seq_customer": 1
+}

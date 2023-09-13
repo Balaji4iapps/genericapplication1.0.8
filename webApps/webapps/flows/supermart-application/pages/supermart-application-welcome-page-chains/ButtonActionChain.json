@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToSupermartApplicationCreate",
+  "actions": {
+    "navigateToSupermartApplicationCreate": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "supermart-application-create"
+      }
+    }
+  },
+  "variables": {}
+}

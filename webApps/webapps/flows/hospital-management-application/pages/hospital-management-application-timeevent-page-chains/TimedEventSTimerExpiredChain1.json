@@ -1,0 +1,35 @@
+{
+  "description": "",
+  "root": "callChainOnload",
+  "actions": {
+    "callChainOnload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onload"
+      }
+    }
+  },
+  "variables": {
+    "interval": {
+      "defaultValue": 5,
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "tick": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "skipped": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "throttled": {
+      "required": true,
+      "type": "boolean",
+      "input": "fromCaller"
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "exportdata": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "getNetwork1312Response",
+        "keyAttributes": "network_id"
+      }
+    },
+    "getNetwork1312ListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "Network1312/getNetwork_1312",
+        "keyAttributes": "network_id",
+        "itemsPath": "items",
+        "responseType": "getNetwork1312Response",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "network_name"
+          ]
+        }
+      }
+    },
+    "networkid": {
+      "type": "number"
+    },
+    "networkname": {
+      "type": "string"
+    },
+    "networktable": {
+      "type": "any"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getNetwork_1312": {
+      "endpoint": "getNetwork_1312",
+      "service": "Network1312",
+      "path": "response"
+    },
+    "@decorators.getNetwork1312Response": {
+      "endpoint": "getNetwork_1312",
+      "service": "Network1312",
+      "path": "response"
+    },
+    "getNetwork_1312": {
+      "items": [
+        {
+          "data_pack": "string",
+          "mrp": "string",
+          "network_id": "number",
+          "network_name": "string",
+          "sms": "string",
+          "subscriptions": "string",
+          "validity": "string"
+        }
+      ]
+    },
+    "getNetwork1312Response": {
+      
+          "data_pack": "string",
+          "mrp": "string",
+          "network_id": "number",
+          "network_name": "string",
+          "sms": "string",
+          "subscriptions": "string",
+          "validity": "string"
+        
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "networkgetid"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "onclickreset"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "create"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "Deleteprocess"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick2": {
+      "chains": [
+        {
+          "chainId": "headeredit",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "onloadheader"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-sample-export-data": {
+        "path": "oj-sample/export-data/loader"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    }
+  }
+}

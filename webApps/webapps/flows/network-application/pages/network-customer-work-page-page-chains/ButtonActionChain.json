@@ -1,0 +1,41 @@
+{
+  "description": "",
+  "root": "callComponentOjUpdate17176323811Close",
+  "actions": {
+    "callComponentOjUpdate17176323811Close": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-update-1717632381-1') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "resetVariablesCusworkpopup"
+      }
+    },
+    "resetVariablesCusworkpopup": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.cusworkpopup"
+        ]
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

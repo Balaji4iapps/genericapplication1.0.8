@@ -1,0 +1,41 @@
+<!-- header -->
+<div class="oj-flex">
+  <h3 class="oj-flex-item oj-sm-12 oj-md-4">Film Language</h3>
+</div>
+
+<!-- table -->
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-1">
+    <oj-button label="Button" class="height:1rem" display="icons" on-oj-action="[[$listeners.buttonAction2]]">
+     <img slot="endIcon" :src="[[ $flow.path + 'resources/images/Home_black_1.jpg' ]]" width="60" height="50">
+    </oj-button>
+  </div>
+</div>
+<div class="oj-flex">
+  <span class="oj-flex-item oj-sm-12 oj-md-6"></span>
+</div>
+<div class="oj-flex">
+  <oj-table  scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+   style="background-color:grey;" columns-default.header-style="background-color:lightgrey; font-weight: 900;" data="[[ $variables.FlimLangADP ]]" 
+    columns='[{"headerText":"Name","field":"name","template":"name"} ,
+    {"headerText":"Language ID","field":"language_id"},
+    {"headerText":"Last Update","field":"last_update"},
+    {"headerText":"Film No","field":"seq_film_language"}]'
+    on-oj-before-row-edit="[[$listeners.tableBeforeRowEdit]]" edit-mode="rowEdit"
+    on-oj-before-row-edit-end="[[$listeners.tableBeforeRowEditEnd]]" display="grid"
+    >
+    <template slot="name">
+     <oj-bind-if test='[[$current.mode=="navigation"]]'>
+       <oj-bind-text value="[[$current.data]]"></oj-bind-text></oj-bind-if>
+       <oj-bind-if test='[[$current.mode=="edit"]]'>       
+      <oj-input-text value="{{ $variables.Rowlanguage.name }}"></oj-input-text>
+       </oj-bind-if>
+     </template>
+  </oj-table>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-button label="Save" chroming="callToAction" on-oj-action="[[$listeners.buttonAction]]"></oj-button>
+  </div>
+</div>
+

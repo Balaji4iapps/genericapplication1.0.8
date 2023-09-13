@@ -1,0 +1,27 @@
+{
+  "description": "",
+  "root": "ifPrimarykey",
+  "actions": {
+    "navigateToProductApplicationDepart": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "product-application-depart",
+        "params": {
+          "method": "Create",
+          "primarykey": "0",
+          "deparkfk": "{{ $page.variables.primarykey }}"
+        }
+      }
+    },
+    "ifPrimarykey": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.primarykey!=0 ]]"
+      },
+      "outcomes": {
+        "true": "navigateToProductApplicationDepart"
+      }
+    }
+  },
+  "variables": {}
+}

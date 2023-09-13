@@ -1,0 +1,38 @@
+{
+    "items": [
+        {
+            "depart_num": "9",
+            "shop_name": "Pothys",
+            "store_short_code": "605",
+            "product_num": "100",
+            "shop_location": "cherri",
+            "delivery_date": "2022-04-12T00:00:00Z",
+            "dispatch_no": 22,
+            "manager_name": "nirmal"
+        },
+        {
+            "depart_num": "2",
+            "shop_name": "Pothys",
+            "store_short_code": "605",
+            "product_num": "100",
+            "shop_location": "Pondy",
+            "delivery_date": "2022-04-12T00:00:00Z",
+            "dispatch_no": 22,
+            "manager_name": "nirmal"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 2,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/productapplication/departgetbyid?ProductNum=100"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/productapplication/item"
+        }
+    ]
+}

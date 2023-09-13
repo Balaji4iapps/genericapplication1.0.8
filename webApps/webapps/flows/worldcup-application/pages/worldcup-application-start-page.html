@@ -1,0 +1,41 @@
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-1">
+    <img width="80" height="100" :src="[[ $flow.path + 'resources/images/FIFA_logo.png' ]]"
+      style="object-fit: contain;">
+  </div>
+  <h1 class="oj-flex-item oj-sm-12 oj-md-6">
+    <oj-bind-text value="[[$application.translations.app.h1__text]]"></oj-bind-text>
+  </h1>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-2"></div>
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    <img :src="[[ $flow.path + 'resources/images/worldcup2022.jpg' ]]">
+  </div>
+</div>
+
+
+ <p><oj-bind-text value="[[$application.translations.app.p__text]]"></oj-bind-text></p>
+
+
+<oj-form-layout columns="4">
+ 
+    <oj-button label="Countries Playing" class="" chroming="solid" on-oj-action="[[$listeners.buttonAction]]"></oj-button>
+    <oj-button label="Match Schedule" chroming="solid" on-oj-action="[[$listeners.buttonAction2]]"></oj-button>
+    <oj-button label="Groups" chroming="solid" on-oj-action="[[$listeners.buttonAction3]]"></oj-button>
+    <oj-button label="Players to Watch" chroming="solid"></oj-button>
+  
+ 
+</oj-form-layout>
+
+
+ 
+ <p><oj-bind-text "></oj-bind-text></p>
+
+
+
+
+
+  
+
+  

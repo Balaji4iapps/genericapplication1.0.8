@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentSpecdetailsdeleteClose",
+  "actions": {
+    "callComponentSpecdetailsdeleteClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('specdetailsdelete') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

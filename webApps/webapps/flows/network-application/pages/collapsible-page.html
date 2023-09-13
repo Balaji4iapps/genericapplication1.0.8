@@ -1,0 +1,22 @@
+<div class="oj-flex">
+  <oj-collapsible class="oj-flex-item oj-sm-12 oj-md-11" id="collapsible" expand-area="disclosureIcon">
+    <oj-form-layout label-edge='start'>
+      <oj-select-single label-hint="NetworkName" on-value-item-changed="[[$listeners.selectValueItem]]"
+        item-text="network_name" data="[[$variables.getnameListSDP]]"></oj-select-single>
+
+      
+    </oj-form-layout>
+    <h4 class="oj-header" slot="header">Network</h4>
+  </oj-collapsible>
+  
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+    columns='[{"headerText":"data_pack","field":"data_pack"},
+    {"headerText":"mrp","field":"mrp"},{"headerText":"network_id","field":"network_id"},{"headerText":"network_name","field":"network_name"},{"headerText":"sms","field":"sms"},{"headerText":"subscriptions","field":"subscriptions"},{"headerText":"validity","field":"validity"}]'
+    data="[[ $variables.nettable ]]">
+  </oj-table>
+  <oj-paging-control data="[[ $variables.nettable ]]" page-size="10"></oj-paging-control>
+
+
+
+  
+</div>

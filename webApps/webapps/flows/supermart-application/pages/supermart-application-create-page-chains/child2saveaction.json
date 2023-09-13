@@ -1,0 +1,161 @@
+{
+  "description": "",
+  "root": "assignVariablesAllcolumnchild2",
+  "actions": {
+    "ifMethod3": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.method3=='CREATE' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostAccountchild2PMETHODPPRIMARYKEY",
+        "false": "callRestPostAccountchild2PMETHODPPRIMARYKEY2"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification_summary_63b3]]",
+        "type": "error",
+        "displayMode": "persist",
+        "message": "[[$application.translations.app.fireNotification_message_f8bf]]"
+      }
+    },
+    "callRestPostAccountchild2PMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "supermartapplication/postAccountchild2P_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.allcolumnchild2 }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification5"
+      }
+    },
+    "callRestPostAccountchild2PMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "supermartapplication/postAccountchild2P_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.allcolumnchild2.own_ref_id }}"
+        },
+        "body": "{{ $page.variables.allcolumnchild2 }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification6",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification3_summary_aaf2]]",
+        "message": "[[$application.translations.app.fireNotification3_message_7626]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callComponentPopuptable3Close"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification4_summary_5d33]]",
+        "message": "[[$application.translations.app.fireNotification4_message_ae92]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callComponentPopuptable3Close"
+      }
+    },
+    "callComponentPopuptable3Close": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('popuptable3') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callRestGetAccountchhild2byidmfd"
+      }
+    },
+    "fireNotification4": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetAccountchhild2byidmfd.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetAccountchhild2byidmfd": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "supermartapplication/getAccountchhild2byidmfd",
+        "uriParams": {
+          "manufacturerid": "{{ $page.variables.primarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification4",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetAccountchhild2byidmfd.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesAccchildtable"
+      }
+    },
+    "assignVariablesAccchildtable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.accchildtable": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    },
+    "assignVariablesAllcolumnchild2": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.allcolumnchild2": {
+          "source": {
+            "manufacturer_id": "{{ $page.variables.table3 }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "ifMethod3"
+      }
+    },
+    "fireNotification6": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_2533]]",
+        "type": "error",
+        "displayMode": "persist",
+        "message": "[[$application.translations.app.fireNotification2_message_320c]]"
+      }
+    }
+  },
+  "variables": {}
+}

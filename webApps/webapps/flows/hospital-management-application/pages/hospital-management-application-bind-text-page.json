@@ -1,0 +1,52 @@
+{
+  "title": "hospital management application bind text",
+  "description": "",
+  "variables": {
+    "a": {
+      "type": "string",
+      "defaultValue": "1"
+    },
+    "b": {
+      "type": "string",
+      "defaultValue": "1"
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.postDoctordetailsP_METHODP_PRIMARYKEY": {
+      "endpoint": "postDoctordetailsP_METHODP_PRIMARYKEY",
+      "service": "hospitalmanagement",
+      "path": "request"
+    },
+    "postDoctordetailsP_METHODP_PRIMARYKEY": {
+      "doc_address": "string",
+      "doc_code": "number",
+      "doc_designation": "string",
+      "doc_gender": "string",
+      "doc_name": "string",
+      "doc_number": "number"
+    }
+  },
+  "eventListeners": {
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "description": "",
+  "root": "callComponentOjDelete17176323811Close",
+  "actions": {
+    "callComponentOjDelete17176323811Close": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-delete-1717632381-1') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

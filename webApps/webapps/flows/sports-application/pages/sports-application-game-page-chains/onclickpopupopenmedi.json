@@ -1,0 +1,85 @@
+{
+  "description": "",
+  "root": "assignVariablesMedikey",
+  "actions": {
+    "assignVariablesMedikey": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.medikey": {
+          "source": "{{ $variables.key }}"
+        },
+        "$page.variables.medivar": {
+          "source": {
+            "game_id": "{{ $page.variables.game.game_id }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        },
+        "$page.variables.medicalmethod": {
+          "source": "edit"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentOjDialog9828729301Open"
+      }
+    },
+    "callComponentOjDialog9828729301Open": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog--982872930-1') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestGetMedicalid2"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetMedicalid2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "assignVariablesMedivar": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.medivar": {
+          "source": "{{ $chain.results.callRestGetMedicalid2.body.items[0] }}",
+          "auto": "always"
+        }
+      }
+    },
+    "callRestGetMedicalid2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "SportsApp/getMedicalid2",
+        "uriParams": {
+          "medical": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesMedivar"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<div class="oj-flex">
+  <h4 class="oj-flex-item oj-sm-12 oj-md-12">Movie Ticket Reservation Application</h4>
+</div>
+<div class="oj-flex">
+  
+  
+  
+  <div class="oj-flex-item oj-sm-12 oj-md-3"></div>
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    
+  </div>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-4"></div>
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    <oj-button label="Open" chroming="danger" on-oj-action="[[$listeners.buttonAction]]"></oj-button>
+  </div>
+  <div class="oj-flex-item oj-sm-12 oj-md-1">
+    
+  </div>
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    <oj-button label="Collapse" chroming="danger" on-oj-action="[[$listeners.buttonAction2]]"></oj-button>
+  </div>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    
+  </div>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-4"></div>
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    
+  </div>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-1"></div>
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    <img :src="[[ $flow.path + 'resources/images/fax-g9f783df49_640.jpg' ]]">
+  </div>
+</div>
+
+<oj-dialog style="display:none; width: 280px; height: 280px;"
+
+dialog-title="Please Wait..." id="InProgressPopup"
+
+drag-affordance="title-bar" resize-behavior="resizable"  
+
+>    
+
+ <img width="250" height="220" alt="center" style="object-fit: none;"
+   :src="[[ $flow.path + 'resources/images/Iphone-spinner-2 (2).gif' ]]">  
+
+ </oj-dialog>

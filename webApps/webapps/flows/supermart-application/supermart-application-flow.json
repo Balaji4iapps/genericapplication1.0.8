@@ -1,0 +1,8 @@
+{
+  "id": "supermart-application",
+  "description": "Flow main",
+  "defaultPage": "supermart-application-welcome",
+  "services": {},
+  "types": {},
+  "variables": {}
+}

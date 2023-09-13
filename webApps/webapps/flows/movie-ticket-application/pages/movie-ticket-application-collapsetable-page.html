@@ -1,0 +1,42 @@
+<oj-dialog dialog-title="Dialog" id="FetchDataDialogBox">
+ <div slot="body">
+   <div class="oj-flex">
+      <h5 class="oj-header oj-flex-item oj-sm-12 oj-md-12">Fetching Data</h5>
+   </div>
+ </div>
+ <div slot="footer">
+ </div>
+</oj-dialog>
+<oj-collapsible on-expanded-changed="[[$listeners.collapsibleExpanded]]" id="MoviecollapseTable">
+ <oj-bind-if test="[[ $variables.FetchMovies ]]">
+   <oj-table scroll-policy="loadMoreOnScroll" class="oj-sm-width-full oj-bg-body tablerowdata"
+     selection-mode.row="single" edit-mode="rowEdit" display="grid" selection-mode.column="single"
+     columns='[{"headerText":"Movies No","field":"moviesno","width":"120px"},{"headerText":"Movies Name","field":"moviename","width":"120px"},{"headerText":"Movie Genre","field":"moviegenre"}]'
+     data="[[ $variables.MoviesTable ]]" style="width:200px">
+        <!-- edit -->
+      
+
+        <oj-paging-control id="paging" class="oj-sm-width-full" data="[[ $variables.MoviesTable ]]" page-size="15"
+          slot="bottom"></oj-paging-control>
+   </oj-table>
+ </oj-bind-if>
+ <h5 class="oj-header" slot="header">Movie Table</h5>
+</oj-collapsible>
+
+<oj-collapsible>
+ <oj-table scroll-policy="loadMoreOnScroll" class="oj-sm-width-full oj-bg-body tablerowdata" selection-mode.row="single"
+ edit-mode="rowEdit" display="grid" selection-mode.column="single"
+   data="[[ $variables.SpectatorTable ]]"
+   columns='[{"headerText":"Spectator No","field":"spectatorno"},
+   {"headerText":"Spectator Name","field":"spectatorname"}
+   ,{"headerText":"Spectator Age","field":"spectatorage"}]'>
+   
+<oj-paging-control id="paging1" 
+class="oj-sm-width-full"  data="[[ $variables.SpectatorTable ]]" page-size="15" 
+slot="bottom">
+</oj-paging-control>
+   </oj-table>
+    <h5 class="oj-header" slot="header">Spectator Table</h5>
+</oj-collapsible>
+
+

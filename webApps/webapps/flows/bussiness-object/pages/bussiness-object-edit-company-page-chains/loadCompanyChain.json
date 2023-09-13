@@ -1,0 +1,39 @@
+{
+  "root": "loadCompany",
+  "actions": {
+    "loadCompany": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "businessObjects/get_Company",
+        "uriParams": {
+          "Company_Id": "[[ $page.variables.companyId ]]"
+        },
+        "responseType": "page:getCompanyResponse"
+      },
+      "outcomes": {
+        "success": "assignPayload",
+        "failure": "fireErrorNotification"
+      }
+    },
+    "assignPayload": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.company": {
+          "source": "{{ $chain.results.loadCompany.body }}"
+        },
+        "$page.variables.companyETag": {
+          "source": "[[ $chain.results.loadCompany.headers.get('ETag') ]]"
+        }
+      }
+    },
+    "fireErrorNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "summary": "Could not load data",
+        "message": "{{ 'Could not load data: status ' + $chain.results.loadCompany.status }}",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    }
+  }
+}

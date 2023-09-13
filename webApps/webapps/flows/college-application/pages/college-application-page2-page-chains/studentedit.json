@@ -1,0 +1,35 @@
+{
+  "description": "",
+  "root": "navigateToCollegeApplicationPage3",
+  "actions": {
+    "navigateToCollegeApplicationPage3": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "college-application-page3",
+        "params": {
+          "studentfk": "{{ $page.variables.college.staff_id }}",
+          "studentmethod": "edit",
+          "studentprimarykey": "{{ $variables.key }}"
+
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

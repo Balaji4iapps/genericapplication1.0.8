@@ -1,0 +1,73 @@
+<div class="oj-flex-bar oj-sm-align-items-center" style="background-color:#F7F138">
+  <h1 class="oj-flex-bar-start" >People's SuperMart</h1>
+</div>
+<div>
+
+</div>
+
+
+
+<div class="oj-flex">
+    <div class="oj-flex-item oj-sm-12 oj-md-12">
+        <oj-form-layout label-edge='start' label-width="40%">
+
+          <div>
+    <oj-button label="Manufacturer Details" chroming="solid" class="oj-button-sm"
+      on-oj-action="[[$listeners.buttonAction]]"></oj-button>
+    
+    <oj-button label="Product details" chroming="solid" class="oj-button-sm"
+      on-oj-action="[[$listeners.buttonAction2]]"></oj-button>
+
+    <oj-button label="About" chroming="solid" class="oj-button-sm" on-oj-action="[[$listeners.buttonAction3]]"></oj-button>
+    <oj-button label="All Data" chroming="solid" class="oj-button-sm" on-oj-action="[[$listeners.buttonAction5]]"></oj-button>
+
+    
+</div>
+
+
+
+
+        </oj-form-layout>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+      <img :src="[[ $flow.path + 'resources/images/pexels-anna-shvets-3962285.jpg' ]]" width="1128" height="600">
+
+      
+  </div>
+
+
+<oj-dialog style="display:none" dialog-title="People's SuperMart" id="aboutpopup">
+    <div slot="body">
+        <div class="oj-flex" style="background-color:#C1FEF5">
+<p>
+<b>
+  People's supermart is a self-service shop offering a wide variety of food, beverages and household products, 
+  organized into sections. Our mart is larger and has a wider selection than earlier grocery stores.
+</b>
+</p>
+
+<p style="color:Blue">
+Reach us : peoplesupermart@gmail.com
+</p>
+          
+        </div>
+    </div>
+    <div slot="footer">
+        <oj-button on-oj-action="[[$listeners.buttonAction4]]">Back</oj-button>
+    </div>
+</oj-dialog>
+
+  
+
+
+

@@ -1,0 +1,1149 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Ords Dyrords",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/moviestable",
+            "description": "Ords Dyrords",
+            "x-vb": {
+                "forceProxy": "cors"
+            }
+        }
+    ],
+    "paths": {
+        "/vvmovies1": {
+            "get": {
+                "operationId": "getVvmovies1",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetVvmovies1"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getVvmovies1/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/vvmovies1getbyid": {
+            "get": {
+                "operationId": "getvvmovies1getbyid1",
+                "parameters": [
+                    {
+                        "name": "getvvmovies1",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetVvmovies1getbyid"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getvvmovies1getbyid1/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/postvvmoies/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    },
+                    "x-vb": {
+                        "defaultValue": "POST"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    },
+                    "x-vb": {
+                        "defaultValue": "0"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postPostvvmoiesP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostPostvvmoiesP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postPostvvmoiesP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostPostvvmoiesP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postPostvvmoiesP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/vvvspestators": {
+            "get": {
+                "operationId": "getvvvspectators",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetVvvspestators"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getvvvspectators/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/vvvspectatorsbymoviesno": {
+            "get": {
+                "operationId": "getVvvspectatorsbymoviesnofk",
+                "parameters": [
+                    {
+                        "name": "p_moviesno",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetVvvspectatorsbymoviesno"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getVvvspectatorsbymoviesnofk/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/vvspectatorsgetbyid": {
+            "get": {
+                "operationId": "vvspectatorsgetbyid",
+                "parameters": [
+                    {
+                        "name": "p_spectatorno",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetVvspectatorsgetbyid"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/vvspectatorsgetbyid/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/vvspectatorspost/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postVvspectatorspostP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "description": "Request for application/json",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostVvspectatorspostP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "summary": "Example stored by VB User",
+                                    "externalValue": "./examples/postVvspectatorspostP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostVvspectatorspostP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postVvspectatorspostP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "create"
+                }
+            }
+        },
+        "/Specgetbyidpk": {
+            "get": {
+                "operationId": "getSpecgetbyidpk2",
+                "parameters": [
+                    {
+                        "name": "pspectatorno",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetSpecgetbyidpk"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getSpecgetbyidpk2/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/vvspectatordetails": {
+            "get": {
+                "operationId": "getVvspectatordetails",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetVvspectatordetails"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getVvspectatordetails/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/vvspectatordetails2": {
+            "get": {
+                "operationId": "getVvspectatordetails2",
+                "parameters": [
+                    {
+                        "name": "pspectatorno",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetVvspectatordetails2"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getVvspectatordetails2/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getOne"
+                }
+            }
+        },
+        "/specdetails/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postSpecdetailsP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostSpecdetailsP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postSpecdetailsP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostSpecdetailsP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postSpecdetailsP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/vvspectatordetails3": {
+            "get": {
+                "operationId": "getVvspectatordetails3",
+                "parameters": [
+                    {
+                        "name": "plocationno",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetVvspectatordetails3"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getVvspectatordetails3/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getOne"
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "GetVvmovies1": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "moviesno": {
+                                    "type": "integer"
+                                },
+                                "moviename": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "moviedirector": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "moviegenre": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "movieproducer": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "movietimings": {
+                                    "type": "string",
+                                    "nullable": true
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetVvmovies1getbyid": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "moviesno": {
+                                    "type": "integer"
+                                },
+                                "moviename": {
+                                    "type": "string"
+                                },
+                                "moviedirector": {
+                                    "type": "string"
+                                },
+                                "moviegenre": {
+                                    "type": "string"
+                                },
+                                "movieproducer": {
+                                    "type": "string"
+                                },
+                                "movietimings": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostPostvvmoiesP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "moviesno": {
+                        "type": "integer"
+                    },
+                    "moviename": {
+                        "type": "string"
+                    },
+                    "moviedirector": {
+                        "type": "string"
+                    },
+                    "moviegenre": {
+                        "type": "string"
+                    },
+                    "movieproducer": {
+                        "type": "string"
+                    },
+                    "movietimings": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostPostvvmoiesP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetVvvspestators": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "moviesno": {
+                                    "type": "integer"
+                                },
+                                "spectatorno": {
+                                    "type": "integer"
+                                },
+                                "spectatorname": {
+                                    "type": "string"
+                                },
+                                "spectatorage": {
+                                    "type": "integer"
+                                },
+                                "mobilenumber": {
+                                    "type": "integer"
+                                },
+                                "seatingrow": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetVvvspectatorsbymoviesno": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "moviesno": {
+                                    "type": "integer"
+                                },
+                                "spectatorno": {
+                                    "type": "integer"
+                                },
+                                "spectatorname": {
+                                    "type": "string"
+                                },
+                                "spectatorage": {
+                                    "type": "integer"
+                                },
+                                "mobilenumber": {
+                                    "type": "integer"
+                                },
+                                "seatingrow": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetVvspectatorsgetbyid": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "moviesno": {
+                                    "type": "integer"
+                                },
+                                "spectatorno": {
+                                    "type": "integer"
+                                },
+                                "spectatorname": {
+                                    "type": "string"
+                                },
+                                "spectatorage": {
+                                    "type": "integer"
+                                },
+                                "mobilenumber": {
+                                    "type": "integer"
+                                },
+                                "seatingrow": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostVvspectatorspostP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "moviesno": {
+                        "type": "integer"
+                    },
+                    "spectatorno": {
+                        "type": "integer"
+                    },
+                    "spectatorname": {
+                        "type": "string"
+                    },
+                    "spectatorage": {
+                        "type": "integer"
+                    },
+                    "mobilenumber": {
+                        "type": "integer"
+                    },
+                    "seatingrow": {
+                        "type": "string"
+                    },
+                    "gender": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostVvspectatorspostP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetSpecgetbyidpk": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "moviesno": {
+                                    "type": "integer"
+                                },
+                                "spectatorno": {
+                                    "type": "integer"
+                                },
+                                "spectatorname": {
+                                    "type": "string"
+                                },
+                                "spectatorage": {
+                                    "type": "integer"
+                                },
+                                "mobilenumber": {
+                                    "type": "integer"
+                                },
+                                "seatingrow": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetVvspectatordetails": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "spectatorno": {
+                                    "type": "integer"
+                                },
+                                "locationno": {
+                                    "type": "integer"
+                                },
+                                "locationname": {
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "type": "string"
+                                },
+                                "pincode": {
+                                    "type": "integer"
+                                },
+                                "country": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetVvspectatordetails2": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "spectatorno": {
+                                    "type": "integer"
+                                },
+                                "locationno": {
+                                    "type": "integer"
+                                },
+                                "locationname": {
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "type": "string"
+                                },
+                                "pincode": {
+                                    "type": "integer"
+                                },
+                                "country": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostSpecdetailsP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "spectatorno": {
+                        "type": "integer"
+                    },
+                    "locationno": {
+                        "type": "integer"
+                    },
+                    "locationname": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "pincode": {
+                        "type": "integer"
+                    },
+                    "country": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostSpecdetailsP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetVvspectatordetails3": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "spectatorno": {
+                                    "type": "integer"
+                                },
+                                "locationno": {
+                                    "type": "integer"
+                                },
+                                "locationname": {
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "type": "string"
+                                },
+                                "pincode": {
+                                    "type": "integer"
+                                },
+                                "country": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

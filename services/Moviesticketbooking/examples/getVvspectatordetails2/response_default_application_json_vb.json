@@ -1,0 +1,27 @@
+{
+    "items": [
+        {
+            "spectatorno": 1,
+            "locationno": 1,
+            "locationname": "Vellore",
+            "address": "Gandhinagar",
+            "pincode": 632001,
+            "country": "India",
+            "state": "Tamilnadu"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/moviestable/vvspectatordetails2?pspectatorno=1"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/moviestable/item"
+        }
+    ]
+}

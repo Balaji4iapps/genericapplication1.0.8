@@ -1,0 +1,28 @@
+{
+    "items": [
+        {
+            "customer_num": "12",
+            "customer_name": "shaju",
+            "customer_location": "Ariyankuppam",
+            "depart_num": "2",
+            "salesman": "Tamil",
+            "area_no": "10",
+            "order_date": "2022-04-02T00:00:00Z",
+            "email_id": "shaju@gmail.com"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/productapplication/customergetid?DepartNum=2"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/productapplication/item"
+        }
+    ]
+}

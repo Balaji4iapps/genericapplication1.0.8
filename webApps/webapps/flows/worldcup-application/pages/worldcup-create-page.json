@@ -1,0 +1,289 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "countryAdd": {
+      "type": "postCountries"
+    },
+    "matches": {
+      "type": "any"
+    },
+    "matchfixtures": {
+      "type": "any"
+    },
+    "Method": {
+      "type": "any",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "players": {
+      "type": "any"
+    },
+    "playerstowatch": {
+      "type": "any"
+    },
+    "postmatch": {
+      "type": "postMatchP_METHODP_PRIMARYKEY2"
+    },
+    "postplayers": {
+      "type": "postPlayersP_METHODP_PRIMARYKEY"
+    },
+    "PrimaryKey": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.postCountries": {
+      "endpoint": "postCountries",
+      "service": "WorldCupApplication",
+      "path": "request"
+    },
+    "@decorators.postMatchP_METHODP_PRIMARYKEY2": {
+      "endpoint": "postMatchP_METHODP_PRIMARYKEY2",
+      "service": "WorldCupApplication",
+      "path": "request"
+    },
+    "@decorators.postPlayersP_METHODP_PRIMARYKEY": {
+      "endpoint": "postPlayersP_METHODP_PRIMARYKEY",
+      "service": "WorldCupApplication",
+      "path": "request"
+    },
+    "postCountries": {
+      "c_id": "number",
+      "country_name": "string",
+      "fifa_ranking": "number",
+      "group_": "string",
+      "squad_strenght": "number",
+      "team_base": "string",
+      "wc_titles": "number"
+    },
+    "postMatchP_METHODP_PRIMARYKEY2": {
+      "c_id": "number",
+      "capacity_": "number",
+      "date_": "string",
+      "fixtures": "string",
+      "group_": "string",
+      "match_no": "number",
+      "s_no": "number",
+      "stadium": "string",
+      "time_": "string"
+    },
+    "postPlayersP_METHODP_PRIMARYKEY": {
+      "age": "number",
+      "c_id": "number",
+      "country_name": "string",
+      "fifa_rating": "number",
+      "goal_scored": "number",
+      "player_name": "string",
+      "positions": "string",
+      "s_no": "number"
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "onclicksave"
+        }
+      ]
+    },
+    "buttonAction10": {
+      "chains": [
+        {
+          "chainId": "playeradd"
+        }
+      ]
+    },
+    "buttonAction11": {
+      "chains": [
+        {
+          "chainId": "playersave"
+        }
+      ]
+    },
+    "buttonAction12": {
+      "chains": [
+        {
+          "chainId": "onclickplayerdelete"
+        }
+      ]
+    },
+    "buttonAction13": {
+      "chains": [
+        {
+          "chainId": "playerdeletecancel"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "onclickclose"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "saveandclose"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "addfixtures"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "matchpopupclose"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "matchfixturesave"
+        }
+      ]
+    },
+    "buttonAction7": {
+      "chains": [
+        {
+          "chainId": "matchfixturedelete"
+        }
+      ]
+    },
+    "buttonAction8": {
+      "chains": [
+        {
+          "chainId": "matchdeletepopupclose"
+        }
+      ]
+    },
+    "buttonAction9": {
+      "chains": [
+        {
+          "chainId": "playerpopupclose"
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "matchfixtureedit",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick2": {
+      "chains": [
+        {
+          "chainId": "matchdeletepopup",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick3": {
+      "chains": [
+        {
+          "chainId": "playeredit",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick4": {
+      "chains": [
+        {
+          "chainId": "playerdeletepopup",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "onloaddatabyid"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-radioset": {
+        "path": "ojs/ojradioset"
+      },
+      "oj-select-one": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+    "items": [
+        {
+            "employee_num": 1304,
+            "customer_id": 154,
+            "customer_name": "Albus               ",
+            "dob": "1946-04-01T00:00:00Z",
+            "job": "Owner          ",
+            "company": "Hogwarts         ",
+            "salary": 80000
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1312/Customerworkfkget_1312?customer_id=154"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1312/item"
+        }
+    ]
+}

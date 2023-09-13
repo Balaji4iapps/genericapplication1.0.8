@@ -1,0 +1,36 @@
+{
+    "items": [
+        {
+            "c_id": 2,
+            "country_name": "Australia",
+            "wc_titles": 0,
+            "fifa_ranking": 26,
+            "squad_strenght": 72,
+            "group_": "D",
+            "team_base": "Aspire Academy"
+        },
+        {
+            "c_id": 1,
+            "country_name": "Argentina",
+            "wc_titles": 2,
+            "fifa_ranking": 3,
+            "squad_strenght": 83,
+            "group_": "C",
+            "team_base": "Qatar University"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 2,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1331/wc2022"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1331/item"
+        }
+    ]
+}

@@ -1,0 +1,221 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "chartvariable": {
+      "type": "number"
+    },
+    "statuspage": {
+      "type": "any"
+    },
+    "student": {
+      "type": "studentdetailspost"
+    },
+    "studentpk": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "studentstatusidfksListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "collegeapplication/Studentstatusidfks",
+        "keyAttributes": "student_id",
+        "itemsPath": "items",
+        "responseType": "studentstatusidfksResponse8",
+        "uriParameters": {
+          "student_id": "{{ $variables.studentpk }}"
+        }
+      }
+    },
+    "studentstatusidfksListSDP2": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "collegeapplication/Studentstatusidfks",
+        "keyAttributes": "student_id",
+        "itemsPath": "items",
+        "responseType": "studentstatusidfksResponse9",
+        "uriParameters": {
+          "student_id": "{{ $variables.studentpk }}"
+        }
+      }
+    },
+    "studentstatusidfksListSDP3": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "collegeapplication/Studentstatusidfks",
+        "keyAttributes": "student_id",
+        "itemsPath": "items",
+        "responseType": "studentstatusidfksResponse10",
+        "uriParameters": {
+          "student_id": "{{ $variables.studentpk }}"
+        }
+      }
+    },
+    "studentstatusidfksListSDP4": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "collegeapplication/Studentstatusidfks",
+        "keyAttributes": "student_id",
+        "itemsPath": "items",
+        "responseType": "studentstatusidfksResponse11",
+        "uriParameters": {
+          "student_id": "{{ $variables.studentpk }}"
+        }
+      }
+    }
+  },
+  "metadata": {},
+  "types": {
+
+    "@decorators.studentdetailspost": {
+      "endpoint": "studentdetailspost",
+      "service": "collegeapplication",
+      "path": "request"
+    },
+    "@decorators.studentstatusidfksResponse10": {
+      "endpoint": "Studentstatusidfks",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "@decorators.studentstatusidfksResponse11": {
+      "endpoint": "Studentstatusidfks",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "@decorators.studentstatusidfksResponse8": {
+      "endpoint": "Studentstatusidfks",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "@decorators.studentstatusidfksResponse9": {
+      "endpoint": "Studentstatusidfks",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "studentdetailspost": {
+      "address": "string",
+      "contact_number": "number",
+      "department": "string",
+      "dob": "string",
+      "email": "string",
+      "gender": "string",
+      "staff_id": "number",
+      "student_id": "number",
+      "student_name": "string"
+    },
+    "studentstatusidfksResponse10": {
+      "items": [
+        {
+          "project_mark": "number",
+          "sem_marks": "number",
+          "semester": "number",
+          "student_id": "number",
+          "student_name": "string"
+        }
+      ]
+    },
+    "studentstatusidfksResponse11": {
+      "items": [
+        {
+          "project_mark": "number",
+          "sem_marks": "number",
+          "student_id": "number",
+          "student_name": "string"
+        }
+      ]
+    },
+    "studentstatusidfksResponse8": {
+      "items": [
+        {
+          "project_mark": "number",
+          "sem_marks": "number",
+          "student_id": "number",
+          "student_name": "string"
+        }
+      ]
+    },
+    "studentstatusidfksResponse9": {
+      "items": [
+        {
+          "project_mark": "number",
+          "sem_marks": "number",
+          "semester": "number",
+          "student_id": "number"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "inputTextValue": {
+      "chains": [
+        {
+          "chainId": "InputTextValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "pageload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-chart": {
+        "path": "ojs/ojchart"
+      },
+      "oj-chart-item": {
+        "path": "ojs/ojchart"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-progress-circle": {
+        "path": "ojs/ojprogress-circle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    },
+    "modules": {
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+    }
+  }
+}

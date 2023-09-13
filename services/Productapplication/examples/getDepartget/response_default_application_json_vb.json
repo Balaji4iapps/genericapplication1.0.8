@@ -1,0 +1,88 @@
+{
+    "items": [
+        {
+            "depart_num": "2",
+            "shop_name": "Pothys",
+            "store_short_code": "605",
+            "product_num": "100",
+            "shop_location": "Pondy",
+            "delivery_date": "2022-04-12T00:00:00Z",
+            "dispatch_no": 22,
+            "manager_name": "nirmal"
+        },
+        {
+            "depart_num": "3",
+            "shop_name": "Dailyneeds",
+            "store_short_code": "602",
+            "product_num": "200",
+            "shop_location": "Chennai",
+            "delivery_date": "2022-04-14T00:00:00Z",
+            "dispatch_no": 23,
+            "manager_name": "ajay"
+        },
+        {
+            "depart_num": "4",
+            "shop_name": "Needone",
+            "store_short_code": "601",
+            "product_num": "300",
+            "shop_location": "Trichy",
+            "delivery_date": "2022-04-15T00:00:00Z",
+            "dispatch_no": 43,
+            "manager_name": "akash"
+        },
+        {
+            "depart_num": "5",
+            "shop_name": "mart",
+            "store_short_code": "603",
+            "product_num": "400",
+            "shop_location": "Theni",
+            "delivery_date": "2022-04-16T00:00:00Z",
+            "dispatch_no": 24,
+            "manager_name": "anand"
+        },
+        {
+            "depart_num": "6",
+            "shop_name": "Max",
+            "store_short_code": "604",
+            "product_num": "500",
+            "shop_location": "Tnagar",
+            "delivery_date": "2022-04-17T00:00:00Z",
+            "dispatch_no": 33,
+            "manager_name": "inba"
+        },
+        {
+            "depart_num": "7",
+            "shop_name": "Bigbasket",
+            "store_short_code": "607",
+            "product_num": "600",
+            "shop_location": "PondyEast",
+            "delivery_date": "2022-04-18T00:00:00Z",
+            "dispatch_no": 12,
+            "manager_name": "mani"
+        },
+        {
+            "depart_num": "8",
+            "shop_name": "Cake",
+            "store_short_code": "608",
+            "product_num": "700",
+            "shop_location": "Navallur",
+            "delivery_date": "2022-04-20T00:00:00Z",
+            "dispatch_no": 17,
+            "manager_name": "raj"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 7,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/productapplication/departget"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/productapplication/item"
+        }
+    ]
+}

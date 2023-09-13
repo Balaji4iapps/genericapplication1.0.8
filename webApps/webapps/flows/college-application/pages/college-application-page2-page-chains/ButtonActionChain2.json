@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentOjDialog7874243351Close",
+  "actions": {
+    "callComponentOjDialog7874243351Close": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog--787424335-1') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

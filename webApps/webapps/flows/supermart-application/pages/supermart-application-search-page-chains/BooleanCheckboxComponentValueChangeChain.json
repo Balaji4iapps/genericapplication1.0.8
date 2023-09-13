@@ -1,0 +1,62 @@
+{
+  "description": "",
+  "root": "ifValue",
+  "actions": {
+    "ifValue": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $variables.value ]]"
+      },
+      "outcomes": {
+        "true": "fireDataProviderEventCheckboxADP",
+        "false": "fireDataProviderEventCheckboxADP2"
+      }
+    },
+    "fireDataProviderEventCheckboxADP": {
+      "module": "vb/action/builtin/fireDataProviderEventAction",
+      "parameters": {
+        "target": "[[ $page.variables.checkboxADP ]]",
+        "add": {
+          "data": "{{ $variables.current.row }}",
+          "keys": [
+            "{{ $variables.key }}"
+          ]
+        }
+      }
+    },
+    "fireDataProviderEventCheckboxADP2": {
+      "module": "vb/action/builtin/fireDataProviderEventAction",
+      "parameters": {
+        "target": "[[ $page.variables.checkboxADP ]]",
+        "remove": {
+          "data": "{{ $variables.current.row }}",
+          "keys": [
+            "{{ $variables.key }}"
+          ]
+        }
+      }
+    }
+  },
+  "variables": {
+    "value": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

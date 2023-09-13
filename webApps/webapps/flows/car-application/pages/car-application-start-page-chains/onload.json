@@ -1,0 +1,67 @@
+{
+  "root": "callComponentLoadingPlzWaitPopupOpen",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetCardetails.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetCardetails": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CarApplication/getCardetails"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetCardetails.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesPagecontrol"
+      }
+    },
+    "assignVariablesPagecontrol": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.pagecontrol": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentLoadingPlzWaitPopupClose"
+      }
+    },
+    "callComponentLoadingPlzWaitPopupOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('loadingPlzWaitPopup') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestGetCardetails"
+      }
+    },
+    "callComponentLoadingPlzWaitPopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('loadingPlzWaitPopup') }}",
+        "method": "close"
+      }
+    }
+  }
+}

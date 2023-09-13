@@ -1,0 +1,229 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "cswrkpk": {
+      "type": "number"
+    },
+    "cusfknetid": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "cusidpkey": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "cusmethod": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "customerworktable": {
+      "type": "any"
+    },
+    "cusworkmethod": {
+      "type": "string"
+    },
+    "cusworkpopup": {
+      "type": "postinCustomerwork"
+    },
+    "cuswrkfk": {
+      "type": "number"
+    },
+    "recordscustomer": {
+      "type": "postCustomer_1312P_METHODP_PRIMARYKEY"
+    },
+    "workenumpk": {
+      "type": "number"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.postCustomer_1312P_METHODP_PRIMARYKEY": {
+      "endpoint": "postCustomer_1312P_METHODP_PRIMARYKEY",
+      "service": "Network1312",
+      "path": "request"
+    },
+    "@decorators.postinCustomerwork": {
+      "endpoint": "postinCustomerwork",
+      "service": "Network1312",
+      "path": "request"
+    },
+    "postCustomer_1312P_METHODP_PRIMARYKEY": {
+      "contact_no": "number",
+      "customer_id": "number",
+      "customer_name": "string",
+      "network_id": "number",
+      "pincode": "number",
+      "plan_detail": "string",
+      "residence": "string"
+    },
+    "postinCustomerwork": {
+      "company": "string",
+      "customer_id": "number",
+      "customer_name": "string",
+      "dob": "string",
+      "employee_num": "number",
+      "job": "string",
+      "salary": "number"
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "customersave"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "tonetsavepage"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain2",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "savecuswrk",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction7": {
+      "chains": [
+        {
+          "chainId": "onclickcreate"
+        }
+      ]
+    },
+    "buttonAction8": {
+      "chains": [
+        {
+          "chainId": "saveclosecus"
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick2": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain1",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "onloadpage3"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      },
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+    }
+  }
+}

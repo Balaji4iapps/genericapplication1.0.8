@@ -1,0 +1,32 @@
+{
+  "description": "",
+  "root": "assignVariablesRowlanguage",
+  "actions": {
+    "assignVariablesRowlanguage": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Rowlanguage": {
+          "source": "{{ $variables.rowData }}",
+          "auto": "always"
+        }
+      }
+    }
+  },
+  "variables": {
+    "rowKey": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "rowIndex": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "rowData": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

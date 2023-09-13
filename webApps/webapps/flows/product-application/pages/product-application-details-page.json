@@ -1,0 +1,160 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "getGetalltableListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "Productapplication/getGetalltable",
+        "keyAttributes": "product_name",
+        "itemsPath": "items",
+        "responseType": "getGetalltableResponse",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "product_num"
+          ]
+        }
+      }
+    },
+    "getGetListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "Productapplication/getGet",
+        "keyAttributes": "product_num",
+        "itemsPath": "items",
+        "responseType": "getGetResponse",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "product_name"
+          ]
+        }
+      }
+    },
+    "lov": {
+      "type": "number"
+    },
+    "table": {
+      "type": "any"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getGetalltableResponse": {
+      "endpoint": "getGetalltable",
+      "service": "Productapplication",
+      "path": "response"
+    },
+    "@decorators.getGetResponse": {
+      "endpoint": "getGet",
+      "service": "Productapplication",
+      "path": "response"
+    },
+    "getGetalltableResponse": {
+      "items": [
+        {
+          "area_no": "string",
+          "customer_location": "string",
+          "customer_name": "string",
+          "delivery_date": "string",
+          "dispatch_no": "number",
+          "email_id": "string",
+          "expiry_date": "string",
+          "manager_name": "string",
+          "manufacture_date": "string",
+          "mobile": "number",
+          "order_date": "string",
+          "pincode": "number",
+          "product_location": "string",
+          "product_name": "string",
+          "product_num": "string",
+          "salesman": "string",
+          "shop_location": "string",
+          "shop_name": "string",
+          "stock_remain": "string",
+          "store_short_code": "string"
+        }
+      ]
+    },
+    "getGetResponse": {
+      "items": [
+        {
+          "expiry_date": "string",
+          "manufacture_date": "string",
+          "mobile": "number",
+          "pincode": "number",
+          "product_location": "string",
+          "product_name": "string",
+          "product_num": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "Searchsavebutton"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "Onload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      }
+    }
+  }
+}

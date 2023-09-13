@@ -1,0 +1,11 @@
+{
+            "product_id": "0",
+            "product_name": "Dalda",
+            "qty_in_stock": "\t150KG",
+            "price_per_kg_l": "50",
+            "mfd_date": "2021-05-21T00:00:00Z",
+            "exp_date": "2022-05-22T00:00:00Z",
+            "manufacturer_id": "1002",
+            "catagory": "Essential",
+            "packed": "Yes"
+        }

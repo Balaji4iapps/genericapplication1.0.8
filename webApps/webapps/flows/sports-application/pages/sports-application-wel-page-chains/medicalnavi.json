@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToSportsApplicationGame",
+  "actions": {
+    "navigateToSportsApplicationGame": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "sports-application-game"
+      }
+    }
+  },
+  "variables": {}
+}

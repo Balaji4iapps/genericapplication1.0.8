@@ -1,0 +1,140 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "alldata": {
+      "type": "any"
+    },
+    "exportdata": {
+      "type": "vb/ArrayDataProvider2"
+    },
+    "getMfdheaderListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "supermartapplication/getMfdheader",
+        "keyAttributes": "manufacturer_id",
+        "itemsPath": "items",
+        "responseType": "getMfdheaderResponse",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "manufacturer"
+          ]
+        }
+      }
+    },
+    "lovalldatasearch": {
+      "type": "string"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getCustomergetexport": {
+      "endpoint": "getCustomerget",
+      "service": "Productapplication",
+      "path": "response"
+    },
+    "@decorators.getMfdheaderResponse": {
+      "endpoint": "getMfdheader",
+      "service": "supermartapplication",
+      "path": "response"
+    },
+    "getCustomergetexport": {
+      
+          "area_no": "string",
+          "customer_location": "string",
+          "customer_name": "string",
+          "customer_num": "string",
+          "depart_num": "string",
+          "email_id": "string",
+          "order_date": "string",
+          "salesman": "string"
+       
+    },
+    "getMfdheaderResponse": {
+      "items": [
+        {
+          "account_number": "string",
+          "city": "string",
+          "contact_number": "string",
+          "industry_type": "string",
+          "mail_id": "string",
+          "manufacturer": "string",
+          "manufacturer_id": "string",
+          "state_location": "string"
+        }
+      ]
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "alldatasearchbutton"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "resetbutton"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "Backtomainpage"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "alldatapageload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-sample-export-data": {
+        "path": "oj-sample/export-data/loader"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      }
+    }
+  }
+}

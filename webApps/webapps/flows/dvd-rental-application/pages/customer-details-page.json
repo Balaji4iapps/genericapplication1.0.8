@@ -1,0 +1,225 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "customerADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "Getcustomer",
+        "keyAttributes": [
+            "customer_id",
+            "seq_customer"
+          ]
+      },
+      "rateLimit": {
+        "timeout": 1000
+      }
+    },
+    "customerpopup": {
+      "type": {
+        "active": "any",
+        "address_id": "number",
+        "create_date": "any",
+        "customer_id": "any",
+        "email": "any",
+        "first_name": "any",
+        "last_name": "any",
+        "last_update": "any",
+        "seq_customer": "number",
+        "store_id": "number"
+      }
+    },
+    "pagingline": {
+      "type": "any"
+    },
+    "place": {
+      "type": "getbyid"
+    },
+    "SearchCustomer": {
+      "type": {
+        "customer_id": "number",
+        "email": "any",
+        "first_name": "string",
+        "last_name": "string"
+      }
+    },
+    "seq_customer": {
+      "type": "any",
+      "required": true,
+      "input": "fromUrl"
+    }
+
+  },
+  "metadata": {
+    "dvdORDSGetpaymentMetadata": {
+      "type": "vb/DynamicLayoutMetadataProviderDescriptor",
+      "defaultValue": {
+        "endpoint": "DvdORDS/Getpayment",
+        "metadataPath": "items"
+      }
+    }
+  },
+  "types": {
+    "@decorators.getbyid": {
+      "endpoint": "getbyid",
+      "service": "DvdORDS",
+      "path": "response-_-items[0]"
+    },
+    "@decorators.Getcustomer": {
+      "endpoint": "Getcustomer",
+      "service": "DvdORDS",
+      "path": "response-_-items[0]"
+    },
+    "getbyid": {
+      "address": "string",
+      "address_id": "number",
+      "city_id": "number",
+      "district": "string",
+      "last_update": "string",
+      "phone": "number",
+      "postal_code": "number",
+      "seq_place": "number"
+    },
+    "Getcustomer": {
+      "active": "number",
+      "address_id": "number",
+      "create_date": "string",
+      "customer_id": "number",
+      "email": "string",
+      "first_name": "string",
+      "last_name": "string",
+      "last_update": "string",
+      "seq_customer": "any",
+      "store_id": "number"
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "OnPressHome"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "OnPressDelete",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "Onclicksave"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "OnPressSearch"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "OnPressCreate"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "OnPressCancel"
+        }
+      ]
+    },
+    "hyperlinkClick": {
+      "chains": [
+        {
+          "chainId": "OnClickhyperlink",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "OnLoadCustomer"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-search": {
+        "path": "ojs/ojinputsearch"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      }
+
+    },
+    "modules": {
+      "ojValidationBase": {
+        "path": "ojs/ojvalidation-base"
+      },
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      },
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+
+    }
+  }
+}

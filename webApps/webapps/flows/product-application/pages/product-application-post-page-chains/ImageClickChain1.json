@@ -1,0 +1,59 @@
+{
+  "description": "",
+  "root": "callRestPostDepartappPMETHODPPRIMARYKEY",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostDepartappPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostDepartappPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Productapplication/postDepartappP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $page.variables.deletevar }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostDepartappPMETHODPPRIMARYKEY.body.p_err_code ]]",
+        "message": "[[ $chain.results.callRestPostDepartappPMETHODPPRIMARYKEY.body.p_err_msg ]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callComponentPopupdeletechildoneClose"
+      }
+    },
+    "callComponentPopupdeletechildoneClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('popupdeletechildone') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainPostonload"
+      }
+    },
+    "callChainPostonload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "postonload"
+      }
+    }
+  },
+  "variables": {}
+}

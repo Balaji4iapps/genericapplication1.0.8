@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentCustomerdeletebuttonClose",
+  "actions": {
+    "callComponentCustomerdeletebuttonClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('customerdeletebutton') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

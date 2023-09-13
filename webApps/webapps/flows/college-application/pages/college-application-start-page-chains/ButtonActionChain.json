@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToCollegeApplicationPage1",
+  "actions": {
+    "navigateToCollegeApplicationPage1": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "college-application-page1"
+      }
+    }
+  },
+  "variables": {}
+}

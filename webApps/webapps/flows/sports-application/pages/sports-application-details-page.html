@@ -1,0 +1,52 @@
+<h1><i>Details<i></h1>
+<oj-form-layout>
+<oj-select-single label-hint="Player Name" value="{{ $variables.detailslov }}" item-text="player_name"
+  data="[[$variables.getPlayerListSDP]]"></oj-select-single>
+</oj-form-layout>
+ <div 
+  style="display:flex; justify-content:flex-middle; margin-bottom:1%;">
+      <oj-button class="oj-button-sm" chroming="callToAction"
+        style="margin-left:1.5%;margin-right:0.5%;" on-oj-action="[[$listeners.buttonAction3]]" >SEARCH</oj-button> 
+          <oj-button class="oj-button-sm" chroming="danger"
+        style="margin-left:1.5%;margin-right:0.5%;" on-oj-action="[[$listeners.buttonAction]]" >RESET</oj-button> 
+          <oj-button class="oj-button-sm" chroming="danger"
+        style="margin-left:1.5%;margin-right:0.5%;" on-oj-action="[[$listeners.buttonAction2]]">BACK</oj-button> 
+
+  </div>
+
+
+
+<oj-table scroll-policy="loadMoreOnScroll" selection-mode.row="single" edit-mode="rowEdit"
+  selection-mode.column="single"
+  columns='[{"headerText":"Player Id","field":"player_id"},
+  {"headerText":"Player Name","field":"player_name"},
+  {"headerText":"Gender","field":"gender"},
+  {"headerText":"Dop","field":"dop","template":"apptodate"},
+  {"headerText":"Address","field":"address"},
+  {"headerText":"State","field":"state"},
+  {"headerText":"Contact Num","field":"con_num"},
+  {"headerText":"Email Id","field":"email_id"},
+  {"headerText":"Game Name","field":"game_name"},
+  {"headerText":"Modes","field":"modes"},
+  {"headerText":"Kits","field":"kits"},
+  {"headerText":"Participants","field":"participants"},
+  {"headerText":"Awards","field":"awards"},
+  {"headerText":"Workout Evalution","field":"workout_evalution"},
+  {"headerText":"Trainer Name","field":"trainer_name"},
+  {"headerText":"Phy Challenged","field":"phy_challenged"},
+  {"headerText":"Allergies","field":"allergies"},
+  {"headerText":"Last_Match_Injuire_Status","field":"last_match_injuire_status"},
+  {"headerText":"Dose_Level","field":"dose_level"},
+  {"headerText":"Insurances","field":"insurances"},
+  {"headerText":"Remarks","field":"remarks"},
+  {"headerText":"Therapy Assistant","field":"therapy_assistant"}]'
+  display="grid" data="[[ $variables.details ]]">
+   <template slot="apptodate">
+          <oj-input-date value="[[$current.data]]" readonly="true"
+            converter='{"type": "datetime", "options": {"pattern":"dd-MMM-yyyy"}}'></oj-input-date>
+        </template>
+<oj-paging-control id="paging" 
+class="oj-sm-width-full" data="[[ $variables.details ]]" page-size="15" 
+slot="bottom">
+</oj-paging-control>
+</oj-table>

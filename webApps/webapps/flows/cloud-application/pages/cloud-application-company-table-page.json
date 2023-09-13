@@ -1,0 +1,103 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "company18GetallListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "CloudApplication/Company18Getall",
+        "keyAttributes": "company_id",
+        "itemsPath": "items",
+        "responseType": "company18GetallResponse"
+      }
+    },
+    "company18GetallListSDP2": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "CloudApplication/Company18Getall",
+        "keyAttributes": "company_id",
+        "itemsPath": "items",
+        "responseType": "company18GetallResponse2"
+      }
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.company18GetallResponse": {
+      "endpoint": "Company18Getall",
+      "service": "CloudApplication",
+      "path": "response"
+    },
+    "@decorators.company18GetallResponse2": {
+      "endpoint": "Company18Getall",
+      "service": "CloudApplication",
+      "path": "response"
+    },
+    "company18GetallResponse": {
+      "items": [
+        {
+          "cloud_id": "number",
+          "company_id": "number",
+          "company_location": "string",
+          "company_mailid": "any",
+          "company_name": "string",
+          "owner_name": "any",
+          "started_date": "any",
+          "turnover_million": "number"
+        }
+      ]
+    },
+    "company18GetallResponse2": {
+      "items": [
+        {
+          "cloud_id": "number",
+          "company_id": "number",
+          "company_name": "string",
+          "turnover_million": "number"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "CompanyB2H"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-chart": {
+        "path": "ojs/ojchart"
+      },
+      "oj-chart-item": {
+        "path": "ojs/ojchart"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      }
+    }
+  }
+}

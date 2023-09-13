@@ -1,0 +1,27 @@
+{
+    "items": [
+        {
+            "spectatorno": 2,
+            "locationno": 2,
+            "locationname": "Katpadi",
+            "address": "Bharathinagar",
+            "pincode": 632002,
+            "country": "India",
+            "state": "Tamilnadu"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/moviestable/vvspectatordetails3?plocationno=2"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/moviestable/item"
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "items": [
+        {
+            "network_id": 126,
+            "network_name": "VI             ",
+            "data_pack": "2GB",
+            "mrp": "249",
+            "validity": "30days",
+            "subscriptions": "Star Sports",
+            "sms": "unlimited"
+        },
+        {
+            "network_id": 143,
+            "network_name": "VIVO NEW1",
+            "data_pack": "1.5GB",
+            "mrp": "200",
+            "validity": "28DAYS",
+            "subscriptions": "STARSPORTS",
+            "sms": "UNLIMITED"
+        },
+        {
+            "network_id": 142,
+            "network_name": "VI NEW",
+            "data_pack": "4gb",
+            "mrp": "300",
+            "validity": "30days",
+            "subscriptions": "sunnext",
+            "sms": "100/day"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 3,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1312/get?p_search_value=vi"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1312/item"
+        }
+    ]
+}

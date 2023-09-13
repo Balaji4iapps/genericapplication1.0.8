@@ -1,0 +1,95 @@
+{
+    "items": [
+        {
+            "s_no": 34,
+            "match_no": 17,
+            "date_": "2022-11-25T00:00:00Z",
+            "time_": "15:30",
+            "c_id": 32,
+            "fixtures": "Wales VS Iran",
+            "group_": "B",
+            "stadium": "Ahmed bin Ali Stadium,Al Rayyan",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 39,
+            "match_no": 19,
+            "date_": "2022-11-25T00:00:00Z",
+            "time_": "21:30",
+            "c_id": 10,
+            "fixtures": "Netherlands VS Ecuador",
+            "group_": "A",
+            "stadium": "Khalifa International Stadium,Doha",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 37,
+            "match_no": 19,
+            "date_": "2022-11-25T00:00:00Z",
+            "time_": "21:30",
+            "c_id": 19,
+            "fixtures": "Netherlands VS Ecuador",
+            "group_": "A",
+            "stadium": "Khalifa International Stadium,Doha",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 31,
+            "match_no": 16,
+            "date_": "2022-11-25T00:00:00Z",
+            "time_": "0:30",
+            "c_id": 4,
+            "fixtures": "Brazil VS Serbia",
+            "group_": "G",
+            "stadium": "Lusail Iconic Stadium,Lusail",
+            "capacity_": 80000
+        },
+        {
+            "s_no": 32,
+            "match_no": 16,
+            "date_": "2022-11-25T00:00:00Z",
+            "time_": "0:30",
+            "c_id": 25,
+            "fixtures": "Brazil VS Serbia",
+            "group_": "G",
+            "stadium": "Lusail Iconic Stadium,Lusail",
+            "capacity_": 80000
+        },
+        {
+            "s_no": 35,
+            "match_no": 18,
+            "date_": "2022-11-25T00:00:00Z",
+            "time_": "15:30",
+            "c_id": 22,
+            "fixtures": "Qatar VS Senegal",
+            "group_": "A",
+            "stadium": "Al Thumama Stadium,Doha",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 36,
+            "match_no": 18,
+            "date_": "2022-11-25T00:00:00Z",
+            "time_": "18:30",
+            "c_id": 24,
+            "fixtures": "Qatar VS Senegal",
+            "group_": "A",
+            "stadium": "Al Thumama Stadium,Doha",
+            "capacity_": 40000
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 7,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1331/matchesbydate?dates=25-NOV-2022"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1331/item"
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+<h1><oj-bind-text value="[[$application.translations.app.Service_Page_Details]]"></oj-bind-text></h1>
+ <div style="margin-left:95%;margin-top:6px">
+      <oj-button label="[[$application.translations.app.back]]" on-oj-action="[[$listeners.buttonAction]]" > </oj-button>
+    </div><br>
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+    data="[[$variables.getGetservice18ListSDP]]"
+    columns='[{"headerText":"Service Id","field":"service_id"},{"headerText":"Service Short Name","field":"service_short_name"},{"headerText":"Service Full Name","field":"company_full_name"},{"headerText":"Bond Type","field":"bond_type"},{"headerText":"Bond Duration","field":"bond_duration"},{"headerText":"Storage Used","field":"storage_used"},{"headerText":"Started Date","field":"started_date","template":"date"},{"headerText":"Company Id","field":"company_id"}]'
+    display="grid" horizontal-grid-visible="enabled" vertical-grid-visible="enabled" >
+<template slot="date">
+          <oj-input-date value="[[$current.data]]" readonly="true"
+            converter='{"type": "datetime", "options": {"pattern":"dd-mm-yyyy"}}'></oj-input-date>
+        </template></oj-table>
+</div>
+
+

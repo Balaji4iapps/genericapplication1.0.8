@@ -1,0 +1,58 @@
+{
+  "description": "",
+  "root": "callRestStudentdetailspost",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestStudentdetailspost.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestStudentdetailspost": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "collegeapplication/studentdetailspost",
+        "uriParams": {
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $page.variables.studentprimarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callComponentOjDialog7874243351Close"
+      }
+    },
+    "callComponentOjDialog7874243351Close": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog--787424335-1') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_dbe7]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callChainPagetwoonload"
+      }
+    },
+    "callChainPagetwoonload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "pagetwoonload"
+      }
+    }
+  },
+  "variables": {}
+}

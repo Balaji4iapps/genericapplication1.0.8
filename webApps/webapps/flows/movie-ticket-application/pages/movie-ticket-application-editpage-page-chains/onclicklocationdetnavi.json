@@ -1,0 +1,94 @@
+{
+  "description": "",
+  "root": "assignVariablesSpecdetailsmethod",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetVvspectatordetails2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetVvspectatordetails2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Moviesticketbooking/getVvspectatordetails2",
+        "uriParams": {
+          "pspectatorno": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingspectators1"
+      }
+    },
+    "callFunctionPagingspectators1": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingspectators1",
+        "params": [
+          "{{ $chain.results.callRestGetVvspectatordetails2.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesLocationtable"
+      }
+    },
+    "assignVariablesLocationtable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.locationtable": {
+          "source": "{{ $chain.results.callFunctionPagingspectators1 }}"
+        }
+      }
+    },
+    "callComponentSpectatordetailsOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Spectatordetails') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestGetVvspectatordetails2"
+      }
+    },
+    "assignVariablesSpecdetailsmethod": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.specdetailsmethod": {
+          "source": "create"
+        },
+        "$page.variables.specdetailskey": {
+          "source": "0"
+        },
+        "$page.variables.locfk": {
+          "source": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentSpectatordetailsOpen"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

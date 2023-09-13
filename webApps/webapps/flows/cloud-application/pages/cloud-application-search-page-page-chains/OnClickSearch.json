@@ -1,0 +1,51 @@
+{
+  "description": "",
+  "root": "callRestCloudgetbyid",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.You_need_to_select_cloud_name]]",
+        "type": "warning",
+        "displayMode": "transient",
+        "message": "[[$application.translations.app.You_need_to_select_cloud_name_]]"
+      }
+    },
+    "callRestCloudgetbyid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/Cloudgetbyid",
+        "uriParams": {
+          "pcloud_id": "{{ $page.variables.cloud_id }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingcloudtable"
+      }
+    },
+    "assignVariablesCloudTable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.cloud_table": {
+          "source": "{{ $chain.results.callFunctionPagingcloudtable }}"
+        }
+      }
+    },
+    "callFunctionPagingcloudtable": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingcloudtable",
+        "params": [
+          "{{ $chain.results.callRestCloudgetbyid.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesCloudTable"
+      }
+    }
+  },
+  "variables": {}
+}

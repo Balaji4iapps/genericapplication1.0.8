@@ -1,0 +1,96 @@
+{
+  "root": "ifMethod",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "ifMethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.Method==\"edit\" ]]"
+      },
+      "outcomes": {
+        "true": "runInParallel"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetDoctorbydoctorid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetDoctorbydoctorid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/getDoctorbydoctorid",
+        "uriParams": {
+          "p_search_value": "{{ $page.variables.Primarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariables"
+      }
+    },
+    "assignVariables": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.hdrrowedit": {
+          "source": "{{ $chain.results.callRestGetDoctorbydoctorid.body.items[0] }}",
+          "auto": "always"
+        }
+      }
+    },
+    "runInParallel": {
+      "module": "vb/action/builtin/forkAction",
+      "parameters": {
+        "actions": {
+          "callRestGetDoctorbydoctorid": "callRestGetDoctorbydoctorid",
+          "callRest": "callRestGetPatientdetails"
+        }
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetPatientdetails.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetPatientdetails": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/getPatientdetails"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "callFunctionPagingSearch"
+      }
+    },
+    "callFunctionPagingSearch": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingSearch",
+        "params": [
+          "{{ $chain.results.callRestGetPatientdetails.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesLinetable"
+      }
+    },
+    "assignVariablesLinetable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.linetable": {
+          "source": "{{ $chain.results.callFunctionPagingSearch }}"
+        }
+      }
+    }
+  }
+}

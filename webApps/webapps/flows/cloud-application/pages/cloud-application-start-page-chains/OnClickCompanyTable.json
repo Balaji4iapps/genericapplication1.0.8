@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToCloudApplicationCompanyTable",
+  "actions": {
+    "navigateToCloudApplicationCompanyTable": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "cloud-application-company-table"
+      }
+    }
+  },
+  "variables": {}
+}

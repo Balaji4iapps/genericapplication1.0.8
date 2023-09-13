@@ -1,0 +1,25 @@
+{
+  "description": "",
+  "root": "callComponentPlayerpopupClose",
+  "actions": {
+    "callComponentPlayerpopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('playerpopup') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "assignVariablesPostplayers"
+      }
+    },
+    "assignVariablesPostplayers": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.postplayers": {
+          "reset": "toDefault"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

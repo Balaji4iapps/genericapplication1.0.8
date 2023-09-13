@@ -1,0 +1,80 @@
+<h1></h1>
+
+<oj-form-layout><oj-button class="oj-button-sm" chroming="solid"
+        style="margin-left:0.5%;margin-right:1.5%;" on-oj-action="[[$listeners.buttonAction]]" display="icons">Close
+    <img slot="startIcon" :src="[[ $flow.path + 'resources/images/icons8-left_1.gif' ]]" width="30" height="30">
+</oj-button>
+
+
+</oj-form-layout>
+
+
+ 
+
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-6">
+    <oj-form-layout label-edge="inside">
+      <oj-input-text label-hint="Hai" value="{{ $variables.student.student_name }}" readonly="true"
+        label-edge="inside" class="" on-value-changed="[[$listeners.inputTextValue]]"></oj-input-text>
+      <oj-input-number label-hint="roll number" converter='{"options":{"useGrouping":false},"type":"number"}'
+        value="{{ $variables.student.student_id }}" readonly="true"></oj-input-number>
+      <oj-input-text label-hint="Department" value="{{ $variables.student.department }}" readonly="true"></oj-input-text>
+
+      
+    </oj-form-layout>
+  </div>
+  <oj-chart class="oj-sm-flex-initial oj-flex-item oj-sm-12 oj-md-6" style="max-width:100%;" y-axis.title="sem_marks"
+    x-axis.title="project_mark" legend.title="student_name" data="[[$variables.studentstatusidfksListSDP4]]">
+    <template slot="itemTemplate">
+      <oj-chart-item value="[[ $current.data.sem_marks ]]" group-id="[[[ $current.data.project_mark ]]]"
+        series-id="[[ $current.data.student_name ]]"></oj-chart-item>
+    </template>
+  </oj-chart>
+</div>
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+    columns='[{"headerText":"Semester","field":"semester","template":"Semester"},
+    {"headerText":"Attendance","field":"attendance","template":"Attendance"},
+    {"headerText":"Lab Attendance","field":"lab_attendance"},
+    {"headerText":"Leave Taken","field":"leave_taken"},
+    {"headerText":"Project Name","field":"project_name"},
+    {"headerText":"Project Mark","field":"project_mark"},
+    {"headerText":"Sem marks","field":"sem_marks"}]'
+    data="[[ $variables.statuspage ]]" selection-required="true" horizontal-grid-visible="enabled"
+    vertical-grid-visible="enabled" selection-mode.column="none"  >
+   
+    
+    <oj-paging-control id="paging" class="oj-sm-width-full" page-size="5" slot="bottom"
+      data="[[ $variables.statuspage ]]"
+    
+      
+      >
+</oj-paging-control>
+   <template slot="Attendance">
+      <p style="background-color:grey">
+         <oj-bind-text value="[[$current.data]]"></oj-bind-text>
+      </p>
+   </template>
+    
+    </oj-table>
+</div>
+
+<html>
+<head>
+<style>
+.body {
+  background-color: #4CAF50; /* Green */
+  border: white;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+</style>
+</head>
+</html>
+
+
+ 

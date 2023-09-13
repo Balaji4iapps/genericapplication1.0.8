@@ -1,0 +1,40 @@
+{
+  "description": "",
+  "root": "ifNetworkidpk",
+  "actions": {
+    "assignVariablesCusfk": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.cusfk": {
+          "source": "{{ $page.variables.networkidpk }}"
+        },
+        "$page.variables.cusmethod": {
+          "source": "CREATE"
+        },
+        "$page.variables.cuspk": {
+          "source": "0"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentCustomerpopupOpen"
+      }
+    },
+    "callComponentCustomerpopupOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('customerpopup') }}",
+        "method": "open"
+      }
+    },
+    "ifNetworkidpk": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.networkidpk!=0 ]]"
+      },
+      "outcomes": {
+        "true": "assignVariablesCusfk"
+      }
+    }
+  },
+  "variables": {}
+}

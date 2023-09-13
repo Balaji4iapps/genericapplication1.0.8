@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToProductApplicationSearch",
+  "actions": {
+    "navigateToProductApplicationSearch": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "product-application-search"
+      }
+    }
+  },
+  "variables": {}
+}

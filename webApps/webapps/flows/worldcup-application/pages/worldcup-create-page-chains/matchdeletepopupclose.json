@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentMatchdeletepopupClose",
+  "actions": {
+    "callComponentMatchdeletepopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('matchdeletepopup') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

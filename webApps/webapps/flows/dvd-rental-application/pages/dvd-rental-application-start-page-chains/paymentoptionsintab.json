@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "callChainPaymentmenu",
+  "actions": {
+    "callChainPaymentmenu": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "paymentmenu"
+      }
+    }
+  },
+  "variables": {}
+}

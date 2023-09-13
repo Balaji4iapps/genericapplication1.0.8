@@ -1,0 +1,59 @@
+{
+  "description": "",
+  "root": "callRestPostService18",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostService18.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostService18": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/postService18",
+        "uriParams": {
+          "P_PRIMARYKEY": "{{ $page.variables.servicepk }}",
+          "P_METHOD": "DELETE"
+        },
+        "body": "{{ $page.variables.Postservice }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.Service_record_deleted]]",
+        "message": "[[$application.translations.app.Service_record_deleted_]]",
+        "displayMode": "transient",
+        "type": "warning"
+      },
+      "outcomes": {
+        "success": "callChainOnClickDelServiceCancel"
+      }
+    },
+    "callChainOnClickDelServiceCancel": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "OnClickDelServiceCancel"
+      },
+      "outcomes": {
+        "success": "callChainOnClickSerPopClose"
+      }
+    },
+    "callChainOnClickSerPopClose": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "OnClickSerPopClose"
+      }
+    }
+  },
+  "variables": {}
+}

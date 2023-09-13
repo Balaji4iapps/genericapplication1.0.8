@@ -1,0 +1,75 @@
+{
+  "description": "",
+  "root": "assignVariablesMatchfixtures",
+  "actions": {
+    "assignVariablesMatchfixtures": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.matchfixtures": {
+          "source": "edit"
+        }
+      },
+      "outcomes": {
+        "success": "callRestGetMatchfixture"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetMatchfixture.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetMatchfixture": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/getMatchfixture",
+        "uriParams": {
+          "sno": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesPostmatch"
+      }
+    },
+    "assignVariablesPostmatch": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.postmatch": {
+          "source": "{{ $chain.results.callRestGetMatchfixture.body.items[0] }}",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentMatchfixturespopupOpen"
+      }
+    },
+    "callComponentMatchfixturespopupOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('matchfixturespopup') }}",
+        "method": "open"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

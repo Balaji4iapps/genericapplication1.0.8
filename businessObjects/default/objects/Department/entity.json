@@ -1,0 +1,84 @@
+{
+    "fields": [
+        {
+            "type": "number",
+            "name": "id",
+            "internal": false,
+            "key": true,
+            "oid": "61272ca7-7dd8-42df-b862-11046dd019ec",
+            "required": true,
+            "unique": true,
+            "displayLabel": "Id"
+        },
+        {
+            "type": "datetime",
+            "name": "creationDate",
+            "internal": false,
+            "oid": "40b07ec8-791e-4518-8b69-45154d1c022b",
+            "displayLabel": "Created",
+            "historyType": "timeCreated"
+        },
+        {
+            "type": "datetime",
+            "name": "lastUpdateDate",
+            "internal": false,
+            "oid": "16500635-4515-4798-abc0-fe7f56db7c4c",
+            "displayLabel": "Last Updated",
+            "historyType": "timeUpdated"
+        },
+        {
+            "type": "string",
+            "name": "createdBy",
+            "internal": false,
+            "oid": "1007e6bb-3876-4aeb-8210-823176f7ef61",
+            "displayLabel": "Created By",
+            "historyType": "createdBy"
+        },
+        {
+            "type": "string",
+            "name": "lastUpdatedBy",
+            "internal": false,
+            "oid": "b5a2bb0a-279f-45ff-8877-e03131b76756",
+            "displayLabel": "Last Updated By",
+            "historyType": "updatedBy"
+        },
+{
+            "type": "number",
+            "name": "versionNumber",
+            "internal": false,
+            "oid": "65167855-7a4c-403e-8044-5c2bfd9a746a",
+            "displayLabel": "Version Number",
+            "historyType": "versionNumber"
+        },
+        {
+            "type": "string",
+            "name": "deptName",
+            "oid": "3301e7bf-621a-4fec-a376-a4024404c5cc",
+            "displayLabel": "dept_name"
+        }        ,
+        {
+            "type": "string",
+            "name": "deptCode",
+            "oid": "49fbb876-5100-4b31-b79b-9edb10aac1e2",
+            "displayLabel": "dept_code"
+        }        ,
+        {
+            "type": "number",
+            "name": "salary",
+            "oid": "88707871-ad8f-4567-9102-9a7e9ab2ce54",
+            "displayLabel": "salary"
+        }
+    ],
+    "name": "Department",
+    "oid": "f8ac06c8-fc96-4e51-a5bf-924b083c981e",
+    "displayLabel": "Department",
+    "triggers": [
+        {
+            "definition": "// Trigger Beginning \nprintln 'Trigger started: newtest, business object: Department, event: BeforeInsert';\n\ntry {\n\n  // Execute Conditionally Criterion (Execute Conditionally)\n  def codeCriterion_1 = (salary == 1500);\n  println \"Trigger condition (salary == 1500) is \" + codeCriterion_1;\n  if (codeCriterion_1) {\n    // Action Group (Action Group)\n    eMailNotification_1: {\n      def variables = [:];\n\n      Email.send('asik.j@4iapps.com', \"nobody@oracle.com\", \"New mail\", variables);\n    };\n    return;\n  }\n\n} finally {\n\n  // Trigger End \n  println 'Trigger ended: newtest';\n\n}",
+            "displayName": "newtest",
+            "name": "BeforeInsert_Rule_0",
+            "refId": "15be3c9c-8c0a-42f6-9920-61671a304d9c",
+            "type": "BeforeInsert"
+        }
+    ]
+}

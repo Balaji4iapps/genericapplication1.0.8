@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToNetworkApplicationPractice1",
+  "actions": {
+    "navigateToNetworkApplicationPractice1": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "network-application-practice1"
+      }
+    }
+  },
+  "variables": {}
+}

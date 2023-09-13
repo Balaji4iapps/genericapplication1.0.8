@@ -1,0 +1,30 @@
+{
+  "description": "",
+  "root": "callChainGamesave",
+  "actions": {
+    "callChainGamesave": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "gamesave"
+      },
+      "outcomes": {
+        "success": "navigateBack"
+      }
+    },
+    "navigateBack": {
+      "module": "vb/action/builtin/navigateBackAction",
+      "outcomes": {
+        "success": "resetVariablesGame"
+      }
+    },
+    "resetVariablesGame": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.game"
+        ]
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,33 @@
+{
+  "description": "",
+  "root": "navigateToNetworkApplicationPractice2",
+  "actions": {
+    "navigateToNetworkApplicationPractice2": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "network-application-practice2",
+        "params": {
+          "networkmethod": "EDIT",
+          "networkidpk": "{{ $variables.key }}"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

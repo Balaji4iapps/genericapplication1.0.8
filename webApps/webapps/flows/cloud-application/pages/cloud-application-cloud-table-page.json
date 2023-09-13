@@ -1,0 +1,127 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "company18GetallListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "CloudApplication/Company18Getall",
+        "keyAttributes": "company_id",
+        "itemsPath": "items",
+        "responseType": "company18GetallResponse"
+      }
+    },
+    "getCloudsearchListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "CloudApplication/getCloudsearch",
+        "keyAttributes": "cloud_id",
+        "itemsPath": "items",
+        "responseType": "getCloudsearchResponse"
+      }
+    },
+    "getCloudsearchListSDP2": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "CloudApplication/getCloudsearch",
+        "keyAttributes": "cloud_id",
+        "itemsPath": "items",
+        "responseType": "getCloudsearchResponse2"
+      }
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.company18GetallResponse": {
+      "endpoint": "Company18Getall",
+      "service": "CloudApplication",
+      "path": "response"
+    },
+    "@decorators.getCloudsearchResponse": {
+      "endpoint": "getCloudsearch",
+      "service": "CloudApplication",
+      "path": "response"
+    },
+    "@decorators.getCloudsearchResponse2": {
+      "endpoint": "getCloudsearch",
+      "service": "CloudApplication",
+      "path": "response"
+    },
+    "company18GetallResponse": {
+      "items": [
+        {
+          "cloud_id": "number",
+          "company_id": "number"
+        }
+      ]
+    },
+    "getCloudsearchResponse": {
+      "items": [
+        {
+          "business_type": "string",
+          "cloud_id": "number",
+          "cloud_name": "string",
+          "cloud_provider": "string",
+          "contact_number": "string",
+          "email_id": "string",
+          "founder_name": "string",
+          "started_year": "string"
+        }
+      ]
+    },
+    "getCloudsearchResponse2": {
+      "items": [
+        {
+          "cloud_id": "number",
+          "cloud_name": "string",
+          "cloud_provider": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "Cloud2HP"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-chart": {
+        "path": "ojs/ojchart"
+      },
+      "oj-chart-item": {
+        "path": "ojs/ojchart"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      }
+    }
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "checkboxADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "getMfdheader",
+        "keyAttributes": "manufacturer_id"
+      }
+    },
+    "deletecall": {
+      "type": "number"
+    },
+    "export": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "getMfdheader"
+      }
+    },
+    "getMfdheaderListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "supermartapplication/getMfdheader",
+        "keyAttributes": "manufacturer_id",
+        "itemsPath": "items",
+        "responseType": "getMfdheaderResponse",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "manufacturer"
+          ]
+        }
+      }
+    },
+    "lovsearch": {
+      "type": "string"
+    },
+    "pageloaddata": {
+      "type": "any"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getMfdheader": {
+      "endpoint": "getMfdheader",
+      "service": "supermartapplication",
+      "path": "response"
+    },
+    "@decorators.getMfdheaderbyid2Response": {
+      "endpoint": "getMfdheaderbyid2",
+      "service": "supermartapplication",
+      "path": "response"
+    },
+    "@decorators.getMfdheaderResponse": {
+      "endpoint": "getMfdheader",
+      "service": "supermartapplication",
+      "path": "response"
+    },
+    "@decorators.postMfdheaderP_METHODP_PRIMARYKEY2": {
+      "endpoint": "postMfdheaderP_METHODP_PRIMARYKEY2",
+      "service": "supermartapplication",
+      "path": "request"
+    },
+    "getMfdheader": {
+      
+          "account_number": "string",
+          "city": "string",
+          "contact_number": "string",
+          "industry_type": "string",
+          "mail_id": "string",
+          "manufacturer": "string",
+          "manufacturer_id": "string",
+          "state_location": "string"
+        
+        
+    },
+    "getMfdheaderbyid2Response": {
+      "items": [
+        {
+          "account_number": "string",
+          "city": "string",
+          "contact_number": "string",
+          "industry_type": "string",
+          "mail_id": "string",
+          "manufacturer": "string",
+          "manufacturer_id": "string",
+          "state_location": "string"
+        }
+      ]
+    },
+    "getMfdheaderResponse": {
+      "items": [
+        {
+          "account_number": "string",
+          "city": "string",
+          "contact_number": "string",
+          "industry_type": "string",
+          "mail_id": "string",
+          "manufacturer": "string",
+          "manufacturer_id": "string",
+          "state_location": "string"
+        }
+      ]
+    },
+    "postMfdheaderP_METHODP_PRIMARYKEY2": {
+      "account_number": "string",
+      "city": "string",
+      "contact_number": "string",
+      "industry_type": "string",
+      "mail_id": "string",
+      "manufacturer": "string",
+      "manufacturer_id": "string",
+      "state_location": "string"
+    }
+
+  },
+  "eventListeners": {
+    "booleanCheckboxComponentValue": {
+      "chains": [
+        {
+          "chainId": "BooleanCheckboxComponentValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "OnclickSearchPageCreate"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "OnclickSearchPageReset"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "deletepopupclose"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "popupdeleteaction"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "OnClickCreateAction"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "gotowelcomepage"
+        }
+      ]
+    },
+    "buttonAction7": {
+      "chains": [
+        {
+          "chainId": "deleteCheckboxAction"
+        }
+      ]
+    },
+    "hyperlinkClick": {
+      "chains": [
+        {
+          "chainId": "HyperlinkClickChainEdit",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "hyperlinkClick2": {
+      "chains": [
+        {
+          "chainId": "gotoAcceditpage",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "deletebutton",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "vbpageload"
+        }
+      ],
+      "@dt": {
+        "showInDiagram": "on"
+      }
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-sample-checkbox-switch": {
+        "path": "oj-sample/checkbox-switch/loader"
+      },
+      "oj-sample-export-data": {
+        "path": "oj-sample/export-data/loader"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    }
+  }
+}

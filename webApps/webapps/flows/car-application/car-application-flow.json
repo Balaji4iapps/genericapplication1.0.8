@@ -1,0 +1,8 @@
+{
+  "id": "car-application",
+  "description": "Flow main",
+  "defaultPage": "car-application-dashboard",
+  "services": {},
+  "types": {},
+  "variables": {}
+}

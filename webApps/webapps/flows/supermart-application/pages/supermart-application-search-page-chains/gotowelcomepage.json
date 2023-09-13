@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToSupermartApplicationWelcome",
+  "actions": {
+    "navigateToSupermartApplicationWelcome": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "supermart-application-welcome"
+      }
+    }
+  },
+  "variables": {}
+}

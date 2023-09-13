@@ -1,0 +1,23 @@
+{
+  "description": "",
+  "root": "callComponentPopupdeletechildoneClose",
+  "actions": {
+    "callComponentPopupdeletechildoneClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('popupdeletechildone') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainPostonload"
+      }
+    },
+    "callChainPostonload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "postonload"
+      }
+    }
+  },
+  "variables": {}
+}

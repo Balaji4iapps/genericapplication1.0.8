@@ -1,0 +1,41 @@
+{
+  "description": "",
+  "root": "callComponentDeleteOpen",
+  "actions": {
+    "callComponentDeleteOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('delete') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "assignVariablesPlayerid"
+      }
+    },
+    "assignVariablesPlayerid": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.playerid": {
+          "source": "{{ $variables.key }}"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

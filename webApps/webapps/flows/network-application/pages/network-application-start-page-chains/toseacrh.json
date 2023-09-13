@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToNetworkDetails",
+  "actions": {
+    "navigateToNetworkDetails": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "network-details"
+      }
+    }
+  },
+  "variables": {}
+}

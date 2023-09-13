@@ -1,0 +1,8 @@
+{
+  "id": "product-application",
+  "description": "Flow main",
+  "defaultPage": "product-application-wel",
+  "services": {},
+  "types": {},
+  "variables": {}
+}

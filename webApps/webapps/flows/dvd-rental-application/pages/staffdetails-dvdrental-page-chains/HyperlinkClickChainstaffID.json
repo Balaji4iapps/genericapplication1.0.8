@@ -1,0 +1,64 @@
+{
+  "description": "",
+  "root": "callComponentStaffdetailpopupOpen",
+  "actions": {
+    "callComponentStaffdetailpopupOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('staffdetailpopup') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestGetidstaff"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetidstaff.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetidstaff": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/Getidstaff",
+        "uriParams": {
+          "staffid": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesStaff"
+      }
+    },
+    "assignVariablesStaff": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.staff": {
+          "source": "{{ $chain.results.callRestGetidstaff.body.items[0] }}",
+          "auto": "always"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

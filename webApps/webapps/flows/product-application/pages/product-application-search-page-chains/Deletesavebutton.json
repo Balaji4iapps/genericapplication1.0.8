@@ -1,0 +1,59 @@
+{
+  "description": "",
+  "root": "callRestPostProductappPMETHODPPRIMARYKEY",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostProductappPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostProductappPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Productapplication/postProductappP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $page.variables.deletevar }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification2"
+      }
+    },
+    "callComponentDeletepopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('deletepopup') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainOnloadtable"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostProductappPMETHODPPRIMARYKEY.body.p_err_code ]]",
+        "message": "[[ $chain.results.callRestPostProductappPMETHODPPRIMARYKEY.body.p_err_msg ]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callComponentDeletepopupClose"
+      }
+    },
+    "callChainOnloadtable": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onloadtable"
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,25 @@
+{
+  "description": "",
+  "root": "callComponentCuswrkpopupClose",
+  "actions": {
+    "callComponentCuswrkpopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('cuswrkpopup') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "resetVariablesCuswrkdatas"
+      }
+    },
+    "resetVariablesCuswrkdatas": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.cuswrkdatas"
+        ]
+      }
+    }
+  },
+  "variables": {}
+}

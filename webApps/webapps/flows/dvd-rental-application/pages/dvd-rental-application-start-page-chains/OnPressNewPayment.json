@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToNewpayment",
+  "actions": {
+    "navigateToNewpayment": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "newpayment"
+      }
+    }
+  },
+  "variables": {}
+}

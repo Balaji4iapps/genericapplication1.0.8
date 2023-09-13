@@ -1,0 +1,41 @@
+{
+  "description": "",
+  "root": "callComponentPopupdeletechildoneOpen",
+  "actions": {
+    "callComponentPopupdeletechildoneOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('popupdeletechildone') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "assignVariablesDeletevar"
+      }
+    },
+    "assignVariablesDeletevar": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.deletevar": {
+          "source": "{{ $variables.key }}"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

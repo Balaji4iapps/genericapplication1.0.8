@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToMovieTicketApplicationStart",
+  "actions": {
+    "navigateToMovieTicketApplicationStart": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "movie-ticket-application-createpage"
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,117 @@
+<!-- header -->
+
+<!-- customer collapse -->
+<div class="oj-flex">
+  <h3 class="oj-flex-item oj-sm-12 oj-md-5">New Payment</h3>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-1">
+    <oj-button label="Button" class="height:1rem" display="icons" on-oj-action="[[$listeners.buttonAction]]">
+      <img slot="endIcon" :src="[[ $flow.path + 'resources/images/Home_black_1.jpg' ]]" width="60" height="60">
+    </oj-button>
+  </div>
+</div>
+<div class="oj-flex">
+  <span class="oj-flex-item oj-sm-12 oj-md-1"></span>
+</div>
+<div class="oj-flex">
+  <span class="oj-flex-item oj-sm-12 oj-md-6"></span>
+</div>
+<div class="oj-flex">
+  <oj-collapsible class="oj-flex-item oj-sm-12 oj-md-12">
+    <div class="oj-flex">
+      <span class="oj-flex-item oj-sm-12 oj-md-1"></span>
+      <oj-input-number converter='{"options":{"useGrouping":false},"type":"number"}' label-hint="Customer No"
+        class="oj-flex-item oj-sm-12 oj-md-3" value="{{ $variables.Customer_ID }}"
+        max="600" min="1"></oj-input-number>
+      <span class="oj-flex-item oj-sm-12 oj-md-1"></span>
+      <oj-input-text label-hint="Customer Name" class="oj-form-control-max-width-sm oj-flex-item oj-sm-12 oj-md-3"
+        clear-icon="conditional" value="{{ $variables.Name }}"></oj-input-text>
+      <div class="oj-flex-item oj-sm-flex-initial">
+        <oj-form-layout label-edge='start' columns="2">
+      <oj-button chroming="borderless" on-oj-action="[[$listeners.buttonAction2]]" display="icons" style="width:2rem">
+    <span class="oj-ux-ico-search" slot="startIcon"></span>
+      </oj-button>
+      <oj-button chroming="borderless" on-oj-action="[[$listeners.buttonAction3]]" display="icons">
+    <img :src="[[ $flow.path + 'resources/images/click-reset.gif' ]]" width="30" height="30" slot="startIcon">
+      </oj-button>
+        </oj-form-layout>
+      </div>
+    </div>
+    <div class="oj-flex">
+      <span class="oj-flex-item oj-sm-12 oj-md-6"></span>
+    </div>
+    <oj-toolbar chroming="solid" style="wi">
+      <oj-table scroll-policy="loadMoreOnScroll" selection-mode.row="single" selection-mode.column="none"
+        edit-mode="rowEdit" 
+        style="background-color:white;width:70rem;"
+        columns-default.header-style="background-color:lightgrey; font-weight: 900;" data="[[ $variables.Customer ]]"
+        columns='[{"headerText":"Customer No","field":"customer_id"},
+        {"headerText":"First Name","field":"first_name"},
+        {"headerText":"Last Name","field":"last_name"},
+        {"headerText":"Email","field":"email"}]' display="grid" class="">
+    </oj-toolbar>
+    <h4 slot="header">Customer Details</h4>
+  </oj-collapsible>
+</div>
+
+
+
+
+     <!-- Payment collapse -->
+<div class="oj-flex">
+  <span class="oj-flex-item oj-sm-12 oj-md-6"></span>
+</div>
+<div class="oj-flex">
+  <span class="oj-flex-item oj-sm-12 oj-md-6"></span>
+</div>
+
+<div class="oj-flex">
+  <oj-collapsible class="oj-flex-item oj-sm-12 oj-md-12">
+    <h4 slot="header">Payment Details</h4>
+    <div class="oj-flex">
+      <div class="oj-flex-item oj-sm-12 oj-md-2"></div>
+      <span class="oj-flex-item oj-sm-12 oj-md-6"></span>
+    </div>
+    <div class="oj-flex">
+      <div class="oj-flex-item oj-sm-12 oj-md-3"></div>
+      <oj-input-number label-hint="Film Number" value="{{ $variables.flimid }}"
+        converter='{"options":{"useGrouping":false},"type":"number"}' max="1000" min="1"
+        class="oj-flex-item oj-sm-12 oj-md-3"></oj-input-number>
+      <div class="oj-flex-item oj-sm-12 oj-md-6">
+        <oj-button chroming="borderless" on-oj-action="[[$listeners.buttonAction4]]" label="Search" display="icons">
+          <span class="oj-ux-ico-search" slot="startIcon"></span>
+        </oj-button>
+        <oj-button chroming="borderless"  class="" display="icons" on-oj-action="[[$listeners.buttonAction5]]">
+      <img :src="[[ $flow.path + 'resources/images/click-reset.gif' ]]" width="30" height="30">
+    </oj-button>
+      </div>
+    </div>
+    <div class="oj-flex">
+      <div class="oj-flex-item oj-sm-12 oj-md-1"></div>
+      <span class="oj-flex-item oj-sm-12 oj-md-6"></span>
+    </div>
+    <oj-table scroll-policy="loadMoreOnScroll" class="" data="[[ $variables.getfilm ]]"
+      style="background-color:white;width:70rem;"
+      columns-default.header-style="background-color:lightgrey; font-weight: 900;"
+      columns='[{"headerText":"Film No","field":"film_id"},
+    {"headerText":"Language ID","field":"language_id"},
+    {"headerText":"Over view","field":"overview"},
+    {"headerText":"Release Year","field":"release_year"},
+    {"headerText":"Rental Duration","field":"rental_duration"},
+    {"headerText":"Rental Rate","field":"rental_rate"},
+    {"headerText":"Replacement Cost","field":"replacement_cost"},
+    {"headerText":"Title","field":"title"},
+    {"headerText":"Run Time","field":"run_time"},
+    {"headerText":"Last Update","field":"last_update"},
+    {"headerText":"Rating","field":"rating"}]'></oj-table>
+    <span></span>
+  </oj-collapsible>
+</div>
+
+
+
+
+
+
+

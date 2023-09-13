@@ -1,0 +1,106 @@
+{
+    "items": [
+        {
+            "own_ref_id": "100",
+            "manufacturer_name": "\tMek Raw Foods",
+            "manufacturer_id": "1001",
+            "account_number": "800009988",
+            "ifsc_code": "IOBA004455\t",
+            "branch_name": "Ludhiana",
+            "bank_name": "\tIOB",
+            "pending_amount": "\tRS.24000",
+            "bill_book_number": "N11"
+        },
+        {
+            "own_ref_id": "101",
+            "manufacturer_name": "SS Sugar Mills",
+            "manufacturer_id": "1002",
+            "account_number": "9000899223",
+            "ifsc_code": "\tUTIB37764",
+            "branch_name": "\tCuddalore",
+            "bank_name": "\tAxis",
+            "pending_amount": "\tNil",
+            "bill_book_number": "N12"
+        },
+        {
+            "own_ref_id": "102",
+            "manufacturer_name": "Kar Rice Factory",
+            "manufacturer_id": "1003",
+            "account_number": "7004455332",
+            "ifsc_code": "HDFC665544",
+            "branch_name": "\tTanjavur",
+            "bank_name": "\tHDFC",
+            "pending_amount": "\tNil",
+            "bill_book_number": "N13"
+        },
+        {
+            "own_ref_id": "103",
+            "manufacturer_name": "Kumari Oils",
+            "manufacturer_id": "1004",
+            "account_number": "156447788",
+            "ifsc_code": "\tUTIB44590",
+            "branch_name": "\tKanniyakumari",
+            "bank_name": "\tAxis",
+            "pending_amount": "\tRs.30000",
+            "bill_book_number": "N14"
+        },
+        {
+            "own_ref_id": "104",
+            "manufacturer_name": "Maa Diary Farm",
+            "manufacturer_id": "1005",
+            "account_number": "444332211",
+            "ifsc_code": "\tHDFC77889",
+            "branch_name": "\tNagpur",
+            "bank_name": "\tHDFC",
+            "pending_amount": "\tRs.18700",
+            "bill_book_number": "N15"
+        },
+        {
+            "own_ref_id": "105",
+            "manufacturer_name": "DS Honey",
+            "manufacturer_id": "1006",
+            "account_number": "444556673",
+            "ifsc_code": "\tSBIN990087",
+            "branch_name": "\tTrinelveli",
+            "bank_name": "\tSBI",
+            "pending_amount": "\tNil",
+            "bill_book_number": "N16"
+        },
+        {
+            "own_ref_id": "106",
+            "manufacturer_name": "SS Nuts",
+            "manufacturer_id": "1007",
+            "account_number": "3322334455",
+            "ifsc_code": "\tICICI78654",
+            "branch_name": "\tTenkasi",
+            "bank_name": "\tICICI",
+            "pending_amount": "\tRs.30000",
+            "bill_book_number": "N17"
+        },
+        {
+            "own_ref_id": "107",
+            "manufacturer_name": "\tPremium Spices",
+            "manufacturer_id": "1008",
+            "account_number": "566775445",
+            "ifsc_code": "IOBA66789",
+            "branch_name": "\tTrivandrum",
+            "bank_name": "\tIOB",
+            "pending_amount": "\tRs.48400",
+            "bill_book_number": "N18"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 8,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1313mod/accountchild2"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1313mod/item"
+        }
+    ]
+}

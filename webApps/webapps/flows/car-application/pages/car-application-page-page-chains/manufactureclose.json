@@ -1,0 +1,25 @@
+{
+  "description": "",
+  "root": "callComponentCarDetailsClose",
+  "actions": {
+    "callComponentCarDetailsClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('CarDetails') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "resetVariablesManifacturedetails"
+      }
+    },
+    "resetVariablesManifacturedetails": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.manifacturedetails"
+        ]
+      }
+    }
+  },
+  "variables": {}
+}

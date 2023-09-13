@@ -1,0 +1,56 @@
+{
+  "description": "",
+  "root": "ifValue",
+  "actions": {
+    "ifValue": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $variables.value != null ]]"
+      },
+      "outcomes": {
+        "true": "resetVariablesCommunityLovFetch"
+      }
+    },
+    "resetVariablesCommunityLovFetch": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.gender_lov_fetch"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesCommunityLovFetch"
+      }
+    },
+    "assignVariablesCommunityLovFetch": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.gender_lov_fetch": {
+          "source": "{{ $variables.value }}"
+        }
+      }
+    }
+  },
+  "variables": {
+    "value": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

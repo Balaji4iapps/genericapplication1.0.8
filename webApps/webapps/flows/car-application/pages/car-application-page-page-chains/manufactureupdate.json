@@ -1,0 +1,66 @@
+{
+  "description": "",
+  "root": "assignVariablesManufacturenavigation",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetManufacturebymanufactureid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetManufacturebymanufactureid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CarApplication/getManufacturebymanufactureid",
+        "uriParams": {
+          "p_manufacturing_id": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesManifacturedetails"
+      }
+    },
+    "assignVariablesManifacturedetails": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.manifacturedetails": {
+          "source": "{{ $chain.results.callRestGetManufacturebymanufactureid.body.items[0] }}",
+          "auto": "always"
+        }
+      }
+    },
+    "assignVariablesManufacturenavigation": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.manufacturenavigation": {
+          "source": "Edit"
+        }
+      },
+      "outcomes": {
+        "success": "callRestGetManufacturebymanufactureid"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

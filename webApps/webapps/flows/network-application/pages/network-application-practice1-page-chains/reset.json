@@ -1,0 +1,24 @@
+{
+  "description": "",
+  "root": "resetVariablesNetworklov",
+  "actions": {
+    "resetVariablesNetworklov": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.networklov"
+        ]
+      },
+      "outcomes": {
+        "success": "callChainNetworkrecords"
+      }
+    },
+    "callChainNetworkrecords": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "networkrecords"
+      }
+    }
+  },
+  "variables": {}
+}

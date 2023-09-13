@@ -1,0 +1,24 @@
+{
+  "description": "",
+  "root": "callChainOnloadpage",
+  "actions": {
+    "callChainOnloadpage": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onloadpage"
+      },
+      "outcomes": {
+        "success": "resetVariablesLov"
+      }
+    },
+    "resetVariablesLov": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.lov"
+        ]
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,40 @@
+<!-- header -->
+<div class="oj-flex">
+  <h3 class="oj-flex-item oj-sm-12 oj-md-5">Payment History</h3>
+</div>
+
+<!-- search -->
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-1">
+    <oj-button label="Button" class="height:1rem" display="icons" on-oj-action="[[$listeners.buttonAction]]">
+      <img slot="endIcon" :src="[[ $flow.path + 'resources/images/Home_black_1.jpg' ]]" width="60" height="50">
+    </oj-button>
+  </div>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-4"></div>
+  <div class="oj-flex oj-sm-flex-direction-column oj-flex-item oj-sm-flex-initial">
+      <oj-input-text label-hint="Customer ID" required="true" value="{{ $variables.Customer_ID }}" style="width:18rem"
+        class="oj-flex-item oj-sm-flex-initial">
+      <oj-button chroming="borderless" display="icons" class="oj-button-sm" slot="end"
+        on-oj-action="[[$listeners.buttonAction2]]">
+      <span class="oj-ux-ico-search" slot="startIcon"></span>
+      </oj-button>
+      </oj-input-text>
+  </div>
+  <oj-button chroming="borderless" class="" display="icons" on-oj-action="[[$listeners.buttonAction3]]">
+      <img :src="[[ $flow.path + 'resources/images/click-reset.gif' ]]" width="30" height="30">
+   </oj-button>
+</div>
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-11" style="width:60rem"
+    data="[[ $variables.payment ]]"
+    style="background-color:white;" columns-default.header-style="background-color:lightgrey; font-weight: 900;"
+    columns='[{"headerText":"Customer ID","field":"customer_id"},
+    {"headerText":"Payment ID","field":"payment_id"},
+    {"headerText":"Amount","field":"amount"},
+    {"headerText":"Payment Date","field":"payment_date"},
+    {"headerText":"Rental ID","field":"rental_id"},
+    {"headerText":"Staff ID","field":"staff_id"}]'></oj-table>
+  <span class="oj-flex-item oj-sm-12 oj-md-1"></span>
+</div>

@@ -1,0 +1,392 @@
+{
+  "title": "hospital management application inline edit",
+  "description": "",
+  "variables": {
+    "Dataobj": {
+      "type": "getDoctorbydoctorid"
+    },
+    "doc_Gen_sdp": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "responseType": "getDoctorNamewithgenderlov",
+        "itemsPath": "items",
+        "keyAttributes": "doc_gender",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "doc_gender"
+          ]
+        },
+        "fetchChainId": "genderlovFetchAction"
+      }
+    },
+    "doc_name_fetch": {
+      "type": "string"
+    },
+    "Doc_name_sdp": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "responseType": "getDoctorDocnamelov",
+        "itemsPath": "items",
+        "keyAttributes": "doc_name",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "doc_name"
+          ]
+        },
+        "fetchChainId": "DoctorDocnamelovFetchAction"
+      }
+    },
+    "gender_lov_fetch": {
+      "type": "string"
+    },
+    "getDoctordetailsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "hospitalmanagement/getDoctordetails",
+        "keyAttributes": "doc_code",
+        "itemsPath": "items",
+        "responseType": "getDoctordetailsResponse"
+      }
+    },
+    "NewDocGenderSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "ordsQiaordswst1/getPerson",
+        "responseType": "getPerson2",
+        "itemsPath": "items",
+        "keyAttributes": "gender",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "gender"
+          ]
+        }
+      }
+    },
+    "NewDocNameSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "ordsQiaordswst1/getPerson",
+        "responseType": "getPerson",
+        "itemsPath": "items",
+        "keyAttributes": "display_name",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "display_name"
+          ]
+        }
+      }
+    },
+    "post_var": {
+      "type": "string"
+    },
+    "saveSucessVar": {
+      "type": "string"
+    },
+    "table_row_var": {
+      "type": "string"
+    },
+    "TableADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "getDoctorbydoctorid",
+        "keyAttributes": "rownum"
+      }
+    },
+    "triggervar": {
+      "type": "string"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getDoctorbydoctorid": {
+      "endpoint": "getDoctorbydoctorid",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "@decorators.getDoctordetailsResponse": {
+      "endpoint": "getDoctordetails",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "@decorators.getDoctorDocnamelov": {
+      "endpoint": "getDoctorDocnamelov",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "@decorators.getDoctorNamewithgenderlov": {
+      "endpoint": "getDoctorNamewithgenderlov",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "@decorators.getPerson": {
+      "endpoint": "getPerson",
+      "service": "ordsQiaordswst1",
+      "path": "response"
+    },
+    "@decorators.getPerson2": {
+      "endpoint": "getPerson",
+      "service": "ordsQiaordswst1",
+      "path": "response"
+    },
+    "getDoctorbydoctorid": {
+          "doc_address": "string",
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_fees": "number",
+          "doc_gender": "string",
+          "doc_name": "string",
+          "doc_number": "any",
+          "medical_fees": "number",
+      "rownum": "number",
+      "total_fees": "number"
+
+    },
+    "getDoctordetailsResponse": {
+      "items": [
+        {
+          "doc_address": "string",
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_name": "string"
+        }
+      ]
+    },
+    "getDoctorDocnamelov": {
+      "items": [
+        {
+          "doc_address": "string",
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_gender": "string",
+          "doc_name": "string",
+          "doc_number": "number"
+        }
+      ]
+    },
+    "getDoctorNamewithgenderlov": {
+      "items": [
+        {
+          "doc_address": "string",
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_gender": "string",
+          "doc_name": "string",
+          "doc_number": "number"
+        }
+      ]
+    },
+    "getPerson": {
+      "items": [
+        {
+          "applicant_number": "any",
+          "business_group_id": "number",
+          "created_by": "string",
+          "creation_date": "string",
+          "date_of_join": "string",
+          "display_name": "string",
+          "dob": "string",
+          "effective_end_date": "string",
+          "effective_start_date": "string",
+          "email_address": "string",
+          "first_name": "string",
+          "full_name": "string",
+          "gender": "string",
+          "last_name": "string",
+          "last_update_date": "string",
+          "last_updated_by": "string",
+          "marital_status": "string",
+          "middle_name": "string",
+          "name_title": "string",
+          "nationality": "string",
+          "person_id": "number",
+          "person_number": "string",
+          "phone_number": "string",
+          "source_rowid": "string",
+          "trx_source": "string"
+        }
+      ]
+    },
+    "getPerson2": {
+      "items": [
+        {
+          "applicant_number": "any",
+          "business_group_id": "number",
+          "created_by": "string",
+          "creation_date": "string",
+          "date_of_join": "string",
+          "display_name": "string",
+          "dob": "string",
+          "effective_end_date": "string",
+          "effective_start_date": "string",
+          "email_address": "string",
+          "first_name": "string",
+          "full_name": "string",
+          "gender": "string",
+          "last_name": "string",
+          "last_update_date": "string",
+          "last_updated_by": "string",
+          "marital_status": "string",
+          "middle_name": "string",
+          "name_title": "string",
+          "nationality": "string",
+          "person_id": "number",
+          "person_number": "string",
+          "phone_number": "string",
+          "source_rowid": "string",
+          "trx_source": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "Addrowbutton"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "savebutton"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "Navigate"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "DeleteYes"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "DeleteNO"
+        }
+      ]
+    },
+    "docGenderValue": {
+      "chains": [
+        {
+          "chainId": "GenderValueChange",
+          "parameters": {
+            "value": "{{ $event.detail.value }}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "docNameValue": {
+      "chains": [
+        {
+          "chainId": "DocNameValueChange",
+          "parameters": {
+            "value": "{{ $event.detail.value }}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "DeletePopup",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick2": {
+      "chains": [
+        {
+          "chainId": "Cancelbutton",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "medicalFeesValue": {
+      "chains": [
+        {
+          "chainId": "calculation",
+          "parameters": {
+            "value": "{{ $event.detail.value }}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "Onload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-combobox-one": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-row-expander": {
+        "path": "ojs/ojrowexpander"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+
+    },
+    "modules": {
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+    }
+  }
+}

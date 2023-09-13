@@ -1,0 +1,29 @@
+{
+    "items": [
+        {
+            "game_id": 10,
+            "medical_id": 1,
+            "phy_challenged": "NO",
+            "allergies": "NO",
+            "last_match_injuire_status": "LEG INJURIES",
+            "dose_level": "MEDIUM",
+            "insurances": "YES",
+            "therapy_assistant": "JENNY",
+            "remarks": "NEED OBSERVATION FOR 2 WEEKS"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/sports/medicalid?medical=1"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/sports/item"
+        }
+    ]
+}

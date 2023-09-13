@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToCloudApplicationCloudTable",
+  "actions": {
+    "navigateToCloudApplicationCloudTable": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "cloud-application-cloud-table"
+      }
+    }
+  },
+  "variables": {}
+}

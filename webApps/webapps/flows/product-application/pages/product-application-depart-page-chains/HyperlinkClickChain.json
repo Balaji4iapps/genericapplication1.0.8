@@ -1,0 +1,78 @@
+{
+  "description": "",
+  "root": "assignVariablesMethodcus",
+  "actions": {
+    "callComponentCustomerpopidOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('customerpopid') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestGetCustomergetbyid"
+      }
+    },
+    "assignVariablesMethodcus": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.methodcus": {
+          "source": "edit"
+        },
+        "$page.variables.customerfk": {
+          "source": "{{ $page.variables.primarykey }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentCustomerpopidOpen"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetCustomergetbyid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "assignVariablesCustomerservice": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.customerservice": {
+          "source": "{{ $chain.results.callRestGetCustomergetbyid.body.items[0] }}",
+          "auto": "always"
+        }
+      }
+    },
+    "callRestGetCustomergetbyid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Productapplication/getCustomergetbyid",
+        "uriParams": {
+          "CustomerNum": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesCustomerservice"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

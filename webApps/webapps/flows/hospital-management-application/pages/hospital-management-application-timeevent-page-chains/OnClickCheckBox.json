@@ -1,0 +1,74 @@
+{
+  "description": "",
+  "root": "ifValue",
+  "actions": {
+    "ifValue": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $variables.value ]]"
+      },
+      "outcomes": {
+        "true": "fireNotification",
+        "false": "fireDataProviderEventCheckboxADP3"
+      }
+    },
+    "fireDataProviderEventCheckboxADP": {
+      "module": "vb/action/builtin/fireDataProviderEventAction",
+      "parameters": {
+        "target": "[[ $page.variables.checkboxADP ]]",
+        "add": {
+          "data": "{{ $variables.current.row }}",
+          "keys": [
+            "{{ $variables.key }}"
+          ]
+        }
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "1",
+        "message": "[[ $page.variables.checkboxADP.data.length ]]"
+      },
+      "outcomes": {
+        "success": "fireDataProviderEventCheckboxADP"
+      }
+    },
+    "fireDataProviderEventCheckboxADP3": {
+      "module": "vb/action/builtin/fireDataProviderEventAction",
+      "parameters": {
+        "target": "[[ $page.variables.checkboxADP ]]",
+        "remove": {
+          "data": "{{ $variables.current.row }}",
+          "keys": [
+            "{{ $variables.key }}"
+          ]
+        }
+      }
+    }
+
+  },
+  "variables": {
+    "value": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

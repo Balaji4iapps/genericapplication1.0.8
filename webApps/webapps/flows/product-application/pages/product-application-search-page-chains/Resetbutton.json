@@ -1,0 +1,24 @@
+{
+  "description": "",
+  "root": "resetVariablesProductname",
+  "actions": {
+    "callChainOnloadtable": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onloadtable"
+      }
+    },
+    "resetVariablesProductname": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.productname"
+        ]
+      },
+      "outcomes": {
+        "success": "callChainOnloadtable"
+      }
+    }
+  },
+  "variables": {}
+}

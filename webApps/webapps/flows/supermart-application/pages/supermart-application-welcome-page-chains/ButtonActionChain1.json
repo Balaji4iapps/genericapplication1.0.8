@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentAboutpopupOpen",
+  "actions": {
+    "callComponentAboutpopupOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('aboutpopup') }}",
+        "method": "open"
+      }
+    }
+  },
+  "variables": {}
+}

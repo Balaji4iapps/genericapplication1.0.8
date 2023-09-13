@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentPOPUPClose",
+  "actions": {
+    "callComponentPOPUPClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('POPUP') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

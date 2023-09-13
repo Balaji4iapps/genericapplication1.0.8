@@ -1,0 +1,69 @@
+<!-- header -->
+<div class="oj-flex">
+  <h3 class="oj-flex-item oj-sm-12 oj-md-5">Inventory</h3>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-1">
+    <oj-button label="Button" class="height:1rem" display="icons" on-oj-action="[[$listeners.buttonAction2]]">
+      <img slot="endIcon" :src="[[ $flow.path + 'resources/images/Home_black_1.jpg' ]]" width="60" height="50">
+    </oj-button>
+  </div>
+</div>
+
+<!-- search -->
+<span></span>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-4"></div>
+  <oj-input-text value="{{ $variables.flimname }}"
+    label-hint="[[$application.translations.app.input_text_label_hint_4b89]]" required="true"
+    class="oj-form-control-max-width-md oj-form-control-max-width-sm oj-form-control-text-align-start oj-flex-item oj-sm-12 oj-md-4">
+    <oj-button label="Search" display="icons" chroming="borderless" slot="end"
+      on-oj-action="[[$listeners.buttonAction]]">
+      <span class="oj-ux-ico-search" slot="startIcon"></span>
+    </oj-button>
+  </oj-input-text>
+
+   <oj-button chroming="borderless" class="" display="icons" on-oj-action="[[$listeners.buttonAction3]]">
+      <img :src="[[ $flow.path + 'resources/images/click-reset.gif' ]]" width="30" height="30"
+        on-click="[[$listeners.imageClick]]">
+   </oj-button>
+
+</div>
+
+<!-- table -->
+<div class="oj-flex">
+  <div class="oj-flex oj-sm-flex-direction-column oj-flex-item oj-sm-12 oj-md-6">
+    
+    
+    <span class="oj-flex-item oj-sm-flex-initial"></span>
+    
+     
+    <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-flex-initial"
+      style="background-color:white;width:70rem;"
+      columns-default.header-style="background-color:lightgrey; font-weight: 900;" data="[[ $variables.getfilm ]]"
+      columns='[{"headerText":"Film ID","field":"film_id"},
+      {"headerText":"Title","field":"title"},
+      {"headerText":"Language ID","field":"language_id"},
+      {"headerText":"Rating","field":"rating"},
+      {"headerText":"Release Year","field":"release_year"},
+      {"headerText":"Run Time","field":"run_time"}]' selection-mode.row="single"
+      on-first-selected-row-changed="[[$listeners.tableFirstSelectedRow]]" display="grid"
+    
+    ></oj-table>
+  
+
+    <span class="oj-flex-item oj-sm-flex-initial"></span>
+<div>  
+   
+    
+    <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-flex-initial"
+      style="background-color:white;width:70rem"
+      columns-default.header-style="background-color:lightgrey; font-weight: 900;" data="[[ $variables.getinventory ]]"
+      columns='[{"headerText":"Film ID","field":"film_id"},
+      {"headerText":"Inventory ID","field":"inventory_id"},
+      {"headerText":"Store ID","field":"store_id"},
+      {"headerText":"Last Update","field":"last_update"}]' display="grid"></oj-table>
+
+</div>  
+</div>
+

@@ -1,0 +1,193 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "getCollegegetListSDP4": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "collegeapplication/getCollegeget",
+        "keyAttributes": "staff_id",
+        "itemsPath": "items",
+        "responseType": "getCollegegetResponse4",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "staff_name"
+          ]
+        }
+      }
+    },
+    "lov": {
+      "type": "any"
+    },
+    "tableone": {
+      "type": "any"
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getCollegegetResponse": {
+      "endpoint": "getCollegeget",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "@decorators.getCollegegetResponse2": {
+      "endpoint": "getCollegeget",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "@decorators.getCollegegetResponse3": {
+      "endpoint": "getCollegeget",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "@decorators.getCollegegetResponse4": {
+      "endpoint": "getCollegeget",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "@decorators.getStudentstatusgetResponse": {
+      "endpoint": "getStudentstatusget",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "getCollegegetResponse": {
+      "items": [
+        {
+          "address": "string",
+          "date_of_joining": "string",
+          "dob": "string",
+          "email": "string",
+          "gender": "string",
+          "phone_number": "number",
+          "salary": "number",
+          "staff_id": "number",
+          "staff_name": "string"
+        }
+      ]
+    },
+    "getCollegegetResponse2": {
+      "items": [
+        {
+          "address": "string",
+          "date_of_joining": "string",
+          "dob": "string",
+          "email": "string",
+          "gender": "string",
+          "phone_number": "number",
+          "salary": "number",
+          "staff_id": "number",
+          "staff_name": "string"
+        }
+      ]
+    },
+    "getCollegegetResponse3": {
+      "items": [
+        {
+          "address": "string",
+          "date_of_joining": "string",
+          "dob": "string",
+          "email": "string",
+          "gender": "string",
+          "phone_number": "number",
+          "salary": "number",
+          "staff_id": "number",
+          "staff_name": "string"
+        }
+      ]
+    },
+    "getCollegegetResponse4": {
+      "items": [
+        {
+          "address": "string",
+          "date_of_joining": "string",
+          "dob": "string",
+          "email": "string",
+          "gender": "string",
+          "phone_number": "number",
+          "salary": "number",
+          "staff_id": "number",
+          "staff_name": "string"
+        }
+      ]
+    },
+    "getStudentstatusgetResponse": {
+      "items": [
+        {
+          "attendance": "number",
+          "lab_attendance": "number",
+          "leave_taken": "number",
+          "project_mark": "number",
+          "project_name": "string",
+          "sem_marks": "number",
+          "semester": "number",
+          "staff_id": "number",
+          "student_id": "number",
+          "student_name": "string",
+          "student_statusid": "number"
+        }
+      ]
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain2"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "onloadpage"
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    }
+  }
+}

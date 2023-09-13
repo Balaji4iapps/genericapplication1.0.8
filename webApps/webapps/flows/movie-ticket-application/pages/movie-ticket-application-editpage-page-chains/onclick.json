@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentSpectatorstableClose",
+  "actions": {
+    "callComponentSpectatorstableClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Spectatorstable') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

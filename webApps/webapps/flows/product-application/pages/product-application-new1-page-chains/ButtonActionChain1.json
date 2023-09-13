@@ -1,0 +1,24 @@
+{
+  "description": "",
+  "root": "resetVariablesLov",
+  "actions": {
+    "resetVariablesLov": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.lov"
+        ]
+      },
+      "outcomes": {
+        "success": "callChainDataload"
+      }
+    },
+    "callChainDataload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "dataload"
+      }
+    }
+  },
+  "variables": {}
+}

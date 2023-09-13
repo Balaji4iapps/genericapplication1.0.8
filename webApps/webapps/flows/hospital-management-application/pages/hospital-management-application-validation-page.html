@@ -1,0 +1,17 @@
+<div class="oj-flex">
+  <oj-validation-group id="form">
+  <div class="oj-flex-item oj-sm-12 oj-md-11"> 
+    <oj-form-layout label-edge='start' max-columns="2">
+      <oj-input-text label-hint="Name" value="{{ $variables.postdoctor.doc_name }}" required="true"></oj-input-text>
+      <oj-input-text label-hint="Designation" value="{{ $variables.postdoctor.doc_designation }}" required="true"></oj-input-text>
+      <oj-input-number label-hint="Age" value="{{ $variables.postdoctor.doc_gender }}"></oj-input-number>
+      <oj-input-text label-hint="Address" value="{{ $variables.postdoctor.doc_address }}"></oj-input-text>
+    </oj-form-layout>
+    </oj-validation-group>
+  </div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12">
+  <oj-button label="Button" on-oj-action="[[$listeners.buttonAction]]"></oj-button>
+  </div>
+</div>
+

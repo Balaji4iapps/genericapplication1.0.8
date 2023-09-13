@@ -1,0 +1,21 @@
+<div class="oj-flex">
+  <h3 class="oj-flex-item oj-sm-12 oj-md-12">Car ShowRoom</h3>
+</div>
+
+<div>
+  <oj-button label="Car Search" chroming="solid" on-oj-action="[[$listeners.buttonAction]]">
+  <img slot="startIcon" :src="[[ $flow.path + 'resources/images/search_(1)_1.png' ]]" width="30" height="30">
+</oj-button>
+  <oj-button label="Car Details" chroming="solid" on-oj-action="[[$listeners.buttonAction2]]">
+  <img slot="startIcon" :src="[[ $flow.path + 'resources/images/sedan_1.png' ]]" width="40" height="40">
+</oj-button
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 ">
+  <img :src="[[ $flow.path + 'resources/images/icons8-home-page-30.png' ]]" on-click="[[$listeners.imageClick]]">
+    
+  </div>
+  <div class="oj-flex-item oj-sm-12 ">
+  <img :src="[[ $flow.path + 'resources/images/carsun4.jpg' ]]">
+  </div>
+</div>

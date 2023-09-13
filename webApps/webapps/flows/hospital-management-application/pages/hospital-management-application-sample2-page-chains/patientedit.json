@@ -1,0 +1,85 @@
+{
+  "description": "",
+  "root": "assignVariablesPatientprimarykey",
+  "actions": {
+    "assignVariablesPatientprimarykey": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.patientprimarykey": {
+          "source": "{{ $variables.key }}"
+        },
+        "$page.variables.patientmethod": {
+          "source": "edit"
+        },
+        "$page.variables.patientvariable": {
+          "source": {
+            "pat_doc_code": "{{ $page.variables.primarykey }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentPatientcreateOpen"
+      }
+    },
+    "callComponentPatientcreateOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('patientcreate') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestGetPatientbypatientidfk"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetPatientbypatientidfk.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetPatientbypatientidfk": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/getPatientbypatientidfk",
+        "uriParams": {
+          "patid": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesPatientvariable"
+      }
+    },
+    "assignVariablesPatientvariable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.patientvariable": {
+          "source": "{{ $chain.results.callRestGetPatientbypatientidfk.body.items[0] }}",
+          "auto": "always"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

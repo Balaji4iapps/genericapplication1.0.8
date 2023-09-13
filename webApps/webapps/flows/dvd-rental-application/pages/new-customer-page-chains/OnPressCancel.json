@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToCustomerDetails",
+  "actions": {
+    "navigateToCustomerDetails": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "customer-details"
+      }
+    }
+  },
+  "variables": {}
+}

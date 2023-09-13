@@ -1,0 +1,54 @@
+{
+  "title": "network application time event",
+  "description": "",
+  "variables": {
+    "getVvmovies1ListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "Moviesticketbooking/getVvmovies1",
+        "keyAttributes": "moviesno",
+        "itemsPath": "items",
+        "responseType": "getVvmovies1Response"
+      }
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getVvmovies1Response": {
+      "endpoint": "getVvmovies1",
+      "service": "Moviesticketbooking",
+      "path": "response"
+    },
+    "getVvmovies1Response": {
+      "items": [
+        {
+          "moviedirector": "string",
+          "moviegenre": "string",
+          "moviename": "string",
+          "movieproducer": "string",
+          "moviesno": "number",
+          "movietimings": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+    }
+  }
+}

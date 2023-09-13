@@ -1,0 +1,196 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "c_id": {
+      "type": "number"
+    },
+    "delete": {
+      "type": "any"
+    },
+    "getWc2022ListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "WorldCupApplication/getWc2022",
+        "keyAttributes": "c_id",
+        "itemsPath": "items",
+        "responseType": "getWc2022Response",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "country_name"
+          ]
+        }
+      }
+    },
+    "postcountries": {
+      "type": "postCountries"
+    },
+    "search": {
+      "type": "any"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getWc2022Response": {
+      "endpoint": "getWc2022",
+      "service": "WorldCupApplication",
+      "path": "response"
+    },
+    "@decorators.postCountries": {
+      "endpoint": "postCountries",
+      "service": "WorldCupApplication",
+      "path": "request"
+    },
+    "getWc2022Response": {
+      "items": [
+        {
+          "c_id": "number",
+          "country_name": "string",
+          "group_": "string",
+          "team_base": "string"
+        }
+      ]
+    },
+    "postCountries": {
+      "c_id": "number",
+      "country_name": "string",
+      "fifa_ranking": "number",
+      "group_": "string",
+      "squad_strenght": "number",
+      "team_base": "string",
+      "wc_titles": "number"
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "onclickSearch"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "onclickReset"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "navigateback"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "navigatetocreate"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "onclickcountrydelete"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "Deletecancel"
+        }
+      ]
+    },
+    "hyperlinkClick": {
+      "chains": [
+        {
+          "chainId": "HyperlinkClickEdit",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick2": {
+      "chains": [
+        {
+          "chainId": "deletepopupopen",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick3": {
+      "chains": [
+        {
+          "chainId": "ImageClicknavigate",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "onloadDatas"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    }
+  }
+}

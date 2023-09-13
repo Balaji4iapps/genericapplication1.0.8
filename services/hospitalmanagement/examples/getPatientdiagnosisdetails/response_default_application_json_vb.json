@@ -1,0 +1,78 @@
+{
+    "items": [
+        {
+            "diag_id": 101,
+            "diag_details": "Suffering from Asthuma",
+            "diag_remarks": "Need to use Rescue Healers",
+            "pat_id": 1
+        },
+        {
+            "diag_id": 102,
+            "diag_details": "Suffering from Migrane",
+            "diag_remarks": "Avoid Stress,improve sleep habit",
+            "pat_id": 2
+        },
+        {
+            "diag_id": 103,
+            "diag_details": "Suffering from Heart Disease",
+            "diag_remarks": "Medication,pacemakers and ablation",
+            "pat_id": 3
+        },
+        {
+            "diag_id": 104,
+            "diag_details": "Suffering from Skin Disease",
+            "diag_remarks": "Use anti fungal spary",
+            "pat_id": 4
+        },
+        {
+            "diag_id": 105,
+            "diag_details": "Suffering from Mouth Disease",
+            "diag_remarks": "use pain reliefs",
+            "pat_id": 5
+        },
+        {
+            "diag_id": 106,
+            "diag_details": "Suffering from Malaria",
+            "diag_remarks": "Need to use Rescue Healers",
+            "pat_id": 6
+        },
+        {
+            "diag_id": 107,
+            "diag_details": "Suffering from Typhoid",
+            "diag_remarks": "need to do is to consume food products that are high in Vitamin A",
+            "pat_id": 7
+        },
+        {
+            "diag_id": 108,
+            "diag_details": "Suffering from Cancer",
+            "diag_remarks": "keeping a healthy weight",
+            "pat_id": 8
+        },
+        {
+            "diag_id": 109,
+            "diag_details": "Suffering from Diabetes",
+            "diag_remarks": "Need to Eat healthy fats",
+            "pat_id": 9
+        },
+        {
+            "diag_id": 110,
+            "diag_details": "Suffering from Tuberculosis",
+            "diag_remarks": "Good hygiene",
+            "pat_id": 10
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 10,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1310/patientdiagnosisdetails"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1310/item"
+        }
+    ]
+}

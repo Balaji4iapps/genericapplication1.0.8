@@ -1,0 +1,109 @@
+{
+  "description": "",
+  "root": "if",
+  "actions": {
+    "ifPageNavigation": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.PageNavigation==='create' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostCloud18",
+        "false": "callRestPostCloud182"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCloud18.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostCloud18": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/PostCloud18",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.PostCloud18 }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.Information_Saved_Successfully]]",
+        "message": "[[$application.translations.app.InformationSavedSuccessfully_]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "assignVariablesCloudId"
+      }
+    },
+    "assignVariablesCloudId": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+
+        "$page.variables.PageNavigation": {
+          "source": "edit"
+        },
+        "$page.variables.Cloud_id": {
+          "source": "{{ $chain.results.callRestPostCloud18.body.p_primarykey }}"
+        }
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCloud182.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostCloud182": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/PostCloud18",
+        "uriParams": {
+          "P_PRIMARYKEY": "{{ $page.variables.Cloud_id }}",
+          "P_METHOD": "PUT"
+        },
+        "body": "{{ $page.variables.PostCloud18 }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.InformationEditedSuccessfully]]",
+        "message": "[[$application.translations.app.InformationEditedSucessfully_]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      }
+    },
+    "if": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $functions.isFormValid(\"SearchForm\") ]]"
+      },
+      "outcomes": {
+        "true": "ifPageNavigation"
+      }
+    }
+  },
+  "variables": {}
+}

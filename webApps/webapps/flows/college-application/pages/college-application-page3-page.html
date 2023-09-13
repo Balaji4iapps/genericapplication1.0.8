@@ -1,0 +1,116 @@
+<div class="oj-flex">
+  <h1 class="oj-flex-item oj-sm-12 oj-md-12"style="color:DodgerBlue;">Student Detail</h1>
+</div>
+<div 
+  style="display:flex; justify-content:flex-end; margin-bottom:1%;">
+      <oj-button class="oj-button-sm" chroming="callToAction" style="margin-left:0.5%;margin-right:1.5%;"
+        on-oj-action="[[$listeners.buttonAction2]]"
+        >Save</oj-button>
+      <oj-button class="oj-button-sm" chroming="callToAction"
+        style="margin-left:0.5%;margin-right:1.5%;" on-oj-action="[[$listeners.buttonAction7]]">Save and Close</oj-button>
+      <oj-button class="oj-button-sm" chroming="danger"
+        style="margin-left:0.5%;margin-right:1.5%;" on-oj-action="[[$listeners.buttonAction]]" >Close</oj-button>
+        <oj-button class="oj-button-sm" chroming="borderless" style="margin-left:0.5%;margin-right:1.5%;"
+          display="icons" on-oj-action="[[$listeners.buttonAction9]]"  >HOME
+    <img slot="startIcon" :src="[[ $flow.path + 'resources/images/icons8-home-page_1.gif' ]]" width="30" height="30">
+        </oj-button>
+  </div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-form-layout max-columns="3" label-edge="top"style="color:DodgerBlue;">
+      <oj-input-number label-hint="Roll Number" value="{{ $variables.studentdetail.student_id }}" readonly="true"></oj-input-number>
+      <oj-input-text label-hint="Student Name" value="{{ $variables.studentdetail.student_name }}"></oj-input-text>
+      <oj-input-text label-hint="Email" value="{{ $variables.studentdetail.email }}"></oj-input-text>
+      <oj-input-date label-hint="Date Of Birth" value="{{ $variables.studentdetail.dob }}"></oj-input-date>
+      <oj-input-text label-hint="Department" value="{{ $variables.studentdetail.department }}"></oj-input-text>
+      <oj-input-number label-hint="Contact Number" value="{{ $variables.studentdetail.contact_number }}"
+        converter='{"options":{"useGrouping":false},"type":"number"}'></oj-input-number>
+      <oj-radioset label-hint="Gender" value="{{ $variables.studentdetail.gender }}">
+        <oj-option value="male">Male</oj-option>
+         <oj-option value="female">Female</oj-option>
+      </oj-radioset>
+      
+      <oj-input-text label-hint="Address" value="{{ $variables.studentdetail.address }}"></oj-input-text>
+
+      
+    </oj-form-layout>
+
+    
+  </div>
+  <div class="oj-flex-item oj-sm-12 oj-md-1">
+    <img :src="[[ $flow.path + 'resources/images/icons8-plus-math_3.gif' ]]" width="30" height="30"
+      on-click="[[$listeners.imageClick]]">
+  </div>
+  <div class="oj-flex-item oj-sm-flex-initial">
+    <oj-bind-text value="Status Of Student"style="color:DodgerBlue;">
+    </oj-bind-text>
+  </div>
+</div>
+<div class="oj-flex">
+      <oj-table scroll-policy="loadMoreOnScroll" 
+ class="oj-flex-item oj-sm-12 oj-md-12"
+        columns='[{"headerText":"Semester","field":"semester"},{"headerText":"Attendance","field":"attendance"},{"headerText":"Lab Attendance","field":"lab_attendance"},{"headerText":"Leave Taken","field":"leave_taken"},{"headerText":"Project Name","field":"project_name"},{"headerText":"Project Mark","field":"project_mark"},{"headerText":"Sem Marks","field":"sem_marks"},{"headerText":"Update","field":"update","template":"Update"},{"headerText":"Delete","field":"delete","template":"Delete"}]'
+        data="[[ $variables.studentstatus ]]" display="grid" horizontal-grid-visible="enabled"
+        vertical-grid-visible="enabled">
+         <oj-paging-control id="paging" class="oj-sm-width-full" page-size="5" slot="bottom"
+           data="[[ $variables.studentstatus ]]"
+       >
+</oj-paging-control>
+         <template slot="Update">
+      <img :src="[[ $flow.path + 'resources/images/icons8-pencil-64_1.png' ]]" width="30" height="30"
+        on-click="[[$listeners.imageClick2]]">
+         </template>
+         <template slot="Delete">
+      <img :src="[[ $flow.path + 'resources/images/icons8-close-50_1.png' ]]" width="30" height="30"
+        on-click="[[$listeners.imageClick3]]">
+         </template>
+        
+        
+        </oj-table>
+</div>
+<oj-dialog style="display:none" dialog-title="WARNING" id="oj-dialog-delete">
+      <div slot="body">
+    <div class="oj-flex">
+      Are You Sure Want To Delete This Record?
+    </div>
+      </div>
+      <div slot="footer">
+          <oj-button on-oj-action="[[$listeners.buttonAction5]]">Yes</oj-button>
+    <oj-button on-oj-action="[[$listeners.buttonAction6]]">Cancel</oj-button>
+      </div>
+</oj-dialog>
+<oj-dialog style="display:none; width: 60;" dialog-title="Student Status"style="color:DodgerBlue;" id="oj-dialog-1710591602-1">
+      <div slot="body">
+    <div class="oj-flex">
+      <div class="oj-flex-item oj-sm-12 oj-md-12">
+        <oj-form-layout max-columns="3">
+           <oj-input-number label-hint="Semester" class="oj-flex-item oj-sm-12 oj-md-6"
+             value="{{ $variables.studentstatuspost.semester }}"></oj-input-number>
+      <oj-input-number label-hint="Attendenance" class="oj-flex-item oj-sm-12 oj-md-6"
+        value="{{ $variables.studentstatuspost.attendance }}"></oj-input-number>
+      <oj-input-number label-hint="Lab Attendanace" class="oj-flex-item oj-sm-12 oj-md-6"
+        value="{{ $variables.studentstatuspost.lab_attendance }}"></oj-input-number>
+      <oj-input-number label-hint="Leave Taken" class="oj-flex-item oj-sm-12 oj-md-6"
+        value="{{ $variables.studentstatuspost.leave_taken }}"></oj-input-number>
+      <oj-input-text label-hint="Project Name" class="oj-flex-item oj-sm-12 oj-md-6"
+        value="{{ $variables.studentstatuspost.project_name }}"></oj-input-text>
+      <oj-input-number label-hint="Project Mark" class="oj-flex-item oj-sm-12 oj-md-6"
+        value="{{ $variables.studentstatuspost.project_mark }}"></oj-input-number>
+      <oj-input-number label-hint="Sem Mark" class="oj-flex-item oj-sm-12 oj-md-6"
+        value="{{ $variables.studentstatuspost.sem_marks }}"></oj-input-number>
+
+
+
+
+        </oj-form-layout>
+      </div>
+     
+      
+    </div>
+      </div>
+      <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction4]]" chroming="callToAction">Save</oj-button>
+    <oj-button on-oj-action="[[$listeners.buttonAction3]]" chroming="danger">Cancel</oj-button>
+      </div>
+</oj-dialog>
+

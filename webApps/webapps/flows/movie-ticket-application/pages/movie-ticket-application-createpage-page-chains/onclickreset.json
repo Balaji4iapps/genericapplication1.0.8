@@ -1,0 +1,24 @@
+{
+  "description": "",
+  "root": "resetVariablesMoviesno",
+  "actions": {
+    "callChainOnLoadvvmovies1getalldata": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "OnLoadvvmovies1getalldata"
+      }
+    },
+    "resetVariablesMoviesno": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.moviesno"
+        ]
+      },
+      "outcomes": {
+        "success": "callChainOnLoadvvmovies1getalldata"
+      }
+    }
+  },
+  "variables": {}
+}

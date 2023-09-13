@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentPlayerdeletepopupClose",
+  "actions": {
+    "callComponentPlayerdeletepopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('playerdeletepopup') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

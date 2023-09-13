@@ -1,0 +1,135 @@
+{
+  "description": "",
+  "root": "if",
+  "actions": {
+    "ifGamemethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.gamemethod=='create' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostGdPMETHODPPRIMARYKEY",
+        "false": "callRestPostGdPMETHODPPRIMARYKEY2"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostGdPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      },
+      "outcomes": {
+        "success": "ifGamemethod"
+      }
+    },
+    "callRestPostGdPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "SportsApp/postGdP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.game }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_ee10]]",
+        "message": "[[$application.translations.app.fireNotification2_message_935b]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "assignVariablesMedicalmethod"
+    }
+    },
+    "assignVariablesGame": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.game": {
+          "source": {
+            "player_id": "{{ $page.variables.fk }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "ifGamemethod"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostGdPMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostGdPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "SportsApp/postGdP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.gamekey }}"
+        },
+        "body": "{{ $page.variables.game }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification4_summary_38f2]]",
+        "message": "[[$application.translations.app.fireNotification4_message_8f3c]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      }
+    },
+    "if": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $functions.isFormValid(\"MediVal\") ]]"
+      },
+      "outcomes": {
+        "true": "assignVariablesGame",
+        "false": "fireNotification6"
+      }
+    },
+    "fireNotification6": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification4_summary_6825]]",
+        "message": "[[$application.translations.app.fireNotification4_message_ad1a]]"
+      }
+    },
+    "assignVariablesMedicalmethod": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.medicalmethod": {
+          "source": "edit"
+        },
+        "$page.variables.gamekey": {
+          "source": "{{ $chain.results.callRestPostGdPMETHODPPRIMARYKEY.body.p_primarykey }}"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

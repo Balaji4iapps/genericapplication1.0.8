@@ -1,0 +1,98 @@
+{
+  "title": "product application new1",
+  "description": "",
+  "variables": {
+    "getGetListSDP2": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "Productapplication/getGet",
+        "keyAttributes": "product_num",
+        "itemsPath": "items",
+        "responseType": "getGetResponse2",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "product_name"
+          ]
+        }
+      }
+    },
+    "lov": {
+      "type": "string"
+    },
+    "tablevalue": {
+      "type": "any"
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getGetResponse2": {
+      "endpoint": "getGet",
+      "service": "Productapplication",
+      "path": "response"
+    },
+    "getGetResponse2": {
+      "items": [
+        {
+          "pincode": "number",
+          "product_location": "string",
+          "product_name": "string",
+          "product_num": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "dataload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+    }
+  }
+}

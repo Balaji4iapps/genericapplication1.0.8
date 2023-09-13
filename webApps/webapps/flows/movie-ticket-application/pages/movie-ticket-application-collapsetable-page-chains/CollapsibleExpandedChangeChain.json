@@ -1,0 +1,89 @@
+{
+  "description": "",
+  "root": "ifExpandableClose",
+  "actions": {
+    "assignVariablesFetchMovies": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.FetchMovies": {
+          "source": true
+        }
+      },
+      "outcomes": {
+        "success": "callRestGetVvmovies1"
+      }
+    },
+    "callComponentMoviecollapseTableRefresh": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('MoviecollapseTable') }}",
+        "method": "refresh"
+      },
+      "outcomes": {
+        "success": "callComponentFetchDataDialogBoxClose"
+      }
+    },
+    "callRestGetVvmovies1": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Moviesticketbooking/getVvmovies1"
+      },
+      "outcomes": {
+        "success": "callComponentMoviecollapseTableRefresh"
+      }
+    },
+    "callComponentFetchDataDialogBoxOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('FetchDataDialogBox') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "assignVariablesFetchMovies"
+      }
+    },
+    "callComponentFetchDataDialogBoxClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('FetchDataDialogBox') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "assignVariablesExpandableClose"
+      }
+    },
+    "ifExpandableClose": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.ExpandableClose == 'open' ]]"
+      },
+      "outcomes": {
+        "true": "callComponentFetchDataDialogBoxOpen",
+        "false": "assignVariablesExpandableClose2"
+      }
+    },
+    "assignVariablesExpandableClose": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.ExpandableClose": {
+          "source": "close"
+        }
+      }
+    },
+    "assignVariablesExpandableClose2": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.ExpandableClose": {
+          "source": "open"
+        }
+      }
+    }
+  },
+  "variables": {
+    "expanded": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "description": "",
+  "root": "navigateToDvdRentalApplicationCustomerDetails",
+  "actions": {
+    "navigateToDvdRentalApplicationCustomerDetails": {
+      "module": "vb/action/builtin/navigateAction",
+      "@dt": {
+        "targetType": "flow"
+      },
+      "parameters": {
+        "target": "parent",
+        "flow": "dvd-rental-application",
+        "page": "customer-details"
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,1241 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Productapplication",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/productapplication",
+            "description": "Ords Dyrords"
+        }
+    ],
+    "paths": {
+        "/get": {
+            "get": {
+                "operationId": "getGet",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetGet"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getGet/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/getbyid": {
+            "get": {
+                "operationId": "getGetbyid",
+                "parameters": [
+                    {
+                        "name": "ProductNum",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetGetbyid"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getGetbyid/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/productapp/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postProductappP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postProductappP_METHODP_PRIMARYKEY/request_application_json_vb.json",
+                                    "summary": "Example stored by VB User"
+                                }
+                            },
+                            "schema": {
+                                "$ref": "#/components/schemas/PostProductappP_METHODP_PRIMARYKEYRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostProductappP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postProductappP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/departget": {
+            "get": {
+                "operationId": "getDepartget",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetDepartget"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getDepartget/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/departgetbyid": {
+            "get": {
+                "operationId": "getDepartgetbyid",
+                "parameters": [
+                    {
+                        "name": "ProductNum",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetDepartgetbyid"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getDepartgetbyid/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/departapp/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postDepartappP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostDepartappP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postDepartappP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostDepartappP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postDepartappP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/customerget": {
+            "get": {
+                "operationId": "getCustomerget",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetCustomerget"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getCustomerget/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/customergetid": {
+            "get": {
+                "operationId": "getCustomergetid",
+                "parameters": [
+                    {
+                        "name": "DepartNum",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetCustomergetid"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getCustomergetid/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/customer/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postCustomerP_METHODP_PRIMARYKEY2",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostCustomerP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postCustomerP_METHODP_PRIMARYKEY2/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostCustomerP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postCustomerP_METHODP_PRIMARYKEY2/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/customergetbyid": {
+            "get": {
+                "operationId": "getCustomergetbyid",
+                "parameters": [
+                    {
+                        "name": "CustomerNum",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetCustomergetbyid"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getCustomergetbyid/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/getalltable": {
+            "get": {
+                "operationId": "getGetalltable",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetGetalltable"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getGetalltable/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/getbyidalltable": {
+            "get": {
+                "operationId": "getGetbyidalltable",
+                "parameters": [
+                    {
+                        "name": "productnum",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetGetbyidalltable"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getGetbyidalltable/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "GetGet": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "product_num": {
+                                    "type": "string"
+                                },
+                                "product_name": {
+                                    "type": "string"
+                                },
+                                "product_location": {
+                                    "type": "string"
+                                },
+                                "pincode": {
+                                    "type": "integer"
+                                },
+                                "mobile": {
+                                    "type": "integer"
+                                },
+                                "manufacture_date": {
+                                    "type": "string"
+                                },
+                                "expiry_date": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetGetbyid": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "product_num": {
+                                    "type": "string"
+                                },
+                                "product_name": {
+                                    "type": "string"
+                                },
+                                "product_location": {
+                                    "type": "string"
+                                },
+                                "pincode": {
+                                    "type": "integer"
+                                },
+                                "mobile": {
+                                    "type": "integer"
+                                },
+                                "manufacture_date": {
+                                    "type": "string"
+                                },
+                                "expiry_date": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostProductappP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostProductappP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "product_num": {
+                        "type": "string"
+                    },
+                    "product_name": {
+                        "type": "string"
+                    },
+                    "product_location": {
+                        "type": "string"
+                    },
+                    "pincode": {
+                        "type": "integer"
+                    },
+                    "mobile": {
+                        "type": "integer"
+                    },
+                    "manufacture_date": {
+                        "type": "string"
+                    },
+                    "expiry_date": {
+                        "type": "string"
+                    },
+                    "stock_remain": {
+                        "type": "string"
+                    }
+                }
+            },
+            "GetDepartget": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "depart_num": {
+                                    "type": "string"
+                                },
+                                "shop_name": {
+                                    "type": "string"
+                                },
+                                "store_short_code": {
+                                    "type": "string"
+                                },
+                                "product_num": {
+                                    "type": "string"
+                                },
+                                "shop_location": {
+                                    "type": "string"
+                                },
+                                "delivery_date": {
+                                    "type": "string"
+                                },
+                                "dispatch_no": {
+                                    "type": "integer"
+                                },
+                                "manager_name": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetDepartgetbyid": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "depart_num": {
+                                    "type": "string"
+                                },
+                                "shop_name": {
+                                    "type": "string"
+                                },
+                                "store_short_code": {
+                                    "type": "string"
+                                },
+                                "product_num": {
+                                    "type": "string"
+                                },
+                                "shop_location": {
+                                    "type": "string"
+                                },
+                                "delivery_date": {
+                                    "type": "string"
+                                },
+                                "dispatch_no": {
+                                    "type": "integer"
+                                },
+                                "manager_name": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostDepartappP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "depart_num": {
+                        "type": "string"
+                    },
+                    "shop_name": {
+                        "type": "string"
+                    },
+                    "store_short_code": {
+                        "type": "string"
+                    },
+                    "product_num": {
+                        "type": "string"
+                    },
+                    "shop_location": {
+                        "type": "string"
+                    },
+                    "delivery_date": {
+                        "type": "string"
+                    },
+                    "dispatch_no": {
+                        "type": "integer"
+                    },
+                    "manager_name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostDepartappP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetCustomerget": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "customer_num": {
+                                    "type": "string"
+                                },
+                                "customer_name": {
+                                    "type": "string"
+                                },
+                                "customer_location": {
+                                    "type": "string"
+                                },
+                                "depart_num": {
+                                    "type": "string"
+                                },
+                                "salesman": {
+                                    "type": "string"
+                                },
+                                "area_no": {
+                                    "type": "string"
+                                },
+                                "order_date": {
+                                    "type": "string"
+                                },
+                                "email_id": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetCustomergetid": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "customer_num": {
+                                    "type": "string"
+                                },
+                                "customer_name": {
+                                    "type": "string"
+                                },
+                                "customer_location": {
+                                    "type": "string"
+                                },
+                                "depart_num": {
+                                    "type": "string"
+                                },
+                                "salesman": {
+                                    "type": "string"
+                                },
+                                "area_no": {
+                                    "type": "string"
+                                },
+                                "order_date": {
+                                    "type": "string"
+                                },
+                                "email_id": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostCustomerP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "customer_num": {
+                        "type": "string"
+                    },
+                    "customer_name": {
+                        "type": "string"
+                    },
+                    "customer_location": {
+                        "type": "string"
+                    },
+                    "depart_num": {
+                        "type": "string"
+                    },
+                    "salesman": {
+                        "type": "string"
+                    },
+                    "area_no": {
+                        "type": "string"
+                    },
+                    "order_date": {
+                        "type": "string"
+                    },
+                    "email_id": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostCustomerP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetCustomergetbyid": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "customer_num": {
+                                    "type": "string"
+                                },
+                                "customer_name": {
+                                    "type": "string"
+                                },
+                                "customer_location": {
+                                    "type": "string"
+                                },
+                                "depart_num": {
+                                    "type": "string"
+                                },
+                                "salesman": {
+                                    "type": "string"
+                                },
+                                "area_no": {
+                                    "type": "string"
+                                },
+                                "order_date": {
+                                    "type": "string"
+                                },
+                                "email_id": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetGetalltable": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "product_num": {
+                                    "type": "string"
+                                },
+                                "product_name": {
+                                    "type": "string"
+                                },
+                                "product_location": {
+                                    "type": "string"
+                                },
+                                "pincode": {
+                                    "type": "integer"
+                                },
+                                "mobile": {
+                                    "type": "integer"
+                                },
+                                "manufacture_date": {
+                                    "type": "string"
+                                },
+                                "expiry_date": {
+                                    "type": "string"
+                                },
+                                "stock_remain": {
+                                    "type": "string"
+                                },
+                                "shop_name": {
+                                    "type": "string"
+                                },
+                                "store_short_code": {
+                                    "type": "string"
+                                },
+                                "shop_location": {
+                                    "type": "string"
+                                },
+                                "delivery_date": {
+                                    "type": "string"
+                                },
+                                "dispatch_no": {
+                                    "type": "integer"
+                                },
+                                "manager_name": {
+                                    "type": "string"
+                                },
+                                "customer_name": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "customer_location": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "salesman": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "area_no": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "order_date": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "email_id": {
+                                    "type": "string",
+                                    "nullable": true
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetGetbyidalltable": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "product_num": {
+                                    "type": "string"
+                                },
+                                "product_name": {
+                                    "type": "string"
+                                },
+                                "product_location": {
+                                    "type": "string"
+                                },
+                                "pincode": {
+                                    "type": "integer"
+                                },
+                                "mobile": {
+                                    "type": "integer"
+                                },
+                                "manufacture_date": {
+                                    "type": "string"
+                                },
+                                "expiry_date": {
+                                    "type": "string"
+                                },
+                                "stock_remain": {
+                                    "type": "string"
+                                },
+                                "shop_name": {
+                                    "type": "string"
+                                },
+                                "store_short_code": {
+                                    "type": "string"
+                                },
+                                "shop_location": {
+                                    "type": "string"
+                                },
+                                "delivery_date": {
+                                    "type": "string"
+                                },
+                                "dispatch_no": {
+                                    "type": "integer"
+                                },
+                                "manager_name": {
+                                    "type": "string"
+                                },
+                                "customer_name": {
+                                    "type": "string"
+                                },
+                                "customer_location": {
+                                    "type": "string"
+                                },
+                                "salesman": {
+                                    "type": "string"
+                                },
+                                "area_no": {
+                                    "type": "string"
+                                },
+                                "order_date": {
+                                    "type": "string"
+                                },
+                                "email_id": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

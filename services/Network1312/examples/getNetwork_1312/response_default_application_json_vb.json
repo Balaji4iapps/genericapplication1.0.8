@@ -1,0 +1,90 @@
+{
+    "items": [
+        {
+            "network_id": 123,
+            "network_name": "Airtel         ",
+            "data_pack": "1.5GB",
+            "mrp": "240",
+            "validity": "28days",
+            "subscriptions": "Sony Liv",
+            "sms": "100/day"
+        },
+        {
+            "network_id": 124,
+            "network_name": "Bsnl           ",
+            "data_pack": "1GB",
+            "mrp": "199",
+            "validity": "30days",
+            "subscriptions": "DD Sports",
+            "sms": "100/day"
+        },
+        {
+            "network_id": 125,
+            "network_name": "Jio            ",
+            "data_pack": "1.5GB",
+            "mrp": "219",
+            "validity": "28days",
+            "subscriptions": "Hotstar",
+            "sms": "Unlimited"
+        },
+        {
+            "network_id": 126,
+            "network_name": "VI             ",
+            "data_pack": "2GB",
+            "mrp": "249",
+            "validity": "30days",
+            "subscriptions": "Star Sports",
+            "sms": "unlimited"
+        },
+        {
+            "network_id": 127,
+            "network_name": "Aircel         ",
+            "data_pack": "1GB",
+            "mrp": "199",
+            "validity": "20days",
+            "subscriptions": "Hungama Music",
+            "sms": "100/day"
+        },
+        {
+            "network_id": 128,
+            "network_name": "Docomo         ",
+            "data_pack": "1.5GB",
+            "mrp": "200",
+            "validity": "28days",
+            "subscriptions": "Netflix",
+            "sms": "Unlimited"
+        },
+        {
+            "network_id": 129,
+            "network_name": "TataIndicom    ",
+            "data_pack": "3GB",
+            "mrp": "320",
+            "validity": "28days",
+            "subscriptions": "Amazon Prime",
+            "sms": "100/day"
+        },
+        {
+            "network_id": 130,
+            "network_name": "Telenor        ",
+            "data_pack": "2.5GB",
+            "mrp": "299",
+            "validity": "48days",
+            "subscriptions": "sony Music",
+            "sms": "100/day"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 8,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1312/Network_1312"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1312/item"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "items": [
+        {
+            "pat_id": 2,
+            "pat_name": "Deepika",
+            "pat_gender": "F",
+            "pat_address": "Assam",
+            "pat_number": 2,
+            "pat_doc_code": 1002
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1310/patientbypatientid?patid=002"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1310/item"
+        }
+    ]
+}

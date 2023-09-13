@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "callChainDetailsonload",
+  "actions": {
+    "callChainDetailsonload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "detailsonload"
+      }
+    }
+  },
+  "variables": {}
+}

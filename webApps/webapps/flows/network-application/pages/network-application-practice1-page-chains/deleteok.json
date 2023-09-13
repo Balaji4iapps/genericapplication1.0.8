@@ -1,0 +1,56 @@
+{
+  "description": "",
+  "root": "callRestPostNetwork1312PMETHODPPRIMARYKEY",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostNetwork1312PMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostNetwork1312PMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Network1312/postNetwork_1312P_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $page.variables.networkid }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostNetwork1312PMETHODPPRIMARYKEY.body.p_err_msg ]]"
+      },
+      "outcomes": {
+        "success": "callComponentOjDialog19955915021Close"
+      }
+    },
+    "callComponentOjDialog19955915021Close": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog--1995591502-1') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainNetworkrecords"
+      }
+    },
+    "callChainNetworkrecords": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "networkrecords"
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,77 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "Customer_ID": {
+      "type": "number"
+    },
+    "payment": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "Getpayment",
+        "keyAttributes": "customer_id"
+      }
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.Getpayment": {
+      "endpoint": "Getpayment",
+      "service": "DvdORDS",
+      "path": "response-_-items[0]"
+    },
+    "Getpayment": {
+      "amount": "number",
+      "customer_id": "number",
+      "payment_date": "string",
+      "payment_id": "number",
+      "rental_id": "number",
+      "seq_payment": "number",
+      "staff_id": "number"
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "Homebuttonnavigation"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "OnPressSearch"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "OnPressReset"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+    }
+  }
+}

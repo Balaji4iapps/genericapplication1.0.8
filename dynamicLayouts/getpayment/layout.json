@@ -1,0 +1,42 @@
+{
+  "layoutTypes": {
+    "DvdORDS": {
+      "kind": "operationRef",
+      "serviceId": "DvdORDS",
+      "operations": [
+        "Getpayment"
+      ]
+    }
+  },
+  "layouts": {
+    "isDefault": {
+      "description": "Default Rule",
+      "type": "DvdORDS",
+      "expression": "[[ 'default' ]]"
+    },
+    "paymentHistory": {
+      "type": "DvdORDS",
+      "layoutType": "table",
+      "label": "Payment_history",
+      "description": "payments of the store",
+      "rules": [
+        "isDefault"
+      ],
+      "layouts": {
+        "default": {
+          "layoutType": "table",
+          "layout": {
+            "displayProperties": [
+              "amount",
+              "customer_id",
+              "payment_date",
+              "payment_id",
+              "rental_id",
+              "staff_id"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

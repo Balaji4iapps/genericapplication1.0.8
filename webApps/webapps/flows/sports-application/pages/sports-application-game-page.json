@@ -1,0 +1,252 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "fk": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "game": {
+      "type": "postGdP_METHODP_PRIMARYKEY"
+    },
+    "gamekey": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "gamemethod": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "getGameidListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "SportsApp/getGameid",
+        "keyAttributes": "awards",
+        "itemsPath": "items",
+        "responseType": "getGameidResponse",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "awards"
+          ]
+        }
+      }
+    },
+    "medicalmethod": {
+      "type": "string"
+    },
+    "medicaltable": {
+      "type": "any"
+    },
+    "medikey": {
+      "type": "number"
+    },
+    "medivar": {
+      "type": "postMdP_METHODP_PRIMARYKEY"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getGameidResponse": {
+      "endpoint": "getGameid",
+      "service": "SportsApp",
+      "path": "response"
+    },
+    "@decorators.postGdP_METHODP_PRIMARYKEY": {
+      "endpoint": "postGdP_METHODP_PRIMARYKEY",
+      "service": "SportsApp",
+      "path": "request"
+    },
+    "@decorators.postMdP_METHODP_PRIMARYKEY": {
+      "endpoint": "postMdP_METHODP_PRIMARYKEY",
+      "service": "SportsApp",
+      "path": "request"
+    },
+    "getGameidResponse": {
+      "items": [
+        {
+          "awards": "string"
+        }
+      ]
+    },
+    "postGdP_METHODP_PRIMARYKEY": {
+      "awards": "string",
+      "game_id": "number",
+      "game_name": "string",
+      "kits": "string",
+      "modes": "string",
+      "participants": "string",
+      "player_id": "number",
+      "trainer_name": "string",
+      "workout_evalution": "string"
+    },
+    "postMdP_METHODP_PRIMARYKEY": {
+      "allergies": "string",
+      "dose_level": "string",
+      "game_id": "number",
+      "insurances": "string",
+      "last_match_injuire_status": "string",
+      "medical_id": "number",
+      "phy_challenged": "string",
+      "remarks": "string",
+      "therapy_assistant": "string"
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "gameclose"
+        }
+      ]
+    },
+    "buttonAction10": {
+      "chains": [
+        {
+          "chainId": "details"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "gamesave"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "onpopmedical"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "onclicksaveandclose"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "medicalpopup"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "medicalcreate"
+        }
+      ]
+    },
+    "buttonAction7": {
+      "chains": [
+        {
+          "chainId": "medicalsave"
+        }
+      ]
+    },
+    "buttonAction8": {
+      "chains": [
+        {
+          "chainId": "medideletepopup"
+        }
+      ]
+    },
+    "buttonAction9": {
+      "chains": [
+        {
+          "chainId": "medipopclose"
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "onclickpopupopenmedi",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick2": {
+      "chains": [
+        {
+          "chainId": "medidelete",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "medicalonload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-checkboxset": {
+        "path": "ojs/ojcheckboxset"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-radioset": {
+        "path": "ojs/ojradioset"
+      },
+      "oj-sample-checkbox-switch": {
+        "path": "oj-sample/checkbox-switch/loader"
+      },
+      "oj-select-one": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+
+    }
+  }
+}

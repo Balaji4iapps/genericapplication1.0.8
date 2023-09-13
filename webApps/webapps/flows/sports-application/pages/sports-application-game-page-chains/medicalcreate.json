@@ -1,0 +1,53 @@
+{
+  "description": "",
+  "root": "ifGamekey",
+  "actions": {
+    "ifGamekey": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.gamekey!=0 ]]"
+      },
+      "outcomes": {
+        "true": "assignVariablesMedikey",
+        "false": "fireNotification"
+      }
+    },
+    "callComponentOjDialog9828729301Open": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog--982872930-1') }}",
+        "method": "open"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification_summary_329f]]",
+        "message": "[[$application.translations.app.fireNotification_message_3757]]"
+      }
+    },
+    "assignVariablesMedikey": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.medikey": {
+          "source": "0"
+        },
+        "$page.variables.medicalmethod": {
+          "source": "create"
+        },
+        "$page.variables.medivar": {
+          "source": {
+            "game_id": "{{ $page.variables.gamekey }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentOjDialog9828729301Open"
+      }
+    }
+  },
+  "variables": {}
+}

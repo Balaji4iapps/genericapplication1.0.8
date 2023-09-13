@@ -1,0 +1,56 @@
+{
+  "description": "",
+  "root": "ifStudentprimarykey",
+  "actions": {
+    "callComponentOjDialog17105916021Open": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog-1710591602-1') }}",
+        "method": "open"
+      }
+    },
+    "ifStudentprimarykey": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.studentprimarykey!=0 ]]"
+      },
+      "outcomes": {
+        "true": "assignVariablesStatusmethod",
+        "false": "fireNotification"
+      }
+    },
+    "assignVariablesStatusmethod": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.statusmethod": {
+          "source": "create"
+        },
+        "$page.variables.statusprimarykey": {
+          "source": "0"
+        },
+        "$page.variables.statusfk": {
+          "source": "{{ $page.variables.studentprimarykey }}"
+        },
+        "$page.variables.studentstatuspost": {
+          "source": {
+            "student_name": "{{ $page.variables.studentdetail.student_name }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentOjDialog17105916021Open"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification_summary_269a]]",
+        "displayMode": "transient"
+      }
+    }
+  },
+  "variables": {}
+}

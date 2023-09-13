@@ -1,0 +1,146 @@
+
+<header>
+  <h6 class="oj-flex-bar-start"
+  style="color:DodgerBlue;">College Staff Portal</h6>
+</header>
+<oj-form-layout label-edge="start" columns="2"  direction="column" max-columns="2">
+      <oj-select-single label-hint="Select Staff Name" label-edge="inside"
+        item-text="staff_name"
+        value="{{ $variables.lov }}" data="[[$variables.getCollegegetListSDP]]"
+       >
+    <template slot="collectionTemplate" data-oj-as="collection">
+  <oj-table scroll-policy="loadMoreOnScroll" selection-mode='{"row": "single"}'
+    columns-default='{"resizable": "disabled","sortable": "disabled"}' class="oj-select-results"
+    columns=' [{"headerText":"Staff No","field":"staff_id"} ,
+    {"headerText":"Staff Name","field":"staff_name"}                
+                            ]' on-oj-row-action="[[collection.handleRowAction]]" data="[[collection.data]]"
+    selected.row="[[collection.selected]]" current-row="{{collection.currentRow}}"></oj-table>
+    </template>
+    <template slot="itemTemplate">
+    </template>
+      </oj-select-single>
+      <h1><oj-bind-text></oj-bind-text></h1>
+</oj-form-layout>  
+   
+
+
+<!-- Page specific title and actions for desktop formfactor -->
+
+
+<header>
+</header>  
+    <div style="display:flex; justify-content:flex-end;">
+      <oj-button style="searchBtn margin-left:0.5%;margin-right:0.5%;" label="Search"
+        on-oj-action="[[$listeners.buttonAction]]" chroming="outlined">
+        <oj-bind-text></oj-bind-text>
+        <img slot="startIcon" :src="[[ $flow.path + 'resources/images/icons8-search.gif' ]]" width="30" height="30">
+      </oj-button>
+      <oj-button 
+        style="resetBtn margin-left:0.5%;margin-right:0.5%;" label="Reset" on-oj-action="[[$listeners.buttonAction5]]">
+        <oj-bind-text></oj-bind-text>
+        <img slot="startIcon" :src="[[ $flow.path + 'resources/images/icons8-available-updates-50.png' ]]" width="30"
+          height="30">
+      </oj-button>
+      <oj-button 
+        style="resetBtn margin-left:0.5%;margin-right:0.5%;" label="Close" on-oj-action="[[$listeners.buttonAction5]]">
+        <oj-bind-text></oj-bind-text>
+        <img slot="startIcon" :src="[[ $flow.path + 'resources/images/icons8-back-arrow-50_1.png' ]]" width="30"
+          height="30">
+       
+      </oj-button>
+    </div>
+    
+<div id="sampleDemo" style="" class="demo-padding demo-container">
+<div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+<div id="mainContent">
+<oj-button on-oj-action="[[$listeners.buttonAction4]]" chroming="outlined" >New Request
+  
+  <img slot="startIcon" :src="[[ $flow.path + 'resources/images/icons8-plus-math_1.gif' ]]" width="30" height="30">
+</oj-button>
+
+<!--  -->
+<oj-table scroll-policy="loadMoreOnScroll" class="oj-sm-width-full oj-bg-body tablerowdata" selection-mode.row="single"
+  edit-mode="rowEdit" display="grid" selection-mode.column="single"
+  columns='[{"headerText":"Staff Code","field":"staff_id","width":80,"template":"Staff id1"},
+  {"headerText":"Staff Name","field":"staff_name","width":80},
+  {"headerText":"email","field":"email","width":80},
+  {"headerText":"DOB","field":"dob","template":"apptodate","width":80},
+  {"headerText":"DOJ","field":"date_of_joining","template":"apptodate","width":80},
+  {"headerText":"Gender","field":"gender","width":80},
+  {"headerText":"Phone Number","field":"phone_number","width":80},
+  {"headerText":"Address","field":"address","width":80},
+  {"headerText":"Update","field":"update","width":80,"template":"Update"},
+  {"headerText":"Delete","field":"delete","width":80,"template":"Delete"}]'
+  data="[[ $variables.searchpage ]]"
+  >
+   <!-- edit -->
+         <template slot="edit">
+          <a target="_blank">
+            <oj-bind-text value="[[$current.data]]"></oj-bind-text>
+          </a>
+        </template>
+<!--date  -->
+        <template slot="apptodate">
+          <oj-input-date value="[[$current.data]]" readonly="true"
+            converter='{"type": "datetime", "options": {"pattern":"dd-MMM-yyyy"}}'></oj-input-date>
+        </template>
+    <template slot="">
+      <a target="_blank" style="color: red;font-weight: bold;">
+                  <oj-bind-text value="[[ $current.data ]]"></oj-bind-text>
+                </a>
+    </template>
+
+        <template slot="integration">
+            <oj-bind-if test='[[ ($current.row.integration_status==="Error") ]]'>
+                <a target="_blank" style="color: red;font-weight: bold;">
+                  <oj-bind-text value="Error"></oj-bind-text>
+                </a>
+            </oj-bind-if>
+            <!--  -->
+            <oj-bind-if test='[[ ($current.row.integration_status==="In-Progress") ]]'>
+                <a target="_blank" style="color: blue;font-weight: bold;" >
+                  <oj-bind-text value="In-Progress"></oj-bind-text>
+                </a>
+            </oj-bind-if>
+            <!--  -->
+             <oj-bind-if test='[[ ($current.row.integration_status==="Interfaced" || $current.row.integration_status==="Approved") ]]'>
+                <a target="_blank" style="color: green;font-weight: bold;" >
+                  <oj-bind-text value="Interfaced"></oj-bind-text>
+                </a>
+              </oj-bind-if>
+         </template>
+<oj-paging-control id="paging" class="oj-sm-width-full" page-size="5" slot="bottom" data="[[ $variables.searchpage ]]">
+</oj-paging-control>
+  <template slot="Staff id">
+            <a target="_blank">
+                <oj-bind-text value="[[$current.data]]"></oj-bind-text>
+            </a>
+  </template>
+  <template slot="Delete">
+            <img :src="[[ $flow.path + 'resources/images/icons8-remove-64.png' ]]" height="30" width="30"
+              on-click="[[$listeners.imageClick]]">
+  </template>
+  <template slot="Update">
+            <img :src="[[ $flow.path + 'resources/images/icons8-pencil-64.png' ]]"
+              on-click="[[$listeners.imageClick2]]" width="30" height="30">
+  </template>
+</oj-table>
+</div>
+</div>
+</div>
+<oj-dialog style="display:none" dialog-title="Warning" id="oj-dialog-1009527024-1">
+      <div slot="body">
+    <div class="oj-flex">
+      Are You Sure Want To Delete This Record ?
+    </div>
+      </div>
+      <div slot="footer">
+        <oj-button on-oj-action="[[$listeners.buttonAction3]]">yes</oj-button>
+    <oj-button on-oj-action="[[$listeners.buttonAction2]]">no</oj-button>
+      </div>
+</oj-dialog>
+
+<!-- color button -->
+
+
+

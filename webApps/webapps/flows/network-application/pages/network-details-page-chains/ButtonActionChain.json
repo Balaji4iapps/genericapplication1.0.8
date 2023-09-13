@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToNetworkApplicationStart",
+  "actions": {
+    "navigateToNetworkApplicationStart": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "network-application-start"
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,19 @@
+{
+  "description": "",
+  "root": "callChainOnclickheadersave",
+  "actions": {
+    "callChainOnclickheadersave": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onclickheadersave"
+      },
+      "outcomes": {
+        "success": "navigateBack"
+      }
+    },
+    "navigateBack": {
+      "module": "vb/action/builtin/navigateBackAction"
+    }
+  },
+  "variables": {}
+}

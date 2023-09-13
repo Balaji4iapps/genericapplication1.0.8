@@ -1,0 +1,67 @@
+{
+  "root": "callComponentPageloaderOpen",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetCloudsearch.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetCloudsearch": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/getCloudsearch"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingcloudtable"
+      }
+    },
+    "callFunctionPagingcloudtable": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingcloudtable",
+        "params": [
+          "{{ $chain.results.callRestGetCloudsearch.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesCloudTable"
+      }
+    },
+    "assignVariablesCloudTable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.cloud_table": {
+          "source": "{{ $chain.results.callFunctionPagingcloudtable }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentPageloaderClose"
+      }
+    },
+    "callComponentPageloaderOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('pageloader') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestGetCloudsearch"
+      }
+    },
+    "callComponentPageloaderClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('pageloader') }}",
+        "method": "close"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "description": "",
+  "root": "callComponentOjDialog17105916021Close",
+  "actions": {
+    "callComponentOjDialog17105916021Close": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog-1710591602-1') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "resetVariablesStudentstatuspost"
+      }
+    },
+    "resetVariablesStudentstatuspost": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.studentstatuspost"
+        ]
+      }
+    }
+  },
+  "variables": {}
+}

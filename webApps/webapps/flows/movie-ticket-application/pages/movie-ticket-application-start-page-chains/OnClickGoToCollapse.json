@@ -1,0 +1,33 @@
+{
+  "description": "",
+  "root": "callComponentInProgressPopupOpen",
+  "actions": {
+    "navigateToMovieTicketApplicationCollapsetable": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "movie-ticket-application-collapsetable"
+      }
+    },
+    "callComponentInProgressPopupOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('InProgressPopup') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callComponentInProgressPopupClose"
+      }
+    },
+    "callComponentInProgressPopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('InProgressPopup') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "navigateToMovieTicketApplicationCollapsetable"
+    }
+    }
+  },
+  "variables": {}
+}

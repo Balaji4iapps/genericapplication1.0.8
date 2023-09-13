@@ -1,0 +1,171 @@
+{
+  "description": "",
+  "root": "if",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostMfdheaderPMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostMfdheaderPMETHODPPRIMARYKEY22.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "ifMethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.method=='CREATE' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostMfdheaderPMETHODPPRIMARYKEY2",
+        "false": "callRestPostMfdheaderPMETHODPPRIMARYKEY22"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_e97e]]",
+        "message": "[[$application.translations.app.fireNotification2_message_bf68]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+
+      },
+      "outcomes": {
+        "success": "assignVariablesPrimarykey"
+      }
+    },
+    "callRestPostMfdheaderPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "supermartapplication/postMfdheaderP_METHODP_PRIMARYKEY2",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.allcolumn }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "callRestPostMfdheaderPMETHODPPRIMARYKEY22": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "supermartapplication/postMfdheaderP_METHODP_PRIMARYKEY2",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.primarykey }}"
+        },
+        "body": "{{ $page.variables.allcolumn }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification4_summary_2c3b]]",
+        "message": "[[$application.translations.app.fireNotification4_message_30b1]]"
+      },
+      "outcomes": {
+        "success": "callChainVbeditpageload"
+      }
+    },
+    "callChainVbeditpageload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "vbeditpageload"
+      },
+      "outcomes": {
+        "success": "callRestGetSmartchild"
+      }
+    },
+    "fireNotification4": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetSmartchild.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetSmartchild.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesAllcolumnchild1"
+      }
+    },
+    "callRestGetSmartchild": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "supermartapplication/getSmartchild"
+      },
+      "outcomes": {
+        "failure": "fireNotification4",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "assignVariablesAllcolumnchild1": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.childtable": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    },
+    "if": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $functions.isFormValid(\"reqvalidation\") ]]"
+      },
+      "outcomes": {
+        "true": "ifMethod",
+        "false": "fireNotification7"
+      }
+    },
+    "fireNotification7": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification6_summary]]",
+        "message": "[[$application.translations.app.fireNotification6_message]]"
+      }
+    },
+    "assignVariablesPrimarykey": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.primarykey": {
+          "source": "{{ $chain.results.callRestPostMfdheaderPMETHODPPRIMARYKEY2.body.p_primarykey }}"
+        },
+        "$page.variables.method": {
+          "source": "edit"
+        }
+      },
+      "outcomes": {
+        "success": "callChainVbeditpageload"
+      }
+    }
+  },
+  "variables": {}
+}

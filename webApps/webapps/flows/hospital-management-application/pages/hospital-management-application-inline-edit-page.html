@@ -1,0 +1,36 @@
+<oj-validation-group>
+<oj-button label="ADD ROW" on-oj-action="[[$listeners.buttonAction]]" chroming="solid"></oj-button>
+<oj-button label="SAVE"  chroming="solid" on-oj-action="[[$listeners.buttonAction2]]"></oj-button>
+<oj-button label="NAV"  chroming="solid" on-oj-action="[[$listeners.buttonAction3]]" ></oj-button>
+</oj-validation-group>
+ <br>
+
+
+<oj-validation-group id="Tableform">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12" data="[[ $variables.TableADP ]]"
+    columns='[{"headerText":"Doctor Designation","field":"doc_designation","template":"doc_designation"},{"headerText":"Doctor Address","field":"doc_address","template":"doc_address"},{"headerText":"Doctor Name","field":"doc_name","template":"doc_name"},{"headerText":"Doctor Gender","field":"doc_gender","template":"Doctor Gender"}]'
+    display="grid" id="searchLnsTable" selection-mode.row="single" horizontal-grid-visible="enabled"
+    vertical-grid-visible="enabled" selection-required="true">
+  <template slot="doc_designation">
+      <oj-input-text :id="[['doc_designation'+$current.index]]" value="[[ $current.row.doc_designation ]]"
+            required="true">
+         </oj-input-text>
+  </template>
+  <template slot="doc_address">
+      <oj-input-text :id="[['doc_address'+$current.index]]" value="[[ $current.row.doc_address ]]"
+            required="true">
+         </oj-input-text>
+  </template>
+  <template slot="doc_name">
+             <oj-input-text :id="[['doc_name'+$current.index]]" value="[[ $current.row.doc_name ]]"
+            required="true">
+         </oj-input-text>
+  </template>
+  <template slot="Doctor Gender">
+      <oj-input-text :id="[['doc_gender'+$current.index]]" value="[[ $current.row.doc_gender ]]"
+            required="true">
+         </oj-input-text>
+  </template>
+</oj-table>
+</oj-validation-group>
+

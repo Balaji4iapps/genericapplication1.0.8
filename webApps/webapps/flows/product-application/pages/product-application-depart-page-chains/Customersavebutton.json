@@ -1,0 +1,159 @@
+{
+  "description": "",
+  "root": "assignVariablesCustomerservice",
+  "actions": {
+    "ifMethodcus": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.methodcus=='CREATE' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostCustomerPMETHODPPRIMARYKEY2",
+        "false": "callRestPostCustomerPMETHODPPRIMARYKEY22"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCustomerPMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCustomerPMETHODPPRIMARYKEY22.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostCustomerPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Productapplication/postCustomerP_METHODP_PRIMARYKEY2",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.customerservice }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification5"
+      }
+    },
+    "callRestPostCustomerPMETHODPPRIMARYKEY22": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Productapplication/postCustomerP_METHODP_PRIMARYKEY2",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.customerservice.customer_num }}"
+        },
+        "body": "{{ $page.variables.customerservice }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification3_summary_a845]]",
+        "message": "[[$application.translations.app.fireNotification3_message_5066]]",
+        "type": "confirmation",
+        "displayMode": "transient"
+      },
+      "outcomes": {
+        "success": "callComponentCustomerpopidClose"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification4_summary_2e70]]",
+        "message": "[[$application.translations.app.fireNotification4_message_6ea8]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callComponentCustomerpopidClose"
+      }
+    },
+    "assignVariablesCustomerservice": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.customerservice": {
+          "source": {
+            "depart_num": "{{ $page.variables.primarykey }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "ifMethodcus"
+      }
+    },
+    "callComponentCustomerpopidClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('customerpopid') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callRestGetCustomergetid"
+      }
+    },
+    "fireNotification4": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetCustomergetid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetCustomergetid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Productapplication/getCustomergetid",
+        "uriParams": {
+          "DepartNum": "{{ $page.variables.primarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification4",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetCustomergetid.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesCustomertable"
+      }
+    },
+    "assignVariablesCustomertable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Customertable": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

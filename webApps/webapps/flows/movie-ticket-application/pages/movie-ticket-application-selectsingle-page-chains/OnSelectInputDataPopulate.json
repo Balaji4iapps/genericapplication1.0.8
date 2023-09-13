@@ -1,0 +1,31 @@
+{
+  "description": "",
+  "root": "assignVariablesMovieDirector",
+  "actions": {
+    "assignVariablesMovieDirector": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.MovieDirector": {
+          "source": "{{ $variables.data.moviedirector }}"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "data": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "metadata": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

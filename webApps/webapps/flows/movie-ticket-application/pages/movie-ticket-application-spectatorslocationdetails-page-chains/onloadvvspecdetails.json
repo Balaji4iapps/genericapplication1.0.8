@@ -1,0 +1,47 @@
+{
+  "root": "callRestGetVvspectatordetails2",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetVvspectatordetails2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetVvspectatordetails2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Moviesticketbooking/getVvspectatordetails2"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingSearchData"
+      }
+    },
+    "callFunctionPagingSearchData": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingSearchData",
+        "params": [
+          "{{ $chain.results.callRestGetVvspectatordetails2.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesVvspectatordetails"
+      }
+    },
+    "assignVariablesVvspectatordetails": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.vvspectatordetails": {
+          "source": "{{ $chain.results.callFunctionPagingSearchData }}"
+        }
+      }
+    }
+  }
+}

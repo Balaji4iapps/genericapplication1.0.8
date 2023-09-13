@@ -1,0 +1,108 @@
+{
+    "items": [
+        {
+            "employee_num": 1301,
+            "customer_id": 151,
+            "customer_name": "Harry               ",
+            "dob": "1997-08-15T00:00:00Z",
+            "job": "Anime Developer",
+            "company": "DCU              ",
+            "salary": 25000
+        },
+        {
+            "employee_num": 1302,
+            "customer_id": 152,
+            "customer_name": "Hermoinee           ",
+            "dob": "1997-08-30T00:00:00Z",
+            "job": "Philosopher    ",
+            "company": "VIT              ",
+            "salary": 30000
+        },
+        {
+            "employee_num": 1303,
+            "customer_id": 153,
+            "customer_name": "Ron                 ",
+            "dob": "1997-07-17T00:00:00Z",
+            "job": "Trainee        ",
+            "company": "Tcs              ",
+            "salary": 22000
+        },
+        {
+            "employee_num": 1304,
+            "customer_id": 154,
+            "customer_name": "Albus               ",
+            "dob": "1946-04-01T00:00:00Z",
+            "job": "Owner          ",
+            "company": "Hogwarts         ",
+            "salary": 80000
+        },
+        {
+            "employee_num": 1305,
+            "customer_id": 155,
+            "customer_name": "Severus             ",
+            "dob": "1960-02-14T00:00:00Z",
+            "job": "Senior Eng     ",
+            "company": "Tata             ",
+            "salary": 40000
+        },
+        {
+            "employee_num": 1306,
+            "customer_id": 156,
+            "customer_name": "Rubeus              ",
+            "dob": "1958-03-20T00:00:00Z",
+            "job": "Pet Sitter     ",
+            "company": "Hogwarts         ",
+            "salary": 18000
+        },
+        {
+            "employee_num": 1307,
+            "customer_id": 157,
+            "customer_name": "Tom Riddle          ",
+            "dob": "1959-08-15T00:00:00Z",
+            "job": "Game Designer  ",
+            "company": "MIT              ",
+            "salary": 40000
+        },
+        {
+            "employee_num": 1308,
+            "customer_id": 158,
+            "customer_name": "Sirius              ",
+            "dob": "1960-05-05T00:00:00Z",
+            "job": "Production eng ",
+            "company": "Ford             ",
+            "salary": 27000
+        },
+        {
+            "employee_num": 1309,
+            "customer_id": 159,
+            "customer_name": "Ginny               ",
+            "dob": "1998-11-17T00:00:00Z",
+            "job": "Artist         ",
+            "company": "Brahmas          ",
+            "salary": 25000
+        },
+        {
+            "employee_num": 1310,
+            "customer_id": 160,
+            "customer_name": "Dobby               ",
+            "dob": "1990-01-01T00:00:00Z",
+            "job": "security       ",
+            "company": "Hogwarts         ",
+            "salary": 10000
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 10,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1312/Customerwork_1312"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1312/item"
+        }
+    ]
+}

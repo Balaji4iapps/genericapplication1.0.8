@@ -1,0 +1,128 @@
+{
+    "items": [
+        {
+            "staff_id": 1100,
+            "staff_name": "S.Ram",
+            "email": "ram@gmail.com",
+            "dob": "1990-02-10T00:00:00Z",
+            "date_of_joining": "1990-02-10T00:00:00Z",
+            "gender": "male",
+            "phone_number": 9878968999,
+            "salary": 20000,
+            "address": "Trichy"
+        },
+        {
+            "staff_id": 1101,
+            "staff_name": "K.akshy",
+            "email": "akshy@gmail.com",
+            "dob": "1992-05-15T00:00:00Z",
+            "date_of_joining": "1990-02-10T00:00:00Z",
+            "gender": "male",
+            "phone_number": 9878945999,
+            "salary": 18000,
+            "address": "Madurai"
+        },
+        {
+            "staff_id": 1102,
+            "staff_name": "L.Rahul",
+            "email": "rahul@gmail.com",
+            "dob": "1990-01-13T00:00:00Z",
+            "date_of_joining": "1990-02-10T00:00:00Z",
+            "gender": "male",
+            "phone_number": 8878968999,
+            "salary": 22000,
+            "address": "chennai"
+        },
+        {
+            "staff_id": 1103,
+            "staff_name": "J.pream",
+            "email": "pream@gmail.com",
+            "dob": "1988-06-23T00:00:00Z",
+            "date_of_joining": "1990-02-10T00:00:00Z",
+            "gender": "male",
+            "phone_number": 8767968999,
+            "salary": 25000,
+            "address": "Trichy"
+        },
+        {
+            "staff_id": 1104,
+            "staff_name": "T.Karthik",
+            "email": "karthik@gmail.com",
+            "dob": "1991-10-01T00:00:00Z",
+            "date_of_joining": "1990-02-10T00:00:00Z",
+            "gender": "male",
+            "phone_number": 9878968654,
+            "salary": 22000,
+            "address": "Theni"
+        },
+        {
+            "staff_id": 1105,
+            "staff_name": "T.Vinoth",
+            "email": "vinoth@gmail.com",
+            "dob": "1994-11-03T00:00:00Z",
+            "date_of_joining": "1990-02-10T00:00:00Z",
+            "gender": "male",
+            "phone_number": 9878968199,
+            "salary": 18000,
+            "address": "Trichy"
+        },
+        {
+            "staff_id": 1106,
+            "staff_name": "P.Siva",
+            "email": "siva@gmail.com",
+            "dob": "1992-01-17T00:00:00Z",
+            "date_of_joining": "1990-02-10T00:00:00Z",
+            "gender": "male",
+            "phone_number": 9878968911,
+            "salary": 25000,
+            "address": "Madurai"
+        },
+        {
+            "staff_id": 1107,
+            "staff_name": "E.David",
+            "email": "david@gmail.com",
+            "dob": "1988-03-06T00:00:00Z",
+            "date_of_joining": "1990-02-10T00:00:00Z",
+            "gender": "male",
+            "phone_number": 7786905999,
+            "salary": 30000,
+            "address": "Salem"
+        },
+        {
+            "staff_id": 1108,
+            "staff_name": "T.Ahamed",
+            "email": "ahamed@gmail.com",
+            "dob": "1993-03-10T00:00:00Z",
+            "date_of_joining": "1990-02-10T00:00:00Z",
+            "gender": "male",
+            "phone_number": 7788905999,
+            "salary": 20000,
+            "address": "Madurai"
+        },
+        {
+            "staff_id": 1109,
+            "staff_name": "H.Vetri",
+            "email": "vetri@gmail.com",
+            "dob": "1990-01-03T00:00:00Z",
+            "date_of_joining": "1990-02-10T00:00:00Z",
+            "gender": "male",
+            "phone_number": 7786905345,
+            "salary": 25000,
+            "address": "Salem"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 10,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1326/collegeget"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1326/item"
+        }
+    ]
+}

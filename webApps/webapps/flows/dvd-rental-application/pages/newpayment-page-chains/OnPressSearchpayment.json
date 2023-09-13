@@ -1,0 +1,41 @@
+{
+  "description": "",
+  "root": "callRestGetbyidfilm",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetbyidfilm.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetbyidfilm": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/Getbyidfilm",
+        "uriParams": {
+          "filmid": "{{ $page.variables.flimid }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesGetfilm"
+      }
+    },
+    "assignVariablesGetfilm": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.getfilm": {
+          "source": {
+            "data": "{{ $chain.results.callRestGetbyidfilm.body.items }}"          },
+          "reset": "none",
+          "auto": "always"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

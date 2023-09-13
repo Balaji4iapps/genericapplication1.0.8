@@ -1,0 +1,60 @@
+{
+  "description": "",
+  "root": "callRestPostCompany18",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCompany18.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostCompany18": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/postCompany_18",
+        "uriParams": {
+          "P_PRIMARYKEY": "{{ $page.variables.childpk }}",
+          "P_METHOD": "DELETE"
+        },
+        "body": "{{ $page.variables.postCompany_18 }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification2"
+      }
+    },
+    "callChainOnLoadCreateEdit": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "OnLoadCreateEdit"
+      }
+    },
+    "callComponentCompanydeleteClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Companydelete') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainOnLoadCreateEdit"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.Company_Record_Deleted_Successfully]]",
+        "message": "[[$application.translations.app.Data_Deleted_Successfully_]]",
+        "displayMode": "transient",
+        "type": "warning"
+      },
+      "outcomes": {
+        "success": "callComponentCompanydeleteClose"
+      }
+    }
+  },
+  "variables": {}
+}

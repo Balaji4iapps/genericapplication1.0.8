@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentDeletegameClose",
+  "actions": {
+    "callComponentDeletegameClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('deletegame') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

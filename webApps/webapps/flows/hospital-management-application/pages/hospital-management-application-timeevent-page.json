@@ -1,0 +1,178 @@
+{
+  "title": "hospital management application timeevent",
+  "description": "",
+  "variables": {
+    "checkboxADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "getDoctordetailscheckbox",
+        "keyAttributes": "doc_code"
+      }
+    },
+    "getDoctordetailsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "hospitalmanagement/getDoctordetails",
+        "keyAttributes": "doc_code",
+        "itemsPath": "items",
+        "responseType": "getDoctordetailsResponse"
+      }
+    },
+    "getDoctordetailsListSDP2": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "hospitalmanagement/getDoctordetails",
+        "keyAttributes": "doc_code",
+        "itemsPath": "items",
+        "responseType": "getDoctordetailsResponse2"
+      }
+    },
+    "HDRvar": {
+      "type": "getDoctordetailscheckbox"
+    },
+    "table_data": {
+      "type": "any"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getDoctordetailscheckbox": {
+      "endpoint": "getDoctordetails",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "@decorators.getDoctordetailsResponse": {
+      "endpoint": "getDoctordetails",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "@decorators.getDoctordetailsResponse2": {
+      "endpoint": "getDoctordetails",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "getDoctordetailscheckbox": {
+          "doc_address": "string",
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_gender": "string",
+          "doc_name": "string",
+          "doc_number": "number"
+    },
+    "getDoctordetailsResponse": {
+      
+          "doc_address": "string",
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_gender": "string",
+          "doc_name": "string",
+          "doc_number": "number"
+        
+    },
+    "getDoctordetailsResponse2": {
+      "items": [
+        {
+          "doc_address": "string",
+          "doc_code": "number",
+          "doc_designation": "string",
+          "doc_gender": "string",
+          "doc_name": "string",
+          "doc_number": "number"
+        }
+      ]
+    }
+
+  },
+  "eventListeners": {
+    "booleanCheckboxComponentValue": {
+      "chains": [
+        {
+          "chainId": "OnClickCheckBox",
+          "parameters": {
+            "value": "{{ $event.detail.value }}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "onClicksave"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "timedEventSTimerExpired": {
+      "chains": [
+        {
+          "chainId": "TimedEventSTimerExpiredChain",
+          "parameters": {
+            "interval": "{{$event.detail.interval}}",
+            "tick": "{{$event.detail.tick}}",
+            "skipped": "{{$event.detail.skipped}}",
+            "throttled": "{{$event.detail.throttled}}"
+          }
+        }
+      ]
+    },
+    "timedEventSTimerExpired2": {
+      "chains": [
+        {
+          "chainId": "TimedEventSTimerExpiredChain1",
+          "parameters": {
+            "interval": "{{$event.detail.interval}}",
+            "tick": "{{$event.detail.tick}}",
+            "skipped": "{{$event.detail.skipped}}",
+            "throttled": "{{$event.detail.throttled}}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "onload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-sample-checkbox-switch": {
+        "path": "oj-sample/checkbox-switch/loader"
+      },
+      "oj-sample-timed-event": {
+        "path": "oj-sample/timed-event/loader"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    }
+  }
+}

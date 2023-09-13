@@ -1,0 +1,110 @@
+<!-- header -->
+<div class="oj-flex">
+  <h3 class="oj-flex-item oj-sm-12 oj-md-5">Staff Details</h3>
+</div>
+
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-1">
+    <oj-button label="Button" class="height:1rem" display="icons" on-oj-action="[[$listeners.buttonAction6]]">
+    <img slot="endIcon" :src="[[ $flow.path + 'resources/images/Home_black_1.jpg' ]]" width="60" height="50">
+    </oj-button>
+  </div>
+
+<!-- table -->
+  <div class="oj-flex-item oj-sm-12 oj-md-10"></div>
+  <span class="oj-flex-item oj-sm-12 oj-md-1"></span>
+</div>
+<div class="oj-flex">
+  <oj-toolbar chroming="solid" class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-table scroll-policy="loadMoreOnScroll" style="background-color:white;width:70rem;"
+      columns-default.header-style="background-color:lightgrey; font-weight: 900;" data="[[ $variables.staffADP ]]"
+      columns='[{"headerText":"Staff ID","field":"staff_id","template":"iDhyperlinkMoreDetailTemplate"},
+      {"headerText":"First Name","field":"first_name"},{"headerText":"Last Name","field":"last_name"},
+      {"headerText":"Email","field":"email"},{"headerText":"Address ID","field":"address_id","template":"iDaddresshyperlinkMoreDetailTemplate"},
+      {"headerText":"Delete","template":"Edit2"}]' selection-mode.row="none" selection-mode.column="none"
+      display="grid">
+
+      
+<!-- hyperlink -->
+    <template slot="iDhyperlinkMoreDetailTemplate">
+      <a target="_blank" on-click="[[$listeners.hyperlinkClick]]">
+        <oj-bind-text value="[[$current.data]]"></oj-bind-text>
+    </a>
+    </template>
+    <template slot="Edit2">
+      <oj-button display="icons" class="oj-button-sm" chroming="borderless"
+        on-oj-action="[[$listeners.buttonAction3]]" >
+      <img slot="startIcon" :src="[[ $flow.path + 'resources/images/trash-bin.png' ]]" height="25" width="25">
+      </oj-button>
+    </template>
+
+   <template slot="iDaddresshyperlinkMoreDetailTemplate">
+      <a target="_blank" on-click="[[$listeners.hyperlinkClick2]]">
+        <oj-bind-text value="[[$current.data]]"></oj-bind-text>
+    </a>
+    </template>
+    
+    </oj-table>
+  </oj-toolbar>
+</div>
+
+
+<!-- popup -->
+
+<div class="oj-flex" data-vb-layout-type="flex">
+  <oj-dialog style="display:none" dialog-title="Staff Address Details" id="adresspopupinstaff" cancel-behavior="icon">
+    <div slot="body">
+    <oj-form-layout>
+     <oj-input-text style="width: 18rem;" label-hint="Address" value="{{ $variables.address.address }}"
+   ></oj-input-text>
+     <oj-input-text label-hint="District" style="width: 18rem;" value="{{ $variables.address.district }}"
+   ></oj-input-text>
+    <oj-input-number label-hint="Postalcode" style="width: 18rem;" value="{{ $variables.address.postal_code }}"
+      converter='{"options":{"useGrouping":false},"type":"number"}'></oj-input-number>
+     <oj-input-number label-hint="Phone" style="width: 18rem;" min="0" value="{{ $variables.address.phone }}"
+       converter='{"options":{"useGrouping":false},"type":"number"}'></oj-input-number>
+    </oj-form-layout>
+    <oj-toolbar>
+<oj-button label="[[$application.translations.app.button_label_52bc]]" chroming="callToAction" class="oj-button-sm"
+  on-oj-action="[[$listeners.buttonAction]]"></oj-button>
+<oj-button label="[[$application.translations.app.button_label_4336]]" chroming="danger" class="oj-button-sm"
+  on-oj-action="[[$listeners.buttonAction2]]"></oj-button>
+
+    </oj-toolbar>
+    </div>
+  </oj-dialog>
+</div>
+
+
+<div class="oj-flex" data-vb-layout-type="flex">
+<oj-dialog style="display:none" dialog-title="Staff Detail" id="staffdetailpopup" cancel-behavior="icon" class=""
+  resize-behavior="resizable">
+  <div slot="body">
+    <div class="oj-flex">
+    <div class="oj-flex-item oj-sm-12 oj-md-4">
+    <oj-avatar src="[[ $flow.path + 'resources/images/OIP_1.jpg' ]]"></oj-avatar>
+    </div>
+    <oj-input-number label-hint="Staff ID" virtual-keyboard="number"
+      class="oj-flex-item oj-sm-12 oj-md-4 oj-form-control-text-align-start" readonly="true" placeholder="Staff ID"
+      :id="[[ $variables.stafftable.staff_id ]]" value="{{ $variables.staff.staff_id }}"></oj-input-number>
+    </div>
+   <oj-form-layout>
+    
+      <oj-input-text label-hint="First  Name" style="width: 18rem;" value="{{ $variables.staff.first_name }}" 
+   ></oj-input-text>
+    <oj-input-text label-hint="Last  Name" style="width: 18rem;" value="{{ $variables.staff.last_name }}" 
+   ></oj-input-text>
+    <oj-radioset label-hint="Employee Status" class="oj-choice-direction-row">
+        <oj-option value="option1">Temporary</oj-option>
+        <oj-option value="option2">Permanent</oj-option>
+    </oj-radioset>
+    <oj-input-text virtual-keyboard="email"
+      validators='[{"type":"regexp", "options":{"pattern":"([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})", "hint":"Enter an email address.", "messageDetail": "Value must be of the form xxx@xxx.xx"}}]'
+      label-hint="Email" value="{{ $variables.staff.email }}" >
+    </oj-input-text> 
+    </oj-form-layout>
+    <oj-button chroming="danger" on-oj-action="[[$listeners.buttonAction5]]">Cancel</oj-button>
+   <oj-button chroming="callToAction" on-oj-action="[[$listeners.buttonAction4]]">Save</oj-button>
+  </div>
+</oj-dialog>
+</div>

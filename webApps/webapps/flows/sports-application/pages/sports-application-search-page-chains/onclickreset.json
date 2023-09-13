@@ -1,0 +1,24 @@
+{
+  "description": "",
+  "root": "resetVariablesPlayerid",
+  "actions": {
+    "resetVariablesPlayerid": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.playerid"
+        ]
+      },
+      "outcomes": {
+        "success": "callChainPageonload"
+      }
+    },
+    "callChainPageonload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "pageonload"
+      }
+    }
+  },
+  "variables": {}
+}

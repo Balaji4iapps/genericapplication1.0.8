@@ -1,0 +1,40 @@
+{
+  "description": "",
+  "root": "ifCuspk",
+  "actions": {
+    "ifCuspk": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.cuspk!=0 ]]"
+      },
+      "outcomes": {
+        "true": "assignVariablesCuswrkmethod"
+      }
+    },
+    "callComponentCuswrkpopupOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('cuswrkpopup') }}",
+        "method": "open"
+      }
+    },
+    "assignVariablesCuswrkmethod": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.cuswrkmethod": {
+          "source": "CREATE"
+        },
+        "$page.variables.cuswrkpk": {
+          "source": "0"
+        },
+        "$page.variables.cuswrkfk": {
+          "source": "{{ $page.variables.cuspk }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentCuswrkpopupOpen"
+      }
+    }
+  },
+  "variables": {}
+}

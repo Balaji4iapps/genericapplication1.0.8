@@ -1,0 +1,37 @@
+{
+  "description": "",
+  "root": "ifPrimarykeyed",
+  "actions": {
+    "navigateToCollegeApplicationPage3": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "college-application-page3",
+        "params": {
+
+          "studentprimarykey": "0",
+          "studentmethod": "create",
+          "studentfk": "{{ $page.variables.primarykeyed }}"
+        }
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification_summary_dd3c]]",
+        "displayMode": "transient"
+      }
+    },
+    "ifPrimarykeyed": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.primarykeyed!=0 ]]"
+      },
+      "outcomes": {
+        "true": "navigateToCollegeApplicationPage3",
+        "false": "fireNotification"
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentCompanydataClose",
+  "actions": {
+    "callComponentCompanydataClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Companydata') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

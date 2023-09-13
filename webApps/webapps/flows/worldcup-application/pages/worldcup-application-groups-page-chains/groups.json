@@ -1,0 +1,342 @@
+{
+  "root": "runInParallel",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetWcgroupa.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetWcgroupa": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/getWcgroupa"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingLine1"
+      }
+    },
+    "callFunctionPagingLine1": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine1",
+        "params": [
+          "{{ $chain.results.callRestGetWcgroupa.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesGroupa"
+      }
+    },
+    "assignVariablesGroupa": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.groupa": {
+          "source": "{{ $chain.results.callFunctionPagingLine1 }}"
+        }
+      }
+    },
+    "runInParallel": {
+      "module": "vb/action/builtin/forkAction",
+      "parameters": {
+        "actions": {
+          "callRestGetWcgroupa": "callRestGetWcgroupa",
+          "callRestGetWcgroupb": "callRestGetWcgroupb",
+          "callRest": "callRestGetWcgrouph",
+          "callRestGetWcgroupc": "callRestGetWcgroupc",
+          "callRestGetWcgroupd": "callRestGetWcgroupd",
+          "callRestGetWcgroupe": "callRestGetWcgroupe",
+          "callRest2": "callRestGetWcgroupg",
+          "callRest3": "callRestGetWcgroupf"
+        }
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetWcgroupb.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetWcgroupb": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/getWcgroupb"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "callFunctionPagingLine2"
+      }
+    },
+    "callFunctionPagingLine2": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine2",
+        "params": [
+          "{{ $chain.results.callRestGetWcgroupb.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesGroupb"
+      }
+    },
+    "assignVariablesGroupb": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.groupb": {
+          "source": "{{ $chain.results.callFunctionPagingLine2 }}"
+        }
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetWcgroupc.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetWcgroupc": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/getWcgroupc"
+      },
+      "outcomes": {
+        "failure": "fireNotification3",
+        "success": "callFunctionPagingLine3"
+      }
+    },
+    "callFunctionPagingLine3": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine3",
+        "params": [
+          "{{ $chain.results.callRestGetWcgroupc.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesGroupc"
+      }
+    },
+    "assignVariablesGroupc": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.groupc": {
+          "source": "{{ $chain.results.callFunctionPagingLine3 }}"
+        }
+      }
+    },
+    "fireNotification4": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetWcgroupd.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetWcgroupd": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/getWcgroupd"
+      },
+      "outcomes": {
+        "failure": "fireNotification4",
+        "success": "callFunctionPagingLine4"
+      }
+    },
+    "callFunctionPagingLine4": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine4",
+        "params": [
+          "{{ $chain.results.callRestGetWcgroupd.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesGroupd"
+      }
+    },
+    "assignVariablesGroupd": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.groupd": {
+          "source": "{{ $chain.results.callFunctionPagingLine4 }}"
+        }
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetWcgroupe.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetWcgroupe": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/getWcgroupe"
+      },
+      "outcomes": {
+        "failure": "fireNotification5",
+        "success": "callFunctionPagingLine5"
+      }
+    },
+    "callFunctionPagingLine5": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine5",
+        "params": [
+          "{{ $chain.results.callRestGetWcgroupe.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesGroupe"
+      }
+    },
+    "assignVariablesGroupe": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.groupe": {
+          "source": "{{ $chain.results.callFunctionPagingLine5 }}"
+        }
+      }
+    },
+    "fireNotification6": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetWcgrouph.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "fireNotification7": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetWcgroupg.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "fireNotification8": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetWcgroupf.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetWcgroupf": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/getWcgroupf"
+      },
+      "outcomes": {
+        "failure": "fireNotification8",
+        "success": "callFunctionPagingLine6"
+      }
+    },
+    "callFunctionPagingLine6": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine6",
+        "params": [
+          "{{ $chain.results.callRestGetWcgroupf.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesGroupf"
+      }
+    },
+    "assignVariablesGroupf": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.groupf": {
+          "source": "{{ $chain.results.callFunctionPagingLine6 }}"
+        }
+      }
+    },
+    "callRestGetWcgroupg": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/getWcgroupg"
+      },
+      "outcomes": {
+        "failure": "fireNotification7",
+        "success": "callFunctionPagingLine7"
+      }
+    },
+    "callFunctionPagingLine7": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine7",
+        "params": [
+          "{{ $chain.results.callRestGetWcgroupg.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesGroupg"
+      }
+    },
+    "assignVariablesGroupg": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.groupg": {
+          "source": "{{ $chain.results.callFunctionPagingLine7 }}"
+        }
+      }
+    },
+    "callRestGetWcgrouph": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/getWcgrouph"
+      },
+      "outcomes": {
+        "failure": "fireNotification6",
+        "success": "callFunctionPagingLine8"
+      }
+    },
+    "callFunctionPagingLine8": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine8",
+        "params": [
+          "{{ $chain.results.callRestGetWcgrouph.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesGrouph"
+      }
+    },
+    "assignVariablesGrouph": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.grouph": {
+          "source": "{{ $chain.results.callFunctionPagingLine8 }}"
+        }
+      }
+    }
+  }
+}

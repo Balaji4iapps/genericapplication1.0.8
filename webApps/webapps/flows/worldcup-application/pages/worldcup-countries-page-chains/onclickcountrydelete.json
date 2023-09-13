@@ -1,0 +1,60 @@
+{
+  "description": "",
+  "root": "callRestPostCountries",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCountries.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostCountries": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/postCountries",
+        "uriParams": {
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $page.variables.delete }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_9b8d]]",
+        "message": "[[$application.translations.app.fireNotification2_message_3f39]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callComponentDeletepopupClose"
+      }
+    },
+    "callComponentDeletepopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('deletepopup') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainOnloadDatas"
+      }
+    },
+    "callChainOnloadDatas": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onloadDatas"
+      }
+    }
+  },
+  "variables": {}
+}

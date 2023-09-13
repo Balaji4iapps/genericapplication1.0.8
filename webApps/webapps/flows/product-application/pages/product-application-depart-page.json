@@ -1,0 +1,235 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "customerfk": {
+      "type": "number"
+    },
+    "customerservice": {
+      "type": "postCustomerP_METHODP_PRIMARYKEY2"
+    },
+    "Customertable": {
+      "type": "any"
+    },
+    "deletevar": {
+      "type": "string"
+    },
+    "deparkfk": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "department": {
+      "type": "postDepartappP_METHODP_PRIMARYKEY"
+    },
+    "method": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "methodcus": {
+      "type": "string",
+      "required": false,
+      "input": "none"
+    },
+    "primarykey": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "primarykeycus": {
+      "type": "number",
+      "required": false,
+      "input": "none"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.postCustomerP_METHODP_PRIMARYKEY2": {
+      "endpoint": "postCustomerP_METHODP_PRIMARYKEY2",
+      "service": "Productapplication",
+      "path": "request"
+    },
+    "@decorators.postDepartappP_METHODP_PRIMARYKEY": {
+      "endpoint": "postDepartappP_METHODP_PRIMARYKEY",
+      "service": "Productapplication",
+      "path": "request"
+    },
+    "postCustomerP_METHODP_PRIMARYKEY2": {
+      "area_no": "string",
+      "customer_location": "string",
+      "customer_name": "string",
+      "customer_num": "string",
+      "depart_num": "string",
+      "email_id": "string",
+      "order_date": "string",
+      "salesman": "string"
+    },
+    "postDepartappP_METHODP_PRIMARYKEY": {
+      "delivery_date": "string",
+      "depart_num": "string",
+      "dispatch_no": "number",
+      "manager_name": "string",
+      "product_num": "string",
+      "shop_location": "string",
+      "shop_name": "string",
+      "store_short_code": "string"
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "departnumsavebutton"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "departnumclosebutton"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "createpopup"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "closepopupcustomer"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "Customersavebutton"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain2"
+        }
+      ]
+    },
+    "buttonAction7": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain3"
+        }
+      ]
+    },
+    "buttonAction8": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "buttonAction9": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "hyperlinkClick": {
+      "chains": [
+        {
+          "chainId": "HyperlinkClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "ImageClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "departonload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-color-palette": {
+        "path": "ojs/ojcolorpalette"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-radioset": {
+        "path": "ojs/ojradioset"
+      },
+      "oj-select-one": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    },
+    "modules": {
+      "ojValidationBase": {
+        "path": "ojs/ojvalidation-base"
+      },
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      }
+    }
+  }
+}

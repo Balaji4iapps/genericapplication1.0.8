@@ -1,0 +1,28 @@
+{
+    "items": [
+        {
+            "customer_num": "13",
+            "customer_name": "asik",
+            "customer_location": "Madurai",
+            "depart_num": "3",
+            "salesman": "Arasu",
+            "area_no": "20",
+            "order_date": "2022-04-03T00:00:00Z",
+            "email_id": "asik@gmail.com"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/productapplication/customergetbyid?CustomerNum=13"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/productapplication/item"
+        }
+    ]
+}

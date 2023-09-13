@@ -1,0 +1,202 @@
+{
+  "description": "",
+  "root": "if",
+  "actions": {
+    "if": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $application.functions.isFormValid(\"Tableform\") ]]"
+      },
+      "outcomes": {
+        "true": "resetVariablesSaveSucessVar"
+      }
+    },
+    "callFunctionGenerateDetails": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "GenerateDetails",
+        "params": [
+          "{{ $page.variables.TableADP.data }}"
+        ]
+      },
+      "outcomes": {
+        "success": "forEach"
+      }
+    },
+    "forEach": {
+      "module": "vb/action/builtin/forEachAction",
+      "parameters": {
+        "items": "{{ $chain.results.callFunctionGenerateDetails.payload.item }}",
+        "actionId": "if3"
+      },
+      "outcomes": {
+        "success": "ifSaveSucessVar"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostDoctordetailsPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostDoctordetailsPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/postDoctordetailsP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $current.data }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "if4"
+      }
+    },
+    "if3": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $current.data.doc_code == null || $current.data.doc_code == 0 ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostDoctordetailsPMETHODPPRIMARYKEY",
+        "false": "callRestGetDoctorbydoctorid"
+      }
+    },
+    "if4": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $chain.results.callRestPostDoctordetailsPMETHODPPRIMARYKEY.body.p_err_code == 'S' ]]"
+      },
+      "outcomes": {
+        "false": "fireNotification3",
+        "true": "assignVariablesSaveSucessVar"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostDoctordetailsPMETHODPPRIMARYKEY.body.p_err_msg ]]",
+        "message": "[[ $chain.results.callRestPostDoctordetailsPMETHODPPRIMARYKEY.body.p_err_msg ]]"
+      }
+    },
+    "assignVariablesSaveSucessVar": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.saveSucessVar": {
+          "source": "1"
+        }
+      }
+    },
+    "resetVariablesSaveSucessVar": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.saveSucessVar"
+        ]
+      },
+      "outcomes": {
+        "success": "callFunctionGenerateDetails"
+      }
+    },
+    "ifSaveSucessVar": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.saveSucessVar == 1 ]]"
+      },
+      "outcomes": {
+        "true": "fireNotification4",
+        "false": "callChainOnload"
+      }
+    },
+    "fireNotification4": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "info",
+        "message": "Saved Sucessfuly",
+        "displayMode": "transient",
+        "type": "info"
+      },
+      "outcomes": {
+        "success": "callChainOnload"
+      }
+    },
+    "callChainOnload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "Onload"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetDoctorbydoctorid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetDoctorbydoctorid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/getDoctorbydoctorid",
+        "uriParams": {
+          "p_search_value": "{{ $current.data.doc_code }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "if5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostDoctordetailsPMETHODPPRIMARYKEY3.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostDoctordetailsPMETHODPPRIMARYKEY3": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/postDoctordetailsP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $current.data.doc_code }}"
+        },
+        "body": "{{ $current.data }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification5",
+        "success": "fireNotification8"
+      }
+    },
+    "fireNotification8": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "edit",
+        "message": "Edited Sucessfully"
+      }
+    },
+    "if5": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $chain.results.callRestGetDoctorbydoctorid.body.items[0].doc_address == $current.data.doc_address && $chain.results.callRestGetDoctorbydoctorid.body.items[0].doc_designation ==$current.data.doc_designation ]]"
+      },
+      "outcomes": {
+        "false": "callRestPostDoctordetailsPMETHODPPRIMARYKEY3"
+      }
+    }
+  },
+  "variables": {}
+}

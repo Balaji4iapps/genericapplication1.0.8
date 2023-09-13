@@ -1,0 +1,106 @@
+<header>
+
+  <h3 class="oj-flex-bar-start"style="color:DodgerBlue;">Staff Detail</h3>
+
+</header>
+
+
+
+<!-- Page specific title and actions for desktop formfactor -->
+<div 
+  style="display:flex; justify-content:flex-end; margin-bottom:1%;">
+      <oj-button class="oj-button-sm" chroming="callToAction" style="margin-left:0.5%;margin-right:1.5%;"
+        on-oj-action="[[$listeners.buttonAction2]]">Save
+      </oj-button>
+      <oj-button class="oj-button-sm" chroming="callToAction"
+        style="margin-left:0.5%;margin-right:1.5%;" on-oj-action="[[$listeners.buttonAction5]]">Save and Close</oj-button>
+      <oj-button class="oj-button-sm" chroming="danger"
+        style="margin-left:0.5%;margin-right:1.5%;" on-oj-action="[[$listeners.buttonAction]]" >Close</oj-button>
+  </div>
+  <!-- <div class="oj-flex-item oj-sm-12 oj-md-12 oj-lg-4  oj-xl-6"></div>
+  <div class="oj-flex-item oj-sm-12 oj-md-12 oj-lg-4  oj-xl-6"></div> -->
+
+  <div class="oj-flex">
+    <div class="oj-flex-item oj-sm-12 oj-md-12">
+      <oj-validation-group id="ClgForm">
+
+      <oj-form-layout max-columns="3" label-edge="start">
+        <oj-input-number label-hint="Staff No" value="{{ $variables.college.staff_id }}" readonly="true"
+          converter='{"options":{"useGrouping":false},"type":"number"}'></oj-input-number>
+        <oj-input-text label-hint="Staff Name" value="{{ $variables.college.staff_name }}" required="true"></oj-input-text>
+        <oj-input-text virtual-keyboard="email"
+          validators='[{"type":"regexp", "options":{"pattern":"([a-zA-Z0-9_\\-\\.]+)@(gmail.com)", "hint":"Enter an email address.", "messageDetail": "Value must be of the form xxx@gmail.com"}}]'
+          label-hint="Email" value="{{ $variables.college.email }}"></oj-input-text>
+        
+        <oj-input-date label-hint="Date Of Birth" value="{{ $variables.college.dob }}" max="2000-12-31"></oj-input-date>
+        <oj-input-date label-hint="Date Of Joining" value="{{ $variables.college.date_of_joining }}"></oj-input-date>
+
+        
+        <oj-input-number label-hint="Phone Number" value="{{ $variables.college.phone_number }}"
+          converter='{"options":{"useGrouping":false}}'></oj-input-number>
+        <oj-input-text label-hint="Address" value="{{ $variables.college.address }}" >
+          <span class="oj-ux-ico-location-pin" slot="start"></span>
+        </oj-input-text>
+        <oj-select-one label-hint="Gender" 
+          value="{{ $variables.college.gender }}">
+<oj-option>select</oj-option>
+<oj-option value="male">male</oj-option>
+
+<oj-option value="female">female</oj-option>
+
+    </oj-select-one>
+      </oj-form-layout>
+      </oj-validation-group>
+    </div>
+  </div>
+  <!--  delete dialoguebox -->
+<oj-dialog style="display:none" dialog-title="WARNING" id="oj-dialog--787424335-1">
+      <div slot="body">
+      <div class="oj-flex">
+        Are You Sure Want To Delete This Record?
+      </div>
+      </div>
+      <div slot="footer">
+        <oj-button on-oj-action="[[$listeners.buttonAction3]]">Yes</oj-button>
+      <oj-button on-oj-action="[[$listeners.buttonAction4]]">No</oj-button>
+      </div>
+</oj-dialog>
+
+ <img :src="[[ $flow.path + 'resources/images/icons8-plus-math_2.gif' ]]" width="30" height="30"
+   on-click="[[$listeners.imageClick]]">
+ <div class="oj-flex-item oj-sm-flex-initial">
+    <oj-highlight-text style="color:DodgerBlue;"text="Your Student">
+    </oj-highlight-text>
+  </div>
+  
+
+  <oj-table scroll-policy="loadMoreOnScroll"
+    columns='[{"headerText":"Student Code","field":"student_id"},{"headerText":"Student Name","field":"student_name"},{"headerText":"Email","field":"email"},{"headerText":"Date of Birth","field":"dob","template":"apptodate"},{"headerText":"Department","field":"department"},{"headerText":"Contact Number","field":"contact_number"},{"headerText":"Gender","field":"gender"},{"headerText":"Address","field":"address"},{"headerText":"Update","field":"update","template":"Update"},{"headerText":"Delete","field":"delete","template":"delete"}]'
+    data="[[ $variables.studentload ]]" display="grid" horizontal-grid-visible="enabled"
+    vertical-grid-visible="enabled">
+     <template slot="apptodate">
+          <oj-input-date value="[[$current.data]]" readonly="true"
+            converter='{"type": "datetime", "options": {"pattern":"dd-MMM-yyyy"}}'></oj-input-date>
+        </template>
+
+  <oj-paging-control id="paging" class="oj-sm-width-full" page-size="5" slot="bottom"
+      data="[[ $variables.studentload ]]" >
+</oj-paging-control>
+      <template slot="Update">
+      <img :src="[[ $flow.path + 'resources/images/icons8-pencil-64_2.png' ]]" on-click="[[$listeners.imageClick2]]"
+        width="30" height="30">
+      </template>
+      <template slot="delete">
+      <img :src="[[ $flow.path + 'resources/images/icons8-close-50.png' ]]" width="30" height="30"
+        on-click="[[$listeners.imageClick3]]">
+      </template>
+      <template slot="change">
+      </template>
+</oj-table>
+
+
+
+
+
+
+

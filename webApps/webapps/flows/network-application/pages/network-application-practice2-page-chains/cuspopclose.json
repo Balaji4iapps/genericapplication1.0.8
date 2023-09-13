@@ -1,0 +1,25 @@
+{
+  "description": "",
+  "root": "callComponentCustomerpopupClose",
+  "actions": {
+    "callComponentCustomerpopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('customerpopup') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "resetVariablesCustomerdatas"
+      }
+    },
+    "resetVariablesCustomerdatas": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.customerdatas"
+        ]
+      }
+    }
+  },
+  "variables": {}
+}

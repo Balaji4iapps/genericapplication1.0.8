@@ -1,0 +1,106 @@
+ <div class="oj-flex-item">
+   
+    <div class="oj-typography-body-lg oj-typography-semi-bold">
+      <h4>Movies Search</h4>
+       </div>
+      
+ <oj-form-layout columns="4" label-edge="start" direction="row" class="">
+ <oj-select-single label-hint="Movie Name" style="width: 22rem;" item-text="moviename" required="true"
+   value="{{ $variables.moviesno }}" data="[[$variables.getVvmovies1ListSDP]]"
+>
+
+
+
+        <template slot="collectionTemplate" data-oj-as="collection">
+
+
+
+            <oj-table scroll-policy="loadMoreOnScroll"
+
+
+
+                  selection-mode='{"row": "single"}'
+
+
+
+                  columns-default='{"resizable": "disabled","sortable": "disabled"}'
+
+
+
+                  class="oj-select-results"
+
+
+
+                  columns='[{"headerText":"Movies No","field":"moviesno"},{"headerText":"Movie Name","field":"moviename"},{"headerText":"Movie Genre","field":"moviegenre"}]'
+
+
+
+                on-oj-row-action="[[collection.handleRowAction]]"
+
+
+
+                data="[[collection.data]]" selected.row="[[collection.selected]]"
+
+
+
+                current-row="{{collection.currentRow}}">
+
+
+
+            </oj-table>
+
+
+
+          </template>
+
+
+
+      </oj-select-single>
+ </oj-form-layout>
+
+
+     <oj-form-layout columns="2" max-columns="2">
+  
+  
+   
+   
+<oj-button label="Search" on-oj-action="[[$listeners.buttonAction]]" chroming="borderless" >
+                <img slot= "startIcon" :src="[[ $flow.path + 'resources/images/Search_location.jpg' ]]">
+               
+  
+</oj-button>
+<oj-button label="Reset"on-oj-action="[[$listeners.buttonAction3]]" chroming="borderless">
+  <img slot= "startIcon":src="[[ $flow.path + 'resources/images/Redo.png' ]]">
+</oj-button>
+  <oj-button label="Create"on-oj-action="[[$listeners.buttonAction2]]" chroming="borderless">
+    <img slot= "startIcon" :src="[[ $flow.path + 'resources/images/plus-square.png' ]]">
+  </oj-button>
+  <oj-button label="Back" on-oj-action="[[$listeners.buttonAction4]]" chroming="borderless">
+    <img slot= "startIcon" :src="[[ $flow.path + 'resources/images/backpng.png' ]]">
+  </oj-button>
+ 
+</oj-form-layout>
+
+
+  
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+    columns='[{"headerText":"MovieName","field":"moviename","template":"update"},{"headerText":"MovieDirector","field":"moviedirector"},{"headerText":"MovieGenre","field":"moviegenre"},{"headerText":"MovieProducer","field":"movieproducer"},{"headerText":"MoviesNo","field":"moviesno"},{"headerText":"MovieTimings","field":"movietimings"},{"headerText":"Delete","field":"","template":"delete"}]'
+    data="[[ $variables.vvmovies1table ]]" display="grid">
+    <template slot="update">
+                <a target="_blank" style="color: green;font-weight: bold;" on-click="[[$listeners.hyperlinkClick]]">
+            <oj-bind-text value="[[ $current.data ]]"></oj-bind-text>
+          </a>
+        </template>
+        <template slot="delete">
+                <img :src="[[ $flow.path + 'resources/images/icons8-close-90.png' ]]" width="22" height="22"
+                  on-click="[[$listeners.imageClick]]">
+          
+        </template>
+    
+    <oj-paging-control slot="bottom" id="paging" class="oj-sm-width-full" page-size="5" data="[[ $variables.vvmovies1table ]]">
+</oj-paging-control>
+  </oj-table>
+</div>
+ 
+
+

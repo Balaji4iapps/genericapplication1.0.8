@@ -1,0 +1,47 @@
+{
+  "root": "callRestGetWcgroupa",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetWcgroupa.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetWcgroupa": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/getWcgroupa"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPaginglinegroupa"
+      }
+    },
+    "callFunctionPaginglinegroupa": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "paginglinegroupa",
+        "params": [
+          "{{ $chain.results.callRestGetWcgroupa.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesGroupa"
+      }
+    },
+    "assignVariablesGroupa": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.groupa": {
+          "source": "{{ $chain.results.callFunctionPaginglinegroupa }}"
+        }
+      }
+    }
+  }
+}

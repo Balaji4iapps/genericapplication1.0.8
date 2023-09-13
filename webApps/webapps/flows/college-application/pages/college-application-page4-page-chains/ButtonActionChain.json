@@ -1,0 +1,49 @@
+{
+  "description": "",
+  "root": "callRestStudentdetailsgetidpk",
+  "actions": {
+    "navigateToCollegeApplicationPage5": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "college-application-page5",
+        "params": {
+          "studentpk": "{{ $page.variables.studid }}"
+        }
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestStudentdetailsgetidpk.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestStudentdetailsgetidpk": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "collegeapplication/Studentdetailsgetidpk",
+        "uriParams": {
+          "student_id": "{{ $page.variables.lov }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariables"
+      }
+    },
+    "assignVariables": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.studid": {
+          "source": "{{ $chain.results.callRestStudentdetailsgetidpk.body.items[0].student_id }}"
+        }
+      },
+      "outcomes": {
+        "success": "navigateToCollegeApplicationPage5"
+      }
+    }
+  },
+  "variables": {}
+}

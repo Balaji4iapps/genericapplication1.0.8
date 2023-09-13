@@ -1,0 +1,50 @@
+{
+  "description": "",
+  "root": "ifMethod",
+  "actions": {
+    "ifMethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.method=='create' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostMatchPMETHODPPRIMARYKEY2"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostMatchPMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostMatchPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/postMatchP_METHODP_PRIMARYKEY2",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "O"
+        },
+        "body": "{{ $page.variables.match }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostMatchPMETHODPPRIMARYKEY2.body.p_err_msg ]]",
+        "message": "[[ $chain.results.callRestPostMatchPMETHODPPRIMARYKEY2.body.p_err_msg ]]",
+        "type": "confirmation",
+        "displayMode": "transient"
+      }
+    }
+  },
+  "variables": {}
+}

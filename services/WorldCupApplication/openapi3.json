@@ -1,0 +1,2848 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "wc2022",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1331",
+            "description": "Ords Dyrords"
+        }
+    ],
+    "paths": {
+        "/wc2022": {
+            "get": {
+                "operationId": "getWc2022",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetWc2022"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getWc2022/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/getcon": {
+            "get": {
+                "operationId": "getGetcon",
+                "parameters": [
+                    {
+                        "name": "cid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetGetcon"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getGetcon/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/countries/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postCountries",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteCountriesP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postCountries/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostCountriesP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postCountries/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/wc2022_matches": {
+            "get": {
+                "operationId": "getWc2022_matches",
+                "parameters": [
+                    {
+                        "name": "cid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetWc2022_matches"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getWc2022_matches/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/matches/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ]
+        },
+        "/match/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postMatchP_METHODP_PRIMARYKEY2",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostMatchP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postMatchP_METHODP_PRIMARYKEY2/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostMatchP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postMatchP_METHODP_PRIMARYKEY2/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/matchfixture": {
+            "get": {
+                "operationId": "getMatchfixture",
+                "parameters": [
+                    {
+                        "name": "sno",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMatchfixture"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getMatchfixture/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/wcplayers": {
+            "get": {
+                "operationId": "getWcplayers2",
+                "parameters": [
+                    {
+                        "name": "cid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetWcplayers"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getWcplayers2/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/players/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postPlayersP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostPlayersP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postPlayersP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostPlayersP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postPlayersP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/playersby": {
+            "get": {
+                "operationId": "getPlayersby",
+                "parameters": [
+                    {
+                        "name": "sno",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetPlayersby"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getPlayersby/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/matches": {
+            "get": {
+                "operationId": "getMatches",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMatches"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getMatches/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/matchesbydate": {
+            "get": {
+                "operationId": "getMatchesbydate",
+                "parameters": [
+                    {
+                        "name": "dates",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMatchesbydate"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getMatchesbydate/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/wcgroupa": {
+            "get": {
+                "operationId": "getWcgroupa",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetWcgroupa"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getWcgroupa/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/getbygroup": {
+            "get": {
+                "operationId": "getGetbygroup",
+                "parameters": [
+                    {
+                        "name": "cid",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetGetbygroup"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getGetbygroup/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/wcgroupb": {
+            "get": {
+                "operationId": "getWcgroupb",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetWcgroupb"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getWcgroupb/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/wcgroupc": {
+            "get": {
+                "operationId": "getWcgroupc",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetWcgroupc"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getWcgroupc/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/wcgroupd": {
+            "get": {
+                "operationId": "getWcgroupd",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetWcgroupd"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getWcgroupd/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/wcgroupe": {
+            "get": {
+                "operationId": "getWcgroupe",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetWcgroupe"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getWcgroupe/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/wcgroupf": {
+            "get": {
+                "operationId": "getWcgroupf",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetWcgroupf"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getWcgroupf/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/wcgroupg": {
+            "get": {
+                "operationId": "getWcgroupg",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetWcgroupg"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getWcgroupg/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/wcgrouph": {
+            "get": {
+                "operationId": "getWcgrouph",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetWcgrouph"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getWcgrouph/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/groupa/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postGroupaP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostGroupaP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postGroupaP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostGroupaP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postGroupaP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/groupb/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postGroupbP_METHODP_PRIMARYKEY2",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostGroupbP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postGroupbP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostGroupbP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postGroupbP_METHODP_PRIMARYKEY2/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/groupc/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postGroupcP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostGroupcP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "summary": "Example stored by VB User",
+                                    "externalValue": "./examples/postGroupcP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostGroupcP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postGroupcP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/groupd/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postGroupdP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostGroupdP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postGroupdP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostGroupdP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postGroupdP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/groupe/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postGroupeP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostGroupeP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postGroupeP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostGroupeP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postGroupeP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/groupf/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postGroupfP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostGroupfP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postGroupfP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostGroupfP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postGroupfP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/groupg/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postGroupgP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostGroupgP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postGroupgP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostGroupgP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postGroupgP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/grouph/{P_METHOD}/{P_PRIMARYKEY}": {
+            "parameters": [
+                {
+                    "name": "P_METHOD",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "P_PRIMARYKEY",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "number"
+                    }
+                }
+            ],
+            "post": {
+                "operationId": "postGrouphP_METHODP_PRIMARYKEY",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostGrouphP_METHODP_PRIMARYKEYRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postGrouphP_METHODP_PRIMARYKEY/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostGrouphP_METHODP_PRIMARYKEYResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postGrouphP_METHODP_PRIMARYKEY/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "GetWc2022": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "country_name": {
+                                    "type": "string"
+                                },
+                                "wc_titles": {
+                                    "type": "integer"
+                                },
+                                "fifa_ranking": {
+                                    "type": "integer"
+                                },
+                                "squad_strenght": {
+                                    "type": "integer"
+                                },
+                                "group_": {
+                                    "type": "string"
+                                },
+                                "team_base": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetGetcon": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "country_name": {
+                                    "type": "string"
+                                },
+                                "wc_titles": {
+                                    "type": "integer"
+                                },
+                                "fifa_ranking": {
+                                    "type": "integer"
+                                },
+                                "squad_strenght": {
+                                    "type": "integer"
+                                },
+                                "group_": {
+                                    "type": "string"
+                                },
+                                "team_base": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostCountriesP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "c_id": {
+                        "type": "integer"
+                    },
+                    "country_name": {
+                        "type": "string"
+                    },
+                    "wc_titles": {
+                        "type": "integer"
+                    },
+                    "fifa_ranking": {
+                        "type": "integer"
+                    },
+                    "squad_strenght": {
+                        "type": "integer"
+                    },
+                    "group_": {
+                        "type": "string"
+                    },
+                    "team_base": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostCountriesP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "DeleteCountriesP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "c_id": {
+                        "type": "integer"
+                    },
+                    "country_name": {
+                        "type": "string"
+                    },
+                    "wc_titles": {
+                        "type": "integer"
+                    },
+                    "fifa_ranking": {
+                        "type": "integer"
+                    },
+                    "squad_strenght": {
+                        "type": "integer"
+                    },
+                    "group_": {
+                        "type": "string"
+                    },
+                    "team_base": {
+                        "type": "string"
+                    }
+                }
+            },
+            "GetWc2022_matches": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "s_no": {
+                                    "type": "integer"
+                                },
+                                "match_no": {
+                                    "type": "integer"
+                                },
+                                "date_": {
+                                    "type": "string"
+                                },
+                                "time_": {
+                                    "type": "string"
+                                },
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "fixtures": {
+                                    "type": "string"
+                                },
+                                "group_": {
+                                    "type": "string"
+                                },
+                                "stadium": {
+                                    "type": "string"
+                                },
+                                "capacity_": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostMatchesP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "s_no": {
+                        "type": "integer"
+                    },
+                    "match_no": {
+                        "type": "integer"
+                    },
+                    "date_": {
+                        "type": "string"
+                    },
+                    "time_": {
+                        "type": "string"
+                    },
+                    "c_id": {
+                        "type": "integer"
+                    },
+                    "fixtures": {
+                        "type": "string"
+                    },
+                    "group_": {
+                        "type": "string"
+                    },
+                    "stadium": {
+                        "type": "string"
+                    },
+                    "capacity_": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostMatchP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "s_no": {
+                        "type": "integer"
+                    },
+                    "match_no": {
+                        "type": "integer"
+                    },
+                    "date_": {
+                        "type": "string"
+                    },
+                    "time_": {
+                        "type": "string"
+                    },
+                    "c_id": {
+                        "type": "integer"
+                    },
+                    "fixtures": {
+                        "type": "string"
+                    },
+                    "group_": {
+                        "type": "string"
+                    },
+                    "stadium": {
+                        "type": "string"
+                    },
+                    "capacity_": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostMatchP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetMatchfixture": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "s_no": {
+                                    "type": "integer"
+                                },
+                                "match_no": {
+                                    "type": "integer"
+                                },
+                                "date_": {
+                                    "type": "string"
+                                },
+                                "time_": {
+                                    "type": "string"
+                                },
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "fixtures": {
+                                    "type": "string"
+                                },
+                                "group_": {
+                                    "type": "string"
+                                },
+                                "stadium": {
+                                    "type": "string"
+                                },
+                                "capacity_": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetWcplayers": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "s_no": {
+                                    "type": "integer"
+                                },
+                                "player_name": {
+                                    "type": "string"
+                                },
+                                "age": {
+                                    "type": "integer"
+                                },
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "country_name": {
+                                    "type": "string"
+                                },
+                                "positions": {
+                                    "type": "string"
+                                },
+                                "fifa_rating": {
+                                    "type": "integer"
+                                },
+                                "goal_scored": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostPlayersP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "s_no": {
+                        "type": "integer"
+                    },
+                    "player_name": {
+                        "type": "string"
+                    },
+                    "age": {
+                        "type": "integer"
+                    },
+                    "c_id": {
+                        "type": "integer"
+                    },
+                    "country_name": {
+                        "type": "string"
+                    },
+                    "positions": {
+                        "type": "string"
+                    },
+                    "fifa_rating": {
+                        "type": "integer"
+                    },
+                    "goal_scored": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostPlayersP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetPlayersby": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "s_no": {
+                                    "type": "integer"
+                                },
+                                "player_name": {
+                                    "type": "string"
+                                },
+                                "age": {
+                                    "type": "integer"
+                                },
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "country_name": {
+                                    "type": "string"
+                                },
+                                "positions": {
+                                    "type": "string"
+                                },
+                                "fifa_rating": {
+                                    "type": "integer"
+                                },
+                                "goal_scored": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetMatches": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "s_no": {
+                                    "type": "integer"
+                                },
+                                "match_no": {
+                                    "type": "integer"
+                                },
+                                "date_": {
+                                    "type": "string"
+                                },
+                                "time_": {
+                                    "type": "string"
+                                },
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "fixtures": {
+                                    "type": "string"
+                                },
+                                "group_": {
+                                    "type": "string"
+                                },
+                                "stadium": {
+                                    "type": "string"
+                                },
+                                "capacity_": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetMatchesbydate": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "s_no": {
+                                    "type": "integer"
+                                },
+                                "match_no": {
+                                    "type": "integer"
+                                },
+                                "date_": {
+                                    "type": "string"
+                                },
+                                "time_": {
+                                    "type": "string"
+                                },
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "fixtures": {
+                                    "type": "string"
+                                },
+                                "group_": {
+                                    "type": "string"
+                                },
+                                "stadium": {
+                                    "type": "string"
+                                },
+                                "capacity_": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetWcgroupa": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "s_no": {
+                                    "type": "integer"
+                                },
+                                "country_name": {
+                                    "type": "string"
+                                },
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "match_pld": {
+                                    "type": "integer"
+                                },
+                                "win": {
+                                    "type": "integer"
+                                },
+                                "draw": {
+                                    "type": "integer"
+                                },
+                                "loss": {
+                                    "type": "integer"
+                                },
+                                "gd": {
+                                    "type": "integer"
+                                },
+                                "pts": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetGetbygroup": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "s_no": {
+                                    "type": "integer"
+                                },
+                                "match_no": {
+                                    "type": "integer"
+                                },
+                                "date_": {
+                                    "type": "string"
+                                },
+                                "time_": {
+                                    "type": "string"
+                                },
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "fixtures": {
+                                    "type": "string"
+                                },
+                                "group_": {
+                                    "type": "string"
+                                },
+                                "stadium": {
+                                    "type": "string"
+                                },
+                                "capacity_": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetWcgroupb": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "s_no": {
+                                    "type": "integer"
+                                },
+                                "country_name": {
+                                    "type": "string"
+                                },
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "match_pld": {
+                                    "type": "integer"
+                                },
+                                "win": {
+                                    "type": "integer"
+                                },
+                                "draw": {
+                                    "type": "integer"
+                                },
+                                "loss": {
+                                    "type": "integer"
+                                },
+                                "gd": {
+                                    "type": "string"
+                                },
+                                "pts": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetWcgroupc": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "s_no": {
+                                    "type": "integer"
+                                },
+                                "country_name": {
+                                    "type": "string"
+                                },
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "match_pld": {
+                                    "type": "integer"
+                                },
+                                "win": {
+                                    "type": "integer"
+                                },
+                                "draw": {
+                                    "type": "integer"
+                                },
+                                "loss": {
+                                    "type": "integer"
+                                },
+                                "gd": {
+                                    "type": "string"
+                                },
+                                "pts": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetWcgroupd": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "s_no": {
+                                    "type": "integer"
+                                },
+                                "country_name": {
+                                    "type": "string"
+                                },
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "match_pld": {
+                                    "type": "integer"
+                                },
+                                "win": {
+                                    "type": "integer"
+                                },
+                                "draw": {
+                                    "type": "integer"
+                                },
+                                "loss": {
+                                    "type": "integer"
+                                },
+                                "gd": {
+                                    "type": "string"
+                                },
+                                "pts": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetWcgroupe": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "s_no": {
+                                    "type": "integer"
+                                },
+                                "country_name": {
+                                    "type": "string"
+                                },
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "match_pld": {
+                                    "type": "integer"
+                                },
+                                "win": {
+                                    "type": "integer"
+                                },
+                                "draw": {
+                                    "type": "integer"
+                                },
+                                "loss": {
+                                    "type": "integer"
+                                },
+                                "gd": {
+                                    "type": "string"
+                                },
+                                "pts": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetWcgroupf": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "s_no": {
+                                    "type": "integer"
+                                },
+                                "country_name": {
+                                    "type": "string"
+                                },
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "match_pld": {
+                                    "type": "integer"
+                                },
+                                "win": {
+                                    "type": "integer"
+                                },
+                                "draw": {
+                                    "type": "integer"
+                                },
+                                "loss": {
+                                    "type": "integer"
+                                },
+                                "gd": {
+                                    "type": "string"
+                                },
+                                "pts": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetWcgroupg": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "s_no": {
+                                    "type": "integer"
+                                },
+                                "country_name": {
+                                    "type": "string"
+                                },
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "match_pld": {
+                                    "type": "integer"
+                                },
+                                "win": {
+                                    "type": "integer"
+                                },
+                                "draw": {
+                                    "type": "integer"
+                                },
+                                "loss": {
+                                    "type": "integer"
+                                },
+                                "gd": {
+                                    "type": "string"
+                                },
+                                "pts": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetWcgrouph": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "s_no": {
+                                    "type": "integer"
+                                },
+                                "country_name": {
+                                    "type": "string"
+                                },
+                                "c_id": {
+                                    "type": "integer"
+                                },
+                                "match_pld": {
+                                    "type": "integer"
+                                },
+                                "win": {
+                                    "type": "integer"
+                                },
+                                "draw": {
+                                    "type": "integer"
+                                },
+                                "loss": {
+                                    "type": "integer"
+                                },
+                                "gd": {
+                                    "type": "string"
+                                },
+                                "pts": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostGroupaP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "s_no": {
+                        "type": "integer"
+                    },
+                    "country_name": {
+                        "type": "string"
+                    },
+                    "c_id": {
+                        "type": "integer"
+                    },
+                    "match_pld": {
+                        "type": "integer"
+                    },
+                    "win": {
+                        "type": "integer"
+                    },
+                    "draw": {
+                        "type": "integer"
+                    },
+                    "loss": {
+                        "type": "integer"
+                    },
+                    "gd": {
+                        "type": "string"
+                    },
+                    "pts": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostGroupaP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostGroupbP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "s_no": {
+                        "type": "integer"
+                    },
+                    "country_name": {
+                        "type": "string"
+                    },
+                    "c_id": {
+                        "type": "integer"
+                    },
+                    "match_pld": {
+                        "type": "integer"
+                    },
+                    "win": {
+                        "type": "integer"
+                    },
+                    "draw": {
+                        "type": "integer"
+                    },
+                    "loss": {
+                        "type": "integer"
+                    },
+                    "gd": {
+                        "type": "string"
+                    },
+                    "pts": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostGroupbP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostGroupcP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "s_no": {
+                        "type": "integer"
+                    },
+                    "country_name": {
+                        "type": "string"
+                    },
+                    "c_id": {
+                        "type": "integer"
+                    },
+                    "match_pld": {
+                        "type": "integer"
+                    },
+                    "win": {
+                        "type": "integer"
+                    },
+                    "draw": {
+                        "type": "integer"
+                    },
+                    "loss": {
+                        "type": "integer"
+                    },
+                    "gd": {
+                        "type": "string"
+                    },
+                    "pts": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostGroupdP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "s_no": {
+                        "type": "integer"
+                    },
+                    "country_name": {
+                        "type": "string"
+                    },
+                    "c_id": {
+                        "type": "integer"
+                    },
+                    "match_pld": {
+                        "type": "integer"
+                    },
+                    "win": {
+                        "type": "integer"
+                    },
+                    "draw": {
+                        "type": "integer"
+                    },
+                    "loss": {
+                        "type": "integer"
+                    },
+                    "gd": {
+                        "type": "string"
+                    },
+                    "pts": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostGroupeP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "s_no": {
+                        "type": "integer"
+                    },
+                    "country_name": {
+                        "type": "string"
+                    },
+                    "c_id": {
+                        "type": "integer"
+                    },
+                    "match_pld": {
+                        "type": "integer"
+                    },
+                    "win": {
+                        "type": "integer"
+                    },
+                    "draw": {
+                        "type": "integer"
+                    },
+                    "loss": {
+                        "type": "integer"
+                    },
+                    "gd": {
+                        "type": "string"
+                    },
+                    "pts": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostGroupeP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostGroupdP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostGroupcP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostGroupfP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "s_no": {
+                        "type": "integer"
+                    },
+                    "country_name": {
+                        "type": "string"
+                    },
+                    "c_id": {
+                        "type": "integer"
+                    },
+                    "match_pld": {
+                        "type": "integer"
+                    },
+                    "win": {
+                        "type": "integer"
+                    },
+                    "draw": {
+                        "type": "integer"
+                    },
+                    "loss": {
+                        "type": "integer"
+                    },
+                    "gd": {
+                        "type": "string"
+                    },
+                    "pts": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostGroupfP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostGroupgP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "s_no": {
+                        "type": "integer"
+                    },
+                    "country_name": {
+                        "type": "string"
+                    },
+                    "c_id": {
+                        "type": "integer"
+                    },
+                    "match_pld": {
+                        "type": "integer"
+                    },
+                    "win": {
+                        "type": "integer"
+                    },
+                    "draw": {
+                        "type": "integer"
+                    },
+                    "loss": {
+                        "type": "integer"
+                    },
+                    "gd": {
+                        "type": "string"
+                    },
+                    "pts": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostGroupgP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostGrouphP_METHODP_PRIMARYKEYRequest": {
+                "type": "object",
+                "properties": {
+                    "s_no": {
+                        "type": "integer"
+                    },
+                    "country_name": {
+                        "type": "string"
+                    },
+                    "c_id": {
+                        "type": "integer"
+                    },
+                    "match_pld": {
+                        "type": "integer"
+                    },
+                    "win": {
+                        "type": "integer"
+                    },
+                    "draw": {
+                        "type": "integer"
+                    },
+                    "loss": {
+                        "type": "integer"
+                    },
+                    "gd": {
+                        "type": "string"
+                    },
+                    "pts": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "PostGrouphP_METHODP_PRIMARYKEYResponse": {
+                "type": "object",
+                "properties": {
+                    "p_err_code": {
+                        "type": "string"
+                    },
+                    "p_err_msg": {
+                        "type": "string"
+                    },
+                    "p_primarykey": {
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    }
+}

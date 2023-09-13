@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToCloudApplicationSearchPage",
+  "actions": {
+    "navigateToCloudApplicationSearchPage": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "cloud-application-search-page"
+      }
+    }
+  },
+  "variables": {}
+}

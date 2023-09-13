@@ -1,0 +1,117 @@
+{
+    "items": [
+        {
+            "customer_id": 151,
+            "network_id": 123,
+            "customer_name": "Harry",
+            "contact_no": 234567,
+            "residence": "Karaikudi",
+            "pincode": 640240,
+            "plan_detail": "prepaid"
+        },
+        {
+            "customer_id": 152,
+            "network_id": 129,
+            "customer_name": "Hermoinee",
+            "contact_no": 234568,
+            "residence": "Coimbatore",
+            "pincode": 641240,
+            "plan_detail": "postpaid"
+        },
+        {
+            "customer_id": 153,
+            "network_id": 125,
+            "customer_name": "Ron",
+            "contact_no": 234569,
+            "residence": "Ooty",
+            "pincode": 642240,
+            "plan_detail": "prepaid"
+        },
+        {
+            "customer_id": 154,
+            "network_id": 124,
+            "customer_name": "Albus",
+            "contact_no": 234570,
+            "residence": "Chennai",
+            "pincode": 643240,
+            "plan_detail": "postpaid"
+        },
+        {
+            "customer_id": 155,
+            "network_id": 126,
+            "customer_name": "severus",
+            "contact_no": 234571,
+            "residence": "Madurai",
+            "pincode": 644240,
+            "plan_detail": "postpaid"
+        },
+        {
+            "customer_id": 156,
+            "network_id": 128,
+            "customer_name": "Rubeus",
+            "contact_no": 234572,
+            "residence": "Trichy",
+            "pincode": 645240,
+            "plan_detail": "prepaid"
+        },
+        {
+            "customer_id": 157,
+            "network_id": 124,
+            "customer_name": "Tom Riddle",
+            "contact_no": 234673,
+            "residence": "Hosur",
+            "pincode": 646240,
+            "plan_detail": "prepaid"
+        },
+        {
+            "customer_id": 158,
+            "network_id": 123,
+            "customer_name": "Sirius",
+            "contact_no": 234574,
+            "residence": "Karaikudi",
+            "pincode": 647240,
+            "plan_detail": "postpaid"
+        },
+        {
+            "customer_id": 159,
+            "network_id": 129,
+            "customer_name": "Ginny",
+            "contact_no": 234575,
+            "residence": "Trichy",
+            "pincode": 648240,
+            "plan_detail": "prepaid"
+        },
+        {
+            "customer_id": 160,
+            "network_id": 130,
+            "customer_name": "Dobby",
+            "contact_no": 234576,
+            "residence": "Rajapalayam",
+            "pincode": 649240,
+            "plan_detail": "postpaid"
+        },
+        {
+            "customer_id": 162,
+            "network_id": 123,
+            "customer_name": "Parry",
+            "contact_no": 234577,
+            "residence": "Karaikudi",
+            "pincode": 640240,
+            "plan_detail": "prepaid"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 11,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1312/Customer_1312"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1312/item"
+        }
+    ]
+}

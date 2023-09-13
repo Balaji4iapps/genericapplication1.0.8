@@ -1,0 +1,29 @@
+{
+    "items": [
+        {
+            "staff_id": 2,
+            "first_name": "Jon",
+            "last_name": "Stephens",
+            "address_id": 4,
+            "email": "Jon.Stephens@sakilastaff.com",
+            "store_id": 2,
+            "username": "Jon",
+            "last_update": "0015-02-18T06:09:45Z",
+            "seq_staff": 2
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/dvdrental/getbyidstaff?staffid=2"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/dvdrental/item"
+        }
+    ]
+}

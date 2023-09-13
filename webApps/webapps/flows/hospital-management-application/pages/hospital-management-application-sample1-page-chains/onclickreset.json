@@ -1,0 +1,24 @@
+{
+  "description": "",
+  "root": "callChainOnload",
+  "actions": {
+    "callChainOnload": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onload"
+      },
+      "outcomes": {
+        "success": "resetVariablesDoctorlov"
+      }
+    },
+    "resetVariablesDoctorlov": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.doctorlov"
+        ]
+      }
+    }
+  },
+  "variables": {}
+}

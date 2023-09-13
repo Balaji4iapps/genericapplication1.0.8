@@ -1,0 +1,60 @@
+
+
+<div class="oj-flex">
+<oj-validation-group id="Tableform">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12" data="[[ $variables.TableADP ]]"
+    columns='[{"headerText":"Doctor Name","field":"doc_name","template":"doc_name"},
+    {"headerText":"Doctor Gender","field":"doc_gender","template":"Doctor Gender"},
+    {"headerText":"Doctor Address","field":"doc_address","template":"doc_address"},
+    {"headerText":"Doctor Designation","field":"doc_designation","template":"doc_designation"},
+    {"headerText":"Doctor Fees","field":"doc_fees","template":"Doctor fees"},
+    {"headerText":"Medical Fees","field":"medical_fees","template":"Medical fees"},
+    {"headerText":"Total","field":"total_fees","template":"Total Fee"},
+    {"headerText":"Cancel","field":"","template":"Cancel"},
+    {"headerText":"Delete","field":"","template":"Delete"}]' display="grid" id="searchLnsTable"
+    selection-mode.row="none" horizontal-grid-visible="enabled" vertical-grid-visible="enabled"
+    selection-required="true">
+
+</oj-table>
+</oj-validation-group>
+</div>
+
+<div>
+<table>
+  <col>
+  <colgroup span="2"></colgroup>
+  <colgroup span="2"></colgroup>
+  <tr>
+    <td rowspan="2"></td>
+    <th colspan="2" scope="colgroup">Doctor</th>
+    <th colspan="2" scope="colgroup">Fees</th>
+  </tr>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Gender</th>
+    <th scope="col">Doctor</th>
+    <th scope="col">Medical</th>
+  </tr>
+  <oj-bind-for-each data="[[ $variables.TableADP ]]">
+  <tr>
+    <th scope="row"></th>
+    <td> $current.data.doc_name</td>
+  </tr>
+  </oj-bind-for-each>
+  <tr>
+    <th scope="row"></th>
+    <td><oj-bind-text></oj-bind-text></td>
+  </tr>
+</table>
+</div>
+
+            <oj-data-grid id="datagrid" aria-label="Data Grid Cell Based Grid Demo" data="[[getDoctordetailsListSDP]]"
+              selection-mode.cell="multiple" scroll-policy="loadMoreOnScroll"
+              header.row.class-name="demo-data-grid-header-row" header.column.style="[[getColumnHeaderStyle]]"
+              header.column.resizable='{"width":"enable", "height":"enable"}'
+              header.row.resizable='{"width":"enable", "height":"enable"}' on-oj-sort-request="[[handleSortRequest]]"
+              style="grid-column: 2 / span 2;">
+              <!-- <template slot="cellTemplate" data-oj-as="cell">
+                <oj-bind-text value="[[numberConverter.format(cell.item.data.population)]]"></oj-bind-text>
+              </template> -->
+            </oj-data-grid>

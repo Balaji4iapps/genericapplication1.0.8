@@ -1,0 +1,93 @@
+{
+  "root": "ifPostmethod",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "ifPostmethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.postmethod=='edit' ]]"
+      },
+      "outcomes": {
+        "true": "callRestGetvvmovies1getbyid1"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetvvmovies1getbyid1.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetvvmovies1getbyid1": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Moviesticketbooking/getvvmovies1getbyid1",
+        "uriParams": {
+          "getvvmovies1": "{{ $page.variables.postprimarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesMoviepost"
+      }
+    },
+    "assignVariablesMoviepost": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.moviepost": {
+          "source": "{{ $chain.results.callRestGetvvmovies1getbyid1.body.items[0] }}",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callRestGetVvvspectatorsbymoviesnofk"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetVvvspectatorsbymoviesnofk.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetVvvspectatorsbymoviesnofk": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Moviesticketbooking/getVvvspectatorsbymoviesnofk",
+        "uriParams": {
+          "p_moviesno": "{{ $page.variables.postprimarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "callFunctionPagingspectators"
+      }
+    },
+    "assignVariablesVvvspectatorstable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.vvvspectatorstable": {
+          "source": "{{ $chain.results.callFunctionPagingspectators }}"
+        }
+      }
+    },
+    "callFunctionPagingspectators": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingspectators",
+        "params": [
+          "{{ $chain.results.callRestGetVvvspectatorsbymoviesnofk.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesVvvspectatorstable"
+      }
+    }
+  }
+}

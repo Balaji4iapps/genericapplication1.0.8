@@ -1,0 +1,88 @@
+{
+    "items": [
+        {
+            "customer_num": "12",
+            "customer_name": "shaju",
+            "customer_location": "Ariyankuppam",
+            "depart_num": "2",
+            "salesman": "Tamil",
+            "area_no": "10",
+            "order_date": "2022-04-02T00:00:00Z",
+            "email_id": "shaju@gmail.com"
+        },
+        {
+            "customer_num": "13",
+            "customer_name": "asik",
+            "customer_location": "Madurai",
+            "depart_num": "3",
+            "salesman": "Arasu",
+            "area_no": "20",
+            "order_date": "2022-04-03T00:00:00Z",
+            "email_id": "asik@gmail.com"
+        },
+        {
+            "customer_num": "16",
+            "customer_name": "Vaira",
+            "customer_location": "Annanagar",
+            "depart_num": "4",
+            "salesman": "Soundar",
+            "area_no": "10",
+            "order_date": "2022-04-04T00:00:00Z",
+            "email_id": "vaira@gmail.com"
+        },
+        {
+            "customer_num": "22",
+            "customer_name": "Kumar",
+            "customer_location": "Porur",
+            "depart_num": "7",
+            "salesman": "abdul",
+            "area_no": "30",
+            "order_date": "2022-04-08T00:00:00Z",
+            "email_id": "kumar@gmail.com"
+        },
+        {
+            "customer_num": "15",
+            "customer_name": "Arun",
+            "customer_location": "Adyar",
+            "depart_num": "8",
+            "salesman": "Surya",
+            "area_no": "40",
+            "order_date": "2022-04-09T00:00:00Z",
+            "email_id": "arun@gmail.com"
+        },
+        {
+            "customer_num": "78",
+            "customer_name": "muthu",
+            "customer_location": "Tnagar",
+            "depart_num": "5",
+            "salesman": "Deva",
+            "area_no": "10",
+            "order_date": "2022-04-05T00:00:00Z",
+            "email_id": "muthu@gmail.com"
+        },
+        {
+            "customer_num": "66",
+            "customer_name": "balaji",
+            "customer_location": "Avadi",
+            "depart_num": "6",
+            "salesman": "kumar",
+            "area_no": "40",
+            "order_date": "2022-04-07T00:00:00Z",
+            "email_id": "balaji@gmail.com"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 7,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/productapplication/customerget"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/productapplication/item"
+        }
+    ]
+}

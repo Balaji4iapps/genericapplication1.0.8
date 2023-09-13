@@ -1,0 +1,60 @@
+{
+  "description": "",
+  "root": "callRestPostPlayersPMETHODPPRIMARYKEY",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostPlayersPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostPlayersPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "WorldCupApplication/postPlayersP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $page.variables.players }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_d8e8]]",
+        "message": "[[$application.translations.app.fireNotification2_message_7866]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callComponentPlayerdeletepopupClose"
+      }
+    },
+    "callComponentPlayerdeletepopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('playerdeletepopup') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainOnloaddatabyid"
+      }
+    },
+    "callChainOnloaddatabyid": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onloaddatabyid"
+      }
+    }
+  },
+  "variables": {}
+}

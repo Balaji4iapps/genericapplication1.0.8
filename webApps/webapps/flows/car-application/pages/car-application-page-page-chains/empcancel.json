@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentEmployeedetailPopupClose",
+  "actions": {
+    "callComponentEmployeedetailPopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('EmployeedetailPopup') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,163 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Ords Qiaordswst1",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://qiaccstst.ocsqia.qa/ords/qiaordswst1/sm",
+            "description": "Ords Qiaordswst1"
+        }
+    ],
+    "paths": {
+        "/person": {
+            "get": {
+                "operationId": "getPerson",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetPerson"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getPerson/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "GetPerson": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "person_id": {
+                                    "type": "integer"
+                                },
+                                "effective_start_date": {
+                                    "type": "string"
+                                },
+                                "effective_end_date": {
+                                    "type": "string"
+                                },
+                                "person_number": {
+                                    "type": "string"
+                                },
+                                "applicant_number": {
+                                    "nullable": true
+                                },
+                                "business_group_id": {
+                                    "type": "integer"
+                                },
+                                "last_name": {
+                                    "type": "string"
+                                },
+                                "first_name": {
+                                    "type": "string"
+                                },
+                                "middle_name": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "name_title": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "full_name": {
+                                    "type": "string"
+                                },
+                                "display_name": {
+                                    "type": "string"
+                                },
+                                "email_address": {
+                                    "type": "string"
+                                },
+                                "nationality": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "trx_source": {
+                                    "type": "string"
+                                },
+                                "source_rowid": {
+                                    "type": "string"
+                                },
+                                "created_by": {
+                                    "type": "string"
+                                },
+                                "creation_date": {
+                                    "type": "string"
+                                },
+                                "last_updated_by": {
+                                    "type": "string"
+                                },
+                                "last_update_date": {
+                                    "type": "string"
+                                },
+                                "date_of_join": {
+                                    "type": "string"
+                                },
+                                "marital_status": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "dob": {
+                                    "type": "string"
+                                },
+                                "phone_number": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "limit": {
+                        "type": "integer"
+                    },
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "count": {
+                        "type": "integer"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "rel": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

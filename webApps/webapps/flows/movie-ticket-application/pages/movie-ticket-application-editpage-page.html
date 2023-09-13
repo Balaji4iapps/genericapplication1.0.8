@@ -1,0 +1,177 @@
+<div class="oj-flex">
+  <h4 class="oj-flex-item oj-sm-12 oj-md-12">Create Movies Data</h4>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-8"></div>
+  
+</div>
+<div style="display:flex;justify-content:flex-end;" >
+  <oj-form-layout label-edge="start" columns="2" max-columns="3" direction="row" class="">
+  
+  <oj-button label="Save" on-oj-action="[[$listeners.buttonAction]]">
+    <img slot= "startIcon" :src="[[ $flow.path + 'resources/images/savepng.png' ]]">
+  </oj-button>
+
+  <oj-button label="Save&Close" on-oj-action="[[$listeners.buttonAction3]]">
+    <img slot= "startIcon" :src="[[ $flow.path + 'resources/images/save&amp;close_png.png' ]]">
+  </oj-button>
+  
+  <oj-button label="Close" on-oj-action="[[$listeners.buttonAction2]]">
+    <img slot= "startIcon" :src="[[ $flow.path + 'resources/images/backpng_1.png' ]]">
+  </oj-button>
+  
+  </oj-form-layout>
+
+</div>
+<div class="oj-flex" style="margin-top:7%;">
+  <div class="oj-flex-item oj-sm-12 oj-md-11">
+    <oj-validation-group id="hdrmovies">
+    <oj-form-layout label-edge="start" columns="2">
+
+      <oj-input-text label-hint="Movie Name" value="{{ $variables.moviepost.moviename }}" required="true"></oj-input-text>
+      <oj-input-text label-hint="Movie Director" value="{{ $variables.moviepost.moviedirector }}" required="true"></oj-input-text>
+      <oj-input-text label-hint="Movie Genre" value="{{ $variables.moviepost.moviegenre }}" required="true"></oj-input-text>
+      <oj-input-text label-hint="Movie Producer" value="{{ $variables.moviepost.movieproducer }}"></oj-input-text>
+      <oj-input-text label-hint="Movie Timing" value="{{ $variables.moviepost.movietimings }}"></oj-input-text>
+
+    </oj-form-layout>
+    </oj-validation-group>
+    <oj-button label="Create" on-oj-action="[[$listeners.buttonAction4]]">
+      <img slot= "startIcon"
+    </oj-button :src="[[ $flow.path + 'resources/images/plus-square_2.png' ]]">
+
+  </div>
+</div>
+<div>
+  
+  <oj-table scroll-policy="loadMoreOnScroll"
+    columns='[{"headerText":"Edit","template":"customTemplate"},
+    {"headerText":"Spectator No","field":"spectatorno"},
+    {"headerText":"Spectator Name","field":"spectatorname"},{"headerText":"Spectator Age","field":"spectatorage"},
+    {"headerText":"Gender","field":"gender"},{"headerText":"Mobile Number","field":"mobilenumber"},
+    {"headerText":"Seating Row","field":"seatingrow"},{"headerText":"Delete","template":"Delete"},
+    {"headerText":"LocationDetails","template":"customTemplate1"}]'
+    data="[[ $variables.vvvspectatorstable ]]" display="grid" horizontal-grid-visible="enabled"
+    vertical-grid-visible="enabled">
+    <template slot="customTemplate">
+      <a target="_blank" on-click="[[$listeners.hyperlinkClick]]">Edit</a>
+    </template>
+       <template slot="Delete">
+      <a target="_blank" on-click="[[$listeners.hyperlinkClick2]]" >Delete</a>
+    </template>
+    <template slot="customTemplate1">
+      <a target="_blank" on-click="[[$listeners.hyperlinkClick3]]">LocationDetails</a>
+      </template>
+  
+  
+  </oj-table>
+  
+  <oj-paging-control data="[[ $variables.vvvspectatorstable ]]" id="paging1" class="oj-sm-width-full" page-size="5"></oj-paging-control>
+</div>
+
+	
+<oj-dialog style="display:none;
+
+width: 1200px;height: 600px;" dialog-title="Spectators" id="Spectatorstable"> 
+
+ <div slot="body">
+   <oj-form-layout label-edge="start" max-columns="2">
+    <oj-input-text label-hint="SpectatorName" value="{{ $variables.vvspectatorvariable.spectatorname }}"></oj-input-text>
+    <oj-input-number label-hint="SpectatorAge" value="{{ $variables.vvspectatorvariable.spectatorage }}"></oj-input-number>
+    <oj-input-number label-hint="MobileNumber" value="{{ $variables.vvspectatorvariable.mobilenumber }}"></oj-input-number>
+    <oj-input-text label-hint="SeatingRow" value="{{ $variables.vvspectatorvariable.seatingrow }}"></oj-input-text>
+    <oj-radioset label-hint="Gender" value="{{ $variables.vvspectatorvariable.gender }}">
+      <oj-option value="Male">Male </oj-option>
+      <oj-option value="Female">Female</oj-option>
+    </oj-radioset>
+   </oj-form-layout>
+
+   
+
+
+
+   </div> 
+
+   <div slot="footer">   
+
+     <oj-button chroming="solid" on-oj-action="[[$listeners.buttonAction5]]"   >Save</oj-button>   
+
+   <oj-button chroming="solid" on-oj-action="[[$listeners.buttonAction6]]"   >Close</oj-button> 
+
+   </div>
+
+</oj-dialog>
+
+
+
+
+	<oj-dialog style="display:none;
+
+width: 1200px;height: 600px;" dialog-title="Spectator Details" id="Spectatordetails"> 
+
+ 
+   <oj-form-layout label-edge="start" max-columns="2">
+    <oj-input-text label-hint="LocationName" value="{{ $variables.location.locationname }}"></oj-input-text>
+    <oj-input-text label-hint="Address" value="{{ $variables.location.address }}" ></oj-input-text>
+    <oj-input-number label-hint="Pincode" value="{{ $variables.location.pincode }}" ></oj-input-number>
+    <oj-input-text label-hint="Country" value="{{ $variables.location.country }}" ></oj-input-text>
+    <oj-input-text label-hint="State" value="{{ $variables.location.state }}" ></oj-input-text>
+    
+     </oj-form-layout>
+
+  
+
+   <div slot="footer">   
+
+     <oj-button chroming="solid" on-oj-action="[[$listeners.buttonAction7]]">Save</oj-button>   
+
+   <oj-button chroming="solid" on-oj-action="[[$listeners.buttonAction8]]">Close</oj-button> 
+
+   </div>
+
+<div>
+    
+  
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12" display="grid"
+    horizontal-grid-visible="enabled" vertical-grid-visible="enabled" 
+    columns='[{"headerText":"Edit","field":"","template":"Edit"},{"headerText":"Spectatorno","field":"spectatorno"},{"headerText":"LocationNo","field":"locationno"},
+    {"headerText":"LocationName","field":"locationname"},
+    {"headerText":"Address","field":"address"},
+    {"headerText":"Pincode","field":"pincode"},
+    {"headerText":"Country","field":"country"},
+    {"headerText":"State","field":"state"},
+    {"headerText":"Delete","field":"","template":"Delete"}]'
+data="[[ $variables.locationtable ]]">
+
+<template slot="Edit">
+  <oj-button label="Edit" on-oj-action="[[$listeners.buttonAction9]]" chroming="callToAction"></oj-button>
+  
+</template>
+
+<template slot="Delete">
+  <oj-button label="Delete" class="" chroming="danger" on-oj-action="[[$listeners.buttonAction10]]"></oj-button>
+  
+</template>
+
+    </oj-table>
+
+    <oj-paging-control  data="[[ $variables.locationtable ]]" id="paging1" class="oj-sm-width-full" page-size="5"></oj-paging-control>
+</div>
+</oj-dialog>
+
+
+
+		<oj-dialog style="display:none" dialog-title="Delete " id="specdetailsdelete"
+    on-oj-close="[[$listeners.specdetailsdeleteClose]]">
+  <div slot="body">
+    <div class="oj-flex" >Do you want to delete?</div>
+  </div>
+  <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction11]]"  >Ok</oj-button>
+    <oj-button on-oj-action="[[$listeners.buttonAction12]]" >Cancel</oj-button>
+  </div>
+</oj-dialog>
+
+	
+
+

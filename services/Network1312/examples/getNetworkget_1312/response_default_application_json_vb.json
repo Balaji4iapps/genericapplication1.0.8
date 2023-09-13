@@ -1,0 +1,27 @@
+{
+    "items": [
+        {
+            "network_id": 126,
+            "network_name": "VI             ",
+            "data_pack": "2GB",
+            "mrp": "249",
+            "validity": "30days",
+            "subscriptions": "Star Sports",
+            "sms": "unlimited"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1312/Networkget_1312?network_id=126"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1312/item"
+        }
+    ]
+}

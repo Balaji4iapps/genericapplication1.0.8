@@ -1,0 +1,95 @@
+<h4>Network Details</h4>
+  <oj-form-layout label-edge="start" columns="2"  direction="column" max-columns="2">
+      <oj-select-single label-hint="Network Search" label-edge="inside"
+        item-text="network_name"
+        value="{{ $variables.networkname }}" data="[[$variables.getNetwork1312ListSDP]]"
+       ></oj-select-single>
+  </oj-form-layout>
+   <!-- <template slot="collectionTemplate" data-oj-as="collection">
+  <oj-table scroll-policy="loadMoreOnScroll" selection-mode='{"row": "single"}'
+    columns-default='{"resizable": "disabled","sortable": "disabled"}' class="oj-select-results"
+    columns=' [{"headerText":"Network Number","field":"network_id"},
+    {"headerText":"Network Name","field":"network_name"}               
+   ]' on-oj-row-action="[[collection.handleRowAction]]" data="[[collection.data]]"
+    selected.row="[[collection.selected]]" current-row="{{collection.currentRow}}"></oj-table>
+    </template>
+      
+      <h1><oj-bind-text></oj-bind-text></h1>-->
+      
+      <div style="display:flex; justify-content:flex-end;">
+        <oj-button style="create margin-left:0.5%;margin-right:1.5%;" label="Create"
+          on-oj-action="[[$listeners.buttonAction3]]" chroming="solid">
+     <img slot="startIcon" :src="[[ $flow.path + 'resources/images/data_into.png' ]]" width="40" height="40">
+        </oj-button> 
+    <oj-button style="search margin-left:0.5%;margin-right:1.5%;" label="Search"
+      on-oj-action="[[$listeners.buttonAction]]" chroming="solid">
+     <img slot="startIcon" :src="[[ $flow.path + 'resources/images/searchgif2.gif' ]]" width="40" height="40">
+</oj-button>
+    <oj-button style="Reset margin-left:0.5%;margin-right:1.5%;" label="Reset"
+      on-oj-action="[[$listeners.buttonAction2]]" chroming="solid">
+     <img slot="startIcon" :src="[[ $flow.path + 'resources/images/reset2.jpg' ]]" width="40" height="40">
+    </oj-button>
+    <oj-button label="Back" chroming="solid" on-oj-action="[[$listeners.buttonAction5]]">
+     <img slot="startIcon" :src="[[ $flow.path + 'resources/images/bck_arrow.jpg' ]]" width="30" height="30">
+    </oj-button>
+    <oj-sample-export-data data="[[ $variables.exportdata ]]"
+      columns='[{"field":"network_id","headerText":"Network Number","type":""},{"field":"network_name","headerText":"Network Name","type":""},{"field":"data_pack","headerText":"Data Pack","type":""},{"field":"mrp","headerText":"MRP","type":""},{"field":"validity","headerText":"Validity","type":""},{"field":"subscriptions","headerText":"Subcription","type":""},{"field":"sms","headerText":"SMS","type":""}]'></oj-sample-export-data>  
+    
+     
+      </div>
+<!-- style="margin-top:0.5%;margin-right:0.5%;margin-left:10%" -->
+<!-- <oj-form-layout>  --> 
+   <oj-table  scroll-policy="loadMoreOnScroll" 
+     columns='[{"headerText":"Network Number","field":"network_id"},{"headerText":"Network Name","field":"network_name"},{"headerText":"Data Pack","field":"data_pack"},{"headerText":"MRP","field":"mrp"},{"headerText":"Validity","field":"validity"},{"headerText":"Subscriptions","field":"subscriptions"},{"headerText":"SMS","field":"sms"},{"headerText":"Update","field":"","template":"Update"},{"headerText":"Delete","field":"","template":"Delete"}]'
+     data="[[ $variables.networktable ]]" edit-mode="rowEdit" display="grid" selection-mode.row="single"
+     selection-mode.column="single" horizontal-grid-visible="enabled" vertical-grid-visible="enabled">
+     <oj-paging-control id="paging" class="oj-sm-width-full" page-size="5" slot="bottom" data="[[ $variables.networktable ]]">
+</oj-paging-control>
+     <template slot="Update">
+       <img :src="[[ $flow.path + 'resources/images/editsymbolnew.png' ]]" height="30" width="30"
+         on-click="[[$listeners.imageClick2]]">
+     </template>
+     <template slot="Delete">
+       <img :src="[[ $flow.path + 'resources/images/delete_symbol.jpg' ]]" height="80" width="50"
+         on-click="[[$listeners.imageClick]]">
+     </template>
+      </oj-table>
+      <!-- </oj-form-layout> -->
+<oj-dialog style="display:none" dialog-title="Alert" id="oj-dialog-1134563995-1">
+    <div slot="body">
+     <div class="oj-flex">
+       Records will be deleted!
+     </div>
+    </div>
+    <div slot="footer">
+     <oj-button on-oj-action="[[$listeners.buttonAction4]]">ok</oj-button>
+     <oj-button>cancel</oj-button>
+    </div>
+</oj-dialog>
+<oj-dialog style="display:none" dialog-title="Please Wait Connecting " id="oj-dialog-1134563995-2">
+    <div slot="body">
+     <div class="oj-flex">
+       <div class="oj-flex-item oj-sm-12 oj-md-4">
+         <img :src="[[ $flow.path + 'resources/images/wifi_icon-working-small.gif' ]]">
+
+
+       </div>  
+     </div> 
+    </div>
+</oj-dialog>
+
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+    
+
+

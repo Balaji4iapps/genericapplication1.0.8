@@ -1,0 +1,62 @@
+{
+  "root": "ifConfiguration",
+  "actions": {
+    "callRestEndpoint1": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "requestType": "json",
+        "endpoint": "Network1312/getNetwork_1312",
+        "responseType": "getNetwork_1312",
+        "hookHandler": "{{ $variables.configuration.hookHandler }}"
+      },
+      "outcomes": {
+        "success": "return1"
+      }
+    },
+    "return1": {
+      "module": "vb/action/builtin/returnAction",
+      "parameters": {
+        "outcome": "success",
+        "payload": "{{ $chain.results.callRestEndpoint1 }}"
+      }
+    },
+    "ifConfiguration": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $variables.configuration.hookHandler.context.fetchOptions.filterCriterion ]]"
+      },
+      "outcomes": {
+        "false": "callRestEndpoint1",
+        "true": "callRestGetNetworkget1312"
+      }
+    },
+    "callRestGetNetworkget1312": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Network1312/getNetworkget_1312",
+        "uriParams": {
+          "network_id": "{{ $variables.configuration.hookHandler.context.fetchOptions.filterCriterion.text }}"
+        }
+      },
+      "outcomes": {
+        "success": "return"
+      }
+    },
+    "return": {
+      "module": "vb/action/builtin/returnAction",
+      "parameters": {
+        "outcome": "success",
+        "payload": "{{ $chain.results.callRestGetNetworkget1312 }}"
+      }
+    }
+  },
+  "variables": {
+    "configuration": {
+      "type": {
+        "hookHandler": "vb/RestHookHandler"
+      },
+      "input": "fromCaller",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,503 @@
+ <header>
+  <h3 class="oj-flex-bar-start">Car Details</h3>
+</header>
+
+
+
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12">
+     <div class="oj-flex-item oj-sm-12 oj-md-12 oj-lg-4  oj-xl-6"></div> 
+<div class="oj-flex-item oj-sm-12 oj-md-12 oj-lg-4  oj-xl-4"></div>
+<div class="oj-flex-item oj-sm-12 oj-md-12 ">
+    <div style="display:flex; justify-content:flex-end; margin-bottom:1%;">
+      <!--Approve -->
+      <oj-button label="Home " class="oj-button-sm" chroming="solid" style="margin-left:0.5%;margin-right:1.5%;" on-oj-action="[[$listeners.buttonAction28]]">
+  <img slot="startIcon" :src="[[ $flow.path + 'resources/images/back_2.png' ]]" width="25" height="25">
+      </oj-button>
+      
+      <oj-button class="oj-button-sm" chroming="solid" style="margin-left:0.5%;margin-right:1.5%;"
+        on-oj-action="[[$listeners.buttonAction]]"
+        >Save
+            <img slot="startIcon" width="25" height="25" :src="[[ $flow.path + 'resources/images/savebtn.png' ]]">
+      </oj-button>
+      <!--Reject  -->
+      <oj-button class="oj-button-sm" chroming="solid"
+        style="margin-left:0.5%;margin-right:1.5%;" on-oj-action="[[$listeners.buttonAction2]]" >Save and Close
+            <img slot="startIcon" :src="[[ $flow.path + 'resources/images/saveclose.png' ]]" width="30" height="30">
+      </oj-button>
+      <!--Save and Close  -->
+      <oj-button class="oj-button-sm" chroming="solid"
+        style="margin-left:0.5%;margin-right:1.5%;" on-oj-action="[[$listeners.buttonAction3]]"  >Close
+            <img slot="startIcon" :src="[[ $flow.path + 'resources/images/cross_(1).png' ]]" width="25" height="25">
+      </oj-button> 
+
+       <oj-button class="oj-button-sm" chroming="solid"
+        style="margin-left:0.5%;margin-right:1.5%;" on-oj-action="[[$listeners.buttonAction15]]"  > About
+            <img slot="startIcon" :src="[[ $flow.path + 'resources/images/sedan_2.png' ]]" width="30" height="30">
+      </oj-button> 
+      
+      
+  </div>
+</div>
+  </div>
+</div>
+    
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-11">
+    <oj-validation-group id="HdrForm">
+      <div class="oj-flex-item oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-panel oj-panel-shadow-md oj-selected">
+  <oj-form-layout label-edge="start" columns="2" max-columns="2">
+           
+                  
+                  <oj-input-text label-hint="Car No" value="{{ $variables.cardetails.car_no }}" required="true" ></oj-input-text>
+                  <oj-input-text label-hint="Car Brand" value="{{ $variables.cardetails.car_brand }}" required="true" >
+                  </oj-input-text>
+                  <oj-select-one label-hint="Gear Type" id="oj-select-one-651077415-1"
+                    value="{{ $variables.cardetails.gear_type }}"
+                    >
+<oj-option value=""></oj-option>
+<oj-option value="Manual">Manual</oj-option>
+<oj-option value="Automatic">Automatic</oj-option>
+</oj-select-one> 
+
+<oj-select-one label-hint="Car Colour" id="oj-select-one-651077415-1" value="{{ $variables.cardetails.car_colour }}"
+  
+                    >
+<oj-option value=""></oj-option>
+<oj-option value="Black">Black</oj-option>
+<oj-option value="White">White</oj-option>
+<oj-option value="Blue">Blue</oj-option>
+<oj-option value="Grey">Grey</oj-option>
+
+</oj-select-one>
+                  
+                 <oj-select-one label-hint="Fuel Type" id="oj-select-one-651077415-1"
+                   value="{{ $variables.cardetails.fuel_type }}"
+                    >
+<oj-option value=""></oj-option>
+<oj-option value="Diesel">Diesel</oj-option>
+<oj-option value="Petrol">Petrol</oj-option>
+</oj-select-one>
+<oj-input-number label-hint="No Of Seater" value="{{ $variables.cardetails.no_of_seaters }}"></oj-input-number>
+<oj-input-number label-hint="Engine Number" value="{{ $variables.cardetails.engine_number }}"
+  converter='{"options":{"useGrouping":false},"type":"number"}'></oj-input-number>
+</oj-form-layout>
+</div>
+</oj-validation-group>
+  </div>
+</div>
+
+
+<oj-dialog dialog-title="Customer Details" id="CustomerdetailPopup" style="width: 900px; height: 450px;">
+    <br>
+    <div slot="body">
+
+      <div class="oj-flex">
+        <oj-validation-group id="customerdetailsform">
+        
+          <oj-form-layout label-edge="start" label-width="40%" class="" direction="column" columns="3" max-columns="3">
+
+              <oj-input-text label-hint="Customer Name" value="{{ $variables.customerdetails.customer_name }}"
+                required="true" ></oj-input-text>
+            <oj-input-date label-hint="Date Of Birth"
+              converter='{"type": "datetime", "options": {"pattern":"dd-MMM-yyyy"}}'
+              value="{{ $variables.customerdetails.date_of_birth }}" max="2010-12-31" min="1990-12-31"
+              ></oj-input-date>
+               <!-- <oj-input-text label-hint="Email ID" value="{{ $variables.customerdetails.email_id }}" ></oj-input-text> -->
+  <oj-input-text virtual-keyboard="email"  value="{{ $variables.customerdetails.email_id }}"
+    validators='[{"type":"regexp", "options":{"pattern":"([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})", "hint":"Enter an email address.", "messageDetail": "Value must be of the form xxx@xxx.xx"}}]'
+    label-hint="Email"></oj-input-text>
+
+
+               <oj-input-number label-hint="Phone No" value="{{ $variables.customerdetails.phone_no }}"
+                 converter='{"options":{"useGrouping":false},"type":"number"}' ></oj-input-number>
+<!-- on-value-changed="[[$listeners.radiosetValue]]" -->
+    <oj-input-text label-hint="Address" :id="[[ $variables.customerdetails.address ]]"
+      value="{{ $variables.customerdetails.address }}"></oj-input-text>
+                 <oj-select-one label-hint="Id Proof" id="oj-select-one-651077415-1"
+                   value="{{ $variables.customerdetails.id_proof }}" required="true"
+                    >
+<oj-option value=""></oj-option>
+<oj-option value="Aadhar Card">Aadhar Card</oj-option>
+<oj-option value="Pan card">Pan card</oj-option>
+</oj-select-one>
+<oj-radioset label-hint="Payment Status" value="{{ $variables.customerdetails.payment_status }}" required="true" 
+                 >
+                            <oj-option value="Paid">Paid</oj-option>
+                            <oj-option value="On Process">On Process</oj-option>
+                  </oj-radioset>
+                  <oj-radioset label-hint="Payment Type" value="{{ $variables.customerdetails.payment_type }}"
+                    required="true" >
+                            <oj-option value="Cash">Cash</oj-option>
+                            <oj-option value="Card">Card</oj-option>
+                  </oj-radioset>
+     </oj-form-layout>
+</oj-validation-group>
+      </div>
+    </div>
+    <div slot="footer">
+      <oj-validation-group>
+        <oj-button chroming="solid" :hidden="[[ $variables.linevariable!='Create' ]]"
+          on-oj-action="[[$listeners.buttonAction6]]"   >Save & Continue</oj-button>
+ <oj-button chroming="solid" on-oj-action="[[$listeners.buttonAction7]]" >Save</oj-button> 
+        <oj-button on-oj-action="[[$listeners.buttonAction5]]" chroming="solid" >Cancel</oj-button>
+      </oj-validation-group>
+</div>
+  
+  </oj-dialog>
+
+  <oj-dialog style="display:none; 
+width: 400px;height: 250px;" dialog-title="Delete" id="Delete"> 
+ <div slot="body">  
+  <oj-button label="Do you want to Delete?" chroming="borderless" disabled="true">
+  </oj-button>
+    </div>  
+  <div slot="footer">   
+     <oj-button chroming="solid" on-oj-action="[[$listeners.buttonAction21]]"   >Yes</oj-button>   
+   <oj-button chroming="solid" on-oj-action="[[$listeners.buttonAction23]]"  >No</oj-button>  
+  </div>
+</oj-dialog>
+
+
+<!-- ----TAB---- -->
+<div class="demo-tabbar-container oj-panel">
+<oj-tab-bar id="hnavlist" edge="top" selection="{{ $variables.selectedTab }}">
+<ul>
+<li id="customerslot">
+<a href="#" style="font-size: larger; font-weight: bold;" aria-controls="customerpanel" id="customerid">Customer Details</a>
+</li>
+<li id="employeeslot">
+<a href="#" style="font-size: larger; font-weight: bold;" aria-controls="employeepanel" id="employeeid">Employee Details</a>
+</li>
+</ul>
+</oj-tab-bar>
+</div>
+
+
+<!-- Details -->
+<div class="demo-switcher-container oj-panel">
+<oj-switcher value="[[ $variables.selectedTab ]]">
+<!-- Customer Details -->
+<div slot="customerslot" id="customerpanel" role="tabpanel" aria-labelledby="customerid">
+<div class="demo-tab-content">
+
+
+<oj-button label="Create" chroming="solid" on-oj-action="[[$listeners.buttonAction4]]">
+                  <img slot="startIcon" :src="[[ $flow.path + 'resources/images/plus.png' ]]" width="30" height="30">
+</oj-button>
+  
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12 "
+    columns='[    {        "headerText": "Customer Name",        "field": "customer_name"    },  
+      {        "headerText": "Date Of Birth",        "field": "date_of_birth" , "template": "Date"   },   
+       {        "headerText": "Email Id",        "field": "email_id"    },   
+        {        "headerText": "Phone No",        "field": "phone_no"    }, 
+           {        "headerText": "Address",        "field": "address"    }, 
+              {        "headerText": "Id Proof",        "field": "id_proof"    },  
+                {        "headerText": "Payment Type",        "field": "payment_type"    }, 
+                   {        "headerText": "Payment Status",        "field": "payment_status"    },
+                    {        "headerText": "Update",        "field": "" , "template": "update"   },
+                    {        "headerText": "Delete",        "field": "" , "template": "delete"   }]'
+    data="[[ $variables.customervariable ]]" horizontal-grid-visible="enabled" display="grid"
+    vertical-grid-visible="enabled">
+    <template slot="Date">
+
+          <oj-input-date value="[[$current.data]]" readonly="true"
+
+            converter='{"type": "datetime", "options": {"pattern":"dd-MMM-yyyy"}}'></oj-input-date>
+
+</template>
+<template slot="update">
+
+          <oj-button display="icons" chroming="borderless" on-oj-action="[[$listeners.buttonAction11]]" >
+
+            <img slot="startIcon" height="20" width="20"
+              :src="[[ $flow.path + 'resources/images/icons8-pencil-64_2.png' ]]">Button
+
+          </oj-button>
+
+        </template>
+            <template slot="delete">
+
+          <oj-button display="icons" chroming="borderless" on-oj-action="[[$listeners.buttonAction8]]" >
+
+            <img slot="startIcon" height="20" width="20"
+              :src="[[ $flow.path + 'resources/images/MicrosoftTeams-image_(1).png' ]]">Button
+
+          </oj-button>
+
+        </template>
+
+    <oj-paging-control id="paging" data="[[ $variables.customervariable ]]"
+class="oj-sm-width-full"  page-size="10" 
+slot="bottom" >
+</oj-paging-control>
+  </oj-table>
+</div>
+</div>
+
+<!-- Employee Details -->
+<div slot="employeeslot" id="employeepanel" role="tabpanel" aria-labelledby="employeeid">
+<div class="demo-tab-content">
+
+<oj-button label="Create" chroming="solid" on-oj-action="[[$listeners.buttonAction12]]"></oj-button>
+
+
+<oj-table class="oj-flex-item oj-sm-12 oj-md-12 " display="grid" horizontal-grid-visible="enabled"
+  vertical-grid-visible="enabled"
+  columns='[    {        "headerText": "Employee No",        "field": "employee_no"    },
+      {        "headerText": "Employee Name",        "field": "employee_name"    },    
+      {        "headerText": "Date Of Birth",        "field": "date_of_birth", "template":"Date"  },   
+       {        "headerText": "Contact No",        "field": "contact_no"    }, 
+         {        "headerText": "Email Id",        "field": "email_id"    },  
+           {        "headerText": "Address",        "field": "address"    },    
+            {        "headerText": "Update",        "field": "",        "template":"update"    },
+             {        "headerText": "Delete",        "field": "",        "template":"employeedelete"    }]'
+  data="[[ $variables.employeevariable ]]">
+
+  
+      <template slot="Date">
+
+          <oj-input-date value="[[$current.data]]" readonly="true"
+
+            converter='{"type": "datetime", "options": {"pattern":"dd-MMM-yyyy"}}'></oj-input-date>
+
+</template>
+  
+   
+            <template slot="employeedelete">
+
+          <oj-button display="icons" chroming="borderless" on-oj-action="[[$listeners.buttonAction20]]"  >
+
+            <img slot="startIcon" height="20" width="20"
+              :src="[[ $flow.path + 'resources/images/MicrosoftTeams-image_(1).png' ]]">Button
+
+          </oj-button>
+
+        </template>
+  
+  <template slot="update">
+
+          <oj-button display="icons" chroming="borderless" on-oj-action="[[$listeners.buttonAction17]]" >
+
+            <img slot="startIcon" height="20" width="20"
+              :src="[[ $flow.path + 'resources/images/icons8-pencil-64_2.png' ]]">Button
+
+          </oj-button>
+
+        </template>
+  
+  
+  
+  
+    <oj-paging-control id="paging" data="[[ $variables.employeevariable ]]"
+class="oj-sm-width-full"  page-size="10" 
+slot="bottom" >
+</oj-paging-control>
+  </oj-table>
+
+
+
+
+</div>
+</div>
+</oj-switcher>
+</div>
+
+<oj-dialog dialog-title="Employee Details" id="EmployeedetailPopup" style="width: 900px; height: 450px;">
+<br>
+    <div slot="body">
+
+      <div class="oj-flex">
+        <oj-validation-group id="employeedetailsform">
+        
+          <oj-form-layout label-edge="start" columns="2" max-columns="2" >
+<oj-input-number label-hint="Employee No" converter='{"options":{"useGrouping":false},"type":"number"}'
+  value="{{ $variables.employeedetails.employee_no }}" required="true"></oj-input-number>
+<oj-input-text label-hint="Employee Name" value="{{ $variables.employeedetails.employee_name }}" required="true"></oj-input-text>
+
+<oj-input-date label-hint="Date Of Birth" converter='{"type": "datetime", "options": {"pattern":"dd-MMM-yyyy"}}'
+  value="{{ $variables.employeedetails.date_of_birth }}"
+              
+              ></oj-input-date>
+  
+  
+<oj-input-number label-hint="Contact No" value="{{ $variables.employeedetails.contact_no }}"
+  converter='{"options":{"useGrouping":false},"type":"number"}'></oj-input-number>
+<!-- <oj-input-text label-hint="Email Id" value="{{ $variables.employeedetails.email_id }}"></oj-input-text> -->
+<oj-input-text label-hint="Address" value="{{ $variables.employeedetails.address }}"></oj-input-text>
+
+
+</oj-validation-group>
+      </div>
+    </div>
+<div slot="footer">
+      <oj-validation-group>
+        <oj-button chroming="solid" hidden="true" 
+             >Save & Continue</oj-button>
+ <oj-button chroming="solid" on-oj-action="[[$listeners.buttonAction14]]" >Save</oj-button> 
+        <oj-button chroming="solid" on-oj-action="[[$listeners.buttonAction13]]" >Cancel</oj-button>
+      </oj-validation-group>
+</div>
+
+</oj-dialog>
+
+
+
+<oj-dialog style="display:none; width: 1300px;height: 700px;" dialog-title="Car Details" id="CarDetails">
+<br>
+<div slot="body">
+<div class="oj-flex">
+<div class="oj-flex-item oj-sm-12 oj-md-12">
+<oj-validation-group id="CarDetailsForm">
+<div class="oj-flex-item oj-sm-12 oj-md-12 oj-lg-12 oj-xl-12 oj-panel oj-panel-shadow-md oj-selected">
+<oj-form-layout label-edge='start' columns="2" max-columns="2" direction="column">
+
+<oj-input-number label-hint="Manufacture Code" value="{{ $variables.manifacturedetails.manufacturing_id }}"
+  disabled="true"></oj-input-number>
+<oj-input-date label-hint="Start Date" converter='{"type": "datetime", "options": {"pattern":"dd-MMM-yyyy"}}'
+  value="{{ $variables.manifacturedetails.start_date }}"
+              ></oj-input-date>
+    
+<oj-input-date label-hint="End Date" converter='{"type": "datetime", "options": {"pattern":"dd-MMM-yyyy"}}'
+  value="{{ $variables.manifacturedetails.end_date }}"
+              ></oj-input-date>
+              <oj-input-number label-hint="Price"
+                converter='{"options":{"minimumFractionDigits":2,"maximumFractionDigits":2},"type":"number"}'
+                class="oj-form-control-text-align-right" value="{{ $variables.manifacturedetails.price }}"></oj-input-number>
+                <oj-input-text label-hint="Manufacture Location"
+                  value="{{ $variables.manifacturedetails.manufacture_location }}"></oj-input-text>
+  <td align="right">
+         <oj-label for="oj-switch-267963392-1" style="font-weight:bold;" >Stock</oj-label>
+       </td>
+        <td align="left">
+        <oj-sample-checkbox-switch style="margin-left:10px;"
+          value="{{ $variables.manifacturedetails.stock =='Y' ? true : false }}"
+          on-click="[[$listeners.booleanCheckboxComponentClick]]" >
+        </oj-sample-checkbox-switch>  
+      </td>
+
+
+
+                        
+</oj-form-layout>
+</div>
+</oj-validation-group>
+<br><br>
+   <oj-dialog style="display:none; 
+width: 400px;height: 250px;" dialog-title="Delete" id="EmployeeDelete"> 
+ <div slot="body">  
+  <oj-button label="Do you want to Delete?" chroming="borderless" disabled="true">
+  </oj-button>
+    </div>  
+  <div slot="footer">   
+     <oj-button chroming="solid" on-oj-action="[[$listeners.buttonAction24]]"    >Yes</oj-button>   
+   <oj-button chroming="solid" on-oj-action="[[$listeners.buttonAction25]]" >No</oj-button>  
+  </div>
+</oj-dialog> 
+
+
+
+<oj-button chroming="solid" on-oj-action="[[$listeners.buttonAction18]]" >
+  <img slot="startIcon" :src="[[ $flow.path + 'resources/images/savebtn_1.png' ]]" width="30" height="30">
+Save</oj-button>
+<!-- <oj-button label="Refers" chroming="solid" on-oj-action="[[$listeners.buttonAction27]]"></oj-button> -->
+
+<!-- <oj-button label="Save and Continue" chroming="solid" on-oj-action="[[$listeners.buttonAction26]]"></oj-button>
+   -->
+
+
+
+<br><br>
+  
+<oj-table scroll-policy="loadMoreOnScroll" display="grid" horizontal-grid-visible="enabled"
+  class="oj-sm-width-full oj-bg-body oj-search-table" vertical-grid-visible="enabled"
+  data="[[ $variables.manufacturevariable ]]"
+  columns='[    {        "headerText": "Car Id",        "field": "car_id"    },    {        "headerText": "Manufacturing Id",        "field": "manufacturing_id"    },    {        "headerText": "Start Date",        "field": "start_date",        "template": "Date"    },    {        "headerText": "End Date",        "field": "end_date",        "template": "Date"    },    {        "headerText": "Price",        "field": "price"    },    {        "headerText": "Manufacture Location",        "field": "manufacture_location"    },    {        "headerText": "Stock",        "field": "stock",        "template": "Flag"    },    {        "headerText": "Update",        "field": "",        "template": "update"    },    {        "headerText": "Delete",        "field": "",        "template": "manufacturedelete"    }]' >
+      
+
+<template slot="Date">
+
+          <oj-input-date value="[[$current.data]]" readonly="true"
+
+            converter='{"type": "datetime", "options": {"pattern":"dd-MMM-yyyy"}}'></oj-input-date>
+
+</template>
+
+       <template slot="Flag">
+
+          <oj-bind-if test='[[ $current.data==="N" ]]'>
+
+            <img :src="[[ $flow.path + 'resources/images/cancel_(2).png' ]]" width="30" height="30"   >
+
+          </oj-bind-if>
+
+          <oj-bind-if test='[[ $current.data==="Y" ]]'>
+
+            <img :src="[[ $flow.path + 'resources/images/check_(1).png' ]]" width="30" height="30"   >
+
+          </oj-bind-if>
+
+        </template>
+
+<template slot="update">
+
+          <oj-button display="icons" chroming="borderless" on-oj-action="[[$listeners.buttonAction19]]" >
+
+            <img slot="startIcon" height="20" width="20"
+              :src="[[ $flow.path + 'resources/images/icons8-pencil-64_2.png' ]]">Button
+
+          </oj-button>
+
+        </template>
+            <template slot="manufacturedelete">
+
+          <oj-button display="icons" chroming="borderless" on-oj-action="[[$listeners.buttonAction22]]" >
+
+            <img slot="startIcon" height="20" width="20"
+              :src="[[ $flow.path + 'resources/images/MicrosoftTeams-image_(1).png' ]]">Button
+
+          </oj-button>
+
+        </template>
+
+
+
+<oj-paging-control slot="bottom" class="oj-sm-width-full"
+page-size="10" data="[[ $variables.manufacturevariable ]]">
+</oj-paging-control>
+
+
+
+
+</oj-table>
+</div>
+</div>
+</div>
+<div slot="footer">
+<oj-button on-oj-action="[[$listeners.buttonAction16]]" chroming="solid" >Close
+  <img slot="startIcon" :src="[[ $flow.path + 'resources/images/close_1.png' ]]" width="30" height="30">
+</oj-button>
+</div>             
+</oj-dialog>
+
+  <!-- <oj-dialog style="display:none; 
+width: 400px;height: 250px;" dialog-title="Delete" id="ManufactureDelete"> 
+ <div slot="body">  
+  <oj-button label="Do you want to Delete?" chroming="borderless" disabled="true">
+  </oj-button>
+    </div>  
+  <div slot="footer">   
+     <oj-button chroming="solid" on-oj-action="[[$listeners.buttonAction21]]"   >Yes</oj-button>   
+   <oj-button chroming="solid" on-oj-action="[[$listeners.buttonAction23]]"  >No</oj-button>  
+  </div>
+</oj-dialog> -->
+
+
+<!-- <oj-dialog dialog-title="In-Progress" id="loadingPlzWaitPopup" style="width: 336px; height: 384px;">
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12">
+    <img :src="[[ $flow.path + 'resources/images/loading-waiting.gif' ]]" width="311"
+      height="300">
+  </div>
+</div>
+</oj-dialog> -->

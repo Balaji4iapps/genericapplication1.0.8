@@ -1,0 +1,113 @@
+{
+  "description": "",
+  "root": "assignVariablesStudentdetail",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestStudentdetailspost.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "ifStudentmethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.studentmethod=='create' ]]"
+      },
+      "outcomes": {
+        "true": "callRestStudentdetailspost",
+        "false": "callRestStudentdetailspost2"
+      }
+    },
+    "callRestStudentdetailspost": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "collegeapplication/studentdetailspost",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.studentdetail }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestStudentdetailspost2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestStudentdetailspost2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "collegeapplication/studentdetailspost",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.studentprimarykey }}"
+        },
+        "body": "{{ $page.variables.studentdetail }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification4_summary_a3f0]]",
+        "type": "confirmation",
+        "displayMode": "transient"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_b967]]",
+        "type": "confirmation",
+        "displayMode": "transient"
+      },
+      "outcomes": {
+        "success": "assignVariablesStatusmethod"
+    }
+    },
+    "assignVariablesStudentdetail": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.studentdetail": {
+          "source": {
+            "staff_id": "{{ $page.variables.studentfk }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "ifStudentmethod"
+      }
+    },
+    "assignVariablesStatusmethod": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.statusmethod": {
+          "source": "edit"
+        },
+        "$page.variables.studentprimarykey": {
+          "source": "{{ $chain.results.callRestStudentdetailspost.body.p_primarykey }}"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

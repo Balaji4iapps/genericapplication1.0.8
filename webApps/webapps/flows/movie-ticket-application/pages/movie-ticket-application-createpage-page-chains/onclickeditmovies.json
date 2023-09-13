@@ -1,0 +1,33 @@
+{
+  "description": "",
+  "root": "navigateToMovieTicketApplicationSearchpage",
+  "actions": {
+    "navigateToMovieTicketApplicationSearchpage": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "movie-ticket-application-editpage",
+        "params": {
+          "postmethod": "edit",
+          "postprimarykey": "{{ $variables.key }}"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

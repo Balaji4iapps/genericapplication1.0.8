@@ -1,0 +1,30 @@
+{
+    "items": [
+        {
+            "customer_id": 271,
+            "store_id": 1,
+            "first_name": "Penny",
+            "last_name": "Neal",
+            "email": "penny.neal@sakilacustomer.org",
+            "address_id": 276,
+            "create_date": "0012-11-18T06:10:02Z",
+            "last_update": "0012-11-18T06:10:02Z",
+            "active": 0,
+            "seq_customer": 271
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/dvdrental/searchcustomer?first_name=penny"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/dvdrental/item"
+        }
+    ]
+}

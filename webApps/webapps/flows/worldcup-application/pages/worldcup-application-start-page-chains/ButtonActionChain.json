@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToWorldcupMainmatchschedule",
+  "actions": {
+    "navigateToWorldcupMainmatchschedule": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "worldcup-mainmatchschedule"
+      }
+    }
+  },
+  "variables": {}
+}

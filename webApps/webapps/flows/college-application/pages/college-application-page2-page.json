@@ -1,0 +1,226 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+
+    "college": {
+      "type": "collegepost"
+    },
+    "method": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "primarykeyed": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "studentdetailgetListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "collegeapplication/studentdetailget",
+        "keyAttributes": "student_id",
+        "itemsPath": "items",
+        "responseType": "studentdetailgetResponse"
+      }
+    },
+    "studentload": {
+      "type": "any"
+    },
+    "studentmethod": {
+      "type": "string"
+    },
+    "studentprimarykey": {
+      "type": "string"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.collegepost": {
+      "endpoint": "collegepost",
+      "service": "collegeapplication",
+      "path": "request"
+    },
+    "@decorators.studentdetailgetResponse": {
+      "endpoint": "studentdetailget",
+      "service": "collegeapplication",
+      "path": "response"
+    },
+    "collegepost": {
+      "address": "string",
+      "date_of_joining": "string",
+      "dob": "string",
+      "email": "string",
+      "gender": "string",
+      "phone_number": "number",
+      "salary": "number",
+      "staff_id": "number",
+      "staff_name": "string"
+    },
+    "studentdetailgetResponse": {
+      "items": [
+        {
+          "address": "string",
+          "contact_number": "number",
+          "department": "string",
+          "dob": "string",
+          "email": "string",
+          "gender": "string",
+          "staff_id": "number",
+          "student_id": "number",
+          "student_name": "string"
+        }
+      ]
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "onclickheadersave"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain2"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain3"
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "onclickstudentdetailcreate"
+        }
+      ]
+    },
+    "imageClick2": {
+      "chains": [
+        {
+          "chainId": "studentedit",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "imageClick3": {
+      "chains": [
+        {
+          "chainId": "onclickdelete",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "pagetwoonload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-checkboxset": {
+        "path": "ojs/ojcheckboxset"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-highlight-text": {
+        "path": "ojs/ojhighlighttext"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-date-time": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-select-one": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+
+    },
+    "modules": {
+      "ojValidationBase": {
+        "path": "ojs/ojvalidation-base"
+      },
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      },
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+
+    }
+  }
+}

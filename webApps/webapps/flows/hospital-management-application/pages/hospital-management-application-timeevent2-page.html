@@ -1,0 +1,13 @@
+<!-- <oj-sample-export-data></oj-sample-export-data> -->
+<div class="oj-flex">
+  <!-- <oj-sample-timed-event class="oj-flex-item oj-sm-12 oj-md-12" interval="5"
+    on-ojs-timer-expired="[[$listeners.timedEventSTimerExpired]]"></oj-sample-timed-event> -->
+</div>
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+    data="[[$variables.getDoctordetailsListSDP]]"
+    columns='[    {        "headerText": "Doctor Address",        "field": "doc_address"    },    {        "headerText": "Doctor Code",        "field": "doc_code"    },    {        "headerText": "Doctor Designation",        "field": "doc_designation"    },    {        "headerText": "Doctor Gender",        "field": "doc_gender"    },    {        "headerText": "Doctor Name",        "field": "doc_name"    },    {        "headerText": "Doctor Number",        "field": "doc_number"    }]'></oj-table>
+</div>
+<div class="oj-flex">
+  <oj-sample-timed-event class="oj-flex-item oj-sm-12 oj-md-12"></oj-sample-timed-event>
+</div>

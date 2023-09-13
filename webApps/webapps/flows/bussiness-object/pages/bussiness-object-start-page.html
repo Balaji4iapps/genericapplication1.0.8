@@ -1,0 +1,14 @@
+<div class="oj-flex">
+  <oj-toolbar id="oj-toolbar-for-oj-table--273117136-1" chroming="solid" class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-button on-oj-action="[[$listeners.createCompanyButtonClicked]]">Create Company</oj-button>
+    <oj-button disabled="[[ $variables.oj_table_273117136_1SelectedId === '' ]]"
+      on-oj-action="[[$listeners.editCompanyButtonClicked]]">Edit Company</oj-button>
+  </oj-toolbar>
+</div>
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12" data="[[$variables.companyListSDP]]"
+    columns='[{"headerText":"Address","field":"address"},{"headerText":"companylocation","field":"companylocation"},{"headerText":"companyname","field":"companyname"},{"headerText":"income","field":"income"}]'
+    id="oj-table--273117136-1" selection-mode.row="single" selection-mode.column="single"
+    on-first-selected-row-changed="[[ $listeners.oj_table_273117136_1SelectionChanged ]]"
+    horizontal-grid-visible="enabled" vertical-grid-visible="enabled"></oj-table>
+</div>

@@ -1,0 +1,48 @@
+<div class="oj-panel">
+ 
+<div>
+  </div>
+
+<oj-form-layout label-edge='start'>
+  <oj-select-single label-hint="Product Name" item-text="product_name" value="{{ $variables.lov }}" required="true"
+    data="[[$variables.getGetListSDP]]"></oj-select-single>
+</oj-form-layout>
+<div style= "display:flex;justify-content:flex-end;margin-bottom:1%;">
+  <oj-button label="Main Menu" class="oj-button-sm" chroming="solid" on-oj-action="[[$listeners.buttonAction3]]"></oj-button>
+  <oj-button label="Search" style="margin-left:0.5%;margin-right:1.5%" class="oj-button-sm" chroming="solid"
+    on-oj-action="[[$listeners.buttonAction]]"></oj-button>
+  <oj-button label="Reset" class="oj-button-sm" chroming="solid" on-oj-action="[[$listeners.buttonAction2]]"></oj-button>
+</div>
+
+  <div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" selection-mode.row="single" edit-mode="rowEdit"
+  selection-mode.column="single"
+    columns='[{"headerText":"product_name","field":"product_name"},
+    {"headerText":"product_location","field":"product_location"},
+    {"headerText":"pincode","field":"pincode"},
+    {"headerText":"mobile","field":"mobile"},
+    {"headerText":"manufacture_date","field":"manufacture_date","template":"mfd_date"},
+    {"headerText":"expiry_date","field":"expiry_date","template":"mfd_date"},
+    {"headerText":"Shop Name","field":"shop_name"},
+    {"headerText":"Store Short Code","field":"store_short_code"},
+    {"headerText":"Product Num","field":"product_num"},
+    {"headerText":"Shop Location","field":"shop_location"},
+    {"headerText":"Delivery Date","field":"delivery_date","template":"mfd_date"},
+    {"headerText":"Dispatch No","field":"dispatch_no"},
+    {"headerText":"Manager Name","field":"manager_name"},
+    {"headerText":"Customer Name","field":"customer_name"},
+    {"headerText":"Customer Location","field":"customer_location"},
+    {"headerText":"Salesman","field":"salesman"},
+    {"headerText":"Area No","field":"area_no"},
+    {"headerText":"Order Date","field":"order_date","template":"mfd_date"},
+    {"headerText":"Email Id","field":"email_id"}]'  display="grid"data="[[ $variables.table ]]"> 
+<template slot="mfd_date">
+  <oj-input-date value="[[$current.data]]" readonly="true"
+   converter='{"type": "datetime", "options": {"pattern":"dd-MMM-yyyy"}}'></oj-input-date>
+</template>
+  </oj-table>
+<oj-paging-control id="paging" 
+class="oj-sm-width-full"  page-size="10" data="[[ $variables.table ]]"  >
+</oj-paging-control>
+
+ </div>

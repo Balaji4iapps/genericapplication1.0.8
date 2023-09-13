@@ -1,0 +1,65 @@
+{
+  "root": "resetVariablesExportdata",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetDoctordetails.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetDoctordetails": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/getDoctordetails"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetDoctordetails.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesDoctortable"
+      }
+    },
+    "assignVariablesDoctortable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.doctortable": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        },
+        "$page.variables.exportdatanew": {
+          "source": {
+            "data": "{{ $chain.results.callRestGetDoctordetails.body.items }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      }
+    },
+    "resetVariablesExportdata": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.exportdata.data"
+        ]
+      },
+      "outcomes": {
+        "success": "callRestGetDoctordetails"
+      }
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "description": "",
+  "root": "ifDiagmethod",
+  "actions": {
+    "ifDiagmethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.diagmethod=='create' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostPatientdiagnosisPMETHODPPRIMARYKEY2",
+        "false": "callRestPostPatientdiagnosisPMETHODPPRIMARYKEY22"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostPatientdiagnosisPMETHODPPRIMARYKEY2.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostPatientdiagnosisPMETHODPPRIMARYKEY2": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/postPatientdiagnosisP_METHODP_PRIMARYKEY2",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.diagnosis }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostPatientdiagnosisPMETHODPPRIMARYKEY2.body.p_err_code ]]",
+        "message": "[[ $chain.results.callRestPostPatientdiagnosisPMETHODPPRIMARYKEY2.body.p_err_msg ]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "resetVariablesDiagnosis"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostPatientdiagnosisPMETHODPPRIMARYKEY22.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostPatientdiagnosisPMETHODPPRIMARYKEY22": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/postPatientdiagnosisP_METHODP_PRIMARYKEY2",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.diagkey }}"
+        },
+        "body": "{{ $page.variables.diagnosis }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostPatientdiagnosisPMETHODPPRIMARYKEY22.body.p_err_code ]]",
+        "message": "[[ $chain.results.callRestPostPatientdiagnosisPMETHODPPRIMARYKEY22.body.p_err_msg ]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "resetVariablesDiagnosis"
+      }
+    },
+    "fireNotification4": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetPatientdiagnosisbypatientdiagnosisfk.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callComponentDiagnosisClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('diagnosis') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callRestGetPatientdiagnosisbypatientdiagnosisfk"
+      }
+    },
+    "callRestGetPatientdiagnosisbypatientdiagnosisfk": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/getPatientdiagnosisbypatientdiagnosisfk",
+        "uriParams": {
+          "patid": "{{ $page.variables.primarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification4",
+        "success": "callFunctionPagingLineOne"
+      }
+    },
+    "callFunctionPagingLineOne": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLineOne",
+        "params": [
+          "{{ $chain.results.callRestGetPatientdiagnosisbypatientdiagnosisfk.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesDiagtable"
+      }
+    },
+    "assignVariablesDiagtable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.diagtable": {
+          "source": "{{ $chain.results.callFunctionPagingLineOne }}"
+        }
+      }
+    },
+    "resetVariablesDiagnosis": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.diagnosis"
+        ]
+      },
+      "outcomes": {
+        "success": "callComponentDiagnosisClose"
+      }
+    }
+  },
+  "variables": {}
+}

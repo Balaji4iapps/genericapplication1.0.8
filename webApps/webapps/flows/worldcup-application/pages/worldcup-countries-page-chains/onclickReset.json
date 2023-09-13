@@ -1,0 +1,24 @@
+{
+  "description": "",
+  "root": "callChainOnloadDatas",
+  "actions": {
+    "assignVariablesCId": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.c_id": {
+          "reset": "toDefault"
+        }
+      }
+    },
+    "callChainOnloadDatas": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onloadDatas"
+      },
+      "outcomes": {
+        "success": "assignVariablesCId"
+      }
+    }
+  },
+  "variables": {}
+}

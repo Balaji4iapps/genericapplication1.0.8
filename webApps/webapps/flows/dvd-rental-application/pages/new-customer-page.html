@@ -1,0 +1,55 @@
+<h1>Add New Customer</h1>
+<div oj class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-1">
+    <oj-button label="Button" class="height:1rem" display="icons" on-oj-action="[[$listeners.buttonAction3]]" >
+    <img slot="endIcon" :src="[[ $flow.path + 'resources/images/Home_black_1.jpg' ]]" width="60" height="50"
+      >
+    </oj-button>
+</div>
+</div>
+<div>
+  <h3>Customer Details</h3>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-form-layout label-edge='start' max-columns="2">
+      <oj-input-number label-hint="Customer ID" value="{{ $variables.Customer.customer_id }}"></oj-input-number>
+      <oj-input-text label-hint="First Name" value="{{ $variables.Customer.first_name }}"></oj-input-text>
+      <oj-input-text label-hint="Last Name" value="{{ $variables.Customer.last_name }}"></oj-input-text>
+      <oj-input-text virtual-keyboard="email"
+        validators='[{"type":"regexp", "options":{"pattern":"([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})", "hint":"Enter an email address.", "messageDetail": "Value must be of the form xxx@xxx.xx"}}]'
+        label-hint="Email" value="{{ $variables.Customer.email }}"></oj-input-text>      
+    </oj-form-layout>
+  </div>
+</div>
+
+<div>
+  <h3>Customer Address</h3>
+</div>
+
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-form-layout label-edge='start' max-columns="2">
+      <oj-input-number label-hint="Address ID" value="{{ $variables.Address.address_id }}"></oj-input-number>
+      <oj-input-text label-hint="Address" value="{{ $variables.Address.address }}"></oj-input-text>
+      <oj-input-text label-hint="District" value="{{ $variables.Address.district }}"></oj-input-text>
+      <oj-input-number label-hint="Postal Code" value="{{ $variables.Address.postal_code }}"
+        converter='{"options":{"useGrouping":false},"type":"number"}'></oj-input-number>
+      <oj-input-number label-hint="Phone " value="{{ $variables.Address.phone }}"
+        converter='{"options":{"useGrouping":false},"type":"number"}'></oj-input-number>
+      
+    </oj-form-layout>
+  </div>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-10"></div>
+  <div class="oj-flex-item oj-sm-12 oj-md-1">
+    <oj-button label="Save" chroming="callToAction" on-oj-action="[[$listeners.buttonAction]]"></oj-button>
+  </div>
+  <div class="oj-flex-item oj-sm-12 oj-md-1">
+    <oj-button label="Cancel" chroming="danger" on-oj-action="[[$listeners.buttonAction2]]"></oj-button>
+  </div>
+</div>
+
+
+

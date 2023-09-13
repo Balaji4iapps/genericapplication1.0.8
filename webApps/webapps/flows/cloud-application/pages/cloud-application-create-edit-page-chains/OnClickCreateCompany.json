@@ -1,0 +1,57 @@
+{
+  "description": "",
+  "root": "ifCloudId",
+  "actions": {
+    "ifCloudId": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.Cloud_id!=0 ]]"
+      },
+      "outcomes": {
+        "false": "fireNotification",
+        "true": "assignVariablesCloudId"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.Cloud_Form_Should_not_be_empty]]",
+        "message": "[[$application.translations.app.Cloud_Form_Should_not_be_empty_]]"
+      }
+    },
+    "callComponentCompanydataOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Companydata') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "resetVariablesPostCompany18"
+      }
+    },
+    "resetVariablesPostCompany18": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.postCompany_18"
+        ]
+      }
+    },
+    "assignVariablesCloudId": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Cloud_id": {
+          "source": "{{ $page.variables.Cloud_id }}"
+        },
+        "$page.variables.Childmethod": {
+          "source": "create"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentCompanydataOpen"
+      }
+    }
+  },
+  "variables": {}
+}

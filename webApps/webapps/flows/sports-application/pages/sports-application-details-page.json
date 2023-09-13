@@ -1,0 +1,114 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "details": {
+      "type": "any"
+    },
+    "detailslov": {
+      "type": "number"
+    },
+    "getPlayerListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "SportsApp/getPlayer",
+        "keyAttributes": "player_id",
+        "itemsPath": "items",
+        "responseType": "getPlayerResponse",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "player_name"
+          ]
+        }
+      }
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getPlayerResponse": {
+      "endpoint": "getPlayer",
+      "service": "SportsApp",
+      "path": "response"
+    },
+    "getPlayerResponse": {
+      "items": [
+        {
+          "address": "string",
+          "con_num": "string",
+          "dop": "string",
+          "email_id": "string",
+          "gender": "string",
+          "player_id": "number",
+          "player_name": "string",
+          "state": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "resetdetails"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "ondetailsback"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "detailssearch"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "detailsonload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+    },
+    "modules": {
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      }
+    }
+  }
+}

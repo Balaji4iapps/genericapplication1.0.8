@@ -1,0 +1,76 @@
+{
+  "description": "",
+  "root": "assignVariablesServicemethod",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetServicegetbypk.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetServicegetbypk": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/getServicegetbypk",
+        "uriParams": {
+          "pservice_id": "{{ $variables.key }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariablesPostservice"
+      }
+    },
+    "assignVariablesPostservice": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Postservice": {
+          "source": "{{ $chain.results.callRestGetServicegetbypk.body.items[0] }}",
+          "auto": "always"
+        }
+      }
+    },
+    "assignVariablesServicemethod": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.servicemethod": {
+          "source": "edit"
+        },
+        "$page.variables.servicepk": {
+          "source": "{{ $variables.key }}"
+        },
+        "$page.variables.Postservice": {
+          "source": {
+            "service_id": "{{ $page.variables.Postservice.company_id }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callRestGetServicegetbypk"
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

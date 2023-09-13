@@ -1,0 +1,170 @@
+{
+  "description": "",
+  "root": "assignVariablesPostCompany18",
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCompany18.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostCompany18": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/postCompany_18",
+        "uriParams": {
+          "P_METHOD": "POST",
+          "P_PRIMARYKEY": "0"
+        },
+        "body": "{{ $page.variables.postCompany_18 }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.Company_Records_Saved]]",
+        "message": "[[$application.translations.app.Company_Records_Saved_]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callRestCompany18getbyid"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostCompany182.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostCompany182": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/postCompany_18",
+        "uriParams": {
+
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.childpk }}"
+        },
+        "body": "{{ $page.variables.postCompany_18 }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification5"
+      }
+    },
+    "fireNotification5": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.Company_Records_Edited_successfully]]",
+        "message": "[[$application.translations.app.Company_Records_Edited_sucessfully_]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callRestCompany18getbyid"
+      }
+    },
+    "assignVariablesPostCompany18": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.postCompany_18": {
+          "source": {
+            "cloud_id": "{{ $page.variables.Cloud_id }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "if"
+      }
+    },
+    "fireNotification4": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestCompany18getbyid.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestCompany18getbyid": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/Company18getbyid",
+        "uriParams": {
+          "pcloud_id": "{{ $page.variables.Cloud_id }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification4",
+        "success": "callFunctionPagingcompanytable"
+      }
+    },
+    "callFunctionPagingcompanytable": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingcompanytable",
+        "params": [
+          "{{ $chain.results.callRestCompany18getbyid.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesCompanytable"
+      }
+    },
+    "assignVariablesCompanytable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.companytable": {
+          "source": "{{ $chain.results.callFunctionPagingcompanytable }}"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentCompanydataClose"
+      }
+    },
+    "callComponentCompanydataClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Companydata') }}",
+        "method": "close"
+      }
+    },
+    "ifChildmethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.Childmethod=='create' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostCompany18",
+        "false": "callRestPostCompany182"
+      }
+    },
+    "if": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $functions.isFormValid(CompanyForm) ]]"
+      },
+      "outcomes": {
+        "true": "ifChildmethod"
+      }
+    }
+  },
+  "variables": {}
+}

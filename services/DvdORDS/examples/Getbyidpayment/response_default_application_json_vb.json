@@ -1,0 +1,54 @@
+{
+    "items": [
+        {
+            "payment_id": 18677,
+            "customer_id": 44,
+            "staff_id": 1,
+            "rental_id": 1497,
+            "amount": 3.99,
+            "payment_date": "0005-01-18T06:17:09Z",
+            "seq_payment": 18677
+        },
+        {
+            "payment_id": 18678,
+            "customer_id": 44,
+            "staff_id": 1,
+            "rental_id": 2369,
+            "amount": 2.99,
+            "payment_date": "0006-01-18T06:17:09Z",
+            "seq_payment": 18678
+        },
+        {
+            "payment_id": 18679,
+            "customer_id": 44,
+            "staff_id": 1,
+            "rental_id": 2809,
+            "amount": 3.99,
+            "payment_date": "0007-01-18T06:17:09Z",
+            "seq_payment": 18679
+        },
+        {
+            "payment_id": 18680,
+            "customer_id": 44,
+            "staff_id": 2,
+            "rental_id": 2866,
+            "amount": 4.99,
+            "payment_date": "0008-01-18T06:17:09Z",
+            "seq_payment": 18680
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 4,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/dvdrental/getbyidpayment?customerid=44"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/dvdrental/item"
+        }
+    ]
+}

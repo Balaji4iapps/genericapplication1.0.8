@@ -1,0 +1,155 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "ojTabBar10725394401SelectedItem": {
+      "type": "string",
+      "defaultValue": "oj-tab-bar--1072539440-1-tab-1"
+    },
+    "openDrawer": {
+      "type": "boolean"
+    }
+
+  },
+  "metadata": {},
+  "types": {},
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "OnPressNewPayment"
+        }
+      ]
+    },
+
+    "buttonAction10": {
+      "chains": [
+        {
+          "chainId": "OnPressNewCustomerHomePage"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "onclickpaymenthistoryintab"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "customeroption1"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+{
+          "chainId": "Inventoryoption1"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chainId": "OnPressStaffdetails"
+        }
+      ]
+    },
+    "buttonAction7": {
+      "chains": [
+        {
+          "chainId": "MapInHomepage"
+        }
+      ]
+    },
+    "buttonAction9": {
+      "chains": [
+        {
+          "chainId": "OnPressFilmLang"
+        }
+      ]
+    },
+    "homepagetabbarTab1TabClick": {
+      "chains": [
+        {
+          "chainId": "Onclickinventoryininventorytab"
+        }
+      ]
+    },
+    "paymentInTabClick2": {
+      "chains": [
+        {
+          "chainId": "paymentoptionsintab"
+        }
+      ]
+    },
+    "staffdetailintabClick": {
+      "chains": [
+        {
+          "chainId": "staffdetailoptionintab"
+        }
+      ]
+    },
+    "staffdetailintabClick2": {
+      "chains": [
+        {
+          "chainId": "onclickstaff"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "customertabClick": {
+      "chains": [
+        {
+          "chainId": "tabcustomer"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-accordion": {
+        "path": "ojs/ojaccordion"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-popup": {
+        "path": "ojs/ojpopup"
+      },
+      "oj-action-card": {
+        "path": "ojs/ojactioncard"
+      },
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-collapsible": {
+        "path": "ojs/ojcollapsible"
+      },
+      "oj-defer": {
+        "path": "ojs/ojdefer"
+      },
+      "oj-menu-select-many": {
+        "path": "ojs/ojmenuselectmany"
+      },
+      "oj-tab-bar": {
+        "path": "ojs/ojnavigationlist"
+      }
+
+    }
+  },
+  "security": {
+    "access": {
+      "requiresAuthentication": true
+    }
+  }
+}

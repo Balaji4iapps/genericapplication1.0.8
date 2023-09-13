@@ -1,0 +1,39 @@
+{
+  "layoutTypes": {
+    "DvdORDS": {
+      "kind": "operationRef",
+      "serviceId": "DvdORDS",
+      "operations": [
+        "Getcustomer"
+      ]
+    }
+  },
+  "layouts": {
+    "isDefault": {
+      "description": "Default Rule",
+      "type": "DvdORDS",
+      "expression": "default"
+    },
+    "cutomertable": {
+      "type": "DvdORDS",
+      "layoutType": "table",
+      "label": "Cutomertable",
+      "description": "Customer details",
+      "rules": [
+        "isDefault"
+      ],
+      "layouts": {
+        "default": {
+          "layoutType": "table",
+          "layout": {
+            "displayProperties": [
+              "first_name",
+              "last_name",
+              "email"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

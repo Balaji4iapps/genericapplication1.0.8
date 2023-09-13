@@ -1,0 +1,42 @@
+{
+    "paths": {
+        "exclude": [
+            "build/**",
+            "docs/**",
+            "scripts/**",
+            "tests/**",
+            "**/private",
+            "+(web|mobile)Apps/**/resources/components/**/lib/*"
+        ]
+    },
+    "rules": {
+        "translations.audit.propertyNotTranslated": {
+            "enabled": false
+        },
+        "htmlhint.tag-pair": {
+            "description": "Tag must be paired.",
+            "enabled": false
+        },
+        "oj-html-ojattr-enum-deprecated": {
+            "description": "Deprecated enumerated attribute values should not be used.",
+            "enabled": false
+        },
+        "jshint.W117": {
+            "description": "'{a}' is not defined.",
+            "enabled": false
+        },
+        "oj-html-form-layout-maxcols": {
+            "description": "For <oj-form-layout>, the 'max-columns' attribute may have a behavioral change in JET 10.0.0.",
+            "enabled": false
+        },
+        "oj-html-msgs-cat-text": {
+            "description": "Redwood themed applications should explicitly set the 'display-options.category' attribute to 'none'",
+            "enabled": false
+        },
+        "csp-html-style-unsafe-inline": {
+            "description": "<b>CSP-1030:</b><br>Embedding styles into HTML using &lt;style&gt; tags is a CSP violation.<br>For example, the following implementation will be blocked:<p><b>&lt;style&gt;<br> &nbsp; &nbsp; #inline-style { background: red }<br>&lt;/style&gt;</b><p>The general solution is to extract the styles into a style sheet and reference it in the HTML using <b>&lt;link href=\". . .\"&gt;</b><b><p>CSP-1031:</b><br>Setting a style attribute directly on element, e.g.<b>&lt;div style=\". . .\"&gt;</b> is a CSP violation.<p>The general solution is to set properties directly on the element's style property, e.g.<br><b>element.style.display = \"none\"</b><p>Alternatively, styles can be added by changing to a class and including the class in the HTML element.",
+            "enabled": false
+        }
+    },
+    "auditors": {}
+}

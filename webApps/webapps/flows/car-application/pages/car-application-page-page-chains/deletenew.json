@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "callChainDelete",
+  "actions": {
+    "callChainDelete": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "Delete"
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,69 @@
+{
+  "description": "",
+  "root": "callFunctionGetPrimaryKey",
+  "actions": {
+    "callFunctionGetPrimaryKey": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "getPrimaryKey",
+        "params": [
+          "{{ $page.variables.Method }}",
+          "{{ $page.variables.Primarykey }}"
+        ]
+      },
+      "outcomes": {
+        "success": "callFunctionOnPageNaviFun"
+      }
+    },
+    "callFunctionOnPageNaviFun": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "onPageNaviFun",
+        "params": [
+          "{{ $page.variables.Method }}",
+          "{{ $chain.results.callFunctionGetPrimaryKey }}"
+        ]
+      },
+      "outcomes": {
+        "success": "callRestPostPatientPMETHODPPRIMARYKEY"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostPatientPMETHODPPRIMARYKEY.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostPatientPMETHODPPRIMARYKEY": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/postPatientP_METHODP_PRIMARYKEY",
+        "uriParams": {
+          "P_PRIMARYKEY": "{{ $chain.results.callFunctionGetPrimaryKey }}",
+          "P_METHOD": "{{ $chain.results.callFunctionOnPageNaviFun }}"
+        },
+        "body": "{{ $page.variables.linecreate }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostPatientPMETHODPPRIMARYKEY.body.p_err_msg ]]",
+        "message": "[[ $chain.results.callRestPostPatientPMETHODPPRIMARYKEY.body.p_err_msg ]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,28 @@
+{
+    "items": [
+        {
+            "manufacturer_id": "1003",
+            "manufacturer": "Kar Rice Factory",
+            "city": "\tTanjavur",
+            "mail_id": "\tkarrice@gmail.com\t",
+            "contact_number": "6311277659",
+            "account_number": "30000283668",
+            "industry_type": "\tLarge scale",
+            "state_location": "TamilNadu"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1313mod/mfdheaderbyid?ManufacturerId=1003"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1313mod/item"
+        }
+    ]
+}

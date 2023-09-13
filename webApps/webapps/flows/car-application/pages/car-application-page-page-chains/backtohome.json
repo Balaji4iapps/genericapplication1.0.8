@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToCarApplicationMain",
+  "actions": {
+    "navigateToCarApplicationMain": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "car-application-main"
+      }
+    }
+  },
+  "variables": {}
+}

@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentGamedetailsClose",
+  "actions": {
+    "callComponentGamedetailsClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('gamedetails') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

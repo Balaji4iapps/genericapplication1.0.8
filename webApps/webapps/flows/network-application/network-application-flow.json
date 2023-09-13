@@ -1,0 +1,8 @@
+{
+  "id": "network-application",
+  "description": "Flow main",
+  "defaultPage": "network-details",
+  "services": {},
+  "types": {},
+  "variables": {}
+}

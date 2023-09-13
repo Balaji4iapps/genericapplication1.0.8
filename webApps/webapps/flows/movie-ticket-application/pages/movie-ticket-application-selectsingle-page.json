@@ -1,0 +1,107 @@
+{
+  "title": "movie ticket application selectsingle",
+  "description": "",
+  "variables": {
+
+    "MovieDirector": {
+      "type": "string"
+    },
+
+    "MovieNo": {
+      "type": "string"
+    },
+    "MoviesAdp": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "getVvmoviesType",
+        "keyAttributes": "moviesno"
+      }
+    },
+    "MoviesData": {
+      "type": "any"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getVvmoviesType": {
+      "endpoint": "getVvmovies1",
+      "service": "Moviesticketbooking",
+      "path": "response"
+    },
+    "getVvmoviesType": {
+      
+          "moviedirector": "string",
+          "moviegenre": "string",
+          "moviename": "string",
+          "movieproducer": "string",
+          "moviesno": "number",
+          "movietimings": "string"
+        
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "OnClickEnableInput"
+        }
+      ]
+    },
+    "selectValueItem": {
+      "chains": [
+        {
+          "chainId": "OnSelectInputDataPopulate",
+          "parameters": {
+            "key": "{{$event.detail.value.key}}",
+            "data": "{{$event.detail.value.data}}",
+            "metadata": "{{$event.detail.value.metadata}}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "MoviesDataOnLoad"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-collapsible": {
+        "path": "ojs/ojcollapsible"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    }
+  },
+  "routerFlow": ""
+}

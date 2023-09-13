@@ -1,0 +1,55 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "getVvspectatordetailsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "Moviesticketbooking/getVvspectatordetails",
+        "keyAttributes": "locationno",
+        "itemsPath": "items",
+        "responseType": "getVvspectatordetailsResponse"
+      }
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getVvspectatordetailsResponse": {
+      "endpoint": "getVvspectatordetails",
+      "service": "Moviesticketbooking",
+      "path": "response"
+    },
+    "getVvspectatordetailsResponse": {
+      "items": [
+        {
+          "address": "string",
+          "country": "string",
+          "locationname": "string",
+          "locationno": "number",
+          "pincode": "number",
+          "spectatorno": "number",
+          "state": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+    }
+  }
+}

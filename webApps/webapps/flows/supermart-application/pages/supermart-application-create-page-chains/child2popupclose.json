@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentPopuptable3Close",
+  "actions": {
+    "callComponentPopuptable3Close": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('popuptable3') }}",
+        "method": "close"
+      }
+    }
+  },
+  "variables": {}
+}

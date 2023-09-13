@@ -1,0 +1,425 @@
+{
+    "items": [
+        {
+            "s_no": 34,
+            "match_no": 17,
+            "date_": "2022-11-25T00:00:00Z",
+            "time_": "15:30",
+            "c_id": 32,
+            "fixtures": "Wales VS Iran",
+            "group_": "B",
+            "stadium": "Ahmed bin Ali Stadium,Al Rayyan",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 39,
+            "match_no": 19,
+            "date_": "2022-11-25T00:00:00Z",
+            "time_": "21:30",
+            "c_id": 10,
+            "fixtures": "Netherlands VS Ecuador",
+            "group_": "A",
+            "stadium": "Khalifa International Stadium,Doha",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 37,
+            "match_no": 19,
+            "date_": "2022-11-25T00:00:00Z",
+            "time_": "21:30",
+            "c_id": 19,
+            "fixtures": "Netherlands VS Ecuador",
+            "group_": "A",
+            "stadium": "Khalifa International Stadium,Doha",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 1,
+            "match_no": 1,
+            "date_": "2022-11-20T00:00:00Z",
+            "time_": "21:30",
+            "c_id": 22,
+            "fixtures": "Qatar VS Ecuador",
+            "group_": "A",
+            "stadium": "Al Bayt Stadium,Al-Khor",
+            "capacity_": 60000
+        },
+        {
+            "s_no": 2,
+            "match_no": 1,
+            "date_": "2022-11-20T00:00:00Z",
+            "time_": "21:30",
+            "c_id": 10,
+            "fixtures": "Qatar VS Ecuador",
+            "group_": "A",
+            "stadium": "Al Bayt Stadium,Al-Khor",
+            "capacity_": 60000
+        },
+        {
+            "s_no": 3,
+            "match_no": 2,
+            "date_": "2022-11-21T00:00:00Z",
+            "time_": "18:30",
+            "c_id": 11,
+            "fixtures": "England VS Iran",
+            "group_": "B",
+            "stadium": "Khalifa International Stadium,Doha",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 4,
+            "match_no": 2,
+            "date_": "2022-11-21T00:00:00Z",
+            "time_": "18:30",
+            "c_id": 15,
+            "fixtures": "England VS Iran",
+            "group_": "B",
+            "stadium": "Khalifa International Stadium,Doha",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 5,
+            "match_no": 3,
+            "date_": "2022-11-21T00:00:00Z",
+            "time_": "21:30",
+            "c_id": 24,
+            "fixtures": "Senegal VS Netherlands",
+            "group_": "A",
+            "stadium": "Al Thumama Stadium,Doha",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 6,
+            "match_no": 3,
+            "date_": "2022-11-21T00:00:00Z",
+            "time_": "21:30",
+            "c_id": 19,
+            "fixtures": "Senegal VS Netherlands",
+            "group_": "A",
+            "stadium": "Al Thumama Stadium,Doha",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 7,
+            "match_no": 4,
+            "date_": "2022-11-22T00:00:00Z",
+            "time_": "0:30",
+            "c_id": 30,
+            "fixtures": "USA VS Wales",
+            "group_": "B",
+            "stadium": "Ahmed bin Ali Stadium,Al Rayyan",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 8,
+            "match_no": 4,
+            "date_": "2022-11-22T00:00:00Z",
+            "time_": "0:30",
+            "c_id": 32,
+            "fixtures": "USA VS Wales",
+            "group_": "B",
+            "stadium": "Ahmed bin Ali Stadium,Al Rayyan",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 9,
+            "match_no": 5,
+            "date_": "2022-11-22T00:00:00Z",
+            "time_": "15:30",
+            "c_id": 1,
+            "fixtures": "Argentina VS Saudi Arabia",
+            "group_": "C",
+            "stadium": "Lusail Iconic Stadium,Lusail",
+            "capacity_": 80000
+        },
+        {
+            "s_no": 10,
+            "match_no": 5,
+            "date_": "2022-11-22T00:00:00Z",
+            "time_": "15:30",
+            "c_id": 23,
+            "fixtures": "Argentina VS Saudi Arabia",
+            "group_": "C",
+            "stadium": "Lusail Iconic Stadium,Lusail",
+            "capacity_": 80000
+        },
+        {
+            "s_no": 11,
+            "match_no": 6,
+            "date_": "2022-11-22T00:00:00Z",
+            "time_": "18:30",
+            "c_id": 9,
+            "fixtures": "Denmark VS Tunisia",
+            "group_": "D",
+            "stadium": "Education City Stadium,Al Rayyan",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 12,
+            "match_no": 6,
+            "date_": "2022-11-22T00:00:00Z",
+            "time_": "18:30",
+            "c_id": 29,
+            "fixtures": "Denmark VS Tunisia",
+            "group_": "D",
+            "stadium": "Education City Stadium,Al Rayyan",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 13,
+            "match_no": 7,
+            "date_": "2022-11-22T00:00:00Z",
+            "time_": "21:30",
+            "c_id": 17,
+            "fixtures": "Mexico VS Poland",
+            "group_": "C",
+            "stadium": "Stadium 974",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 14,
+            "match_no": 7,
+            "date_": "2022-11-22T00:00:00Z",
+            "time_": "21:30",
+            "c_id": 20,
+            "fixtures": "Mexico VS Poland",
+            "group_": "C",
+            "stadium": "Stadium 974",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 15,
+            "match_no": 8,
+            "date_": "2022-11-23T00:00:00Z",
+            "time_": "0:30",
+            "c_id": 12,
+            "fixtures": "France VS Australia",
+            "group_": "D",
+            "stadium": "Al Janoub Stadium,Al Wakrah",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 16,
+            "match_no": 8,
+            "date_": "2022-11-23T00:00:00Z",
+            "time_": "0:30",
+            "c_id": 2,
+            "fixtures": "France VS Australia",
+            "group_": "D",
+            "stadium": "Al Janoub Stadium,Al Wakrah",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 17,
+            "match_no": 9,
+            "date_": "2022-11-23T00:00:00Z",
+            "time_": "15:30",
+            "c_id": 18,
+            "fixtures": "Morocco VS Croatia",
+            "group_": "F",
+            "stadium": "Al Bayt Stadium,Al-Khor",
+            "capacity_": 60000
+        },
+        {
+            "s_no": 18,
+            "match_no": 9,
+            "date_": "2022-11-23T00:00:00Z",
+            "time_": "15:30",
+            "c_id": 8,
+            "fixtures": "Morocco VS Croatia",
+            "group_": "F",
+            "stadium": "Al Bayt Stadium,Al-Khor",
+            "capacity_": 60000
+        },
+        {
+            "s_no": 19,
+            "match_no": 10,
+            "date_": "2022-11-23T00:00:00Z",
+            "time_": "18:30",
+            "c_id": 13,
+            "fixtures": "Germany VS Japan",
+            "group_": "E",
+            "stadium": "Khalifa International Stadium,Doha",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 20,
+            "match_no": 10,
+            "date_": "2022-11-23T00:00:00Z",
+            "time_": "18:30",
+            "c_id": 16,
+            "fixtures": "Germany VS Japan",
+            "group_": "E",
+            "stadium": "Khalifa International Stadium,Doha",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 21,
+            "match_no": 11,
+            "date_": "2022-11-23T00:00:00Z",
+            "time_": "21:30",
+            "c_id": 27,
+            "fixtures": "Spain VS Costa Rica",
+            "group_": "E",
+            "stadium": "Al Thumama Stadium,Doha",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 22,
+            "match_no": 11,
+            "date_": "2022-11-23T00:00:00Z",
+            "time_": "21:30",
+            "c_id": 7,
+            "fixtures": "Spain VS Costa Rica",
+            "group_": "E",
+            "stadium": "Al Thumama Stadium,Doha",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 23,
+            "match_no": 12,
+            "date_": "2022-11-24T00:00:00Z",
+            "time_": "0:30",
+            "c_id": 3,
+            "fixtures": "Belgium VS Canada",
+            "group_": "F",
+            "stadium": "Ahmed bin Ali Stadium,Al Rayyan",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 24,
+            "match_no": 12,
+            "date_": "2022-11-24T00:00:00Z",
+            "time_": "0:30",
+            "c_id": 6,
+            "fixtures": "Belgium VS Canada",
+            "group_": "F",
+            "stadium": "Ahmed bin Ali Stadium,Al Rayyan",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 25,
+            "match_no": 13,
+            "date_": "2022-11-24T00:00:00Z",
+            "time_": "15:30",
+            "c_id": 28,
+            "fixtures": "Switzerlnad VS Cameroon",
+            "group_": "G",
+            "stadium": "Al Janoub Stadium,Al Wakrah",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 26,
+            "match_no": 13,
+            "date_": "2022-11-24T00:00:00Z",
+            "time_": "15:30",
+            "c_id": 5,
+            "fixtures": "Switzerlnad VS Cameroon",
+            "group_": "G",
+            "stadium": "Al Janoub Stadium,Al Wakrah",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 27,
+            "match_no": 14,
+            "date_": "2022-11-24T00:00:00Z",
+            "time_": "18:30",
+            "c_id": 31,
+            "fixtures": "Uruguay VS South Korea",
+            "group_": "H",
+            "stadium": "Education City Stadium,Al Rayyan",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 28,
+            "match_no": 14,
+            "date_": "2022-11-24T00:00:00Z",
+            "time_": "18:30",
+            "c_id": 26,
+            "fixtures": "Uruguay VS South Korea",
+            "group_": "H",
+            "stadium": "Education City Stadium,Al Rayyan",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 29,
+            "match_no": 15,
+            "date_": "2022-11-24T00:00:00Z",
+            "time_": "21:30",
+            "c_id": 21,
+            "fixtures": "Portugal VS Ghana",
+            "group_": "H",
+            "stadium": "Stadium 974",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 30,
+            "match_no": 15,
+            "date_": "2022-11-24T00:00:00Z",
+            "time_": "21:30",
+            "c_id": 14,
+            "fixtures": "Portugal VS Ghana",
+            "group_": "H",
+            "stadium": "Stadium 974",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 31,
+            "match_no": 16,
+            "date_": "2022-11-25T00:00:00Z",
+            "time_": "0:30",
+            "c_id": 4,
+            "fixtures": "Brazil VS Serbia",
+            "group_": "G",
+            "stadium": "Lusail Iconic Stadium,Lusail",
+            "capacity_": 80000
+        },
+        {
+            "s_no": 32,
+            "match_no": 16,
+            "date_": "2022-11-25T00:00:00Z",
+            "time_": "0:30",
+            "c_id": 25,
+            "fixtures": "Brazil VS Serbia",
+            "group_": "G",
+            "stadium": "Lusail Iconic Stadium,Lusail",
+            "capacity_": 80000
+        },
+        {
+            "s_no": 35,
+            "match_no": 18,
+            "date_": "2022-11-25T00:00:00Z",
+            "time_": "15:30",
+            "c_id": 22,
+            "fixtures": "Qatar VS Senegal",
+            "group_": "A",
+            "stadium": "Al Thumama Stadium,Doha",
+            "capacity_": 40000
+        },
+        {
+            "s_no": 36,
+            "match_no": 18,
+            "date_": "2022-11-25T00:00:00Z",
+            "time_": "18:30",
+            "c_id": 24,
+            "fixtures": "Qatar VS Senegal",
+            "group_": "A",
+            "stadium": "Al Thumama Stadium,Doha",
+            "capacity_": 40000
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 37,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1331/matches"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1331/item"
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+  "description": "",
+  "root": "callChainOnclickstudentsave",
+  "actions": {
+    "callChainOnclickstudentsave": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onclickstudentsave"
+      },
+      "outcomes": {
+        "success": "navigateBack"
+      }
+    },
+    "navigateBack": {
+      "module": "vb/action/builtin/navigateBackAction"
+    }
+  },
+  "variables": {}
+}

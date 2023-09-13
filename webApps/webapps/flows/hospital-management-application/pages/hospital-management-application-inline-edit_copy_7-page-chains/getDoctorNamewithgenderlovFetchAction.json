@@ -1,0 +1,66 @@
+{
+  "root": "ifConfiguration",
+  "actions": {
+    "callRestEndpoint1": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "requestType": "json",
+        "endpoint": "hospitalmanagement/getDoctorNamewithgenderlov",
+        "uriParams": {
+          "P_DOC_NAME": "{{ $page.variables.doc_name_fetch }}"
+        },
+        "responseType": "getDoctorNamewithgenderlov",
+        "hookHandler": "{{ $variables.configuration.hookHandler }}"
+      },
+      "outcomes": {
+        "success": "return1"
+      }
+    },
+    "return1": {
+      "module": "vb/action/builtin/returnAction",
+      "parameters": {
+        "outcome": "success",
+        "payload": "{{ $chain.results.callRestEndpoint1 }}"
+      }
+    },
+    "ifConfiguration": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $variables.configuration.hookHandler.context.fetchOptions.filterCriterion ]]"
+      },
+      "outcomes": {
+        "false": "callRestEndpoint1",
+        "true": "callRestGetDoctorNamewithgenderlov"
+      }
+    },
+    "callRestGetDoctorNamewithgenderlov": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/getDoctorNamewithgenderlov",
+        "uriParams": {
+          "P_DOC_NAME": "{{ $page.variables.doc_name_fetch }}",
+          "searchvalue": "{{ $variables.configuration.hookHandler.context.fetchOptions.filterCriterion.value }}"
+        }
+      },
+      "outcomes": {
+        "success": "return"
+      }
+    },
+    "return": {
+      "module": "vb/action/builtin/returnAction",
+      "parameters": {
+        "outcome": "success",
+        "payload": "{{ $chain.results.callRestGetDoctorNamewithgenderlov }}"
+      }
+    }
+  },
+  "variables": {
+    "configuration": {
+      "type": {
+        "hookHandler": "vb/RestHookHandler"
+      },
+      "input": "fromCaller",
+      "required": true
+    }
+  }
+}

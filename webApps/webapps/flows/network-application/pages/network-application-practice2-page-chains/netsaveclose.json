@@ -1,0 +1,22 @@
+{
+  "description": "",
+  "root": "callChainSavenetwork",
+  "actions": {
+    "callChainSavenetwork": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "savenetwork"
+      },
+      "outcomes": {
+        "success": "navigateToNetworkApplicationPractice1"
+      }
+    },
+    "navigateToNetworkApplicationPractice1": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "network-application-practice1"
+      }
+    }
+  },
+  "variables": {}
+}

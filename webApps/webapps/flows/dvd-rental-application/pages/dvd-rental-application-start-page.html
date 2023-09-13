@@ -1,0 +1,229 @@
+<!-- Mobile only header and page title -->
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-image:url("https://c.wallhere.com/photos/9a/2f/music_vinyl_simple_background_minimalism-16542.jpg!d");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-attachment: scroll;
+}
+</style>
+</head>
+<body>
+<!-- PAGE CODE -->
+<header role="banner" class="oj-sm-flex-initial vb-web-applayout-header oj-md-hide">
+  <div role="image" class="vb-web-applayout-header-image-stripe"></div>
+  <div class="oj-flex-bar oj-sm-align-items-center vb-web-applayout-header-content">
+    <!-- Navigator toggle button will render only if we have a drawer -->
+    <oj-bind-if test="[[ document.querySelector('oj-vb-fragment[name=\'shell-drawer\']') ]]">
+      <div class="oj-flex-bar">
+        <oj-button on-oj-action="[[$listeners.toggleDrawer]]" chroming="borderless"
+                   display="icons">
+          <span slot="startIcon" class="oj-ux-ico-menu"></span>
+          <span><oj-bind-text value="[[$application.translations.app.app_title_navigation_drawer]]"></oj-bind-text></span>
+        </oj-button>
+      </div>
+    </oj-bind-if>
+    <!-- Page specific title and actions with overflow menu displayed -->
+    <div class="oj-sm-margin-2x-horizontal oj-sm-align-items-center oj-md-hide oj-sm-flex-1">
+      <div class="vb-content-header oj-flex oj-sm-flex-items-initial oj-sm-align-items-center">
+        <div class="oj-flex-item">
+          <div class="oj-typography-body-lg oj-typography-semi-bold">
+          </div>
+          <!-- Add Page specific actions etc -->
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Page specific title and actions for desktop formfactor -->
+  <div class="oj-flex">
+    <div class="oj-flex-item oj-sm-12 oj-md-6"></div>
+    <div class="oj-divider-top oj-flex-item oj-sm-12 oj-md-6"></div>
+  </div>
+  <div class="oj-flex">
+    <div class="oj-flex-item oj-sm-12 oj-md-6"></div>
+    <div class="oj-divider-top oj-flex-item oj-sm-12 oj-md-6"></div>
+  </div>
+<div class="oj-flex">
+    <span class="oj-flex-item oj-sm-12 oj-md-6"></span>
+    <div class="oj-divider-top oj-flex-item oj-sm-12 oj-md-6"></div>
+</div>
+  <div class="oj-flex">
+    <div class="oj-flex-item oj-sm-12 oj-md-2"></div>
+    <div class="oj-divider-top oj-flex-item oj-sm-12 oj-md-6"></div>
+  </div>
+  <div class="oj-flex">
+    <div class="oj-flex-item oj-sm-12 oj-md-4">
+    <img :src="[[ $flow.path + 'resources/images/DVD_(6).gif' ]]" width="350" height="150" style="object-fit: fill;">
+    </div>
+    <div class="oj-flex-item oj-sm-12 oj-md-5"></div>
+    <div class="oj-flex-item oj-sm-12 oj-md-1">
+    <oj-button style="background-color:grey;">        
+      
+    <a href = "mailto:stebinfigurez@4iapps.com">
+      <img :src="[[ $flow.path + 'resources/images/Untitled_design_(1).gif' ]]" width="40" height="35" /></a>
+       
+    </oj-button>
+    </div>
+    <div class="oj-flex-item oj-sm-12 oj-md-1">
+    <oj-button on-oj-action="[[$listeners.buttonAction7]]" style="background-color:grey;">
+        
+      
+      <img slot="startIcon" :src="[[ $flow.path + 'resources/images/Untitled_design.gif' ]]" width="40" height="30">    
+    
+    </oj-button>
+    </div>
+  </div>
+<div class="oj-flex">
+    <span class="oj-flex-item oj-sm-flex-initial"></span>
+    <span class="oj-flex-item oj-sm-flex-initial"></span>
+</div>
+
+
+  
+
+
+
+<div class="oj-flex">
+  <hr class="oj-flex-item oj-sm-12 oj-md-12">
+</div>
+
+<!-- tab -->
+
+<div class="oj-flex">
+  <oj-tab-bar id="homepagetabbar" class="oj-flex-item oj-sm-12 oj-tabbar-item-dividers oj-md-12"
+    edge="top" display="stacked" overflow="popup" style="background-color:grey;" >
+    <ul>
+      <li id="payment">
+        <a href="#" id="payment_in_tab"  on-click="[[$listeners.paymentInTabClick2]]">Payment</a>
+      </li>
+      <li id="customer">
+        <a href="#" id="customertab" on-click="[[$listeners.customertabClick]]">customer</a>
+      </li>
+      <li id="Staffdetails">
+        <a href="#" id="staffdetailintab" on-click="[[$listeners.staffdetailintabClick2]]">Staff detail</a>
+      </li>
+      <li id="Inventoryinhomepage">
+        <a href="#" id="homepagetabbar-tab-1-tab" on-click="[[$listeners.homepagetabbarTab1TabClick]]">Inventory</a>
+      </li>
+    </ul>
+  </oj-tab-bar>
+</div>
+<div class="oj-flex">
+  <div class="oj-divider-top oj-flex-item oj-sm-12 oj-md-12"></div>
+</div>
+
+<!-- popup -->
+
+   <!--Action Popup-->
+<oj-popup id="actionPop" style="height:80px;width:180px;background-color:lightgrey;">
+    <oj-button chroming="borderless" class="oj-button-sm" on-oj-action="[[$listeners.buttonAction]]">
+        <span slot="startIcon" class="oj-ux-ico-vendor-payment"></span>New Payment</oj-button>
+    <oj-button chroming="borderless" class="oj-button-sm" on-oj-action="[[$listeners.buttonAction2]]">
+        <span slot="startIcon" class="oj-ux-ico-cash-management-overview" ></span>Payment History</oj-button>                  
+</oj-popup>
+
+<oj-popup id="actioncus" style="height:90px;width:200px;background-color:lightgrey;">
+    <oj-button chroming="borderless" class="oj-button-sm" on-oj-action="[[$listeners.buttonAction3]]">
+        <span slot="startIcon" class="oj-ux-ico-human-8"></span>Customer Details</oj-button>   
+        <oj-button chroming="borderless" class="oj-button-sm" on-oj-action="[[$listeners.buttonAction10]]">
+        <span slot="startIcon" class="oj-ux-ico-notes-add"></span>New Customer</oj-button>                 
+</oj-popup>
+
+<oj-popup id="actionstaff" style="height:50px;width:200px;background-color:lightgrey;">
+    <oj-button chroming="borderless" class="oj-button-sm" on-oj-action="[[$listeners.buttonAction6]]">
+        <span slot="startIcon" class="oj-ux-ico-accessibility"></span>View Staff Details</oj-button>               
+</oj-popup>
+
+<oj-popup id="actioninvent" style="height:90px;width:180px;background-color:lightgrey;">
+    <oj-button chroming="borderless" class="oj-button-sm" on-oj-action="[[$listeners.buttonAction5]]">
+        <span slot="startIcon" class="oj-ux-ico-library-books"></span>View Stock Details</oj-button>   
+        <oj-button chroming="borderless" class="oj-button-sm" on-oj-action="[[$listeners.buttonAction9]]">
+        <span slot="startIcon" class="oj-ux-ico-film"></span>Film Language</oj-button>             
+</oj-popup>
+<oj-dialog style="display:none;background-color:lightgrey;" dialog-title="Store Location" id="StoreLocationMap" cancel-behavior="icon">
+    <div slot="body">
+    <div class="oj-flex oj-sm-flex-wrap-nowrap">
+      <span class="oj-flex-item oj-sm-flex-initial"></span>
+      <span class="oj-flex-item oj-sm-flex-initial"></span>
+      <div class="oj-flex">
+    <div class="oj-flex-item oj-sm-12 oj-md-4">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15665.121174429827!2d76.95865272618084!3d11.017584174529443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85855910aed83%3A0x80875de5cd370a9d!2sGandhipuram%2C%20Tamil%20Nadu%20641012!5e0!3m2!1sen!2sin!4v1668976556469!5m2!1sen!2sin"
+      width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <span></span>
+    <span></span>
+    <span></span>
+    </div>
+</div></div>
+    </div>
+</oj-dialog>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    header {
+  background-color:none;
+  padding: 3px;
+  text-align: center;
+  font-size: 3px;
+  color: white;
+}
+p{
+  color:white;
+  border: 2px solid white;
+}
+</style>
+  </head>
+  <body onload="alert('Welcome to my page!');">
+
+    <header style="color:white;background-color:grey;"">
+  <h6>About us</h6>
+</header>
+  
+    <p>The DVD Shop Archives is constantly preserving and digitising its physical formats in order to safeguard material that is physically deteriorating for the future.
+
+In addition, our aspiration is to create a largely file based environment where we no longer have to move physical media around theTV Vault and instead can continue to preserve original master material in secure vaults.
+
+This DVD Shop now operates in a fully digital environment with both Television and Radio material created as digital files and, to support this, the TV Vault has put in place digital repositories for storage of this material, and to enable public access.
+
+We are always adding classic dvds to our shop check back for updates.
+<br>
+<br>
+
+Returns Policy
+</br>
+</br>
+<br>
+We here at The DVD Shop want you to be happy with your purchase. We strive to create the very best products available.
+</br>
+<br>
+1. Due to the growth of dvd recordable technology, The DVD Shop regrettably does not offer refunds on products already shipped, as this would be open to abuse.
+</br>
+<br>
+2. In the event of a problem with your purchase, you should email us outlining the nature of the problem. If you experience difficulty with a disc, you may be required to return the original disc so that a replacement can be sent out to you. Shipping and Handling charges are not refundable except in the instance of an error on the part of The DVD Shop.
+</br>
+<br>
+3. The DVD Shop respectfully reminds all customers that it is their responsibility to check that their DVD Player is suitable for playing Pal Dvd-r products before they order. No refunds will be given for incompatibility issues.
+</br>
+</p>
+  </body>
+</html>
+
+
+
+
+
+
+
+

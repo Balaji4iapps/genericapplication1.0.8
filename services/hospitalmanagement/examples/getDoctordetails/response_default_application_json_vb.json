@@ -1,0 +1,30 @@
+{
+    "items": [
+        {
+            "doc_code": 1162,
+            "doc_name": "new",
+            "doc_gender": "F",
+            "doc_address": "new2",
+            "doc_designation": "operation",
+            "doc_number": null,
+            "doc_fees": 1000,
+            "medical_fees": 56,
+            "total_fees": 1056,
+            "rownum": 1
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1310/doctordetails"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1310/item"
+        }
+    ]
+}

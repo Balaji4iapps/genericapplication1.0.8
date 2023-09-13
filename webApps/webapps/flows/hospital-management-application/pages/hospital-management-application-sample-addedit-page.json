@@ -1,0 +1,166 @@
+{
+  "title": "hospital management application sample addedit",
+  "description": "",
+  "variables": {
+    "getPatientdetailsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "hospitalmanagement/getPatientdetails",
+        "keyAttributes": "pat_id",
+        "itemsPath": "items",
+        "responseType": "getPatientdetailsResponse"
+      }
+    },
+    "hdrrowedit": {
+      "type": "postDoctordetailsP_METHODP_PRIMARYKEY"
+    },
+    "linecreate": {
+      "type": "postPatientP_METHODP_PRIMARYKEY_type"
+    },
+    "linetable": {
+      "type": "any"
+    },
+    "Method": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    },
+    "Primarykey": {
+      "type": "number",
+      "required": true,
+      "input": "fromUrl"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getPatientdetailsResponse": {
+      "endpoint": "getPatientdetails",
+      "service": "hospitalmanagement",
+      "path": "response"
+    },
+    "@decorators.postDoctordetailsP_METHODP_PRIMARYKEY": {
+      "endpoint": "postDoctordetailsP_METHODP_PRIMARYKEY",
+      "service": "hospitalmanagement",
+      "path": "request"
+    },
+    "@decorators.postPatientP_METHODP_PRIMARYKEY_type": {
+      "endpoint": "postPatientP_METHODP_PRIMARYKEY",
+      "service": "hospitalmanagement",
+      "path": "request"
+    },
+    "getPatientdetailsResponse": {
+      "items": [
+        {
+          "pat_address": "string",
+          "pat_doc_code": "number",
+          "pat_gender": "string",
+          "pat_id": "number",
+          "pat_name": "string",
+          "pat_number": "number"
+        }
+      ]
+    },
+    "postDoctordetailsP_METHODP_PRIMARYKEY": {
+      "doc_address": "string",
+      "doc_code": "number",
+      "doc_designation": "string",
+      "doc_gender": "string",
+      "doc_name": "string",
+      "doc_number": "number"
+    },
+    "postPatientP_METHODP_PRIMARYKEY_type": {
+      "pat_address": "string",
+      "pat_doc_code": "number",
+      "pat_gender": "string",
+      "pat_id": "number",
+      "pat_name": "string",
+      "pat_number": "number"
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "onclicksave"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain1"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain2"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain3"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "Onload"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      }
+
+    },
+    "modules": {
+      "ojValidationBase": {
+        "path": "ojs/ojvalidation-base"
+      }
+    }
+  }
+}

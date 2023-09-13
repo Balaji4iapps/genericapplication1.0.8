@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "root": "callComponentCarDetailsOpen",
+  "actions": {
+    "callComponentCarDetailsOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('CarDetails') }}",
+        "method": "open"
+      }
+    }
+  },
+  "variables": {}
+}

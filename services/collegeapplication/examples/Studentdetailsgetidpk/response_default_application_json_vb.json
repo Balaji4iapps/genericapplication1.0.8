@@ -1,0 +1,29 @@
+{
+    "items": [
+        {
+            "staff_id": 1101,
+            "student_id": 12,
+            "student_name": "K.lokesh",
+            "email": "lokesh@gmail.com",
+            "dob": "1990-02-14T00:00:00Z",
+            "department": "Civil",
+            "gender": "MALE",
+            "contact_number": 9754323421,
+            "address": "Chennai"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1326/studentdetailsgetidpk?student_id=12"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1326/item"
+        }
+    ]
+}

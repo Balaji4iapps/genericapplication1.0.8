@@ -1,0 +1,79 @@
+{
+  "description": "",
+  "root": "ifCustomerID",
+  "actions": {
+
+    "callRestSearchcustomer": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/Searchcustomer",
+        "uriParams": {
+          "first_name": "{{ $page.variables.Name }}"
+        }
+      },
+      "outcomes": {
+
+        "success": "assignVariablesCustomer3"
+      }
+    },
+    "callRestGetbyidcustomer": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/Getbyidcustomer",
+        "uriParams": {
+          "customerid": "{{ $page.variables.Customer_ID }}"
+        }
+      },
+      "outcomes": {
+
+        "success": "assignVariablesCustomer"
+      }
+    },
+    "assignVariablesCustomer": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Customer": {
+          "source": {
+            "data": [
+              "{{ $chain.results.callRestGetbyidcustomer.body.items[0] }}"
+            ]
+          },
+          "reset": "none",
+          "auto": "always",
+          "mapping": {
+            "$target.data": {
+              "source": "$source.data",
+              "reset": "empty",
+              "auto": "always"
+            }
+          }
+        }
+      }
+    },
+    "assignVariablesCustomer3": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Customer": {
+          "source": {
+            "data": "{{ $chain.results.callRestSearchcustomer.body.items }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {}
+    },
+    "ifCustomerID": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.Customer_ID>0; ]]"
+      },
+      "outcomes": {
+        "true": "callRestGetbyidcustomer",
+        "false": "callRestSearchcustomer"
+      }
+    }
+  },
+  "variables": {
+  }
+}

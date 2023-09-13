@@ -1,0 +1,29 @@
+{
+    "items": [
+        {
+            "s_no": 1,
+            "country_name": "Saudi Arabia",
+            "c_id": 23,
+            "match_pld": 0,
+            "win": 0,
+            "draw": 0,
+            "loss": 0,
+            "gd": "+0",
+            "pts": 0
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1331/wcgroupc"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1331/item"
+        }
+    ]
+}

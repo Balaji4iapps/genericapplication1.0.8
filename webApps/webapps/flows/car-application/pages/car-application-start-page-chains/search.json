@@ -1,0 +1,56 @@
+{
+  "description": "",
+  "root": "callRestGetSearchcar",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetSearchcar.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetSearchcar": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CarApplication/getSearchcar",
+        "uriParams": {
+          "car_brand": "{{ $page.variables.searchobjectvarible.car_brand }}",
+          "car_colour": "{{ $page.variables.searchobjectvarible.car_colour }}",
+          "car_id": "{{ $page.variables.searchobjectvarible.car_id }}",
+          "car_no": "{{ $page.variables.searchobjectvarible.car_no }}",
+          "fuel_type": "{{ $page.variables.searchobjectvarible.fuel_type }}",
+          "gear_type": "{{ $page.variables.searchobjectvarible.gear_type }}",
+          "no_of_seaters": "{{ $page.variables.searchobjectvarible.no_of_seaters }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetSearchcar.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariables"
+      }
+    },
+    "assignVariables": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.pagecontrol": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

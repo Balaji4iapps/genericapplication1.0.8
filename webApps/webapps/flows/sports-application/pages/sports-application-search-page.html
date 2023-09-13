@@ -1,0 +1,119 @@
+<div class="oj-flex">
+  <h4 class="oj-flex-item oj-sm-12 oj-md-12"><i>Player Details</i></h4>
+</div>
+<div class="oj-flex">
+        <div class="oj-flex-item oj-sm-12 oj-md-12">
+          <oj-form-layout label-edge="start">
+            <oj-select-single label-hint="Player Name" style="width: 22rem;" item-text="player_name" required="true"
+              value="{{ $variables.playerid }}" data="[[$variables.getPlayerListSDP]]">
+
+        <template slot="collectionTemplate" data-oj-as="collection">
+
+            <oj-table scroll-policy="loadMoreOnScroll"
+
+                  selection-mode='{"row": "single"}'
+
+                  columns-default='{"resizable": "disabled","sortable": "disabled"}'
+
+                  class="oj-select-results"
+
+                  columns=' [
+{"headerText":"Player Id","field":"player_id"},
+
+                                {"headerText":"Player Name",
+                                "field":"player_name"},
+ {"headerText":"contact num","field":"con_num"}
+
+                            ]'
+
+                on-oj-row-action="[[collection.handleRowAction]]"
+
+                data="[[collection.data]]" selected.row="[[collection.selected]]"
+
+                current-row="{{collection.currentRow}}">
+
+            </oj-table>
+
+          </template>
+
+      </oj-select-single>
+            
+          </oj-form-layout>
+        </div>
+</div>
+<oj-dialog style="display:none;" dialog-title="Please Wait" id="pageonload">
+        <div slot="body">
+          <div class="oj-flex">
+            <div class="oj-flex-item oj-sm-12 oj-md-12">
+              <img :src="[[ $flow.path + 'resources/images/b09265705b58f46795126fa8c0221867.gif' ]]" width="120"
+                height="120">
+            </div>
+            
+          </div>
+        </div>
+</oj-dialog>
+
+
+
+<div style="display:flex; justify-content:flex-end;">
+  <oj-button style="searchBtn margin-left:0.5%;margin-right:0.5%;" class="" chroming="solid"
+    label="[[$application.translations.app.search]]" on-oj-action="[[$listeners.buttonAction2]]">
+    <img slot="startIcon" :src="[[ $flow.path + 'resources/images/icons8-search-240.png' ]]" width="20" height="20">
+  </oj-button>
+  <oj-button style="resetBtn margin-left:0.5%;margin-right:0.5%;" chroming="danger"
+    label="[[$application.translations.app.reset]]" on-oj-action="[[$listeners.buttonAction3]]">
+    <oj-bind-text></oj-bind-text>
+  </oj-button>
+</div>
+<oj-form-layout>
+<oj-button label="[[$application.translations.app.create]]" class="oj-button-sm" chroming="callToAction"
+  on-oj-action="[[$listeners.buttonAction]]">
+    <img slot="startIcon" :src="[[ $flow.path + 'resources/images/add_ena_1.png' ]]">
+  
+</oj-button>
+</oj-form-layout>
+<oj-table scroll-policy="loadMoreOnScroll" class="oj-sm-width-full oj-bg-body tablerowdata" selection-mode.row="single"
+  edit-mode="rowEdit" display="grid" selection-mode.column="single"
+        columns='[{"headerText":"Player Name","field":"player_name","template":"player name"},
+        {"headerText":"Date Of Birth","field":"dop","template":"apptodate"},
+        {"headerText":"Gender","field":"gender"},
+        {"headerText":"Contact Number","field":"con_num"},
+        {"headerText":"Email","field":"email_id"},
+        {"headerText":"Address","field":"address"},
+        {"headerText":"State","field":"state"},
+        {"headerText":"Delete","field":"","template":"delete"}]'
+  data="[[ $variables.playertable ]]">
+        <!-- edit -->
+        <template slot="delete">
+          <a target="_blank">
+            <img :src="[[ $flow.path + 'resources/images/icons8-close-90_1.png' ]]" width="25" height="24"
+              on-click="[[$listeners.imageClick]]">
+            <oj-bind-text value="[[$current.data]]"></oj-bind-text>
+          </a>
+        </template>
+        <!--  -->
+        <template slot="apptodate">
+          <oj-input-date value="[[$current.data]]" readonly="true"
+            converter='{"type": "datetime", "options": {"pattern":"dd-MMM-yyyy"}}'></oj-input-date>
+        </template>
+        <template slot="player name">
+          <a target="_blank" style="color: red;font-weight: bold;" on-click="[[$listeners.hyperlinkClick]]">
+            <oj-bind-text value="[[ $current.data ]]"></oj-bind-text>
+          </a>
+        </template>
+<oj-paging-control id="paging" 
+class="oj-sm-width-full"  data="[[ $variables.playertable ]]" page-size="15" 
+slot="bottom">
+</oj-paging-control>
+      </oj-table>
+<oj-dialog style="display:none" dialog-title="Delete" id="delete">
+        <div slot="body">
+          <div class="oj-flex">
+            Are You Sure Want To Delete A record?
+          </div>
+        </div>
+        <div slot="footer">
+          <oj-button on-oj-action="[[$listeners.buttonAction4]]" chroming="danger">Delete</oj-button>
+           <oj-button on-oj-action="[[$listeners.buttonAction5]]" chroming="solid">Cancel</oj-button>
+        </div>
+</oj-dialog>

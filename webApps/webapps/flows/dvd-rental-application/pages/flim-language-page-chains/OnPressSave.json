@@ -1,0 +1,49 @@
+{
+  "description": "",
+  "root": "forEachInFlimLangADP",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostFilmLanguage.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostFilmLanguage": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "DvdORDS/PostFilmLanguage",
+        "uriParams": {
+          "P_METHOD": "PUT",
+          "P_PRIMARYKEY": "{{ $page.variables.FlimLangADP.data[$current.index].seq_film_language }}"
+        },
+        "body": "{{ $page.variables.FlimLangADP.data[$current.index] }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification"
+      }
+    },
+    "forEachInFlimLangADP": {
+      "module": "vb/action/builtin/forEachAction",
+      "parameters": {
+        "actionId": "callRestPostFilmLanguage",
+        "items": "{{ $page.variables.FlimLangADP.data }}"
+      },
+      "outcomes": {
+        "success": "fireNotification2"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.RecordModified]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      }
+    }
+  },
+  "variables": {}
+}

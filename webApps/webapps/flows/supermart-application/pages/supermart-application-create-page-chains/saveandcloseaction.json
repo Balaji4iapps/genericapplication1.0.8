@@ -1,0 +1,28 @@
+{
+  "description": "",
+  "root": "runInParallel",
+  "actions": {
+    "runInParallel": {
+      "module": "vb/action/builtin/forkAction",
+      "parameters": {
+        "actions": {
+          "callChain": "callChainOnClickSavebutton",
+          "callChain2": "callChainOnclickCloseCreatepage"
+        }
+    }
+    },
+    "callChainOnClickSavebutton": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "OnClickSavebutton"
+      }
+    },
+    "callChainOnclickCloseCreatepage": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "onclickCloseCreatepage"
+      }
+    }
+  },
+  "variables": {}
+}

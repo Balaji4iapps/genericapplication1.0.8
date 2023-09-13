@@ -1,0 +1,84 @@
+{
+    "items": [
+        {
+            "product_num": "100",
+            "product_name": "DailyMilk",
+            "product_location": "Pondy",
+            "pincode": 605007,
+            "mobile": 9795893703,
+            "manufacture_date": "2022-02-21T00:00:00Z",
+            "expiry_date": "2022-06-12T00:00:00Z",
+            "stock_remain": "100unit",
+            "shop_name": "Pothys",
+            "store_short_code": "605",
+            "shop_location": "Pondy",
+            "delivery_date": "2022-04-12T00:00:00Z",
+            "dispatch_no": 22,
+            "manager_name": "nirmal",
+            "customer_name": "shajubhai",
+            "customer_location": "Kanyakumari",
+            "salesman": "Tamil",
+            "area_no": "10",
+            "order_date": "2022-04-02T00:00:00Z",
+            "email_id": "shaju@gmail.com"
+        },
+        {
+            "product_num": "100",
+            "product_name": "DailyMilk",
+            "product_location": "Pondy",
+            "pincode": 605007,
+            "mobile": 9795893703,
+            "manufacture_date": "2022-02-21T00:00:00Z",
+            "expiry_date": "2022-06-12T00:00:00Z",
+            "stock_remain": "100unit",
+            "shop_name": "Pothys",
+            "store_short_code": "605",
+            "shop_location": "Pondy",
+            "delivery_date": "2022-04-12T00:00:00Z",
+            "dispatch_no": 22,
+            "manager_name": "nirmal",
+            "customer_name": "shaju",
+            "customer_location": "Ariyankuppam",
+            "salesman": "Tamil",
+            "area_no": "10",
+            "order_date": "2022-04-02T00:00:00Z",
+            "email_id": "shaju@gmail.com"
+        },
+        {
+            "product_num": "100",
+            "product_name": "DailyMilk",
+            "product_location": "Pondy",
+            "pincode": 605007,
+            "mobile": 9795893703,
+            "manufacture_date": "2022-02-21T00:00:00Z",
+            "expiry_date": "2022-06-12T00:00:00Z",
+            "stock_remain": "100unit",
+            "shop_name": "Pothys",
+            "store_short_code": "605",
+            "shop_location": "cherri",
+            "delivery_date": "2022-04-12T00:00:00Z",
+            "dispatch_no": 22,
+            "manager_name": "nirmal",
+            "customer_name": "Prasanth",
+            "customer_location": "ariyankuppam",
+            "salesman": "atik",
+            "area_no": "10",
+            "order_date": "2022-11-08T00:00:00Z",
+            "email_id": "pk@4iapps.com"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 3,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/productapplication/getbyidalltable?productnum=100"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/productapplication/item"
+        }
+    ]
+}

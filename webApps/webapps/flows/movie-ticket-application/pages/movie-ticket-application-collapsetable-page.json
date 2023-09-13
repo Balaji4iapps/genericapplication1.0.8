@@ -1,0 +1,74 @@
+{
+  "title": "movie ticket application collapsetable",
+  "description": "",
+  "variables": {
+    "ExpandableClose": {
+      "type": "string",
+      "defaultValue": "open"
+    },
+    "FetchMovies": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "MoviesTable": {
+      "type": "any"
+    },
+    "SpectatorTable": {
+      "type": "any"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+  },
+  "eventListeners": {
+    "collapsibleExpanded": {
+      "chains": [
+        {
+          "chainId": "CollapsibleExpandedChangeChain",
+          "parameters": {
+            "expanded": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+{
+          "parameters": {},
+          "chainId": "CollapseTableData"
+        }
+    
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-collapsible": {
+        "path": "ojs/ojcollapsible"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    }
+  },
+  "events": {}
+}

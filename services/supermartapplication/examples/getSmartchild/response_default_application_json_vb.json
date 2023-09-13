@@ -1,0 +1,29 @@
+{
+    "items": [
+        {
+            "product_id": "101",
+            "product_name": "Dal",
+            "qty_in_stock": "100KG",
+            "price_per_kg_l": "120",
+            "mfd_date": "2021-03-20T00:00:00Z",
+            "exp_date": "2022-03-20T00:00:00Z",
+            "manufacturer_id": "1001",
+            "catagory": "Essential",
+            "packed": "No"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1313mod/smartchild?productid=101"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1313mod/item"
+        }
+    ]
+}

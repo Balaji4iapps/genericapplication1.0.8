@@ -1,0 +1,11 @@
+  {
+            "staff_id": 0,
+            "staff_name": "S.Ram kumar",
+            "email": "ramkumar@gmail.com",
+            "dob": "1990-02-10T00:00:00Z",
+            "date_of_joining": "1990-02-10T00:00:00Z",
+            "gender": "male",
+            "phone_number": 9878968999,
+            "salary": 20000,
+            "address": "chennai"
+        }

@@ -1,0 +1,58 @@
+{
+  "description": "",
+  "root": "callRestCollegepost",
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestCollegepost.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestCollegepost": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "collegeapplication/collegepost",
+        "uriParams": {
+          "P_METHOD": "DELETE",
+          "P_PRIMARYKEY": "{{ $page.variables.primarykey }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification3"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_5ca0]]",
+        "type": "confirmation",
+        "displayMode": "transient"
+      },
+      "outcomes": {
+        "success": "callComponentOjDialog10095270241Close"
+      }
+    },
+    "callComponentOjDialog10095270241Close": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-dialog-1009527024-1') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "callChainHeaderloadpage"
+      }
+    },
+    "callChainHeaderloadpage": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "headerloadpage"
+      }
+    }
+  },
+  "variables": {}
+}

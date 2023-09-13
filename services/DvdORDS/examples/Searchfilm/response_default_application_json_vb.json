@@ -1,0 +1,32 @@
+{
+    "items": [
+        {
+            "film_id": 315,
+            "title": "Finding Anaconda",
+            "overview": "A Fateful Tale of a Database Administrator And a Girl who must Battle a Squirrel in New Orleans",
+            "release_year": 2006,
+            "language_id": 1,
+            "rental_duration": 4,
+            "rental_rate": 0.99,
+            "run_time": 156,
+            "replacement_cost": 10.99,
+            "rating": "R",
+            "last_update": "0001-04-18T14:14:50Z",
+            "seq_film": 315
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/dvdrental/searchfilm?title=find"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/dvdrental/item"
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+{
+  "description": "",
+  "root": "assignVariablesCusworkmethod",
+  "actions": {
+    "assignVariablesCusworkmethod": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.cusworkmethod": {
+          "source": "edit"
+        },
+        "$page.variables.cswrkpk": {
+          "source": "{{ $variables.key }}"
+        },
+        "$page.variables.cusworkpopup": {
+          "source": {
+            "customer_id": "{{ $page.variables.recordscustomer.customer_id }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentOjUpdate17176323811Open"
+      }
+    },
+    "callComponentOjUpdate17176323811Open": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('oj-update-1717632381-1') }}",
+        "method": "open"
+      },
+      "outcomes": {
+        "success": "callRestCustomerworkgetid1312"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestCustomerworkgetid1312.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestCustomerworkgetid1312": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Network1312/Customerworkgetid_1312",
+        "uriParams": {
+          "employee_num": "{{ $page.variables.cswrkpk }}"
+        }
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "assignVariables"
+      }
+    },
+    "assignVariables": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.cusworkpopup": {
+          "source": "{{ $chain.results.callRestCustomerworkgetid1312.body.items[0] }}",
+          "auto": "always"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

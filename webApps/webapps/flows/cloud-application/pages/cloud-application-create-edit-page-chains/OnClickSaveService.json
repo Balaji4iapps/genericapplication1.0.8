@@ -1,0 +1,133 @@
+{
+  "description": "",
+  "root": "assignVariablesPostservice",
+  "actions": {
+    "ifServicemethod": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.servicemethod=='create' ]]"
+      },
+      "outcomes": {
+        "true": "callRestPostService18",
+        "false": "callRestPostService182"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostService18.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostService18": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/postService18",
+        "uriParams": {
+          "P_PRIMARYKEY": "0",
+          "P_METHOD": "POST"
+        },
+        "body": "{{ $page.variables.Postservice }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "fireNotification4"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.Service_record_edited_successfully_]]",
+        "message": "[[$application.translations.app.Service_record_edited_successfully]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callComponentServicepopupClose"
+      }
+    },
+    "assignVariablesPostservice": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.Postservice": {
+          "source": {
+            "company_id": "{{ $page.variables.servicefk }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "if"
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestPostService182.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestPostService182": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "CloudApplication/postService18",
+        "uriParams": {
+          "P_PRIMARYKEY": "{{ $page.variables.servicepk }}",
+          "P_METHOD": "PUT"
+        },
+        "body": "{{ $page.variables.Postservice }}"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "fireNotification3"
+      }
+    },
+    "callComponentServicepopupClose": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('Servicepopup') }}",
+        "method": "close"
+      },
+      "outcomes": {
+        "success": "resetVariablesPostservice"
+      }
+    },
+    "resetVariablesPostservice": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.Postservice"
+        ]
+      }
+    },
+    "fireNotification4": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.Service_record_saved_successfully]]",
+        "message": "[[$application.translations.app.Service_record_saved_successfully_]]",
+        "displayMode": "transient",
+        "type": "confirmation"
+      },
+      "outcomes": {
+        "success": "callComponentServicepopupClose"
+      }
+    },
+    "if": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $functions.isFormValid(ServiceForm) ]]"
+      },
+      "outcomes": {
+        "true": "ifServicemethod"
+      }
+    }
+  },
+  "variables": {}
+}

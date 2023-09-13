@@ -1,0 +1,82 @@
+{
+    "items": [
+        {
+            "moviesno": 1,
+            "moviename": "Thunivu",
+            "moviedirector": "H.vinoth",
+            "moviegenre": "HeistThriller",
+            "movieproducer": "BoneyKapoor",
+            "movietimings": "1pm-3.30pm"
+        },
+        {
+            "moviesno": 2,
+            "moviename": "Varisu",
+            "moviedirector": "Vamsi",
+            "moviegenre": "Commercial",
+            "movieproducer": "Svc",
+            "movietimings": "12pm-2.30pm"
+        },
+        {
+            "moviesno": 3,
+            "moviename": null,
+            "moviedirector": null,
+            "moviegenre": null,
+            "movieproducer": null,
+            "movietimings": null
+        },
+        {
+            "moviesno": 4,
+            "moviename": null,
+            "moviedirector": null,
+            "moviegenre": null,
+            "movieproducer": null,
+            "movietimings": null
+        },
+        {
+            "moviesno": 5,
+            "moviename": "Prince",
+            "moviedirector": "Anudeep",
+            "moviegenre": "Commercial",
+            "movieproducer": "Svc",
+            "movietimings": "4pm-6.30pm"
+        },
+        {
+            "moviesno": 7,
+            "moviename": "Oredevuda2",
+            "moviedirector": "Aswath",
+            "moviegenre": "Romantic",
+            "movieproducer": "Hhf",
+            "movietimings": "12pm-2.30pm"
+        },
+        {
+            "moviesno": 9,
+            "moviename": "Diary",
+            "moviedirector": "Pandian",
+            "moviegenre": "Horror",
+            "movieproducer": "Redgiant",
+            "movietimings": "1pm-3.30pm"
+        },
+        {
+            "moviesno": 8,
+            "moviename": "Royce",
+            "moviedirector": "Lokesh",
+            "moviegenre": "HeistThriller",
+            "movieproducer": "7Studios",
+            "movietimings": "1pm-3.30pm"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 8,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/moviestable/vvmovies1"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/moviestable/item"
+        }
+    ]
+}

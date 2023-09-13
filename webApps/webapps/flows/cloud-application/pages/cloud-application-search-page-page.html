@@ -1,0 +1,114 @@
+<div class="oj-flex">
+  <h1 class="oj-flex-item oj-sm-12 oj-md-12"><oj-bind-text value="[[$application.translations.app.Cloud_Search_Page]]"></oj-bind-text></h1>
+</div>
+<div style="margin-left:95%;margin-top:6px">
+      <oj-button label="[[$application.translations.app.back]]" on-oj-action="[[$listeners.buttonAction8]]" > 
+    <img slot="endIcon" :src="[[ $flow.path + 'resources/images/icons8-back-arrow-30.png' ]]">
+      </oj-button>
+    </div><br>
+
+<oj-form-layout>
+  <oj-select-single label-hint="Cloud Name" style="width: 22rem;" data="[[$variables.getCloudsearchListSDP2]]"
+    item-text="cloud_name" value="{{ $variables.cloud_id }}" 
+    >
+
+        <template slot="collectionTemplate" data-oj-as="collection">
+
+            <oj-table scroll-policy="loadMoreOnScroll"
+
+                  selection-mode='{"row": "single"}'
+
+                  columns-default='{"resizable": "disabled","sortable": "disabled"}'
+
+                  class="oj-select-results"
+
+                  columns=' [
+{"headerText":"Cloud Id","field":"cloud_id"},
+
+                                {"headerText":"Cloud Name",
+                                "field":"cloud_name"},
+ {"headerText":"Founder Name","field":"founder_name"}
+
+                            ]'
+
+                on-oj-row-action="[[collection.handleRowAction]]"
+
+                data="[[collection.data]]" selected.row="[[collection.selected]]"
+
+                current-row="{{collection.currentRow}}">
+
+            </oj-table>
+
+          </template>
+
+      </oj-select-single>
+</oj-form-layout>
+<div class="oj-flex">
+  <oj-toolbar chroming="solid" class="oj-flex-item oj-sm-12 oj-md-12">
+    <div style="margin-left:80%;margin-top:5px">
+      <oj-button label="[[$application.translations.app.Search]]" on-oj-action="[[$listeners.buttonAction]]"
+        chroming="solid" >
+        <img slot="startIcon" :src="[[ $flow.path + 'resources/images/ugh_search_dis.png' ]]">
+      </oj-button>
+      <oj-button label="[[$application.translations.app.Reset]]" on-oj-action="[[$listeners.buttonAction2]]"
+        chroming="solid" >
+        <img slot="endIcon" :src="[[ $flow.path + 'resources/images/func_arrowcurveback_24_ena.png' ]]">
+      </oj-button>
+    </div>
+  </oj-toolbar></div>
+<div style="margin-left:1%;margin-top:6px">
+  <oj-button label="[[$application.translations.app.New_Request]]" on-oj-action="[[$listeners.buttonAction3]]"
+    chroming="solid"> 
+    <img slot="startIcon" :src="[[ $flow.path + 'resources/images/add_sm_ovr.png' ]]">
+  </oj-button>
+</div><br>
+
+<div>
+<oj-table scroll-policy="loadMoreOnScroll" data="[[ $variables.cloud_table ]]"
+  columns='[{"headerText":"Edit","field":"","template":"Edit"},{"headerText":"Cloud Id","field":"cloud_id"},{"headerText":"Cloud Name","field":"cloud_name"},
+  
+  {"headerText":"Cloud Provider","field":"cloud_provider"},{"headerText":"Email Id","field":"email_id"},{"headerText":"Founder Name","field":"founder_name"},{"headerText":"Started Year","field":"started_year","template":"date"},{"headerText":"Business Type","field":"business_type"},{"headerText":"Delete","field":"","template":"Delete"}]' 
+  horizontal-grid-visible="enabled" vertical-grid-visible="enabled" display="grid">
+  <template slot="Edit">
+          <oj-button label="[[$application.translations.app.edit]]" 
+            display="icons" on-oj-action="[[$listeners.buttonAction4]]" chroming="borderless">
+        <img slot="startIcon" :src="[[ $flow.path + 'resources/images/edit_ovr.png' ]]">
+ 
+</oj-button>
+        </template>
+              <template slot="Delete">
+          <oj-button label="[[$application.translations.app.delete]]" 
+            display="icons" on-oj-action="[[$listeners.buttonAction6]]" chroming="borderless" >
+        <img slot="endIcon" :src="[[ $flow.path + 'resources/images/delete_ena.png' ]]">
+  
+</oj-button>
+        </template>
+<template slot="date">
+          <oj-input-date value="[[$current.data]]" readonly="true"
+            converter='{"type": "datetime", "options": {"pattern":"yyyy"}}'></oj-input-date>
+        </template>
+</oj-table>  
+<oj-paging-control data="[[ $variables.cloud_table ]]" id="paging" class="oj-sm-width-full"
+ page-size="5"></oj-paging-control>
+</div>
+<oj-dialog style="display:none" dialog-title="Delete" id="cloud_delete">
+  <div slot="body">
+    <div class="oj-flex">Are you sure you want to delete it?</div>
+  </div>
+  <div slot="footer">
+    <oj-button label="[[$application.translations.app.Yes]]" on-oj-action="[[$listeners.buttonAction7]]"
+      chroming="solid"></oj-button>
+    <oj-button label="[[$application.translations.app.No]]" on-oj-action="[[$listeners.buttonAction5]]"
+      chroming="solid"></oj-button>
+  </div>
+</oj-dialog>
+<oj-dialog style="display:none; width: 32px;"  dialog-title="Loading...." id="pageloader" position.my.vertical="bottom">
+  <div slot="body">
+    <img :src="[[ $flow.path + 'resources/images/Storm_1.gif' ]]">
+    
+  </div>
+  
+</oj-dialog>
+
+
+

@@ -1,0 +1,33 @@
+{
+  "description": "",
+  "root": "navigateToHospitalManagementApplicationSample2",
+  "actions": {
+    "navigateToHospitalManagementApplicationSample2": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "hospital-management-application-sample2",
+        "params": {
+          "method": "edit",
+          "primarykey": "{{ $variables.key }}"
+        }
+      }
+    }
+  },
+  "variables": {
+    "key": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    },
+    "index": {
+      "required": true,
+      "type": "number",
+      "input": "fromCaller"
+    },
+    "current": {
+      "required": true,
+      "type": "any",
+      "input": "fromCaller"
+    }
+  }
+}

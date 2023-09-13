@@ -1,0 +1,47 @@
+{
+  "root": "callRestGetDoctordetails",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetDoctordetails.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "assignVariables": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.hdrtable": {
+          "source": "{{ $chain.results.callFunctionPagingSearchData }}"
+        }
+      }
+    },
+    "callRestGetDoctordetails": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/getDoctordetails"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingSearchData"
+      }
+    },
+    "callFunctionPagingSearchData": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingSearchData",
+        "params": [
+          "{{ $chain.results.callRestGetDoctordetails.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariables"
+      }
+    }
+  }
+}

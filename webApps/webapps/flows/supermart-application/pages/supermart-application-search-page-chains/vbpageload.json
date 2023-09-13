@@ -1,0 +1,65 @@
+{
+  "root": "callRestGetMfdheader",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetMfdheader.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetMfdheader": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "supermartapplication/getMfdheader"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingLine"
+      }
+    },
+    "callFunctionPagingLine": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingLine",
+        "params": [
+          "{{ $chain.results.callRestGetMfdheader.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "resetVariablesExport"
+      }
+    },
+    "assignVariablesPageloaddata": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.pageloaddata": {
+          "source": "{{ $chain.results.callFunctionPagingLine }}"
+        },
+        "$page.variables.export": {
+          "source": {
+            "data": "{{ $chain.results.callRestGetMfdheader.body.items }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      }
+    },
+    "resetVariablesExport": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.export.data"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesPageloaddata"
+      }
+    }
+  }
+}

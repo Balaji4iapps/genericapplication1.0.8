@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToProductApplicationDepart",
+  "actions": {
+    "navigateToProductApplicationDepart": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "product-application-depart"
+      }
+    }
+  },
+  "variables": {}
+}

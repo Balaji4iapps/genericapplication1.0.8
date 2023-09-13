@@ -1,0 +1,109 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "Address": {
+      "type": "Getplace"
+    },
+    "Address_id": {
+      "type": "number"
+    },
+    "Customer": {
+      "type": "Getcustomer"
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.Getcustomer": {
+      "endpoint": "Getcustomer",
+      "service": "DvdORDS",
+      "path": "response-_-items[0]"
+    },
+    "@decorators.Getplace": {
+      "endpoint": "Getplace",
+      "service": "DvdORDS",
+      "path": "response-_-items[0]"
+    },
+    "Getcustomer": {
+      "active": "number",
+      "address_id": "number",
+      "create_date": "string",
+      "customer_id": "number",
+      "email": "string",
+      "first_name": "string",
+      "last_name": "string",
+      "last_update": "string",
+      "seq_customer": "any",
+      "store_id": "number"
+    },
+    "Getplace": {
+      "address": "string",
+      "address_id": "number",
+      "city_id": "number",
+      "district": "string",
+      "last_update": "string",
+      "phone": "number",
+      "postal_code": "number",
+      "seq_place": "any"
+    }
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "OnPressSave"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "OnPressCancel"
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chainId": "OnPressHome"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      }
+
+    },
+    "modules": {
+      "ojValidationBase": {
+        "path": "ojs/ojvalidation-base"
+      },
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+    }
+  }
+}

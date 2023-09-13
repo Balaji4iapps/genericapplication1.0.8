@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "root": "navigateToWorldcupApplicationGroups",
+  "actions": {
+    "navigateToWorldcupApplicationGroups": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "worldcup-application-groups"
+      }
+    }
+  },
+  "variables": {}
+}

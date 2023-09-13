@@ -1,0 +1,96 @@
+{
+  "root": "runInParallel",
+  "description": "",
+  "variables": {},
+  "actions": {
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetVvmovies1.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetVvmovies1": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Moviesticketbooking/getVvmovies1"
+      },
+      "outcomes": {
+        "failure": "fireNotification",
+        "success": "callFunctionPagingSearchData"
+      }
+    },
+    "assignVariablesMoviesTable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.MoviesTable": {
+          "source": "{{ $chain.results.callFunctionPagingSearchData }}"
+        }
+      }
+    },
+    "callFunctionPagingSearchData": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingSearchData",
+        "params": [
+          "{{ $chain.results.callRestGetVvmovies1.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesMoviesTable"
+      }
+    },
+    "runInParallel": {
+      "module": "vb/action/builtin/forkAction",
+      "parameters": {
+        "actions": {
+          "callRestGetVvmovies1": "callRestGetVvmovies1",
+          "callRest": "callRestGetvvvspectators"
+        }
+      }
+    },
+    "fireNotification2": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetvvvspectators.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callFunctionPagingSearchData1": {
+      "module": "vb/action/builtin/callModuleFunctionAction",
+      "parameters": {
+        "module": "[[ $functions ]]",
+        "functionName": "pagingSearchData1",
+        "params": [
+          "{{ $chain.results.callRestGetvvvspectators.body.items }}"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesSpectatorTable"
+      }
+    },
+    "assignVariablesSpectatorTable": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.SpectatorTable": {
+          "source": "{{ $chain.results.callFunctionPagingSearchData1 }}"
+        }
+      }
+    },
+    "callRestGetvvvspectators": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "Moviesticketbooking/getvvvspectators"
+      },
+      "outcomes": {
+        "failure": "fireNotification2",
+        "success": "callFunctionPagingSearchData1"
+      }
+    }
+  }
+}

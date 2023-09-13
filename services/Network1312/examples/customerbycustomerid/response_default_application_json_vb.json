@@ -1,0 +1,27 @@
+{
+    "items": [
+        {
+            "customer_id": 197,
+            "network_id": 128,
+            "customer_name": "shiva",
+            "contact_no": 567765,
+            "residence": "karaikudi",
+            "pincode": 800900,
+            "plan_detail": "prepaid"
+        }
+    ],
+    "hasMore": false,
+    "limit": 0,
+    "offset": 0,
+    "count": 1,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/1312/Customergetid_1312?customer_id=197"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://gd4d01c5ed5180a-dyrdbtestadw.adb.me-dubai-1.oraclecloudapps.com/ords/dyrords/metadata-catalog/1312/item"
+        }
+    ]
+}

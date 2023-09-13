@@ -1,0 +1,75 @@
+{
+  "description": "",
+  "root": "ifPatientprimarykey",
+  "actions": {
+    "callComponentDiagnosisOpen": {
+      "module": "vb/action/builtin/callComponentMethodAction",
+      "parameters": {
+        "component": "{{ document.getElementById('diagnosis') }}",
+        "method": "open"
+      }
+    },
+    "assignVariablesDiagkey": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.diagkey": {
+          "source": "0"
+        },
+        "$page.variables.diagmethod": {
+          "source": "create"
+        },
+        "$page.variables.diagnosis": {
+          "source": {
+            "pat_id": "{{ $page.variables.primarykey }}"
+          },
+          "reset": "none",
+          "auto": "always"
+        }
+      },
+      "outcomes": {
+        "success": "callComponentDiagnosisOpen"
+      }
+    },
+    "ifPatientprimarykey": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.patientprimarykey!=0 ]]"
+      },
+      "outcomes": {
+        "true": "ifPrimarykey",
+        "false": "fireNotification3"
+      }
+    },
+    "ifPrimarykey": {
+      "module": "vb/action/builtin/ifAction",
+      "parameters": {
+        "condition": "[[ $page.variables.primarykey!=0 ]]"
+      },
+      "outcomes": {
+        "true": "assignVariablesDiagkey",
+        "false": "fireNotification"
+      }
+    },
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification_summary_9d75]]",
+        "message": "[[$application.translations.app.fireNotification_message_a875]]",
+        "displayMode": "transient",
+        "type": "warning"
+      }
+    },
+    "fireNotification3": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[$application.translations.app.fireNotification2_summary_e2cf]]",
+        "message": "[[$application.translations.app.fireNotification2_message_9997]]",
+        "displayMode": "transient",
+        "type": "warning"
+      }
+    }
+  },
+  "variables": {}
+}

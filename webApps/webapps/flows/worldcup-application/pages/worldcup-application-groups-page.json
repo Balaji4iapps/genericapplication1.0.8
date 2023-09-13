@@ -1,0 +1,86 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "groupa": {
+      "type": "any"
+    },
+    "groupb": {
+      "type": "any"
+    },
+    "groupc": {
+      "type": "any"
+    },
+    "groupd": {
+      "type": "any"
+    },
+    "groupe": {
+      "type": "any"
+    },
+    "groupf": {
+      "type": "any"
+    },
+    "groupg": {
+      "type": "any"
+    },
+    "grouph": {
+      "type": "any"
+    }
+  },
+  "metadata": {},
+  "types": {},
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain"
+        }
+      ]
+    },
+    "imageClick": {
+      "chains": [
+        {
+          "chainId": "groupapopup",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "groups"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      }
+
+    }
+  }
+}
