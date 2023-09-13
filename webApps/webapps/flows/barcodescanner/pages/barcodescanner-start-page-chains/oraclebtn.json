@@ -1,0 +1,26 @@
+{
+  "description": "",
+  "root": "resetVariablesValue",
+  "actions": {
+    "resetVariablesValue": {
+      "module": "vb/action/builtin/resetVariablesAction",
+      "parameters": {
+        "variables": [
+          "$page.variables.value"
+        ]
+      },
+      "outcomes": {
+        "success": "assignVariablesValue"
+      }
+    },
+    "assignVariablesValue": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.value": {
+          "source": "https://redwood.oracle.com/"
+        }
+      }
+    }
+  },
+  "variables": {}
+}

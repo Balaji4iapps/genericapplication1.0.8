@@ -1,10 +1,35 @@
 {
   "title": "barcodescanner",
   "description": "",
-  "variables": {},
+  "variables": {
+    "value": {
+      "type": "string"
+    }
+  },
   "metadata": {},
   "types": {},
   "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chainId": "oraclebtn"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chainId": "fusionbtn"
+        }
+      ]
+    },
+    "buttonClick": {
+      "chains": [
+        {
+          "chainId": "CameraFilePickerSelectChain"
+        }
+      ]
+    },
     "cameraFilePickerSelect": {
       "chains": [
         {
@@ -21,6 +46,14 @@
           "chainId": "application:toggleDrawerHandler"
         }
       ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chainId": "onload"
+        }
+      ]
     }
 
   },
@@ -31,6 +64,9 @@
       },
       "oj-file-picker": {
         "path": "ojs/ojfilepicker"
+      },
+      "oj-sample-qr-code": {
+        "path": "oj-sample/qr-code/loader"
       }
     }
   }

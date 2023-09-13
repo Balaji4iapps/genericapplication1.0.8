@@ -26,14 +26,14 @@
   </div>
 </header>
 
-<!-- Page specific title and actions for desktop formfactor -->
-<div class="oj-flex">
-  <oj-file-picker capture='implementation' accept='["image/*"]'
-    class="oj-filepicker-custom oj-flex-item oj-sm-12 oj-md-2" on-oj-select="[[$listeners.cameraFilePickerSelect]]">
-    <oj-button slot='trigger' chroming='outlined' label='Take Photo/Video'>
-      <span class="oj-ux-ico-file-image" slot="startIcon"></span>
-    </oj-button>
-  </oj-file-picker>
-</div>
-
+  <div class="oj-flex-item oj-sm-12 oj-md-4">
+    <oj-button label="oracle" on-oj-action="[[$listeners.buttonAction]]"></oj-button>
+        <oj-button label="fusion" on-oj-action="[[$listeners.buttonAction2]]"></oj-button>
+        
+  </div>
+<!-- <oj-bind-if test="[[ $variables.value !=null]]"> -->
+  <div>
+    <oj-sample-qr-code style="width:100px;length:100px"value="[[ $variables.value ]]" error-correction-level="high-quality" margin="1"></oj-sample-qr-code>
+  </div>
+<!-- </oj-bind-if> -->
 

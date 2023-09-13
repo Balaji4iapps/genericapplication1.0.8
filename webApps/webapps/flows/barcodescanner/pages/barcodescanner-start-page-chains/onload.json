@@ -1,0 +1,26 @@
+{
+  "root": "callRestGetDoctordetails",
+  "description": "",
+  "variables": {},
+  "actions": {
+
+    "fireNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "target": "leaf",
+        "summary": "[[ $chain.results.callRestGetDoctordetails.message.summary ]]",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    },
+    "callRestGetDoctordetails": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "hospitalmanagement/getDoctordetails"
+      },
+      "outcomes": {
+        "failure": "fireNotification"
+      }
+    }
+  }
+}
